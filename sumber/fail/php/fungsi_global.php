@@ -1184,3 +1184,24 @@ if ( ! function_exists('getTimeLoad')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('pilihJadual')):
+	function pilihJadual($pilih)
+	{
+		# buat tatasusunan ikut serialize, rujuk fail tatarajah.php
+		# define('ALAMAT_IP', serialize (array()) );
+		if ($pilih == 'alamatIp') :
+			$jadual = unserialize(ALAMAT_IP);
+		//elseif ($pilih == 'kakitangan') :
+		//	$jadual = unserialize(KAKITANGAN);
+		elseif ($pilih == 'myJadualDaa') :
+			$jadual = unserialize(MYJADUAL);
+		else : $jadual = array(); //unserialize()
+		endif;
+
+		semakPembolehubah($pilih,'pilih',0);
+		semakPembolehubah($$jadual,'$jadual',0);
+
+		return $jadual;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
