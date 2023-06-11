@@ -357,6 +357,72 @@ if ( ! function_exists('paparJadual')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparTajukData')):
+	function paparTajukData($row,$jadual)
+	{
+		$output = null;
+		$bil_baris = count($row);
+		$printed_headers = false;# mula bina jadual
+		#----------------------------------------------------------------------
+		for ($kira=0; $kira < $bil_baris; $kira++)
+		{	# print the headers once:
+			if ( !$printed_headers )
+			{##================================================================
+				$output .= "\r\t<thead><tr>";
+				foreach ( array_keys($row[$kira]) as $tajuk ) :
+				$output .= "\r\t" . '<th>' . $tajuk . '</th>';
+				endforeach;
+				$output .= "\r\t" . '</tr></thead>';
+				$output .= "\r\t" . '<tbody>';
+			##=================================================================
+				$printed_headers = true;
+			}
+		#----------------------------------------------------------------------
+			# print the data row
+			$output .= "\r\t<tr>";
+			foreach ( $row[$kira] as $key=>$data ) :
+			$output .= "\r\t" . '<td>' . $data . '</td>';
+			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
+			endforeach;
+			$output .= "\r\t" . '</tr></tbody>';
+		}#---------------------------------------------------------------------
+
+		return $output;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparSatuJe')):
+	function paparSatuJe($row,$jadual)
+	{
+		$output = null;
+		$bil_baris = count($row);
+		$printed_headers = false;# mula bina jadual
+		#----------------------------------------------------------------------
+		for ($kira=0; $kira < $bil_baris; $kira++)
+		{# print the headers once:
+			if ( !$printed_headers )
+			{##================================================================
+				$output .= "\r\t<thead><tr>";
+				$output .= "\r\t" . '<th colspan="2">' . $jadual . '</th>';
+				$output .= "\r\t" . '</tr></thead>';
+				$output .= "\r\t" . '<tbody>';
+			##=================================================================
+				$printed_headers = true;
+			}
+		#----------------------------------------------------------------------
+			# print the data row
+			foreach ( $row[$kira] as $key=>$data ) :
+			$output .= "\r\t<tr>\r\t" . '<td align="right">' . $key . '</td>';
+			$output .= '<td>' . $data . '</td>';
+			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
+			$output .= "\r\t" . '</tr></tbody>';
+			endforeach;
+		}#---------------------------------------------------------------------
+
+		return $output;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('binaJadual02')):
