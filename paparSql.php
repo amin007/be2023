@@ -39,56 +39,125 @@ senarai fungsi dalam fail dataSql =>Array
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 $fe = 'muhaimin';
-$id = '000002791307';
+$id = 'xxxxxxxxxxxx';
 #--------------------------------------------------------------------------------------------------
-$sqlFeBarcode = sqlFeBarcode($myJadual[0],$fe,$id);
-$dataSql[] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id);
-$dataSql[] = sqlDataAesV01($myJadual[0],$myJadual[1],$fe,$id);
-$dataSql[] = sqlCariMsicAes($myJadual[0],$myJadual[1],$fe,$id);
-$dataSql[] = sqlNewssV00($myJadual[0],$myJadual[2],$fe,$id);
+$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
+$sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id);
+//$dataSql[] = sqlDataAesV01($myJadual[0],$myJadual[1],$fe,$id);
+//$dataSql[] = sqlCariMsicAes($myJadual[0],$myJadual[1],$fe,$id);
+//$dataSql[] = sqlNewssV00($myJadual[0],$myJadual[2],$fe,$id);
 //$dataSql[] = sqlNewssV01($myJadual[0],$myJadual[2],$fe,$id);
-$dataSql[] = sqlNewssV02($myJadual[0],$myJadual[2],$fe,$id);
-$dataSql[] = sqlNewssV03($myJadual[0],$myJadual[2],$fe,$id);
-$dataSql[] = sqlSsmRocHartaV01($myJadual[0],$myJadual[3],$fe,$id);
-$dataSql[] = sqlSsmRocUntungRugiV00($myJadual[0],$myJadual[4],$fe,$id);
-$dataSql[] = sqlSsmRocUntungRugiV01($myJadual[0],$myJadual[4],$fe,$id);
-$dataSql[] = sqlRangkaKwspV00($myJadual[0],$myJadual[5],$fe,$id);
-$dataSql[] = sqlRangkaKwspV01($myJadual[0],$myJadual[5],$fe,$id);
-$dataSql[] = sqlRangkaKwspV02($myJadual[0],$myJadual[5],$fe,$id);
-$dataSql[] = sqlRangkaKwspV03($myJadual[0],$myJadual[5],$fe,$id);
-$dataSql[] = sqlRangkaKwspV04($myJadual[0],$myJadual[5],$fe,$id);
-$dataSql[] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id);
+//$dataSql[] = sqlNewssV02($myJadual[0],$myJadual[2],$fe,$id);
+$sql['NewssV03'] = sqlNewssV03($myJadual[0],$myJadual[2],$fe,$id);
+$sql['SsmRocHartaV00'] = sqlSsmRocHartaV00($myJadual[0],$myJadual[3],$fe,$id);
+//$sql['SsmRocHartaV01'] = sqlSsmRocHartaV01($myJadual[0],$myJadual[3],$fe,$id);
+//$dataSql[] = sqlSsmRocUntungRugiV00($myJadual[0],$myJadual[4],$fe,$id);
+$sql['SsmRocUntungRugiV01'] = sqlSsmRocUntungRugiV01($myJadual[0],$myJadual[4],$fe,$id);
+//$dataSql[] = sqlRangkaKwspV00($myJadual[0],$myJadual[5],$fe,$id);
+//$dataSql[] = sqlRangkaKwspV01($myJadual[0],$myJadual[5],$fe,$id);
+//$dataSql[] = sqlRangkaKwspV02($myJadual[0],$myJadual[5],$fe,$id);
+//$dataSql[] = sqlRangkaKwspV03($myJadual[0],$myJadual[5],$fe,$id);
+//$dataSql[] = sqlRangkaKwspV04($myJadual[0],$myJadual[5],$fe,$id);
+$sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlCreateBe2023Newss5p($fe);
 //$dataSql[] = '';//*/
 #--------------------------------------------------------------------------------------------------
-echo '<hr>semakPembolehubah<hr>';
+//echo '<hr>semakPembolehubah<hr>';
 //semakPembolehubah($myJadual,'myJadual',0);
 //semakPembolehubah($dataSql,'dataSql',0);
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-//$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-try {
-$pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER,DB_PASS);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$pdo->exec('SET NAMES "utf8"');
+//semakPembolehubah($sqlDaa,'sqlDaa',0);
+#--------------------------------------------------------------------------------------------------
+	//$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+	try {
+	$pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER,DB_PASS);
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$pdo->exec('SET NAMES "utf8"');
 
-	#----------------------------------------------------------------------------------------------
-	//$sql_stmt = "SELECT * FROM `my_contacts`";
-	$sql_stmt = $sqlFeBarcode;
-	#----------------------------------------------------------------------------------------------
-	$result = $pdo->query($sql_stmt);
-	$result->setFetchMode(PDO::FETCH_ASSOC);
-	$data = array();
-	foreach ($result as $row)
-	{
-		$data[] = $row;
+		#----------------------------------------------------------------------------------------------
+		foreach($sql as $myTable => $sqlDaa):
+		//semakPembolehubah($sqlDaa,'sqlDaa',0);
+		#----------------------------------------------------------------------------------------------
+		//$sql_stmt = "SELECT * FROM `my_contacts`";
+		$sql_stmt = $sqlDaa;
+		#----------------------------------------------------------------------------------------------
+		$result = $pdo->query($sql_stmt);
+		$result->setFetchMode(PDO::FETCH_ASSOC);
+		$tajuk[$myTable] = $myTable;
+		$data[$myTable] = array();
+		foreach ($result as $row)
+		{
+			$data[$myTable][] = $row;
+		}
+		#----------------------------------------------------------------------------------------------
+		endforeach;
+		#----------------------------------------------------------------------------------------------
 	}
-}
-catch (PDOException $e) { echo $e->getMessage(); }
+	catch (PDOException $e) { echo $e->getMessage(); }//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-semakPembolehubah($data,'data',0);
+//semakPembolehubah($data,'data',0);
+#--------------------------------------------------------------------------------------------------
+###################################################################################################
+#--------------------------------------------------------------------------------------------------
+$pilih = null;
+list($urlcss,$urljs) = linkCssJs();
+$class = 'table table-striped table-bordered';
+diatas($pilih, $urlcss);
+#--------------------------------------------------------------------------------------------------
+binaButang(null);
+echo "\r<hr>\r<table class=$class>";
+#--------------------------------------------------------------------------------------------------
+	foreach($data as $myJadualDaa => $rowDaa):
+	#--------------------------------------------------------------------------------------------------
+	$table = paparSatuJe($rowDaa,$myJadualDaa);
+	echo "\r<tr><td><table class=$class>$table</table></td></tr>\r";
+	#--------------------------------------------------------------------------------------------------
+	endforeach;
+#--------------------------------------------------------------------------------------------------
+echo "</table>\r";
+#--------------------------------------------------------------------------------------------------
+dibawah($pilih,$urljs);
+echo "<script>\n";
+jqueryExtendA();
+jqueryExtendB();
+jqueryExtendC();
+gradeTable002(null);
+echo "\n</script>\n</body>\n</html>";//*/
+#--------------------------------------------------------------------------------------------------
+/*# kaedah 2.1
+$s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
+//semakPembolehubah($_SERVER[$s],$s);
+if (isset($_SERVER[$s])):
+	$fail = explode('be20023/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
+	$cari = explode('/',$fail[1]);semakPembolehubah($cari,'pilih');
+
+	if(isset($cari[1])):
+		$cariApa = bersih($cari[1]);
+		if($cariApa == 'json'):
+			$pilih = isset($cari[2]) ? $cari[2] : null;
+			$cariApa = bersih($pilih);
+			binaJson($data,$cariApa);
+		elseif($cariApa == 'tahun'):
+			$tajuk['tahun'] = '#,-,-,-,-';
+			$data['tahun'] = kiraTahunJadual();
+			panggilDataTable01($tajuk,$data,$cariApa);# panggil fungsi
+		elseif(in_array($cariApa,$dataPhpJson)):# panggil fungsi untuk tatasusunan php => json
+			panggilDataTable03($tajuk,$data,$cariApa);
+		elseif(in_array($cariApa,$dataJson)):
+			panggilDataTable02($tajuk,$data,$cariApa);# panggil fungsi untuk data json
+		else:
+			panggilDataTable01($tajuk,$data,$cariApa);# panggil fungsi
+		endif;
+	else:
+		panggilDataTable01($tajuk,$data,null);# panggil fungsi
+	endif;
+else:
+	panggilDataTable01($tajuk,$data,null);# panggil fungsi
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
