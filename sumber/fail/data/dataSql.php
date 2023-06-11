@@ -191,6 +191,25 @@ endif;//*/
 		TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,ROC_Tahun_Kewangan_Terkini
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSsmRocHartaV00')):
+	function sqlSsmRocHartaV00($jadualBe,$jadual,$fe,$id)
+	{
+		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
+		$sql = "SELECT ESTABLISHMENT_ID,
+		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,MSIC,KP,sektor,
+		ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
+		ROC_chraccrualaccount,ROC_dtdatefinancialyearend,ROC_chrtypefinancialreport,
+		FORMAT(ROC_dblfixedasset,0) as fixedAsset,
+		FORMAT(ROC_dblpaidupcapital,0) as paidupcapital,
+		ROC_dblsharepremium
+
+		FROM `$jadual`
+		where `ESTABLISHMENT_ID` in ($sqlFeBarcode)";
+		// $sqlSsmRocHartaV00 = sqlSsmRocHartaV00($jadual,$fe,$id);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlSsmRocHartaV01')):
 	function sqlSsmRocHartaV01($jadualBe,$jadual,$fe,$id)
 	{
@@ -259,7 +278,13 @@ if ( ! function_exists('sqlSsmRocUntungRugiV01')):
 	{
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
 		$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
-		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,MSIC,KP,sektor
+		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,
+		MSIC,KP,sektor,ROC_PnL_Tahun_Kewangan_Terkini,ROC_PnL_dtdatefinancialyearend,
+		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenue,
+		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
+		FORMAT(ROC_PnL_dblprofitaftertax,0) as dblprofitaftertax,
+		FORMAT(ROC_PnL_dblprofitshareholder,0) as dblprofitshareholder,
+		FORMAT(ROC_PnL_dblnetdividend,0) as dblnetdividend
 
 		FROM `$jadual` CROSS JOIN (SELECT @cnt := 0) AS dummy
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
