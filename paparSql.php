@@ -8,7 +8,7 @@ require './sumber/fail/data/dataSql.php';
 //require './sumber/fail/csv/***.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-$fungsi = get_defined_functions();// internal or user
+//$fungsi = get_defined_functions();// internal or user
 //semakPembolehubah($fungsi,'fungsi',0);
 //echo '<pre>$fungsi=>';//print_r($fungsi['user']);//echo '<br></pre>' . "\n";
 #--------------------------------------------------------------------------------------------------
@@ -35,30 +35,40 @@ senarai fungsi dalam fail dataSql =>Array
     [16] => sqlrangkakwspv05
     [17] => sqlcreatebe2023newss5p
 )
+$_POST=>
+Array
+(
+    $_POST[namaFe] => muhaimin
+    $_POST[noSiri] => 000003985740
+    $_POST[peratusan] => 1.87
+    [Simpan] => Simpan
+)
 */
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-$fe = 'muhaimin';
-$id = 'xxxxxxxxxxxx';
+semakPembolehubah($_POST,'_POST',0);
+$fe = bersih($_POST['namaFe']);//'muhaimin';
+$id = bersih($_POST['noSiri']);//'000002791307';
+$peratus = bersih($_POST['peratusan']);
 #--------------------------------------------------------------------------------------------------
-$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
-$sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id);
+//$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
+$sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id,$peratus);
 //$dataSql[] = sqlDataAesV01($myJadual[0],$myJadual[1],$fe,$id);
 //$dataSql[] = sqlCariMsicAes($myJadual[0],$myJadual[1],$fe,$id);
 //$dataSql[] = sqlNewssV00($myJadual[0],$myJadual[2],$fe,$id);
 //$dataSql[] = sqlNewssV01($myJadual[0],$myJadual[2],$fe,$id);
 //$dataSql[] = sqlNewssV02($myJadual[0],$myJadual[2],$fe,$id);
-$sql['NewssV03'] = sqlNewssV03($myJadual[0],$myJadual[2],$fe,$id);
-$sql['SsmRocHartaV00'] = sqlSsmRocHartaV00($myJadual[0],$myJadual[3],$fe,$id);
+$sql['NewssV03'] = sqlNewssV03($myJadual[0],$myJadual[2],$fe,$id,$peratus);
+$sql['SsmRocHartaV00'] = sqlSsmRocHartaV00($myJadual[0],$myJadual[3],$fe,$id,$peratus);
 //$sql['SsmRocHartaV01'] = sqlSsmRocHartaV01($myJadual[0],$myJadual[3],$fe,$id);
 //$dataSql[] = sqlSsmRocUntungRugiV00($myJadual[0],$myJadual[4],$fe,$id);
-$sql['SsmRocUntungRugiV01'] = sqlSsmRocUntungRugiV01($myJadual[0],$myJadual[4],$fe,$id);
+$sql['SsmRocUntungRugiV01'] = sqlSsmRocUntungRugiV01($myJadual[0],$myJadual[4],$fe,$id,$peratus);
 //$dataSql[] = sqlRangkaKwspV00($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV01($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV02($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV03($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV04($myJadual[0],$myJadual[5],$fe,$id);
-$sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id);
+$sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id,$peratus);
 //$dataSql[] = sqlCreateBe2023Newss5p($fe);
 //$dataSql[] = '';//*/
 #--------------------------------------------------------------------------------------------------
@@ -109,16 +119,16 @@ $class = 'table table-striped table-bordered';
 diatas($pilih, $urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
-echo "\r<hr>\r<table class=$class>";
+echo "\r<hr>\r<table class=$class><tr>";
 #--------------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
 	#--------------------------------------------------------------------------------------------------
 	$table = paparSatuJe($rowDaa,$myJadualDaa);
-	echo "\r<tr><td><table class=$class>$table</table></td></tr>\r";
+	echo "\r<td><table class=$class>$table</table></td>\r";
 	#--------------------------------------------------------------------------------------------------
 	endforeach;
 #--------------------------------------------------------------------------------------------------
-echo "</table>\r";
+echo "\r</tr></table>\r";
 #--------------------------------------------------------------------------------------------------
 dibawah($pilih,$urljs);
 echo "<script>\n";
