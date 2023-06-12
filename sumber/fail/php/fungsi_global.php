@@ -784,6 +784,41 @@ END;
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('diatasV01')):
+	function diatasV01($title = 'List Folder', $urlcss)
+	{
+		$linkCss = masukCss($urlcss);
+		$title = ($title == null) ? 'Senarai Kod' : ucfirst($title);
+		print <<<END
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,, maximum-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>$title</title>
+$linkCss
+<style>
+.kotakAtas
+{
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+.kotakTengah
+{
+	text-align: center;
+	display: inline-block;
+}
+</style>
+</head>
+<body>
+END;
+		#
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 # jquery dan rakan2
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('gradeTable002')):
