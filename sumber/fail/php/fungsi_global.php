@@ -731,8 +731,8 @@ if ( ! function_exists('linkCssJs')):
 		$urlcss[] = array($bootstrapCSS_413,$fontawesome_510,$datatablesCSS,$searchHighlightCSS);
 		$urljs[] = array($jquery_cdn,$bootstrapJS_413,$datatablesJSS,$searchHighlightJSS);
 		###########################################################################################
-		$urlcss[] = array($btCss_511,$fontawesome_5140);
-		$urljs[] = array($jquery_cdn);
+		$urlcss[] = array($btCss_530,$fontawesome_5140);
+		$urljs[] = array($jquery_cdn,$btJs_530);
 		###########################################################################################
 
 		return array($urlcss[$pilih],$urljs[$pilih]);//list($urlcss,$urljs) = linkCssJs();
