@@ -684,7 +684,7 @@ if ( ! function_exists('ulangMeta')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('linkCssJs')):
-	function linkCssJs()
+	function linkCssJs($pilih=1)
 	{
 		# setkan jquery, bootstrap dan font awesome sama ada local atau cdn
 		## cdn jquery =============================================================================
@@ -701,7 +701,13 @@ if ( ! function_exists('linkCssJs')):
 		$bootstrapCSS_413 = '//stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css';
 		$ceruleanCSS_413 = '//stackpath.bootstrapcdn.com/bootswatch/4.1.3/cerulean/bootstrap.min'
 		. '.css';
+		## cdn bootstrap 5.*.* ====================================================================
+		$btCss_511 = 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css';
+		$btCss_530 = '//cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css';
+		$btJs_530 = '//cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js';
+		## cdn font awesome =======================================================================
 		$fontawesome_510 = '//use.fontawesome.com/releases/v5.1.0/css/all.css';
+		$fontawesome_5112 = '//use.fontawesome.com/releases/v5.11.2/css/all.css';
 		$fontawesome_5140 = '//use.fontawesome.com/releases/v5.14.0/css/all.css';
 		## local  =================================================================================
 		$sumber = 'sumber/utama/';
@@ -719,11 +725,17 @@ if ( ! function_exists('linkCssJs')):
 		$searchHighlightJSS = '//cdn.datatables.net/plug-ins/1.10.11/features/searchHighlight/'
 		. 'dataTables.searchHighlight.min.js';
 		###########################################################################################
-		$urlcss = array($bootstrapCSS_413,$fontawesome_510,$datatablesCSS,$searchHighlightCSS);
-		$urljs = array($jquery_cdn,$bootstrapJS_413,$datatablesJSS,$searchHighlightJSS);
+		$urlcss[] = array();
+		$urljs[] = array();
+		###########################################################################################
+		$urlcss[] = array($bootstrapCSS_413,$fontawesome_510,$datatablesCSS,$searchHighlightCSS);
+		$urljs[] = array($jquery_cdn,$bootstrapJS_413,$datatablesJSS,$searchHighlightJSS);
+		###########################################################################################
+		$urlcss[] = array($btCss_511,$fontawesome_5140);
+		$urljs[] = array($jquery_cdn);
 		###########################################################################################
 
-		return array($urlcss,$urljs);//list($urlcss,$urljs) = linkCssJs();
+		return array($urlcss[$pilih],$urljs[$pilih]);//list($urlcss,$urljs) = linkCssJs();
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
