@@ -819,6 +819,41 @@ END;
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('diatasV02')):
+	function diatasV02($title = 'List Folder', $urlcss)
+	{
+		$linkCss = masukCss($urlcss);
+		$title = ($title == null) ? 'Senarai Kod' : ucfirst($title);
+		print <<<END
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,, maximum-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>$title</title>
+$linkCss
+<style>
+.kotakAtas
+{
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+.kotakTengah
+{
+	text-align: center;
+	display: inline-block;
+}
+</style>
+</head>
+<body>
+END;
+		#
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 # jquery dan rakan2
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('gradeTable002')):
@@ -1250,6 +1285,31 @@ if ( ! function_exists('dibawah')):
 <!-- khas untuk jquery dan js2 lain
 =============================================================================================== -->
 $senaraiJS
+END;
+		#
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('dibawahV02')):
+	function dibawahV02($pilih,$urljs)
+	{
+		//$theme = (isset($theme)) ? $theme : null;# Null coalescing operator
+		$theme = ( !isset($pilih) ) ? 'Asal Bootstrap Twitter' : $pilih;
+		$senaraiJS = binaSenaraiJs($urljs);
+
+		echo "\n<hr>";
+		print <<<END
+<!-- Footer
+=============================================================================================== -->
+<footer class="footer">
+	<div class="container">
+		<span class="badge badge-info">
+		&copy; Hak Cipta Terperihara 2019. Theme $theme </span>
+	</div>
+</footer>
+
+<!-- khas untuk jquery dan js2 lain
+=============================================================================================== -->
 END;
 		#
 	}
