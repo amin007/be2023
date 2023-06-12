@@ -14,16 +14,14 @@ diatasV01($pilih, $urlcss);
 binaButang(['jadual01','jadual02']);
 $class = '"table table-striped table-bordered"';
 #--------------------------------------------------------------------------------------------------
-?><!-- borang
-=============================================================================================== -->
-<?php echo "\r\r";
-#--------------------------------------------------------------------------------------------------
-echo '<div class="kotakAtas">
-<div class="kotakTengah">' . "\r";
-#--------------------------------------------------------------------------------------------------
-echo '<form method="POST" action="paparTatasusunan.php" class="form-horizontal">';
-#--------------------------------------------------------------------------------------------------
 print <<<END
+<!-- mula kotak
+=============================================================================================== -->
+<div class="kotakAtas">
+<div class="kotakTengah">
+<!-- mula borang
+=============================================================================================== -->
+<form method="POST" action="paparTatasusunan.php" class="form-horizontal">
 	<div class="p-3 mb-2 bg-transparent text-dark">
 		<i class="fa fa-bicycle" style="font-size:50px"></i>
 	</div><!-- / class="p-3 mb-2 bg-transparent text-dark" -->
@@ -41,22 +39,17 @@ print <<<END
 		name="peratusan" placeholder="Masukkan Peratusan">
 	</div>
 	<div class="form-group">
-		<input type="submit" class="btn btn-primary btn-block" value="Cari Msic">
+		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
 	</div><!-- / class="form-group" -->
+</form>
+<!-- tamat borang
+=============================================================================================== -->
+</div><!-- / class="kotakTengah" -->
+</div><!-- / class="kotakAtas" -->
+<!-- tamat kotak
+=============================================================================================== -->
 END;
-#--------------------------------------------------------------------------------------------------
-echo "\r</form>";
-#--------------------------------------------------------------------------------------------------
-echo '</div><!-- / class="kotakTengah" -->
-</div><!-- / class="kotakAtas" -->' . "\r\r";
-#--------------------------------------------------------------------------------------------------
-/*echo "\r<hr>\r<table class=$class>";
-#--------------------------------------------------------------------------------------------------
-echo "\r" . '<tr><td>msic</td><td><input type="text" class="form-control" name="msic"></td></tr>';
-echo '<tr><td>peratus</td><td><input type="text" class="form-control" name="peratusan"></td></tr>';
-echo '<tr><td>hantar</td><td><input type="submit" name="Simpan" value="Simpan" class="btn btn-primary btn-large"></td></tr>';
-#--------------------------------------------------------------------------------------------------
-echo "\r</table>\r</form>";//*/
+	# tamat print <<<END
 #--------------------------------------------------------------------------------------------------
 dibawah($pilih,$urljs);
 echo "<script>\n";
