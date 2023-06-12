@@ -9,7 +9,7 @@ require './sumber/fail/php/fungsi_global.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 $pilih = 'jadual01';
-list($urlcss,$urljs) = linkCssJs();
+list($urlcss,$urljs) = linkCssJs(1);// nilai default = 1
 diatasV01($pilih, $urlcss);
 binaButang(['jadual01','jadual02']);
 $class = '"table table-striped table-bordered"';
