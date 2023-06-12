@@ -10,7 +10,7 @@ require './sumber/fail/php/fungsi_global.php';
 #--------------------------------------------------------------------------------------------------
 $pilih = null;
 list($urlcss,$urljs) = linkCssJs();
-$class = 'table table-striped table-bordered';
+$class = '"table table-striped table-bordered"';
 diatas($pilih, $urlcss);
 binaButang(null);
 #--------------------------------------------------------------------------------------------------
