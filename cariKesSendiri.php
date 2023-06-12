@@ -4,7 +4,7 @@
 require './tatarajah.php';
 require './sumber/fail/php/fungsi_global.php';
 //require '/sumber/fail/data/***.php';
-require './sumber/fail/data/dataSql.php';
+//require './sumber/fail/data/dataSql.php';
 //require './sumber/fail/csv/***.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
@@ -14,7 +14,7 @@ $class = '"table table-striped table-bordered"';
 diatas($pilih, $urlcss);
 binaButang(null);
 #--------------------------------------------------------------------------------------------------
-echo '<form method="POST" action="paparSql.php" class="form-horizontal">';
+echo '<form method="POST" action="paparTatasusunan.php" class="form-horizontal">';
 echo "\r<hr>\r<table class=$class>";
 #--------------------------------------------------------------------------------------------------
 echo "\r" . '<tr><td>nama fe</td><td><input type="text" class="form-control" name="namaFe"></td></tr>';
