@@ -742,6 +742,23 @@ if ( ! function_exists('linkCssJs')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('masukCss')):
+	function masukCss($urlcss)
+	{
+		$p = '';
+		#
+		if (isset($urlcss))
+		{
+			foreach ($urlcss as $css)
+			{
+				$p .= "\n" . '<link rel="stylesheet" type="text/css" href="' . $css .'">';
+			}
+		}
+		#
+		return $p;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('diatas')):
 	function diatas($title = 'List Folder', $urlcss)
 	{
@@ -761,23 +778,6 @@ $linkCss
 <body>
 END;
 		#
-	}
-endif;//*/
-#--------------------------------------------------------------------------------------------------
-if ( ! function_exists('masukCss')):
-	function masukCss($urlcss)
-	{
-		$p = '';
-		#
-		if (isset($urlcss))
-		{
-			foreach ($urlcss as $css)
-			{
-				$p .= "\n" . '<link rel="stylesheet" type="text/css" href="' . $css .'">';
-			}
-		}
-		#
-		return $p;
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
