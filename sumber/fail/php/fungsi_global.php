@@ -744,6 +744,8 @@ if ( ! function_exists('masukCss')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+# untuk versi fungsi diatas() sahaja
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('diatasSimple')):
 	function diatasSimple($title = 'List Folder')
 	{
