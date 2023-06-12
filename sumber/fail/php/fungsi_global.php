@@ -683,21 +683,6 @@ if ( ! function_exists('ulangMeta')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
-if ( ! function_exists('diatasSimple')):
-	function diatasSimple($title = 'List Folder')
-	{
-		print <<<END
-<!doctype html>
-<html lang="en">
-<head>
-<title>$title</title>
-</head>
-<body>
-
-END;
-	}
-endif;//*/
-#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('linkCssJs')):
 	function linkCssJs()
 	{
@@ -756,6 +741,21 @@ if ( ! function_exists('masukCss')):
 		}
 		#
 		return $p;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('diatasSimple')):
+	function diatasSimple($title = 'List Folder')
+	{
+		print <<<END
+<!doctype html>
+<html lang="en">
+<head>
+<title>$title</title>
+</head>
+<body>
+
+END;
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
