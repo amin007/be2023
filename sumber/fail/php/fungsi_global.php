@@ -1198,7 +1198,7 @@ if ( ! function_exists('dibawah')):
 		$theme = ( !isset($pilih) ) ? 'Asal Bootstrap Twitter' : $pilih;
 		$senaraiJS = binaSenaraiJs($urljs);
 
-		echo "\n";
+		echo "\n<hr>";
 		print <<<END
 <!-- Footer
 =============================================================================================== -->
