@@ -18,7 +18,6 @@
 		<div class="tab-pane fade show active" id="anjung" role="tabpanel" aria-labelledby="anjung-tab">
 			<p>anjung bla bla bla</p>
 		</div><!-- / class="tab-pane fade" -->
-		</div>
 		<div class="tab-pane fade" id="warna" role="tabpanel" aria-labelledby="warna-tab">
 			<p>warna bla bla bla</p>
 		</div><!-- / class="tab-pane fade" -->
