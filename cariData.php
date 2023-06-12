@@ -1,28 +1,61 @@
 <?php
+<?php
 ###################################################################################################
 //require '/sumber/fail/php/***.php';
 require './tatarajah.php';
 require './sumber/fail/php/fungsi_global.php';
 //require '/sumber/fail/data/***.php';
-require './sumber/fail/data/dataSql.php';
+//require './sumber/fail/data/dataSql.php';
 //require './sumber/fail/csv/***.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-$pilih = null;
+$pilih = 'jadual01';
 list($urlcss,$urljs) = linkCssJs();
-$class = 'table table-striped table-bordered';
-diatas($pilih, $urlcss);
-binaButang(null);
+diatasV01($pilih, $urlcss);
+binaButang(['jadual01','jadual02']);
+$class = '"table table-striped table-bordered"';
 #--------------------------------------------------------------------------------------------------
-echo '<form method="POST" action="paparSql.php" class="form-horizontal">';
-echo "\r<hr>\r<table class=$class>";
-#--------------------------------------------------------------------------------------------------
-echo "\r" . '<tr><td>nama fe</td><td><input type="text" class="form-control" name="namaFe"></td></tr>';
-echo '<tr><td>no siri</td><td><input type="text" class="form-control" name="noSiri"></td></tr>';
-echo '<tr><td>peratus</td><td><input type="text" class="form-control" name="peratusan"></td></tr>';
-echo '<tr><td>hantar</td><td><input type="submit" name="Simpan" value="Simpan" class="btn btn-primary btn-large"></td></tr>';
-#--------------------------------------------------------------------------------------------------
-echo "\r</table>\r</form>";
+print <<<END
+<!-- mula kotak
+=============================================================================================== -->
+<div class="kotakAtas">
+<div class="kotakTengah">
+<!-- mula borang
+=============================================================================================== -->
+<form method="POST" action="paparSql.php" class="form-horizontal">';
+	<div class="p-3 mb-2 bg-transparent text-dark">
+		<i class="fa fa-bicycle" style="font-size:50px"></i>
+	</div><!-- / class="p-3 mb-2 bg-transparent text-dark" -->
+	<div class="form-group">
+		<label class="border border-dark btn-block">Carian Fe dan Nombor Siri</label>
+	</div><!-- / class="form-group" -->
+	<div class="form-group">
+		<label for="inputMsic">Nama Pegawai Kerja Luar/Fe</label>
+		<input type="text" class="form-control form-control-lg"
+		name="namaFe" placeholder="Masukkan Nama Pegawai Kerja Luar/Fe">
+	</div>
+	<div class="form-group">
+		<label for="inputMsic">Nombor Siri</label>
+		<input type="text" class="form-control form-control-lg"
+		name="noSiri" placeholder="Masukkan Nombor Siri">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Peratusan</label>
+		<input type="text" class="form-control form-control-lg"
+		name="peratusan" placeholder="Masukkan Peratusan">
+	</div>
+	<div class="form-group">
+		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
+	</div><!-- / class="form-group" -->
+</form>
+<!-- tamat borang
+=============================================================================================== -->
+</div><!-- / class="kotakTengah" -->
+</div><!-- / class="kotakAtas" -->
+<!-- tamat kotak
+=============================================================================================== -->
+END;
+	# tamat print <<<END
 #--------------------------------------------------------------------------------------------------
 dibawah($pilih,$urljs);
 echo "<script>\n";
