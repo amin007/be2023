@@ -1324,6 +1324,7 @@ if ( ! function_exists('dibawahV02')):
 
 <!-- khas untuk jquery dan js2 lain
 =============================================================================================== -->
+$senaraiJS
 END;
 		# tamat print <<<END
 	}
