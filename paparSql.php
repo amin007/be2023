@@ -79,6 +79,8 @@ $sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id,$pera
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($sqlDaa,'sqlDaa',0);
+#https://wiki.php.net/rfc/mysqli_default_errmode
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 #--------------------------------------------------------------------------------------------------
 	//$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 	try {
