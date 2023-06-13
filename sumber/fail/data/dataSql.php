@@ -22,6 +22,15 @@ $data['xxx'] = array(
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlFeBarcode')):
+	function sqlSelectBintang($jadual,$fe,$id,$peratus)
+	{
+		$sql = "SELECT * FROM `$jadual` LIMIT 10";
+		// $sqlFeBarcode = sqlFeBarcode($fe);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlFeBarcode')):
 	function sqlFeBarcode($jadualBe,$fe,$id)
 	{
 		$sql = "SELECT `barcode` FROM `$jadualBe` WHERE fe like '%$fe%'"
