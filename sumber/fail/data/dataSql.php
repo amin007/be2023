@@ -387,7 +387,7 @@ if ( ! function_exists('sqlRangkaKwspV04')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlRangkaKwspV05')):
-	function sqlRangkaKwspV05($jadualBe,$jadual,$fe,$id)
+	function sqlRangkaKwspV05($jadualBe,$jadual,$fe,$id,$peratus)
 	{
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id,$peratus);
 		$sql = "SET @rownr=0;
