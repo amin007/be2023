@@ -435,6 +435,7 @@ if ( ! function_exists('paparSemuaData')):
 			if ( !$printed_headers )
 			{##================================================================
 				$output .= "\r\t<thead><tr>";
+				$output .= "\r\t" . '<th>#</th>';
 				foreach ( array_keys($row[$kira]) as $tajuk ) :
 				$output .= "\r\t" . '<th>' . $tajuk . '</th>';
 				endforeach;
@@ -446,6 +447,7 @@ if ( ! function_exists('paparSemuaData')):
 		#----------------------------------------------------------------------
 			# print the data row
 			$output .= "\r\t<tr>\r\t";
+			$output .= "\r\t<td>".($kira+1)."</td>";
 			foreach ( $row[$kira] as $key=>$data ) :
 			$output .= '<td>' . $data . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
