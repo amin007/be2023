@@ -35,6 +35,7 @@ $sql['SemuaNewss'] = sqlSemuaNewss($myJadual[0],$myJadual[2],$fe,$peratus);
 $sql['SemuaSsmRocHarta'] = sqlSemuaSsmRocHarta($myJadual[0],$myJadual[3],$fe,$peratus);
 $sql['SemuaSsmRocUntungRugi'] = sqlSemuaSsmRocUntungRugi($myJadual[0],$myJadual[4],$fe,$peratus);
 $sql['SemuaKwsp'] = sqlSemuaKwsp($myJadual[0],$myJadual[5],$fe,$peratus);
+$sql['SemuaKwspSSM'] = sqlSemuaKwspHarta($myJadual[0],$myJadual[4],$myJadual[5],$fe,$peratus);
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
 //semakPembolehubah($myJadual,'myJadual',0);
