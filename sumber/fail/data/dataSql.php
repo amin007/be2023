@@ -287,7 +287,8 @@ if ( ! function_exists('sqlSsmRocUntungRugiV01')):
 	function sqlSsmRocUntungRugiV01($jadualBe,$jadual,$fe,$id,$peratus)
 	{
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
-		$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
+		//$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
+		$sql = "SELECT ESTABLISHMENT_ID,
 		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,
 		MSIC,KP,sektor,ROC_PnL_Tahun_Kewangan_Terkini,ROC_PnL_dtdatefinancialyearend,
 		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenue,
@@ -301,8 +302,7 @@ if ( ! function_exists('sqlSsmRocUntungRugiV01')):
 		FORMAT(ROC_PnL_dblprofitshareholder,0) as dblprofitshareholder,
 		FORMAT(ROC_PnL_dblnetdividend,0) as dblnetdividend
 
-		FROM `$jadual` CROSS JOIN (SELECT @cnt := 0) AS dummy
-		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
+		FROM `$jadual` where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
 		// $sqlSsmRocUntungRugiV01 = sqlSsmRocUntungRugiV01($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
@@ -399,11 +399,12 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 	function sqlRangkaKwspV05($jadualBe,$jadual,$fe,$id,$peratus)
 	{
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id,$peratus);
-		$sql = "SET @rownr=0;
-		SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
-		BUSINESS_REG_NO as NOSSM,concat_ws(\"\r\",REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
+		//$sql = "SET @rownr=0;
+		//SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
+		$sql = "SELECT ESTABLISHMENT_ID,BUSINESS_REG_NO as NOSSM,
+		concat_ws('|',REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
 		STATUS_AKTIVITI as Status,BILANGAN_PEKERJA as Staf,
-		concat_ws(\"\r\",NO_TELEFON,NO_FAKS,EMEL_EMEL) as InfoTelMel
+		concat_ws('|',NO_TELEFON,NO_FAKS,EMEL_EMEL) as InfoTelMel
 		from `$jadual`
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
 		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
