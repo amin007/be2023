@@ -74,7 +74,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 #--------------------------------------------------------------------------------------------------
 $pilih = null;
 list($urlcss,$urljs) = linkCssJs();
-$class = 'table table-striped table-bordered';
+$class = '"table table-striped table-bordered"';
 diatas($pilih, $urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
@@ -84,7 +84,7 @@ binaButang(null);
 	#--------------------------------------------------------------------------------------------------
 	$table = paparSemuaData($rowDaa,$myJadualDaa);
     echo "<h2>$myJadualDaa</h2>";
-	echo "\r<table class=$class>$table</table>\r<hr>";
+	echo "\r<table id=\"myTable\" class=$class>$table</table>\r<hr>";
 	#--------------------------------------------------------------------------------------------------
 	endforeach;
 #--------------------------------------------------------------------------------------------------

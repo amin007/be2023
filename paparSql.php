@@ -117,7 +117,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 #--------------------------------------------------------------------------------------------------
 $pilih = null;
 list($urlcss,$urljs) = linkCssJs();
-$class = 'table table-striped table-bordered';
+$class = '"table table-striped table-bordered"';
 diatas($pilih, $urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
@@ -126,7 +126,7 @@ echo "\r<hr>\r<table class=$class><tr>";
 	foreach($data as $myJadualDaa => $rowDaa):
 	#--------------------------------------------------------------------------------------------------
 	$table = paparSatuJe($rowDaa,$myJadualDaa);
-	echo "\r<td><table class=$class>$table</table></td>\r";
+	echo "\r<td><table id=\"myTable\" class=$class>$table</table></td>\r";
 	#--------------------------------------------------------------------------------------------------
 	endforeach;
 #--------------------------------------------------------------------------------------------------
