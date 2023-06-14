@@ -21,7 +21,7 @@ print <<<END
 <div class="kotakTengah">
 <!-- mula borang
 =============================================================================================== -->
-<form method="POST" action="paparSql.php" class="form-horizontal">';
+<form method="POST" action="paparSql02.php" class="form-horizontal">';
 	<div class="p-3 mb-2 bg-transparent text-dark">
 		<i class="fa fa-bicycle" style="font-size:50px"></i>
 	</div><!-- / class="p-3 mb-2 bg-transparent text-dark" -->
