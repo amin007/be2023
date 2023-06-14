@@ -423,6 +423,40 @@ if ( ! function_exists('paparSatuJe')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparSemuaData')):
+	function paparSemuaData($row,$jadual)
+	{
+		$output = null;
+		$bil_baris = count($row);
+		$printed_headers = false;# mula bina jadual
+		#----------------------------------------------------------------------
+		for ($kira=0; $kira < $bil_baris; $kira++)
+		{# print the headers once:
+			if ( !$printed_headers )
+			{##================================================================
+				$output .= "\r\t<thead><tr>";
+				foreach ( $row[$kira] as $tajuk => $datadaa) :
+				$output .= "\r\t" . '<th>' . $tajuk . '</th>';
+				endforeach;
+				$output .= "\r\t" . '</tr></thead>';
+				$output .= "\r\t" . '<tbody>';
+			##=================================================================
+				$printed_headers = true;
+			}
+		#----------------------------------------------------------------------
+			# print the data row
+			$output .= "\r\t<tr>\r\t";
+			foreach ( $row[$kira] as $key=>$data ) :
+			$output .= '<td>' . $data . '</td>';
+			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
+			endforeach;
+			$output .= "\r\t" . '</tr></tbody>';
+		}#---------------------------------------------------------------------
+
+		return $output;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('binaJadual02')):
