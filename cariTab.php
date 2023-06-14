@@ -27,7 +27,8 @@ print <<<END
 <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
 <li class="nav-item" role="presentation">
 	<button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-	data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+	data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
+	aria-selected="true">Home</button>
 </li>
 <li class="nav-item" role="presentation">
 	<button class="nav-link" id="profile-tab" data-bs-toggle="tab"
@@ -68,26 +69,35 @@ print <<<END
 END;
 	# tamat print <<<END
 #--------------------------------------------------------------------------------------------------
-$namaTab = ['Satu','Dua','Tiga','Empat','Lima'];
+$namaTab = ['satu','dua','tiga','empat','lima'];
 #--------------------------------------------------------------------------------------------------
 echo '<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">';
+echo '<li class="nav-item" role="presentation">
+	<button class="nav-link active" id="kosong-tab" data-bs-toggle="tab"
+	data-bs-target="#kosong-tab-pane" type="button" role="tab"
+	aria-controls="kosong-tab-pane" aria-selected="true">Kosong</button>
+</li>';
 foreach($namaTab as $tabTajuk):
 echo '<li class="nav-item" role="presentation">
 	<button class="nav-link active" id="' . $tabTajuk . '-tab" data-bs-toggle="tab"
 	data-bs-target="#' . $tabTajuk . '-tab-pane" type="button" role="tab"
-	aria-controls="' . $tabTajuk . '-tab-pane" aria-selected="false">'
+	aria-controls="' . $tabTajuk . '-tab-pane" aria-selected="false" tabindex="-1">'
 	. $tabTajuk . '</button>
 </li>';
 endforeach;
 echo '</ul>';
 echo '<div class="tab-content" id="myTabContent">';
+echo '<div class="tab-pane fade active show" id="kosong-tab-pane" role="tabpanel"
+aria-labelledby="kosong-tab" tabindex="0">
+	<p>This is some placeholder content the <strong>Kosong tab</strong> associated content.</p>
+</div><!-- / class="tab-pane fade" -->';
 foreach($namaTab as $tabName):
 echo '<div class="tab-pane fade" id="' . $tabName . '-tab-pane" role="tabpanel"
 aria-labelledby="' . $tabName . '-tab" tabindex="0">
 	<p>This is some placeholder content the <strong>' . $tabName . ' tab</strong> associated content.</p>
-</div><!-- class="tab-pane fade" -->';
+</div><!-- / class="tab-pane fade" -->';
 endforeach;
-echo '</div><!-- / class="tab-content" ->';
+echo '</div><!-- / class="tab-content" -->';
 #--------------------------------------------------------------------------------------------------
 dibawahV02($pilih,$urljs);
 echo "<script>\n";
