@@ -670,10 +670,10 @@ if ( ! function_exists('sqlSemuaKwspHarta')):
 	function sqlSemuaKwspHarta($jadualBe,$jadualSSM,$jadual,$fe,$peratus)
 	{
 		$sqlFeBarcode = sqlFeJe($jadualBe,$fe);
-		$sql = "SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
-		BUSINESS_REG_NO as NOSSM,concat_ws("\r",REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
+		$sql = "SELECT LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
+		BUSINESS_REG_NO as NOSSM,concat_ws(\"\r\",REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
 		STATUS_AKTIVITI as Status,BILANGAN_PEKERJA as Staf,
-		concat_ws("\r",NO_TELEFON,NO_FAKS,EMEL_EMEL) as InfoTelMel
+		concat_ws(\"\r\",NO_TELEFON,NO_FAKS,EMEL_EMEL) as InfoTelMel
 		from `$jadual`
 		where `ESTABLISHMENT_ID` in
 		( SELECT ESTABLISHMENT_ID FROM `$jadualSSM` where `ESTABLISHMENT_ID`
