@@ -435,7 +435,7 @@ if ( ! function_exists('paparSemuaData')):
 			if ( !$printed_headers )
 			{##================================================================
 				$output .= "\r\t<thead><tr>";
-				foreach ( $row[$kira] as $tajuk => $datadaa) :
+				foreach ( array_keys($row[$kira]) as $tajuk ) :
 				$output .= "\r\t" . '<th>' . $tajuk . '</th>';
 				endforeach;
 				$output .= "\r\t" . '</tr></thead>';
