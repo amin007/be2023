@@ -556,3 +556,114 @@ $data['xxx'] = array(
 );//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
+# data carian semua jadual
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlFeJe')):
+	function sqlFeJe($jadualBe,$fe)
+	{
+		$sql = "SELECT `barcode` FROM `$jadualBe` WHERE fe like '%$fe%'"
+		. "";
+		// $sqlFeBarcode = sqlFeBarcode($fe);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSemuaAes')):
+	function sqlSemuaAes($jadualBe,$jadual,$fe)
+	{
+		$sqlFeBarcode = sqlFeJe($jadualBe,$fe);
+		$sql = 'select * from `'.$jadual.'` '
+		. "where `Serial No` in ( $sqlFeBarcode )";
+		// $sqlDataAesV00 = sqlDataAesV00($jadualBe,$jadual,$fe,$id);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSemuaNewss')):
+	function sqlSemuaNewss($jadualBe,$jadual,$fe,$peratus)
+	{
+		$sqlFeBarcode = sqlFeJe($jadualBe,$fe);/*sql v03*/
+		$sql = "SELECT (@cnt := @cnt + 1) AS Bil,
+		`NO_SIRI`,CONCAT_WS('-',BUSINESS_REG_NO,CHECK_DIGIT) as NOSSM,
+		CONCAT_ws('|',`NAMA_PENDAFTARAN`,`NAMA_PERNIAGAAN`) as syarikat,
+		`ID_FE`,`BORANG PANJANG/ PENDEK`,
+		CONCAT_ws('|',`TAHUN DAFTAR`,`PENDUA`,`CATATAN SEMAKAN`) as nota,
+		`YR_WORKER_HEAD_COUNT` as staf ,`YR_SALARY_AMT` as gaji,
+		`YR_FIXED_ASSET_AMT` as harta,
+		`YR_CLOSE_STOCKS_AMT` as stok,
+		`YR_SALES_AMT` as jualan,
+		FORMAT(`YR_REVENUE_AMT`,0) as hasil,
+		FORMAT(`YR_EXPENDITURE_AMT`,0) belanja,
+		FORMAT((YR_REVENUE_AMT * $peratus),0) as anggarHasil,
+		FORMAT((YR_EXPENDITURE_AMT * $peratus),0) as anggarBelanja
+
+		FROM `$jadual`
+		CROSS JOIN (SELECT @cnt := 0) AS dummy
+		WHERE `NO_SIRI` IN ($sqlFeBarcode)";
+		// $sqlNewssV03 = sqlNewssV03($jadual,$fe,$id);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSemuaSsmRocHarta')):
+	function sqlSemuaSsmRocHarta($jadualBe,$jadual,$fe,$peratus)
+	{
+		$sqlFeBarcode = sqlFeJe($jadualBe,$fe);
+		$sql = "SELECT ESTABLISHMENT_ID,
+		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,MSIC,KP,sektor,
+		ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
+		ROC_chraccrualaccount,ROC_dtdatefinancialyearend,ROC_chrtypefinancialreport,
+		FORMAT(ROC_dblfixedasset,0) as fixedAsset,
+		FORMAT((ROC_dblfixedasset * $peratus),0) as anggarFixedAsset,
+		FORMAT(ROC_dblpaidupcapital,0) as paidupcapital,
+		ROC_dblsharepremium
+
+		FROM `$jadual`
+		where `ESTABLISHMENT_ID` in ($sqlFeBarcode)";
+		// $sqlSsmRocHartaV00 = sqlSsmRocHartaV00($jadual,$fe,$id);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSemuaSsmRocUntungRugi')):
+	function sqlSemuaSsmRocUntungRugi($jadualBe,$jadual,$fe,$peratus)
+	{
+		$sqlFeBarcode = sqlFeJe($jadualBe,$fe);
+		$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
+		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,
+		MSIC,KP,sektor,ROC_PnL_Tahun_Kewangan_Terkini,ROC_PnL_dtdatefinancialyearend,
+		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenue,
+		FORMAT(ROC_PnL_dblrevenue * $peratus,0) as anggarDblrevenue,
+		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax,0) as belanja89,
+		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
+		FORMAT(ROC_PnL_dblprofitbeforetax * $peratus,0) as anggarDblprofitbeforetax,
+		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax,0) as belanja99,
+		FORMAT(ROC_PnL_dblprofitaftertax,0) as dblprofitaftertax,
+		FORMAT(ROC_PnL_dblprofitaftertax * $peratus,0) as anggarDblprofitaftertax,
+		FORMAT(ROC_PnL_dblprofitshareholder,0) as dblprofitshareholder,
+		FORMAT(ROC_PnL_dblnetdividend,0) as dblnetdividend
+
+		FROM `$jadual` CROSS JOIN (SELECT @cnt := 0) AS dummy
+		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
+		// $sqlSsmRocUntungRugiV01 = sqlSsmRocUntungRugiV01($jadualBe,$jadual,$fe,$id);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSemuaKwsp')):
+	function sqlSemuaKwsp($jadualBe,$jadual,$fe,$peratus)
+	{
+		$sqlFeBarcode = sqlFeJe($jadualBe,$fe);
+		$sql = "SET @rownr=0;
+		SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
+		BUSINESS_REG_NO as NOSSM,concat_ws(\"\r\",REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
+		STATUS_AKTIVITI as Status,BILANGAN_PEKERJA as Staf,
+		concat_ws(\"\r\",NO_TELEFON,NO_FAKS,EMEL_EMEL) as InfoTelMel
+		from `$jadual`
+		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
+		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+###################################################################################################
