@@ -711,10 +711,9 @@ endif;//*/
 if ( ! function_exists('sqlMkoDaa')):
 	function sqlMkoDaa($jadual,$id)
 	{
-		$sql ="SELECT `barcode`,`kp`,`msic`,`FE`,`NO SSM`,`nama`,DataRespon,
-		concat_ws('|',orang,notel,nofax,email,orangB,notelB,nofaxB,
-		email1,emailB) as DataNewss,
-		`DataMKO`,`DataSumberLuar`,
+		$sql ="SELECT `barcode`,`kp`,`msic`,`FE`,`NO SSM`,`nama`,
+		concat_ws('|',orang,notel,nofax,email,orangB,notelB,nofaxB,email1,emailB) as DataNewss,
+		`DataRespon`,`Akauntan`,`DataMKO`,`DataSumberLuar`,
 		concat_ws('|',format(DataHasil,0),DataHasil) as DataHasil,
 		concat_ws('|',format(DataBelanja,0),DataBelanja) as DataBelanja,
 		concat_ws('|',format(DataGaji,0),DataGaji) as DataGaji,
