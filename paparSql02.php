@@ -18,20 +18,18 @@ $_POST=>
 Array
 (
     $_POST[namaFe] => muhaimin
-    $_POST[noSiri] => 000003985740
     $_POST[peratusan] => 1.87
     [Simpan] => Simpan
 )
 */
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-semakPembolehubah($_POST,'_POST',0);
+//semakPembolehubah($_POST,'_POST',0);
 $fe = bersih($_POST['namaFe']);//'muhaimin';
-//$id = bersih($_POST['noSiri']);//'000002791307';
 $peratus = bersih($_POST['peratusan']);
 #--------------------------------------------------------------------------------------------------
-$sql['SemuaAes'] = sqlSemuaAes($myJadual[0],$myJadual[1],$fe);
 $sql['SemuaNewss'] = sqlSemuaNewss($myJadual[0],$myJadual[2],$fe,$peratus);
+$sql['SemuaAes'] = sqlSemuaAes($myJadual[0],$myJadual[1],$fe);
 $sql['SemuaSsmRocHarta'] = sqlSemuaSsmRocHarta($myJadual[0],$myJadual[3],$fe,$peratus);
 $sql['SemuaSsmRocUntungRugi'] = sqlSemuaSsmRocUntungRugi($myJadual[0],$myJadual[4],$fe,$peratus);
 $sql['SemuaKwsp'] = sqlSemuaKwsp($myJadual[0],$myJadual[5],$fe,$peratus);
@@ -39,7 +37,7 @@ $sql['SemuaKwspSSM'] = sqlSemuaKwspHarta($myJadual[0],$myJadual[4],$myJadual[5],
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
 //semakPembolehubah($myJadual,'myJadual',0);
-semakPembolehubah($sql,'sql',0);
+//semakPembolehubah($sql,'sql',0);
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
@@ -92,7 +90,7 @@ binaButang(null);
 	#--------------------------------------------------------------------------------------------------
 	$table = paparSemuaData($rowDaa,$myJadualDaa);
     echo "<h2>$myJadualDaa</h2>";
-	echo "\r<table id=\"myTable\" class=$class>$table</table>\r<hr>";
+	echo "\r<table id=\"allTable\" class=$class>$table</table>\r<hr>";
 	#--------------------------------------------------------------------------------------------------
 	endforeach;
 #--------------------------------------------------------------------------------------------------
