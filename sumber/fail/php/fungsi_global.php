@@ -1222,13 +1222,13 @@ if ( ! function_exists('binaButang')):
 			. ' href="' . $kini['b'] . '">'
 			. ucfirst($kini['c']) . '</a>';
 		endforeach;
-		foreach($senarai as $jadual => $row):
+		if(semakTatasusunan($senarai) == 'array') :foreach($senarai as $jadual => $row):
 			$warnaButang = tukarWarnaButang($jadual);
 			if($jadual != 'tahun')
 			$output .= "\n\t" . '<a class="btn btn-' . $warnaButang . ' rounded-pill"'
 			. ' href="' . URL . '?/' .$jadual. '">'
 			. ucfirst($jadual) . '</a>';
-		endforeach;
+		endforeach;endif;
 		$output .= "\n\t<hr>";
 
 		echo "\n<!-- Pautan \n================================================================="
