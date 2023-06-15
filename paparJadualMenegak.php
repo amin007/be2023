@@ -29,6 +29,12 @@ $id = bersih($_POST['noSiri']);//'000002791307';
 //$peratus = bersih($_POST['peratusan']);
 #--------------------------------------------------------------------------------------------------
 //$sql[] = '';
+$sql['dataBarcode'] = sqlCariBintangDaa($myJadual[0],'barcode',$id);
+$sql['dataAes'] = sqlCariBintangDaa($myJadual[1],'Serial No',$id);
+$sql['data5P'] = sqlCariBintangDaa($myJadual[2],'NO_SIRI',$id);
+$sql['dataSsmHarta'] = sqlCariBintangDaa($myJadual[3],'ESTABLISHMENT_ID',$id);
+$sql['dataUntungRugi'] = sqlCariBintangDaa($myJadual[4],'ESTABLISHMENT_ID',$id);
+$sql['dataKwsp'] = sqlCariBintangDaa($myJadual[5],'ESTABLISHMENT_ID',$id);
 $sql['dataMKO'] = sqlMkoDaa($myJadual[0],$id);
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
