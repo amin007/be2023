@@ -5,6 +5,7 @@ require './tatarajah.php';
 require './sumber/fail/php/fungsi_global.php';
 //require '/sumber/fail/data/***.php';
 require './sumber/fail/data/dataSql.php';
+require './sumber/fail/data/dataSqlMysqli.php';
 //require './sumber/fail/csv/***.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
