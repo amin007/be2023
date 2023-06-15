@@ -253,8 +253,8 @@ if ( ! function_exists('binaSatuJadual')):
 			$output .= binaKakiJadual($row,$pilih);
 			echo '<h2 class="' . $btn . '" >Kod ' . ucfirst($jadual) . '</h2>'
 			. "\n\n\t" . '<table class="' . $class . '" id="allTable">'
-			//echo "\r\t" . '<table border="1">'
-			. "\r\t$output\r\n\t</table>\r\r";
+			//echo "\n\t" . '<table border="1">'
+			. "\n\t$output\n\t</table>\n\n";
 		endif;
 		endforeach;//*/
 		#
@@ -322,9 +322,9 @@ if ( ! function_exists('binaJadual')):
 		foreach($senarai as $jadual => $row):
 		if($jadual == $pilih):
 			$output = paparJadual($row,$jadual);
-			//echo "\r\t" . '<table class="'.$class.'" id="allTable">'
-			echo "\r\t" . '<table border="1">'
-			. $output . "\r\t" . '</table>' . "\r\r";
+			//echo "\n\t" . '<table class="'.$class.'" id="allTable">'
+			echo "\n\t" . '<table border="1">'
+			. $output . "\n\t" . '</table>' . "\n\n";
 		endif;
 		endforeach;
 		#
@@ -342,24 +342,24 @@ if ( ! function_exists('paparJadual')):
 		{	# print the headers once:
 			if ( !$printed_headers )
 			{##================================================================
-				$output .= "\r\t<thead><tr>";
+				$output .= "\n\t<thead><tr>";
 				foreach ( array_keys($row[$kira]) as $kunci ) :
 				$tajuk = tajukMedanJadual($jadual,$kunci);
-				$output .= "\r\t" . '<th>' . $tajuk . '</th>';
+				$output .= "\n\t" . '<th>' . $tajuk . '</th>';
 				endforeach;
-				$output .= "\r\t" . '</tr></thead>';
-				$output .= "\r\t" . '<tbody>';
+				$output .= "\n\t" . '</tr></thead>';
+				$output .= "\n\t" . '<tbody>';
 			##=================================================================
 				$printed_headers = true;
 			}
 		#----------------------------------------------------------------------
 			# print the data row
-			$output .= "\r\t<tr>";
+			$output .= "\n\t<tr>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			$output .= "\r\t" . '<td>' . $data . '</td>';
+			$output .= "\n\t" . '<td>' . $data . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
-			$output .= "\r\t" . '</tr></tbody>';
+			$output .= "\n\t" . '</tr></tbody>';
 		}#---------------------------------------------------------------------
 
 		return $output;
@@ -377,23 +377,23 @@ if ( ! function_exists('paparTajukData')):
 		{	# print the headers once:
 			if ( !$printed_headers )
 			{##================================================================
-				$output .= "\r\t<thead><tr>";
+				$output .= "\n\t<thead><tr>";
 				foreach ( array_keys($row[$kira]) as $tajuk ) :
-				$output .= "\r\t" . '<th>' . $tajuk . '</th>';
+				$output .= "\n\t" . '<th>' . $tajuk . '</th>';
 				endforeach;
-				$output .= "\r\t" . '</tr></thead>';
-				$output .= "\r\t" . '<tbody>';
+				$output .= "\n\t" . '</tr></thead>';
+				$output .= "\n\t" . '<tbody>';
 			##=================================================================
 				$printed_headers = true;
 			}
 		#----------------------------------------------------------------------
 			# print the data row
-			$output .= "\r\t<tr>";
+			$output .= "\n\t<tr>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			$output .= "\r\t" . '<td>' . $data . '</td>';
+			$output .= "\n\t" . '<td>' . $data . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
-			$output .= "\r\t" . '</tr></tbody>';
+			$output .= "\n\t" . '</tr></tbody>';
 		}#---------------------------------------------------------------------
 
 		return $output;
@@ -411,20 +411,20 @@ if ( ! function_exists('paparSatuJe')):
 		{# print the headers once:
 			if ( !$printed_headers )
 			{##================================================================
-				$output .= "\r\t<thead><tr>";
-				$output .= "\r\t" . '<th colspan="2">' . $jadual . '</th>';
-				$output .= "\r\t" . '</tr></thead>';
-				$output .= "\r\t" . '<tbody>';
+				$output .= "\n\t<thead><tr>";
+				$output .= "\n\t" . '<th colspan="2">' . $jadual . '</th>';
+				$output .= "\n\t" . '</tr></thead>';
+				$output .= "\n\t" . '<tbody>';
 			##=================================================================
 				$printed_headers = true;
 			}
 		#----------------------------------------------------------------------
 			# print the data row
 			foreach ( $row[$kira] as $key=>$data ) :
-			$output .= "\r\t<tr>\r\t" . '<td align="right">' . $key . '</td>';
+			$output .= "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
 			$output .= '<td>' . $data . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
-			$output .= "\r\t" . '</tr></tbody>';
+			$output .= "\n\t" . '</tr></tbody>';
 			endforeach;
 		}#---------------------------------------------------------------------
 
@@ -443,25 +443,25 @@ if ( ! function_exists('paparSemuaData')):
 		{# print the headers once:
 			if ( !$printed_headers )
 			{##================================================================
-				$output .= "\r\t<thead><tr>";
-				$output .= "\r\t" . '<th>#</th>';
+				$output .= "\n\t<thead><tr>";
+				$output .= "\n\t" . '<th>#</th>';
 				foreach ( array_keys($row[$kira]) as $tajuk ) :
-				$output .= "\r\t" . '<th>' . $tajuk . '</th>';
+				$output .= "\n\t" . '<th>' . $tajuk . '</th>';
 				endforeach;
-				$output .= "\r\t" . '</tr></thead>';
-				$output .= "\r\t" . '<tbody>';
+				$output .= "\n\t" . '</tr></thead>';
+				$output .= "\n\t" . '<tbody>';
 			##=================================================================
 				$printed_headers = true;
 			}
 		#----------------------------------------------------------------------
 			# print the data row
-			$output .= "\r\t<tr>\r\t";
-			$output .= "\r\t<td>".($kira+1)."</td>";
+			$output .= "\n\t<tr>\r\t";
+			$output .= "\n\t<td>".($kira+1)."</td>";
 			foreach ( $row[$kira] as $key=>$data ) :
 			$output .= '<td>' . $data . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
-			$output .= "\r\t" . '</tr></tbody>';
+			$output .= "\n\t" . '</tr></tbody>';
 		}#---------------------------------------------------------------------
 
 		return $output;
