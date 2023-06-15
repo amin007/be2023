@@ -175,8 +175,9 @@ if ( ! function_exists('sqlNewssV03')):
 		$sql = "SELECT (@cnt := @cnt + 1) AS Bil,
 		`NO_SIRI`,CONCAT_WS('-',BUSINESS_REG_NO,CHECK_DIGIT) as NOSSM,
 		CONCAT_ws('|',`NAMA_PENDAFTARAN`,`NAMA_PERNIAGAAN`) as syarikat,
-		`ID_FE`,`BORANG PANJANG/ PENDEK`,
-		CONCAT_ws('|',`TAHUN DAFTAR`,`PENDUA`,`CATATAN SEMAKAN`) as nota,
+		`ID_FE`,`BORANG PANJANG/ PENDEK` AS JenisBrg,
+		`TAHUN DAFTAR`,`PENDUA`,
+		`CATATAN SEMAKAN` as Nota02,
 		`YR_WORKER_HEAD_COUNT` as staf ,`YR_SALARY_AMT` as gaji,
 		`YR_FIXED_ASSET_AMT` as harta,
 		`YR_CLOSE_STOCKS_AMT` as stok,
@@ -205,9 +206,12 @@ if ( ! function_exists('sqlSsmRocHartaV00')):
 	{
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
 		$sql = "SELECT ESTABLISHMENT_ID,
-		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,MSIC,KP,sektor,
+		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,
+		ROC_vchcompanyno NOSSM,ROC_vchcompanyname NAMESSM,
+		MSIC,KP,sektor,
 		ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
-		ROC_chraccrualaccount,ROC_dtdatefinancialyearend,ROC_chrtypefinancialreport,
+		ROC_chraccrualaccount,ROC_dtdatefinancialyearend datefinancial,
+		ROC_chrtypefinancialreport,
 		FORMAT(ROC_dblfixedasset,0) as fixedAsset,
 		FORMAT((ROC_dblfixedasset * $peratus),0) as anggarFixedAsset,
 		FORMAT(ROC_dblpaidupcapital,0) as paidupcapital,
@@ -289,19 +293,21 @@ if ( ! function_exists('sqlSsmRocUntungRugiV01')):
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
 		//$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
 		$sql = "SELECT ESTABLISHMENT_ID,
-		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno,ROC_vchcompanyname,
-		MSIC,KP,sektor,ROC_PnL_Tahun_Kewangan_Terkini,ROC_PnL_dtdatefinancialyearend,
+		BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,ROC_vchcompanyno NOSSM,
+		ROC_vchcompanyname NAMESSM,
+		MSIC,KP,sektor,ROC_PnL_Tahun_Kewangan_Terkini as ThnKewangan,
+		ROC_PnL_dtdatefinancialyearend as DateFinancial,
 		FORMAT(ROC_PnL_dblturnover,0) as turnoverJualan,
 		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenueHasil,
 		FORMAT(ROC_PnL_dblrevenue * $peratus,0) as anggarDblrevenue,
 		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax,0) as belanja89,
 		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
-		FORMAT(ROC_PnL_dblprofitbeforetax * $peratus,0) as anggarDblprofitbeforetax,
+		FORMAT(ROC_PnL_dblprofitbeforetax * $peratus,0) as anggarProfitBeforeTax,
 		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax,0) as belanja99,
 		FORMAT(ROC_PnL_dblprofitaftertax,0) as dblprofitaftertax,
-		FORMAT(ROC_PnL_dblprofitaftertax * $peratus,0) as anggarDblprofitaftertax,
-		FORMAT(ROC_PnL_dblprofitshareholder,0) as dblprofitshareholder,
-		FORMAT(ROC_PnL_dblnetdividend,0) as dblnetdividend
+		FORMAT(ROC_PnL_dblprofitaftertax * $peratus,0) as anggarProfitAfterTax,
+		FORMAT(ROC_PnL_dblprofitshareholder,0) as profitshareholder,
+		FORMAT(ROC_PnL_dblnetdividend,0) as netdividend
 
 		FROM `$jadual` where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
 		// $sqlSsmRocUntungRugiV01 = sqlSsmRocUntungRugiV01($jadualBe,$jadual,$fe,$id);
