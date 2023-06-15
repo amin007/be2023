@@ -95,6 +95,23 @@ if ( ! function_exists('bersih')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('bersihV02')):
+	/** */
+	function bersihV02($papar)
+	{
+		# lepas lari aksara khas dalam SQL
+		//$papar = mysql_real_escape_string($papar);
+		# buang ruang kosong (atau aksara lain) dari mula & akhir
+		$papar = trim($papar);
+		# tukar kod %20 kepada space
+		$papar = myUrlEncode($papar);
+		# nl2br - Inserts HTML line breaks before all newlines in a string
+		$papar = nl2br($papar);
+
+		return $papar;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('myUrlEncode')):
 	function myUrlEncode($string)
 	{
@@ -304,7 +321,7 @@ if ( ! function_exists('paparSatuJadual')):
 			# papar baris data dari tatasusunan
 			$output .= "\n\t<tr>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			$output .= "\n\t\t" . '<td>' . $data . '</td>';
+			$output .= "\n\t\t" . '<td>' . bersihV02($data) . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
 			$output .= "\n\t" . '</tr>';
@@ -356,7 +373,7 @@ if ( ! function_exists('paparJadual')):
 			# print the data row
 			$output .= "\n\t<tr>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			$output .= "\n\t" . '<td>' . $data . '</td>';
+			$output .= "\n\t" . '<td>' . bersihV02($data) . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
 			$output .= "\n\t" . '</tr></tbody>';
@@ -390,7 +407,7 @@ if ( ! function_exists('paparTajukData')):
 			# print the data row
 			$output .= "\n\t<tr>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			$output .= "\n\t" . '<td>' . $data . '</td>';
+			$output .= "\n\t" . '<td>' . bersihV02($data) . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
 			$output .= "\n\t" . '</tr></tbody>';
@@ -422,7 +439,7 @@ if ( ! function_exists('paparSatuJe')):
 			# print the data row
 			foreach ( $row[$kira] as $key=>$data ) :
 			$output .= "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
-			$output .= '<td>' . $data . '</td>';
+			$output .= '<td>' . bersihV02($data) . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			$output .= "\n\t" . '</tr></tbody>';
 			endforeach;
@@ -458,7 +475,7 @@ if ( ! function_exists('paparSemuaData')):
 			$output .= "\n\t<tr>\r\t";
 			$output .= "\n\t<td>".($kira+1)."</td>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			$output .= '<td>' . $data . '</td>';
+			$output .= '<td>' . bersihV02($data) . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
 			$output .= "\n\t" . '</tr></tbody>';
@@ -505,7 +522,7 @@ if ( ! function_exists('paparDataSahaja')):
 			# papar baris data dari tatasusunan
 			$output .= "\n\t<tr>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			$output .= "\n\t\t" . '<td>' . $data . '</td>';
+			$output .= "\n\t\t" . '<td>' . bersihV02($data) . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
 			$output .= "\n\t" . '</tr>';
