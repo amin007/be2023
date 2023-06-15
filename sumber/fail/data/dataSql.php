@@ -566,6 +566,16 @@ $data['xxx'] = array(
 ###################################################################################################
 # data carian semua jadual
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlCariBintangDaa')):
+	function sqlCariBintangDaa($jadual,$medan,$id)
+	{
+		$sql = "SELECT * FROM `$jadual` WHERE $medan like '$id'"
+		. "";
+		// $sqlCariBintangDaa = sqlCariBintangDaa($jadual,$medan,$id);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlFeJe')):
 	function sqlFeJe($jadualBe,$fe)
 	{
