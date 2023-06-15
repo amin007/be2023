@@ -121,16 +121,16 @@ $class = '"table table-striped table-bordered"';
 diatas($pilih, $urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
-echo "\r<hr>\r<table class=$class><tr>";
+echo "\n<table class=$class><tr>";
 #--------------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
 	#--------------------------------------------------------------------------------------------------
 	$table = paparSatuJe($rowDaa,$myJadualDaa);
-	echo "\r<td><table id=\"myTable\" class=$class>$table</table></td>\r";
+	echo "\n<td><table id=\"myTable\" class=$class>\n$table\n</table></td>";
 	#--------------------------------------------------------------------------------------------------
 	endforeach;
 #--------------------------------------------------------------------------------------------------
-echo "\r</tr></table>\r";
+echo "\n</tr></table>\n";
 #--------------------------------------------------------------------------------------------------
 dibawah($pilih,$urljs);
 echo "<script>\n";
