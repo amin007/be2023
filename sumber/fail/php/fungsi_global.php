@@ -40,6 +40,15 @@ if ( ! function_exists('tagVar')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('semakTatasusunan')):
+	function semakTatasusunan($senarai)
+	{
+		$semak = is_array($senarai) ? 'array' : 'bukan';
+		#
+		return $semak;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('versiphp')):
 	function versiphp()
 	{
