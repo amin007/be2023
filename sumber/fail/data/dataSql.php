@@ -413,7 +413,7 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		$sql = "SELECT ESTABLISHMENT_ID,BUSINESS_REG_NO as NOSSM,
 		concat_ws('|',REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
 		STATUS_AKTIVITI as Status,BILANGAN_PEKERJA as Staf,
-		concat_ws('|',NO_TELEFON,NO_FAKS,EMEL_EMEL) as InfoTelMel
+		NO_TELEFON Tel,NO_FAKS Fax,EMEL_EMEL Emel
 		from `$jadual`
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
 		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
