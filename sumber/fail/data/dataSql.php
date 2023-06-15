@@ -569,7 +569,7 @@ $data['xxx'] = array(
 if ( ! function_exists('sqlCariBintangDaa')):
 	function sqlCariBintangDaa($jadual,$medan,$id)
 	{
-		$sql = "SELECT * FROM `$jadual` WHERE $medan like '$id'"
+		$sql = "SELECT * FROM `$jadual` WHERE `$medan` like '$id'"
 		. "";
 		// $sqlCariBintangDaa = sqlCariBintangDaa($jadual,$medan,$id);
 		return $sql;
