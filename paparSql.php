@@ -76,40 +76,7 @@ $sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id,$pera
 //semakPembolehubah($myJadual,'myJadual',0);
 //semakPembolehubah($sql,'sql',0);
 #--------------------------------------------------------------------------------------------------
-###################################################################################################
-#--------------------------------------------------------------------------------------------------
-//semakPembolehubah($sqlDaa,'sqlDaa',0);
-#https://wiki.php.net/rfc/mysqli_default_errmode
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-#--------------------------------------------------------------------------------------------------
-	//$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-	try {
-	$pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER,DB_PASS);
-	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$pdo->exec('SET NAMES "utf8"');
-
-		#----------------------------------------------------------------------------------------------
-		foreach($sql as $myTable => $sqlDaa):
-		//semakPembolehubah($sqlDaa,'sqlDaa',0);
-		#----------------------------------------------------------------------------------------------
-		//$sql_stmt = "SELECT * FROM `my_contacts`";
-		$sql_stmt = $sqlDaa;
-		#----------------------------------------------------------------------------------------------
-		$result = $pdo->query($sql_stmt);
-		$result->setFetchMode(PDO::FETCH_ASSOC);
-		$tajuk[$myTable] = $myTable;
-		$data[$myTable] = array();
-		foreach ($result as $row)
-		{
-			$data[$myTable][] = $row;
-		}
-		#----------------------------------------------------------------------------------------------
-		endforeach;
-		#----------------------------------------------------------------------------------------------
-	}
-	catch (PDOException $e) { echo $e->getMessage(); }//*/
-#--------------------------------------------------------------------------------------------------
-###################################################################################################
+$data = dbMysqli00(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($data,'data',0);
 #--------------------------------------------------------------------------------------------------
