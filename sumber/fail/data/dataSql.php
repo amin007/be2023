@@ -701,12 +701,12 @@ if ( ! function_exists('sqlMkoDaa')):
 		concat_ws('|',orang,notel,nofax,email,orangB,notelB,nofaxB,
 		email1,emailB) as DataNewss,
 		`DataMKO`,`DataSumberLuar`,
-		format(DataHasil,0) as DataHasil,
-		format(DataBelanja,0) as DataBelanja,
-		format(DataGaji,0) as DataGaji,
-		format(DataHarta,0) as DataHarta,
-		format(DataPekerja,0) as DataPekerja,
-		format(DataStok,0) as DataStok
+		concat_ws('|',format(DataHasil,0),DataHasil) as DataHasil,
+		concat_ws('|',format(DataBelanja,0),DataBelanja) as DataBelanja,
+		concat_ws('|',format(DataGaji,0),DataGaji) as DataGaji,
+		concat_ws('|',format(DataHarta,0),DataHarta) as DataHarta,
+		concat_ws('|',format(DataPekerja,0),DataPekerja) as DataPekerja,
+		concat_ws('|',format(DataStok,0),DataStok) as DataStok
 		FROM `$jadual`
 		WHERE `barcode` = '$id' ";
 		// $sqlMkoDaa = sqlMkoDaa($jadual,$id);
