@@ -175,7 +175,7 @@ if ( ! function_exists('sqlNewssV03')):
 		$sql = "SELECT (@cnt := @cnt + 1) AS Bil,
 		`NO_SIRI`,CONCAT_WS('-',BUSINESS_REG_NO,CHECK_DIGIT) as NOSSM,
 		CONCAT_ws('|',`NAMA_PENDAFTARAN`,`NAMA_PERNIAGAAN`) as syarikat,
-		`ID_FE`,`BORANG PANJANG/ PENDEK` AS JenisBrg,
+		`ID_FE`,`msic 2008`,`BORANG PANJANG/ PENDEK` AS JenisBrg,
 		`TAHUN DAFTAR`,`PENDUA`,
 		`CATATAN SEMAKAN` as Nota02,
 		`YR_WORKER_HEAD_COUNT` as staf ,`YR_SALARY_AMT` as gaji,
@@ -711,7 +711,7 @@ endif;//*/
 if ( ! function_exists('sqlMkoDaa')):
 	function sqlMkoDaa($jadual,$id)
 	{
-		$sql ="SELECT `barcode`,`kp`,`msic`,`FE`,`NO SSM`,`nama`,
+		$sql ="SELECT `barcode`,`kp`,`msic`,`FE`,`NO SSM`,`nama`,DataRespon,
 		concat_ws('|',orang,notel,nofax,email,orangB,notelB,nofaxB,
 		email1,emailB) as DataNewss,
 		`DataMKO`,`DataSumberLuar`,
