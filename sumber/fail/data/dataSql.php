@@ -694,6 +694,29 @@ endif;//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlMkoDaa')):
+	function sqlMkoDaa($jadual,$id)
+	{
+		$sql ="SELECT `barcode`,`kp`,`msic`,`FE`,`NO SSM`,`nama`,
+		concat_ws('|',orang,notel,nofax,email,orangB,notelB,nofaxB,
+		email1,emailB) as DataNewss,
+		`DataMKO`,`DataSumberLuar`,
+		format(DataHasil,0) as DataHasil,
+		format(DataBelanja,0) as DataBelanja,
+		format(DataGaji,0) as DataGaji,
+		format(DataHarta,0) as DataHarta,
+		format(DataPekerja,0) as DataPekerja,
+		format(DataStok,0) as DataStok
+		FROM `$jadual`
+		WHERE `barcode` = '$id' ";
+		// $sqlMkoDaa = sqlMkoDaa($jadual,$id);
+		return $sql;
+	}
+endif;//*/
+
+#--------------------------------------------------------------------------------------------------
+###################################################################################################
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlUpdateMedan')):
 	function sqlUpdateMedan($jadualBe,$jadual,$fe,$peratus)
 	{
