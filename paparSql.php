@@ -126,10 +126,14 @@ echo "<!-- Senarai Jadual
 echo "\n<table><tr>";
 #--------------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
+	if(semakTatasusunan($rowDaa) == 'array') :
 	#----------------------------------------------------------------------------------------------
 	$table = paparSatuJe($rowDaa,$myJadualDaa);
-	echo "\n<td valign=\"top\"><table id=\"allTable\" class=$class>\n$table\n</table></td>";
+	echo "\n<td valign=\"top\"><table class=$class>\n$table\n</table></td>";
 	#----------------------------------------------------------------------------------------------
+	else: echo "\n<td valign=\"top\">Tiada Data</td>";
+	#----------------------------------------------------------------------------------------------
+	endif;
 	endforeach;
 #--------------------------------------------------------------------------------------------------
 echo "\n</tr></table>\n";
