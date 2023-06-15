@@ -5,6 +5,7 @@ require './tatarajah.php';
 require './sumber/fail/php/fungsi_global.php';
 //require '/sumber/fail/data/***.php';
 require './sumber/fail/data/dataSql.php';
+require './sumber/fail/data/dataSqlMysqli.php';
 //require './sumber/fail/csv/***.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
@@ -53,6 +54,7 @@ $peratus = bersih($_POST['peratusan']);
 #--------------------------------------------------------------------------------------------------
 //$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
 $sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id,$peratus);
+$sql['dataMKO'] = sqlMkoDaa($myJadual[0],$id);
 //$dataSql[] = sqlDataAesV01($myJadual[0],$myJadual[1],$fe,$id);
 //$dataSql[] = sqlCariMsicAes($myJadual[0],$myJadual[1],$fe,$id);
 //$dataSql[] = sqlNewssV00($myJadual[0],$myJadual[2],$fe,$id);
@@ -69,7 +71,6 @@ $sql['SsmRocUntungRugiV01'] = sqlSsmRocUntungRugiV01($myJadual[0],$myJadual[4],$
 //$dataSql[] = sqlRangkaKwspV03($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV04($myJadual[0],$myJadual[5],$fe,$id);
 $sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id,$peratus);
-//$dataSql[] = sqlCreateBe2023Newss5p($fe);
 //$dataSql[] = '';//*/
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
