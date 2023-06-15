@@ -185,7 +185,9 @@ if ( ! function_exists('sqlNewssV03')):
 		FORMAT(`YR_REVENUE_AMT`,0) as hasil,
 		FORMAT(`YR_EXPENDITURE_AMT`,0) belanja,
 		FORMAT((YR_REVENUE_AMT * $peratus),0) as anggarHasil,
-		FORMAT((YR_EXPENDITURE_AMT * $peratus),0) as anggarBelanja
+		FORMAT((YR_EXPENDITURE_AMT * $peratus),0) as anggarBelanja,
+		FORMAT((`YR_FIXED_ASSET_AMT` * $peratus),0) as anggarHarta,
+		FORMAT((`YR_SALARY_AMT` * $peratus),0) as anggarGaji
 
 		FROM `$jadual`
 		CROSS JOIN (SELECT @cnt := 0) AS dummy
@@ -604,7 +606,7 @@ if ( ! function_exists('sqlSemuaNewss')):
 		$sql = "SELECT (@cnt := @cnt + 1) AS Bil,
 		`NO_SIRI`,CONCAT_WS('-',BUSINESS_REG_NO,CHECK_DIGIT) as NOSSM,
 		CONCAT_ws('|',`NAMA_PENDAFTARAN`,`NAMA_PERNIAGAAN`) as syarikat,
-		`ID_FE`,`BORANG PANJANG/ PENDEK`,
+		`ID_FE`,kp,msic,`BORANG PANJANG/ PENDEK` JenisBrg,
 		CONCAT_ws('|',`TAHUN DAFTAR`,`PENDUA`,`CATATAN SEMAKAN`) as nota,
 		`YR_WORKER_HEAD_COUNT` as staf ,`YR_SALARY_AMT` as gaji,
 		`YR_FIXED_ASSET_AMT` as harta,
@@ -613,7 +615,9 @@ if ( ! function_exists('sqlSemuaNewss')):
 		FORMAT(`YR_REVENUE_AMT`,0) as hasil,
 		FORMAT(`YR_EXPENDITURE_AMT`,0) belanja,
 		FORMAT((YR_REVENUE_AMT * $peratus),0) as anggarHasil,
-		FORMAT((YR_EXPENDITURE_AMT * $peratus),0) as anggarBelanja
+		FORMAT((YR_EXPENDITURE_AMT * $peratus),0) as anggarBelanja,
+		FORMAT((`YR_FIXED_ASSET_AMT` * $peratus),0) as anggarHarta,
+		FORMAT((`YR_SALARY_AMT` * $peratus),0) as anggarGaji
 
 		FROM `$jadual`
 		CROSS JOIN (SELECT @cnt := 0) AS dummy
