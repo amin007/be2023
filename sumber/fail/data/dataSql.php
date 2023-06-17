@@ -317,6 +317,23 @@ if ( ! function_exists('sqlSsmRocUntungRugiV01')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSsmRocInfoV00')):
+	function sqlSsmRocInfoV00($jadualBe,$jadual,$fe,$id,$peratus)
+	{
+		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
+		//$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
+		$sql = "SELECT ESTABLISHMENT_ID,BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,
+		ROC_vchcompanyno NOSSM,ROC_vchcompanyname NAMESSM,
+		MSIC,KP,sektor,	ROC_status,ROC_dtincorporationdate,
+		ROC_dtdissolveddate,ROC_nama_pendaftaran_lama,
+		ROC_vchbusinessdescription,
+		ROC_vchcompanynumbernewformat
+		FROM `$jadual` where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
+		// $sqlSsmRocInfoV00 = sqlSsmRocInfoV00($jadualBe,$jadual,$fe,$id,$peratus);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 /*if ( ! function_exists('xxx2')):
 
 		id,STATE_A,PO_A,MSIC,KP,sektor,subsektor,ESTABLISHMENT_ID,BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,
