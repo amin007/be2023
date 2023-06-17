@@ -372,31 +372,55 @@ if ( ! function_exists('sqlSsmRocInfoAll')):
 		$jadualInfo = $jadual[6];//info
 		$jadualHarta = $jadual[3];//harta
 		$jadualUntung = $jadual[4];//untung rugi
+		#------------------------------------------------------------------------------------------
+		$anggarHasil = "ROC_PnL_dblrevenue * $peratus";
+		$anggarBelanja89 = "((ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax) * $peratus)";
+		$anggarBelanja99 = "((ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax) * $peratus)";
+		$anggarProfitBeforeTax = "ROC_PnL_dblprofitbeforetax * $peratus";
+		$anggarProfitAfterTax = "ROC_PnL_dblprofitaftertax * $peratus";
+		$cukaiLama = "ROC_PnL_dblprofitaftertax - ROC_PnL_dblprofitbeforetax";
+		$cukaiBaru = "(ROC_PnL_dblprofitaftertax - ROC_PnL_dblprofitbeforetax) * $peratus";
+		$anggarHarta = "(ROC_dblfixedasset * $peratus)";
+		$anggarStok = "$anggarBelanja89 * 0.04";
+		#------------------------------------------------------------------------------------------
+		$pengurus = $staf['pengurus']; $asas = $staf['asas']; $bil = $staf['bil'];
+		$gajiAsas = "(($bil-1)*$asas*13)";
+		$gajiPengurus = "($pengurus*13)";
+		$gajiStaf = "($gajiPengurus+$gajiAsas)";
+		#------------------------------------------------------------------------------------------
 		//$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
 		//$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
 		$sql = "SELECT a.ESTABLISHMENT_ID,a.BUSINESS_REG_NO,a.REGISTERED_NAME,a.TRADING_NAME,
 		a.ROC_vchcompanyno NOSSM,a.ROC_vchcompanyname NAMESSM, a.MSIC,a.KP,a.sektor,
 		ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
 		ROC_chraccrualaccount,ROC_dtdatefinancialyearend datefinancial,
-		ROC_chrtypefinancialreport,
+		ROC_chrtypefinancialreport,ROC_dblsharepremium,
 		FORMAT(ROC_dblfixedasset,0) as fixedAsset,
-		FORMAT((ROC_dblfixedasset * $peratus),0) as anggarFixedAsset,
 		FORMAT(ROC_dblpaidupcapital,0) as paidupcapital,
-		ROC_dblsharepremium,
 		ROC_PnL_Tahun_Kewangan_Terkini as ThnKewangan,
 		ROC_PnL_dtdatefinancialyearend as DateFinancial,
 		FORMAT(ROC_PnL_dblturnover,0) as turnoverJualan,
 		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenueHasil,
-		FORMAT(ROC_PnL_dblrevenue * $peratus,0) as anggarDblrevenue,
 		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax,0) as belanja89,
-		FORMAT((ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax)*0.04,0) as anggarStok,
-		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
-		FORMAT(ROC_PnL_dblprofitbeforetax * $peratus,0) as anggarProfitBeforeTax,
+		FORMAT($cukaiLama,0) as cukaiLama,
 		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax,0) as belanja99,
+		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
 		FORMAT(ROC_PnL_dblprofitaftertax,0) as dblprofitaftertax,
-		FORMAT(ROC_PnL_dblprofitaftertax * $peratus,0) as anggarProfitAfterTax,
 		FORMAT(ROC_PnL_dblprofitshareholder,0) as profitshareholder,
-		FORMAT(ROC_PnL_dblnetdividend,0) as netdividend
+		FORMAT(ROC_PnL_dblnetdividend,0) as netdividend,
+		FORMAT($anggarHasil,0) as anggarHasil,
+		FORMAT($anggarBelanja89,0) as anggarBelanja89,
+		FORMAT($cukaiBaru,0) as cukaiBaru,
+		FORMAT($anggarBelanja99,0) as anggarBelanja99,
+		FORMAT($anggarProfitBeforeTax,0) as anggarProfitBeforeTax,
+		FORMAT($anggarProfitAfterTax,0) as anggarProfitAfterTax,
+		FORMAT($anggarHarta,0) as anggarHarta,
+		FORMAT($gajiPengurus,0) as anggarGajiPengurus,
+		FORMAT($gajiAsas,0) as anggarGajiAsas,
+		FORMAT($gajiStaf,0) as anggarGaji,
+		FORMAT($bil,0) as anggarStaf,
+		FORMAT($anggarStok,0) as anggarStok
+
 		FROM `$jadualHarta` a INNER JOIN `$jadualUntung` b
 		on a.ESTABLISHMENT_ID = b.ESTABLISHMENT_ID
 		WHERE a.ESTABLISHMENT_ID = '$id' ";
@@ -512,7 +536,7 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		FORMAT(($stafPengurus + $stafBaki) * $peratus,0) as anggarGajiPeratus,
 		NO_TELEFON Tel,NO_FAKS Fax,EMEL_EMEL Emel
 		from `$jadual`
-		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
+		where `ESTABLISHMENT_ID` = '$id' ";
 		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
 		return $sql;
 	}
