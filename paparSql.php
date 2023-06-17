@@ -51,6 +51,8 @@ Array
 $fe = bersih($_POST['namaFe']);//'muhaimin';
 $id = bersih($_POST['noSiri']);//'000002791307';
 $peratus = bersih($_POST['peratusan']);
+$pengurus = bersih($_POST['pengurus']);
+$staf = bersih($_POST['staf']);
 #--------------------------------------------------------------------------------------------------
 //$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
 $sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id,$peratus);
@@ -70,7 +72,7 @@ $sql['SsmRocUntungRugiV01'] = sqlSsmRocUntungRugiV01($myJadual[0],$myJadual[4],$
 //$dataSql[] = sqlRangkaKwspV02($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV03($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV04($myJadual[0],$myJadual[5],$fe,$id);
-$sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id,$peratus);
+$sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id,$peratus,$pengurus,$staf);
 //$dataSql[] = '';//*/
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
