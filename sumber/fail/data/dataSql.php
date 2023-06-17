@@ -494,11 +494,13 @@ if ( ! function_exists('sqlRangkaKwspV04')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlRangkaKwspV05')):
-	function sqlRangkaKwspV05($jadualBe,$jadual,$fe,$id,$peratus,$pengurus,$staf)
+	function sqlRangkaKwspV05($jadualBe,$jadual,$fe,$id,$peratus,$staf)
 	{
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id,$peratus);
+		$pengurus = $staf['pengurus'];
+		$asas = $staf['asas'];
 		$stafPengurus = "($pengurus*13)";
-		$stafBaki = "((BILANGAN_PEKERJA-1)*$staf*13)";
+		$stafBaki = "((BILANGAN_PEKERJA-1)*$asas*13)";
 		//$sql = "SET @rownr=0;
 		//SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
 		$sql = "SELECT ESTABLISHMENT_ID,BUSINESS_REG_NO as NOSSM,
