@@ -68,7 +68,8 @@ if ( ! function_exists('ulangNamaMedan')):
 			$namaMedan = bersih($_POST['fields'][$key]['name']);
 			$type = bersih($_POST['fields'][$key]['type']);
 			$length = bersih($_POST['fields'][$key]['Length']);
-			$p .= "`$namaMedan` $type($length) /**/,\n";
+			$length = ($lengthMedan == null) ? '':"($lengthMedan)";
+			$p .= "`$namaMedan` $type$length /**/,\n";
 		endforeach;
 
 		return $p;
