@@ -405,14 +405,20 @@ if ( ! function_exists('sqlRangkaKwspV04')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlRangkaKwspV05')):
-	function sqlRangkaKwspV05($jadualBe,$jadual,$fe,$id,$peratus)
+	function sqlRangkaKwspV05($jadualBe,$jadual,$fe,$id,$peratus,$pengurus=9000)
 	{
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id,$peratus);
+		$stafPengurus = "($pengurus*13)";
+		$stafBaki = "((BILANGAN_PEKERJA-1)*1500*13)";
 		//$sql = "SET @rownr=0;
 		//SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
 		$sql = "SELECT ESTABLISHMENT_ID,BUSINESS_REG_NO as NOSSM,
 		concat_ws('|',REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
 		STATUS_AKTIVITI as Status,BILANGAN_PEKERJA as Staf,
+		FORMAT($stafPengurus,0) as anggarGajiPengurus,
+		FORMAT($stafBaki,0) as anggarGajiRM1500,
+		FORMAT($stafPengurus + $stafBaki,0) as anggarGaji,
+		FORMAT(($stafPengurus + $stafBaki) * $peratus,0) as anggarGajiPeratus,
 		NO_TELEFON Tel,NO_FAKS Fax,EMEL_EMEL Emel
 		from `$jadual`
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
