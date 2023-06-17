@@ -530,6 +530,7 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		$anggarBelanja = "$anggarGaji/(1 - $peratusGaji )";
 		$anggarStok = "($anggarGaji/(1 - $peratusGaji ))*0.04";
 		$anggarHasil = "$anggarBelanja/0.92";
+		$anggarHarta = "$anggarHasil/0.18";
 		//$sql = "SET @rownr=0;
 		//SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
 		$sql = "SELECT ESTABLISHMENT_ID,BUSINESS_REG_NO as NOSSM,
@@ -539,9 +540,11 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		FORMAT($stafPengurus,0) as anggarGajiPengurus,
 		FORMAT($stafBaki,0) as anggarGajiRM1500,
 		FORMAT($stafPengurus + $stafBaki,0) as Gaji,
-		FORMAT(($stafPengurus + $stafBaki) * $peratus,0) as anggarGaji,
-		FORMAT($anggarBelanja,0) as anggarBelanja,
 		FORMAT($anggarHasil,0) as anggarHasil,
+		FORMAT($anggarBelanja,0) as anggarBelanja,
+		FORMAT(($stafPengurus + $stafBaki) * $peratus,0) as anggarGaji,
+		FORMAT($anggarHarta,0) as anggarHarta,
+		BILANGAN_PEKERJA as Staf,
 		FORMAT($anggarStok,0) as anggarStok
 		from `$jadual`
 		where `ESTABLISHMENT_ID` = '$id' ";
