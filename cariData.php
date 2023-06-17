@@ -44,6 +44,16 @@ print <<<END
 		name="peratusan" placeholder="Masukkan Peratusan">
 	</div>
 	<div class="form-group">
+		<label for="onputPeratusan">Gaji Pengurus</label>
+		<input type="text" class="form-control form-control-lg"
+		name="pengurus" value="5000">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Gaji Staf</label>
+		<input type="text" class="form-control form-control-lg"
+		name="staf" value="1500">
+	</div>
+	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
 	</div><!-- / class="form-group" -->
 </form>
