@@ -523,21 +523,30 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id,$peratus);
 		$pengurus = $staf['pengurus'];
 		$asas = $staf['asas'];
+		$peratusGaji = $staf['peratusGaji'];
 		$stafPengurus = "($pengurus*13)";
 		$stafBaki = "((BILANGAN_PEKERJA-1)*$asas*13)";
+		$anggarGaji = "($stafPengurus + $stafBaki) * $peratus";
+		$anggarBelanja = "$anggarGaji/(1 - $peratusGaji )";
+		$anggarStok = "($anggarGaji/(1 - $peratusGaji ))*0.04";
+		$anggarHasil = "$anggarBelanja/0.92";
 		//$sql = "SET @rownr=0;
 		//SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
 		$sql = "SELECT ESTABLISHMENT_ID,BUSINESS_REG_NO as NOSSM,
 		concat_ws('|',REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
+		NO_TELEFON Tel,NO_FAKS Fax,EMEL_EMEL Emel,
 		STATUS_AKTIVITI as Status,BILANGAN_PEKERJA as Staf,
 		FORMAT($stafPengurus,0) as anggarGajiPengurus,
 		FORMAT($stafBaki,0) as anggarGajiRM1500,
-		FORMAT($stafPengurus + $stafBaki,0) as anggarGaji,
-		FORMAT(($stafPengurus + $stafBaki) * $peratus,0) as anggarGajiPeratus,
-		NO_TELEFON Tel,NO_FAKS Fax,EMEL_EMEL Emel
+		FORMAT($stafPengurus + $stafBaki,0) as Gaji,
+		FORMAT(($stafPengurus + $stafBaki) * $peratus,0) as anggarGaji,
+		FORMAT($anggarBelanja,0) as anggarBelanja,
+		FORMAT($anggarHasil,0) as anggarHasil,
+		FORMAT($anggarStok,0) as anggarStok
 		from `$jadual`
 		where `ESTABLISHMENT_ID` = '$id' ";
 		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
+		echo $sql;
 		return $sql;
 	}
 endif;//*/
