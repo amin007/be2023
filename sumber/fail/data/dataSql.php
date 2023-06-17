@@ -303,6 +303,7 @@ if ( ! function_exists('sqlSsmRocUntungRugiV01')):
 		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenueHasil,
 		FORMAT(ROC_PnL_dblrevenue * $peratus,0) as anggarDblrevenue,
 		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax,0) as belanja89,
+		FORMAT((ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax)*0.04,0) as anggarStok,
 		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
 		FORMAT(ROC_PnL_dblprofitbeforetax * $peratus,0) as anggarProfitBeforeTax,
 		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax,0) as belanja99,
