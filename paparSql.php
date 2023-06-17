@@ -67,6 +67,7 @@ $sql['SsmRocHartaV00'] = sqlSsmRocHartaV00($myJadual[0],$myJadual[3],$fe,$id,$pe
 //$sql['SsmRocHartaV01'] = sqlSsmRocHartaV01($myJadual[0],$myJadual[3],$fe,$id);
 //$dataSql[] = sqlSsmRocUntungRugiV00($myJadual[0],$myJadual[4],$fe,$id);
 $sql['SsmRocUntungRugiV01'] = sqlSsmRocUntungRugiV01($myJadual[0],$myJadual[4],$fe,$id,$peratus);
+//$sql['SsmRocInfoV00'] = sqlSsmRocInfoV00($myJadual[0],$myJadual[6],$fe,$id,$peratus);
 //$dataSql[] = sqlRangkaKwspV00($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV01($myJadual[0],$myJadual[5],$fe,$id);
 //$dataSql[] = sqlRangkaKwspV02($myJadual[0],$myJadual[5],$fe,$id);
