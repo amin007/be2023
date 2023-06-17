@@ -54,6 +54,7 @@ $peratus = bersih($_POST['peratusan']);
 $staf['pengurus'] = bersih($_POST['pengurus']);
 $staf['asas'] = bersih($_POST['gajiStaf']);
 $staf['bil'] = bersih($_POST['bilStaf']);
+$staf['peratusGaji'] = bersih($_POST['peratusGaji']);
 #--------------------------------------------------------------------------------------------------
 //$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
 $sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id,$peratus);
