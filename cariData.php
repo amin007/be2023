@@ -51,7 +51,12 @@ print <<<END
 	<div class="form-group">
 		<label for="onputPeratusan">Gaji Staf</label>
 		<input type="text" class="form-control form-control-lg"
-		name="staf" value="1500">
+		name="gajiStaf" value="1500">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Bil Staf</label>
+		<input type="text" class="form-control form-control-lg"
+		name="bilStaf" value="1500">
 	</div>
 	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
