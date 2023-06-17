@@ -335,6 +335,77 @@ if ( ! function_exists('sqlSsmRocInfoV00')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+/*
+		a.ROC_status,ROC_dtincorporationdate,
+		ROC_dtdissolveddate,ROC_nama_pendaftaran_lama,
+		ROC_vchbusinessdescription,
+		ROC_vchcompanynumbernewformat
+
+		ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
+		ROC_chraccrualaccount,ROC_dtdatefinancialyearend datefinancial,
+		ROC_chrtypefinancialreport,
+		FORMAT(ROC_dblfixedasset,0) as fixedAsset,
+		FORMAT((ROC_dblfixedasset * $peratus),0) as anggarFixedAsset,
+		FORMAT(ROC_dblpaidupcapital,0) as paidupcapital,
+		ROC_dblsharepremium,
+		ROC_PnL_Tahun_Kewangan_Terkini as ThnKewangan,
+		ROC_PnL_dtdatefinancialyearend as DateFinancial,
+		FORMAT(ROC_PnL_dblturnover,0) as turnoverJualan,
+		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenueHasil,
+		FORMAT(ROC_PnL_dblrevenue * $peratus,0) as anggarDblrevenue,
+		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax,0) as belanja89,
+		FORMAT((ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax)*0.04,0) as anggarStok,
+		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
+		FORMAT(ROC_PnL_dblprofitbeforetax * $peratus,0) as anggarProfitBeforeTax,
+		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax,0) as belanja99,
+		FORMAT(ROC_PnL_dblprofitaftertax,0) as dblprofitaftertax,
+		FORMAT(ROC_PnL_dblprofitaftertax * $peratus,0) as anggarProfitAfterTax,
+		FORMAT(ROC_PnL_dblprofitshareholder,0) as profitshareholder,
+		FORMAT(ROC_PnL_dblnetdividend,0) as netdividend
+		#
+*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSsmRocInfoAll')):
+	function sqlSsmRocInfoAll($jadual,$fe,$id,$peratus,$staf)
+	{
+		$jadualBe = $jadual[0];
+		$jadualInfo = $jadual[6];//info
+		$jadualHarta = $jadual[3];//harta
+		$jadualUntung = $jadual[4];//untung rugi
+		//$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
+		//$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
+		$sql = "SELECT a.ESTABLISHMENT_ID,a.BUSINESS_REG_NO,a.REGISTERED_NAME,a.TRADING_NAME,
+		a.ROC_vchcompanyno NOSSM,a.ROC_vchcompanyname NAMESSM, a.MSIC,a.KP,a.sektor,
+		ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
+		ROC_chraccrualaccount,ROC_dtdatefinancialyearend datefinancial,
+		ROC_chrtypefinancialreport,
+		FORMAT(ROC_dblfixedasset,0) as fixedAsset,
+		FORMAT((ROC_dblfixedasset * $peratus),0) as anggarFixedAsset,
+		FORMAT(ROC_dblpaidupcapital,0) as paidupcapital,
+		ROC_dblsharepremium,
+		ROC_PnL_Tahun_Kewangan_Terkini as ThnKewangan,
+		ROC_PnL_dtdatefinancialyearend as DateFinancial,
+		FORMAT(ROC_PnL_dblturnover,0) as turnoverJualan,
+		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenueHasil,
+		FORMAT(ROC_PnL_dblrevenue * $peratus,0) as anggarDblrevenue,
+		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax,0) as belanja89,
+		FORMAT((ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax)*0.04,0) as anggarStok,
+		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
+		FORMAT(ROC_PnL_dblprofitbeforetax * $peratus,0) as anggarProfitBeforeTax,
+		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax,0) as belanja99,
+		FORMAT(ROC_PnL_dblprofitaftertax,0) as dblprofitaftertax,
+		FORMAT(ROC_PnL_dblprofitaftertax * $peratus,0) as anggarProfitAfterTax,
+		FORMAT(ROC_PnL_dblprofitshareholder,0) as profitshareholder,
+		FORMAT(ROC_PnL_dblnetdividend,0) as netdividend
+		FROM `$jadualHarta` a INNER JOIN `$jadualUntung` b
+		on a.ESTABLISHMENT_ID = b.ESTABLISHMENT_ID
+		WHERE a.ESTABLISHMENT_ID = '$id' ";
+		// $sqlSsmRocInfoAll = sqlSsmRocInfoAll($jadual,$fe,$id,$peratus);
+		//echo $sql;
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 /*if ( ! function_exists('xxx2')):
 
 		id,STATE_A,PO_A,MSIC,KP,sektor,subsektor,ESTABLISHMENT_ID,BUSINESS_REG_NO,REGISTERED_NAME,TRADING_NAME,
