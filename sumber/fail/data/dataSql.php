@@ -573,17 +573,20 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		//SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
 		$sql = "SELECT ESTABLISHMENT_ID,BUSINESS_REG_NO as NOSSM,
 		concat_ws('|',REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,
-		NO_TELEFON Tel,NO_FAKS Fax,EMEL_EMEL Emel,
-		STATUS_AKTIVITI as Status,BILANGAN_PEKERJA as Staf,
-		FORMAT($stafPengurus,0) as anggarGajiPengurus,
-		FORMAT($stafBaki,0) as anggarGajiRM1500,
-		FORMAT($stafPengurus + $stafBaki,0) as Gaji,
-		FORMAT($anggarHasil,0) as anggarHasil,
-		FORMAT($anggarBelanja,0) as anggarBelanja,
-		FORMAT($anggarGaji,0) as anggarGaji,
-		FORMAT($anggarHarta,0) as anggarHarta,
-		BILANGAN_PEKERJA as bilStaf,
-		FORMAT($anggarStok,0) as anggarStok
+		NO_TELEFON Tel,NO_FAKS Fax,EMEL_EMEL Emel,STATUS_AKTIVITI as Status,
+		BILANGAN_PEKERJA as Staf,'data bawah ini semua anggaran' as Anggaran,
+		FORMAT($stafPengurus,0) as gajiPengurus,
+		FORMAT($stafPengurus/13,0) as blnPengurus,
+		FORMAT($stafBaki,0) as gajiStaf,
+		FORMAT($stafBaki/(BILANGAN_PEKERJA-1)/13,0) as blnStaf,
+		FORMAT($stafPengurus + $stafBaki,0) as JumGaji,
+		FORMAT(($stafPengurus + $stafBaki)/BILANGAN_PEKERJA/13,0) as PurataGaji,
+		FORMAT($anggarHasil,0) as Hasil,
+		FORMAT($anggarBelanja,0) as Belanja,
+		FORMAT($anggarGaji,0) as Gaji,
+		FORMAT($anggarHarta,0) as Harta,
+		BILANGAN_PEKERJA as Pekerja,
+		FORMAT($anggarStok,0) as Stok
 		from `$jadual`
 		where `ESTABLISHMENT_ID` = '$id' ";
 		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
