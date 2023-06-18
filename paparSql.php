@@ -58,13 +58,14 @@ $staf['peratusGaji'] = bersih($_POST['peratusGaji']);
 #--------------------------------------------------------------------------------------------------
 //$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
 $sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id,$peratus);
-$sql['dataMKO'] = sqlMkoDaa($myJadual[0],$id);
+//$sql['dataMKO'] = sqlMkoDaa($myJadual[0],$id);
 //$dataSql[] = sqlDataAesV01($myJadual[0],$myJadual[1],$fe,$id);
 //$dataSql[] = sqlCariMsicAes($myJadual[0],$myJadual[1],$fe,$id);
 //$dataSql[] = sqlNewssV00($myJadual[0],$myJadual[2],$fe,$id);
 //$dataSql[] = sqlNewssV01($myJadual[0],$myJadual[2],$fe,$id);
 //$dataSql[] = sqlNewssV02($myJadual[0],$myJadual[2],$fe,$id);
-$sql['NewssV03'] = sqlNewssV03($myJadual[0],$myJadual[2],$fe,$id,$peratus);
+//$sql['NewssV03'] = sqlNewssV03($myJadual[0],$myJadual[2],$fe,$id,$peratus);
+$sql['NewssV04'] = sqlNewssV04($myJadual[0],$myJadual[2],$fe,$id,$peratus);
 //$sql['SsmRocHartaV00'] = sqlSsmRocHartaV00($myJadual[0],$myJadual[3],$fe,$id,$peratus);
 //$sql['SsmRocHartaV01'] = sqlSsmRocHartaV01($myJadual[0],$myJadual[3],$fe,$id);
 //$dataSql[] = sqlSsmRocUntungRugiV00($myJadual[0],$myJadual[4],$fe,$id);
