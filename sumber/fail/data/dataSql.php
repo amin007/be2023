@@ -430,8 +430,7 @@ if ( ! function_exists('sqlSsmRocInfoAll')):
 		//$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
 		$sql = "
 		SELECT a.ESTABLISHMENT_ID,a.BUSINESS_REG_NO,a.REGISTERED_NAME,a.TRADING_NAME,
-		a.ROC_vchcompanyno NOSSM,a.ROC_vchcompanyname NAMESSM, a.MSIC,a.KP,a.sektor,
-		ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
+		a.MSIC,a.KP,ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
 		ROC_chraccrualaccount,ROC_dtdatefinancialyearend datefinancial,
 		ROC_chrtypefinancialreport,ROC_dblsharepremium,
 		FORMAT(ROC_dblfixedasset,0) as fixedAsset,
