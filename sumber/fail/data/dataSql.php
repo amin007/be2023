@@ -408,13 +408,16 @@ if ( ! function_exists('sqlSsmRocInfoAll')):
 		$jadualHarta = $jadual[3];//harta
 		$jadualUntung = $jadual[4];//untung rugi
 		#------------------------------------------------------------------------------------------
+		$belanja89 = 'ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax';
+		$cukaiLama = 'ROC_PnL_dblprofitaftertax - ROC_PnL_dblprofitbeforetax';
+		$belanja99 = "($belanja89 + $cukaiLama)";
+		#------------------------------------------------------------------------------------------
 		$anggarHasil = "ROC_PnL_dblrevenue * $peratus";
 		$anggarBelanja89 = "((ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax) * $peratus)";
-		$anggarBelanja99 = "((ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax) * $peratus)";
+		$cukaiBaru = "(ROC_PnL_dblprofitaftertax - ROC_PnL_dblprofitbeforetax) * $peratus";
+		$anggarBelanja99 = "( ($anggarBelanja89 + $cukaiBaru) * $peratus)";
 		$anggarProfitBeforeTax = "ROC_PnL_dblprofitbeforetax * $peratus";
 		$anggarProfitAfterTax = "ROC_PnL_dblprofitaftertax * $peratus";
-		$cukaiLama = "ROC_PnL_dblprofitaftertax - ROC_PnL_dblprofitbeforetax";
-		$cukaiBaru = "(ROC_PnL_dblprofitaftertax - ROC_PnL_dblprofitbeforetax) * $peratus";
 		$anggarHarta = "(ROC_dblfixedasset * $peratus)";
 		$anggarStok = "$anggarBelanja89 * 0.04";
 		#------------------------------------------------------------------------------------------
@@ -425,7 +428,8 @@ if ( ! function_exists('sqlSsmRocInfoAll')):
 		#------------------------------------------------------------------------------------------
 		//$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
 		//$sql = "SELECT (@cnt := @cnt + 1) AS Bil,ESTABLISHMENT_ID,
-		$sql = "SELECT a.ESTABLISHMENT_ID,a.BUSINESS_REG_NO,a.REGISTERED_NAME,a.TRADING_NAME,
+		$sql = "
+		SELECT a.ESTABLISHMENT_ID,a.BUSINESS_REG_NO,a.REGISTERED_NAME,a.TRADING_NAME,
 		a.ROC_vchcompanyno NOSSM,a.ROC_vchcompanyname NAMESSM, a.MSIC,a.KP,a.sektor,
 		ROC_Tahun_Kewangan_Terkini AS thnkewangan,ROC_dtdateoftabling,
 		ROC_chraccrualaccount,ROC_dtdatefinancialyearend datefinancial,
@@ -436,9 +440,9 @@ if ( ! function_exists('sqlSsmRocInfoAll')):
 		ROC_PnL_dtdatefinancialyearend as DateFinancial,
 		FORMAT(ROC_PnL_dblturnover,0) as turnoverJualan,
 		FORMAT(ROC_PnL_dblrevenue,0) as dblrevenueHasil,
-		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitbeforetax,0) as belanja89,
+		FORMAT($belanja89,0) as belanja89,
 		FORMAT($cukaiLama,0) as cukaiLama,
-		FORMAT(ROC_PnL_dblrevenue - ROC_PnL_dblprofitaftertax,0) as belanja99,
+		FORMAT($belanja99,0) as belanja99,
 		FORMAT(ROC_PnL_dblprofitbeforetax,0) as dblprofitbeforetax,
 		FORMAT(ROC_PnL_dblprofitaftertax,0) as dblprofitaftertax,
 		FORMAT(ROC_PnL_dblprofitshareholder,0) as profitshareholder,
@@ -460,7 +464,7 @@ if ( ! function_exists('sqlSsmRocInfoAll')):
 		on a.ESTABLISHMENT_ID = b.ESTABLISHMENT_ID
 		WHERE a.ESTABLISHMENT_ID = '$id' ";
 		// $sqlSsmRocInfoAll = sqlSsmRocInfoAll($jadual,$fe,$id,$peratus);
-		//echo $sql;
+		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
 endif;//*/
