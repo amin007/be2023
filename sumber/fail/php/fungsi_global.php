@@ -3,7 +3,7 @@
 # fungsi global
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('semakPembolehubah')):
-	function semakPembolehubah($senarai,$jadual='entahlah',$p)
+	function semakPembolehubah($senarai,$jadual='entahlah',$p=0)
 	{
 		# semak $senarai adalah array atau tidak
 		$semak = is_array($senarai) ? 'array' : 'bukan';
@@ -837,7 +837,7 @@ END;
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('diatas')):
-	function diatas($title = 'List Folder', $urlcss)
+	function diatas($title = 'List Folder', $urlcss = null)
 	{
 		$linkCss = masukCss($urlcss);
 		$title = ($title == null) ? 'Senarai Kod' : ucfirst($title);
@@ -859,7 +859,7 @@ END;
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('diatasV01')):
-	function diatasV01($title = 'List Folder', $urlcss)
+	function diatasV01($title = 'List Folder', $urlcss = null)
 	{
 		$linkCss = masukCss($urlcss);
 		$title = ($title == null) ? 'Senarai Kod' : ucfirst($title);
@@ -894,7 +894,7 @@ END;
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('diatasV02')):
-	function diatasV02($title = 'List Folder', $urlcss)
+	function diatasV02($title = 'List Folder', $urlcss = null)
 	{
 		$linkCss = masukCss($urlcss);
 		$title = ($title == null) ? 'Senarai Kod' : ucfirst($title);
