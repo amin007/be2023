@@ -15,7 +15,7 @@ binaButang(['jadual01','jadual02']);
 $class = '"table table-striped table-bordered"';
 #--------------------------------------------------------------------------------------------------
 print <<<END
-<!-- mula borang
+<!-- mula borang 1
 =============================================================================================== -->
 <form method="POST" action="paparSql04.php" class="form-horizontal">
 	<div class="p-3 mb-2 bg-transparent text-dark">
@@ -32,7 +32,7 @@ print <<<END
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
 	</div><!-- / class="form-group" -->
 </form>
-<!-- tamat borang
+<!-- tamat borang 1
 =============================================================================================== -->
 END;
 	# tamat print <<<END
