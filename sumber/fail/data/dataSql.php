@@ -658,15 +658,15 @@ if ( ! function_exists('sqlServerVersion')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
-if ( ! function_exists('sqlTukarNamajadual')):
-	function sqlTukarNamajadual($jadual01,$jadual02)
+if ( ! function_exists('sqlTukarNamaJadual')):
+	function sqlTukarNamaJadual($jadual01,$jadual02)
 	{
 		#https://popsql.com/learn-sql/mysql/how-to-rename-a-table-in-mysql
 		$sql = "
 		ALTER TABLE `$jadual01` RENAME `$jadual02`;
 		RENAME TABLE `$jadual01` TO `$jadual02`;
 		";
-		// $sqlTukarNamajadual = sqlTukarNamajadual($jadual,$filecsv);
+		// $sqlTukarNamaJadual = sqlTukarNamaJadual($jadual01,$jadual02);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
