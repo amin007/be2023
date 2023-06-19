@@ -632,7 +632,7 @@ GRANT PRIVILEGE ON *.* TO '$username'@'$host';# simple access to all database
 #https://blog.skyvia.com/how-to-import-csv-file-into-mysql-table-in-4-different-ways/
 ## insert csv to mysql
 LOAD DATA INFILE '$filecsv'
-INTO TABLE $jadual
+INTO TABLE `$jadual`
 FIELDS TERMINATED BY ';'
 IGNORE 1 ROWS;
 */
