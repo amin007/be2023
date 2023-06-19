@@ -652,7 +652,7 @@ if ( ! function_exists('sqlServerVersion')):
 		CREATE USER '$username'@'$localhost' IDENTIFIED BY '$password';# simple
 		GRANT PRIVILEGE ON *.* TO '$username'@'$localhost';# simple access to all database
 		";
-		// $sqlServerVersion = sqlServerVersion($jadual,$filecsv);
+		// $sqlServerVersion = sqlServerVersion($dbServer,$username,$password,$newpassword);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
