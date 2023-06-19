@@ -660,6 +660,52 @@ if ( ! function_exists('sqlInsertCsv')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlServerVersion')):
+	function sqlServerVersion($dbServer,$username,$password,$newpassword)
+	{
+		$sql = "
+		SELECT version();
+		ALTER USER 'root'@'$localhost' IDENTIFIED BY '$newpassword';# reset root
+		CREATE USER '$username'@'$localhost' IDENTIFIED BY '$password';# simple
+		GRANT PRIVILEGE ON *.* TO '$username'@'$localhost';# simple access to all database
+		";
+		// $sqlServerVersion = sqlServerVersion($jadual,$filecsv);
+		//semakPembolehubah('<br>' . $sql,'sql',0);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlTukarNamajadual')):
+	function sqlTukarNamajadual($jadual01,$jadual02)
+	{
+		#https://popsql.com/learn-sql/mysql/how-to-rename-a-table-in-mysql
+		$sql = "
+		ALTER TABLE `$jadual01` RENAME `$jadual02`;
+		RENAME TABLE `$jadual01` TO `$jadual02`;
+		";
+		// $sqlTukarNamajadual = sqlTukarNamajadual($jadual,$filecsv);
+		//semakPembolehubah('<br>' . $sql,'sql',0);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlTukarNamaMedan')):
+	function sqlTukarNamaMedan($jadual,$medan01,$medan02)
+	{
+		$sql = "
+		ALTER TABLE $jadual
+		RENAME COLUMN $medan01 TO $medan02;
+		ALTER TABLE `$jadual`
+		CHANGE `$medan02` `$column02` varchar(255) NOT NULL AFTER `$medan01`;
+		";
+		// $sqlTukarNamaMedan = sqlTukarNamaMedan($jadual,$filecsv);
+		//semakPembolehubah('<br>' . $sql,'sql',0);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+###################################################################################################
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlCreateBe2023Newss5P')):
 	function sqlCreateBe2023Newss5P($jadualBe,$jadual,$fe,$id)
 	{
