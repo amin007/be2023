@@ -644,7 +644,7 @@ CHANGE `$column02` `$column02` varchar(255) NOT NULL AFTER `$column01`;
 */
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlServerVersion')):
-	function sqlServerVersion($dbServer,$username,$password,$newpassword)
+	function sqlServerVersion($localhost,$username,$password,$newpassword)
 	{
 		$sql = "
 		SELECT version();
@@ -652,7 +652,7 @@ if ( ! function_exists('sqlServerVersion')):
 		CREATE USER '$username'@'$localhost' IDENTIFIED BY '$password';# simple
 		GRANT PRIVILEGE ON *.* TO '$username'@'$localhost';# simple access to all database
 		";
-		// $sql['ServerVersion'] = sqlServerVersion($dbServer,$username,$password,$newpassword);
+		// $sql['ServerVersion'] = sqlServerVersion($localhost,$username,$password,$newpassword);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
