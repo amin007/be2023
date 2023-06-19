@@ -25,7 +25,7 @@ if ( ! function_exists('sqlFeBarcode')):
 	function sqlSelectBintang($jadual,$fe,$id,$peratus)
 	{
 		$sql = "SELECT * FROM `$jadual` LIMIT 10";
-		// $sqlFeBarcode = sqlFeBarcode($fe);
+		// $sql['FeBarcode'] = sqlFeBarcode($fe);
 		return $sql;
 	}
 endif;//*/
@@ -35,7 +35,7 @@ if ( ! function_exists('sqlFeBarcode')):
 	{
 		$sql = "SELECT `barcode` FROM `$jadualBe` WHERE fe like '%$fe%'"
 		. "and `barcode` = '$id' ";
-		// $sqlFeBarcode = sqlFeBarcode($fe);
+		// $sql['FeBarcode'] = sqlFeBarcode($fe);
 		return $sql;
 	}
 endif;//*/
@@ -46,7 +46,7 @@ if ( ! function_exists('sqlDataAesV00')):
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
 		$sql = 'select * from `'.$jadual.'` '
 		. "where `Serial No` in ( $sqlFeBarcode )";
-		// $sqlDataAesV00 = sqlDataAesV00($jadualBe,$jadual,$fe,$id);
+		// $sql['DataAesV00'] = sqlDataAesV00($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -76,7 +76,7 @@ if ( ! function_exists('sqlDataAesV01')):
 		select
 		`Nilai ditambah (RM)`,`Jumlah pekerja`,`Gaji & upah yang dibayar (RM)`,`Nilai harta yang dimiliki pada akhir tahun (RM)`
 		from `$jadual` where `Serial No` in ( $sqlFeBarcode )";
-		// $sqlDataAesV01 = sqlDataAesVV01($jadual,$fe,$id);
+		// $sql['DataAesV01'] = sqlDataAesVV01($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -89,7 +89,7 @@ if ( ! function_exists('sqlCariMsicAes')):
 		WHERE barcode in(
 		SELECT `Serial No` FROM `$jadual`
 		WHERE `Kod Industri (MSIC)` = '46491')";
-		// $sqlCariMsicAes = sqlCariMsicAes($jadual,$fe,$id);
+		// $sql['CariMsicAes'] = sqlCariMsicAes($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -111,7 +111,7 @@ if ( ! function_exists('sqlNewssV00')):
 		SELECT * FROM `$jadual`
 		CROSS JOIN (SELECT @cnt := 0) AS dummy
 		WHERE `NO_SIRI` IN ($sqlFeBarcode)";
-		// $sqlNewssV00 = sqlNewssV00($jadual,$fe,$id);
+		// $sql['NewssV00'] = sqlNewssV00($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -135,7 +135,7 @@ if ( ! function_exists('sqlNewssV01')):
 		FROM `$jadual`
 		CROSS JOIN (SELECT @cnt := 0) AS dummy
 		WHERE `NO_SIRI` IN ($sqlFeBarcode)";
-		// $sqlNewssV01 = sqlNewssV01($jadual,$fe,$id);
+		// $sql['NewssV01'] = sqlNewssV01($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -163,7 +163,7 @@ if ( ! function_exists('sqlNewssV02')):
 		FROM `$jadual`
 		CROSS JOIN (SELECT @cnt := 0) AS dummy
 		WHERE `NO_SIRI` IN ($sqlFeBarcode)";
-		// $sqlNewssV02 = sqlsqlNewssV02($jadual,$fe,$id);
+		// $sql['NewssV02'] = sqlsqlNewssV02($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -192,7 +192,7 @@ if ( ! function_exists('sqlNewssV03')):
 		FROM `$jadual`
 		CROSS JOIN (SELECT @cnt := 0) AS dummy
 		WHERE `NO_SIRI` IN ($sqlFeBarcode)";
-		// $sqlNewssV03 = sqlNewssV03($jadual,$fe,$id);
+		// $sql['NewssV03'] = sqlNewssV03($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -226,7 +226,7 @@ if ( ! function_exists('sqlNewssV04')):
 		FROM `$jadual` a INNER JOIN `$jadualBe` b
 		ON a.NO_SIRI = b.barcode
 		WHERE `NO_SIRI` = '$id' ";
-		// $sqlNewssV03 = sqlNewssV03($jadual,$fe,$id);
+		// $sql['NewssV03'] = sqlNewssV03($jadual,$fe,$id);
 		//echo $sql;
 		return $sql;
 	}
@@ -256,7 +256,7 @@ if ( ! function_exists('sqlSsmRocHartaV00')):
 
 		FROM `$jadual`
 		where `ESTABLISHMENT_ID` in ($sqlFeBarcode)";
-		// $sqlSsmRocHartaV00 = sqlSsmRocHartaV00($jadual,$fe,$id);
+		// $sql['SsmRocHartaV00'] = sqlSsmRocHartaV00($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -286,7 +286,7 @@ if ( ! function_exists('sqlSsmRocHartaV01')):
 		FROM `$jadual`
 		CROSS JOIN (SELECT @cnt := 0) AS dummy
 		where `ESTABLISHMENT_ID` in ($sqlFeBarcode)";
-		// $sqlSsmRocHartaV01 = sqlSsmRocHartaV01($jadual,$fe,$id);
+		// $sql['SsmRocHartaV01'] = sqlSsmRocHartaV01($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -319,7 +319,7 @@ if ( ! function_exists('sqlSsmRocUntungRugiV00')):
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
 		$sql = "select * from `$jadual`
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
-		// $sqlSsmRocUntungRugiV00 = sqlSsmRocUntungRugiV00($jadualBe,$jadual,$fe,$id);
+		// $sql['SsmRocUntungRugiV00'] = sqlSsmRocUntungRugiV00($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -348,7 +348,7 @@ if ( ! function_exists('sqlSsmRocUntungRugiV01')):
 		FORMAT(ROC_PnL_dblnetdividend,0) as netdividend
 
 		FROM `$jadual` where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
-		// $sqlSsmRocUntungRugiV01 = sqlSsmRocUntungRugiV01($jadualBe,$jadual,$fe,$id);
+		// $sql['SsmRocUntungRugiV01'] = sqlSsmRocUntungRugiV01($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -365,7 +365,7 @@ if ( ! function_exists('sqlSsmRocInfoV00')):
 		ROC_vchbusinessdescription,
 		ROC_vchcompanynumbernewformat
 		FROM `$jadual` where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
-		// $sqlSsmRocInfoV00 = sqlSsmRocInfoV00($jadualBe,$jadual,$fe,$id,$peratus);
+		// $sql['SsmRocInfoV00'] = sqlSsmRocInfoV00($jadualBe,$jadual,$fe,$id,$peratus);
 		return $sql;
 	}
 endif;//*/
@@ -462,7 +462,7 @@ if ( ! function_exists('sqlSsmRocInfoAll')):
 		FROM `$jadualHarta` a INNER JOIN `$jadualUntung` b
 		on a.ESTABLISHMENT_ID = b.ESTABLISHMENT_ID
 		WHERE a.ESTABLISHMENT_ID = '$id' ";
-		// $sqlSsmRocInfoAll = sqlSsmRocInfoAll($jadual,$fe,$id,$peratus);
+		// $sql['SsmRocInfoAll'] = sqlSsmRocInfoAll($jadual,$fe,$id,$peratus);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
@@ -484,7 +484,7 @@ if ( ! function_exists('sqlRangkaKwspV00')):
 		$sqlFeBarcode = sqlFeBarcode($jadualBe,$fe,$id);
 		$sql = "select * from `$jadual`
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
-		// $sqlRangkaKwspV00 = sqlRangkaKwspV00($jadualBe,$jadual,$fe,$id);
+		// $sql['RangkaKwspV00'] = sqlRangkaKwspV00($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -499,7 +499,7 @@ if ( ! function_exists('sqlRangkaKwspV01')):
 		NOMBOR_MAJIKAN,NO_TELEFON,NO_FAKS,EMEL_EMEL
 		from `$jadual`
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
-		// $sqlRangkaKwspV01 = sqlRangkaKwspV01($jadualBe,$jadual,$fe,$id);
+		// $sql['RangkaKwspV01'] = sqlRangkaKwspV01($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -514,7 +514,7 @@ if ( ! function_exists('sqlRangkaKwspV02')):
 		NOMBOR_MAJIKAN,NO_TELEFON,NO_FAKS,EMEL_EMEL
 		from `$jadual` CROSS JOIN (SELECT @cnt := 0) AS dummy
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
-		// $sqlRangkaKwspV02 = sqlRangkaKwspV02($jadualBe,$jadual,$fe,$id);
+		// $sql['RangkaKwspV02'] = sqlRangkaKwspV02($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -532,7 +532,7 @@ if ( ! function_exists('sqlRangkaKwspV03')):
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )
 		and  STATUS_AKTIVITI = 1
 		ORDER BY 4";
-		// $sqlRangkaKwspV03 = sqlRangkaKwspV03($jadualBe,$jadual,$fe,$id);
+		// $sql['RangkaKwspV03'] = sqlRangkaKwspV03($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -550,7 +550,7 @@ if ( ! function_exists('sqlRangkaKwspV04')):
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )
 		and STATUS_AKTIVITI = 1
 		ORDER BY 4";
-		// $sqlRangkaKwspV04 = sqlRangkaKwspV04($jadualBe,$jadual,$fe,$id);
+		// $sql['RangkaKwspV04'] = sqlRangkaKwspV04($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -589,7 +589,7 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		FORMAT($anggarStok,0) as Stok
 		from `$jadual`
 		where `ESTABLISHMENT_ID` = '$id' ";
-		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
+		// $sql['RangkaKwspV05'] = sqlRangkaKwspV05($jadual,$fe,$id);
 		//echo $sql;
 		return $sql;
 	}
@@ -652,7 +652,7 @@ if ( ! function_exists('sqlServerVersion')):
 		CREATE USER '$username'@'$localhost' IDENTIFIED BY '$password';# simple
 		GRANT PRIVILEGE ON *.* TO '$username'@'$localhost';# simple access to all database
 		";
-		// $sqlServerVersion = sqlServerVersion($dbServer,$username,$password,$newpassword);
+		// $sql['ServerVersion'] = sqlServerVersion($dbServer,$username,$password,$newpassword);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
@@ -666,7 +666,7 @@ if ( ! function_exists('sqlTukarNamaJadual')):
 		ALTER TABLE `$jadual01` RENAME `$jadual02`;
 		RENAME TABLE `$jadual01` TO `$jadual02`;
 		";
-		// $sqlTukarNamaJadual = sqlTukarNamaJadual($jadual01,$jadual02);
+		// $sql['TukarNamaJadual'] = sqlTukarNamaJadual($jadual01,$jadual02);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
@@ -681,7 +681,7 @@ if ( ! function_exists('sqlTukarNamaMedan')):
 		ALTER TABLE `$jadual`
 		CHANGE `$medan02` `$column02` varchar(255) NOT NULL AFTER `$medan01`;
 		";
-		// $sqlTukarNamaMedan = sqlTukarNamaMedan($jadual,$filecsv);
+		// $sql['TukarNamaMedan'] = sqlTukarNamaMedan($jadual,$filecsv);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
@@ -698,7 +698,7 @@ if ( ! function_exists('sqlInsertCsv')):
 		FIELDS TERMINATED BY ';'
 		IGNORE 1 ROWS;
 		";
-		// $sqlInsertCsv = sqlInsertCsv($jadual,$filecsv);
+		// $sql['InsertCsv'] = sqlInsertCsv($jadual,$filecsv);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
 		return $sql;
 	}
@@ -813,7 +813,7 @@ if ( ! function_exists('sqlCreateBe2023Newss5P')):
 		`YR_IMPORT_SERVICES_AMT` int(11) DEFAULT NULL/*:string:0*/,
 		`YR_EXPORT_SERVICES_AMT` int(11) DEFAULT NULL/*:string:0*/
 		)CHARACTER SET utf8 COLLATE utf8_general_ci;';
-		// $sqlXxx2 = sqlXxx2($jadual,$fe,$id);
+		// $sql['Xxx2'] = sqlXxx2($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1025,7 +1025,7 @@ if ( ! function_exists('sqlCariBintangDaa')):
 	{
 		$sql = "SELECT * FROM `$jadual` WHERE `$medan` like '$id'"
 		. "";
-		// $sqlCariBintangDaa = sqlCariBintangDaa($jadual,$medan,$id);
+		// $sql['CariBintangDaa'] = sqlCariBintangDaa($jadual,$medan,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1035,7 +1035,7 @@ if ( ! function_exists('sqlFeJe')):
 	{
 		$sql = "SELECT `barcode` FROM `$jadualBe` WHERE fe like '%$fe%'"
 		. "";
-		// $sqlFeBarcode = sqlFeBarcode($fe);
+		// $sql['FeBarcode'] = sqlFeBarcode($fe);
 		return $sql;
 	}
 endif;//*/
@@ -1046,7 +1046,7 @@ if ( ! function_exists('sqlSemuaAes')):
 		$sqlFeBarcode = sqlFeJe($jadualBe,$fe);
 		$sql = 'select * from `'.$jadual.'` '
 		. "where `Serial No` in ( $sqlFeBarcode )";
-		// $sqlDataAesV00 = sqlDataAesV00($jadualBe,$jadual,$fe,$id);
+		// $sql['DataAesV00'] = sqlDataAesV00($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1074,7 +1074,7 @@ if ( ! function_exists('sqlSemuaNewss')):
 		FROM `$jadual`
 		CROSS JOIN (SELECT @cnt := 0) AS dummy
 		WHERE `NO_SIRI` IN ($sqlFeBarcode)";
-		// $sqlNewssV03 = sqlNewssV03($jadual,$fe,$id);
+		// $sql['NewssV03'] = sqlNewssV03($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1094,7 +1094,7 @@ if ( ! function_exists('sqlSemuaSsmRocHarta')):
 
 		FROM `$jadual`
 		where `ESTABLISHMENT_ID` in ($sqlFeBarcode)";
-		// $sqlSsmRocHartaV00 = sqlSsmRocHartaV00($jadual,$fe,$id);
+		// $sql['SsmRocHartaV00'] = sqlSsmRocHartaV00($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1119,7 +1119,7 @@ if ( ! function_exists('sqlSemuaSsmRocUntungRugi')):
 
 		FROM `$jadual`
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
-		// $sqlSsmRocUntungRugiV01 = sqlSsmRocUntungRugiV01($jadualBe,$jadual,$fe,$id);
+		// $sql['SsmRocUntungRugiV01'] = sqlSsmRocUntungRugiV01($jadualBe,$jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1136,7 +1136,7 @@ if ( ! function_exists('sqlSemuaKwsp')):
 		concat_ws('|',NO_TELEFON,NO_FAKS,EMEL_EMEL) as InfoTelMel
 		from `$jadual`
 		where `ESTABLISHMENT_ID` in ( $sqlFeBarcode )";
-		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
+		// $sql['RangkaKwspV05'] = sqlRangkaKwspV05($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1153,7 +1153,7 @@ if ( ! function_exists('sqlSemuaKwspHarta')):
 		where `ESTABLISHMENT_ID` in
 		( SELECT ESTABLISHMENT_ID FROM `$jadualSSM` where `ESTABLISHMENT_ID`
 		in ($sqlFeBarcode ) )";
-		// $sqlRangkaKwspV05 = sqlRangkaKwspV05($jadual,$fe,$id);
+		// $sql['SemuaKwspHarta'] = sqlSemuaKwspHarta($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1174,7 +1174,7 @@ if ( ! function_exists('sqlMkoDaa')):
 		concat_ws('|',format(DataStok,0),DataStok) as DataStok
 		FROM `$jadual`
 		WHERE `barcode` = '$id' ";
-		// $sqlMkoDaa = sqlMkoDaa($jadual,$id);
+		// $sql['MkoDaa'] = sqlMkoDaa($jadual,$id);
 		return $sql;
 	}
 endif;//*/
@@ -1186,7 +1186,7 @@ if ( ! function_exists('sqlUpdateMedan')):
 	function sqlUpdateMedan($jadualBe,$jadual,$fe,$peratus)
 	{
 		$sql = "UPDATE `$jadual` SET `ESTABLISHMENT_ID`=LPAD(`ESTABLISHMENT_ID`, 12, '0');";
-		// $sqlUpdateMedan = sqlUpdateMedan($jadual,$fe,$id);
+		// $sql['UpdateMedan'] = sqlUpdateMedan($jadual,$fe,$id);
 		return $sql;
 	}
 endif;//*/
