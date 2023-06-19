@@ -795,7 +795,7 @@ if ( ! function_exists('sqlSemuaNewss')):
 		$sql = "SELECT (@cnt := @cnt + 1) AS Bil,
 		`NO_SIRI`,CONCAT_WS('-',BUSINESS_REG_NO,CHECK_DIGIT) as NOSSM,
 		CONCAT_ws('|',`NAMA_PENDAFTARAN`,`NAMA_PERNIAGAAN`) as syarikat,
-		`ID_FE`,kp,msic,`BORANG PANJANG/ PENDEK` JenisBrg,
+		`ID_FE`,`msic 2008`,`BORANG PANJANG/ PENDEK` JenisBrg,
 		CONCAT_ws('|',`TAHUN DAFTAR`,`PENDUA`,`CATATAN SEMAKAN`) as nota,
 		`YR_WORKER_HEAD_COUNT` as staf ,`YR_SALARY_AMT` as gaji,
 		`YR_FIXED_ASSET_AMT` as harta,
