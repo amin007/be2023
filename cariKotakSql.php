@@ -34,6 +34,61 @@ print <<<END
 </form>
 <!-- tamat borang 1
 =============================================================================================== -->
+<!-- mula borang 2
+=============================================================================================== -->
+<form method="POST" action="paparSqlAje.php" class="form-horizontal">
+	<div class="p-3 mb-2 bg-transparent text-dark">
+		<i class="fa fa-bicycle" style="font-size:50px"></i>
+	</div><!-- / class="p-3 mb-2 bg-transparent text-dark" -->
+	<div class="form-group">
+		<label class="border border-dark btn-block">Carian Sql</label>
+	</div><!-- / class="form-group" -->
+	<div class="form-group">
+		<label for="inputMsic">Nama Jadual 01</label>
+		<input type="text" class="form-control form-control-lg"
+		name="jadual01">
+	</div>
+	<div class="form-group">
+		<label for="inputMsic">Nama Jadual 02</label>
+		<input type="text" class="form-control form-control-lg"
+		name="jadual02">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Medan 01</label>
+		<input type="text" class="form-control form-control-lg"
+		name="medan01" placeholder="Masukkan Peratusan">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Medan 02</label>
+		<input type="text" class="form-control form-control-lg"
+		name="medan02" placeholder="Masukkan Peratusan">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">fail csv</label>
+		<input type="text" class="form-control form-control-lg"
+		name="failcsv" value="*.csv">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Localhost</label>
+		<input type="text" class="form-control form-control-lg"
+		name="dbLocalhost" value="root">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Username</label>
+		<input type="text" class="form-control form-control-lg"
+		name="dbUser" value="root">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Password</label>
+		<input type="text" class="form-control form-control-lg"
+		name="dbPass" value="***">
+	</div>
+	<div class="form-group">
+		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
+	</div><!-- / class="form-group" -->
+</form>
+<!-- tamat borang 2
+=============================================================================================== -->
 END;
 	# tamat print <<<END
 #--------------------------------------------------------------------------------------------------
