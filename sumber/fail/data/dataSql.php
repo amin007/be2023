@@ -641,6 +641,7 @@ ALTER TABLE $table_name
 RENAME COLUMN $old_column_name TO $new_column_name;
 ALTER TABLE `$table_name`
 CHANGE `$column02` `$column02` varchar(255) NOT NULL AFTER `$column01`;
+#https://hoststud.com/resources/resolved-mysql-error-incorrect-integer-value-for-column-id-at-row-1.493/
 */
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlServerVersion')):
