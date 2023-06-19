@@ -102,7 +102,7 @@ if ( ! function_exists('bersihV02')):
 		# lepas lari aksara khas dalam SQL
 		//$papar = mysql_real_escape_string($papar);
 		# buang ruang kosong (atau aksara lain) dari mula & akhir
-		$papar = trim($papar);
+		$papar = trim((string)$papar);# tambah (string) pada $papar
 		# tukar kod %20 kepada space
 		$papar = myUrlEncode($papar);
 		# nl2br - Inserts HTML line breaks before all newlines in a string
