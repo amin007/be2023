@@ -648,9 +648,9 @@ if ( ! function_exists('sqlServerVersion')):
 	{
 		$sql = "
 		SELECT version();
-		ALTER USER 'root'@'$localhost' IDENTIFIED BY '$newpassword';# reset root
-		CREATE USER '$username'@'$localhost' IDENTIFIED BY '$password';# simple
-		GRANT PRIVILEGE ON *.* TO '$username'@'$localhost';# simple access to all database
+		ALTER USER 'root'@'$localhost' IDENTIFIED BY '$newpassword';
+		CREATE USER '$username'@'$localhost' IDENTIFIED BY '$password';
+		GRANT PRIVILEGE ON *.* TO '$username'@'$localhost';
 		";
 		// $sql['ServerVersion'] = sqlServerVersion($localhost,$username,$password,$newpassword);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
