@@ -46,22 +46,22 @@ print <<<END
 	<div class="form-group">
 		<label for="inputMsic">Nama Jadual 01</label>
 		<input type="text" class="form-control form-control-lg"
-		name="jadual01">
+		name="jadual01" value="***">
 	</div>
 	<div class="form-group">
 		<label for="inputMsic">Nama Jadual 02</label>
 		<input type="text" class="form-control form-control-lg"
-		name="jadual02">
+		name="jadual02" value="***">
 	</div>
 	<div class="form-group">
 		<label for="onputPeratusan">Medan 01</label>
 		<input type="text" class="form-control form-control-lg"
-		name="medan01" placeholder="Masukkan Peratusan">
+		name="medan01" value="***">
 	</div>
 	<div class="form-group">
 		<label for="onputPeratusan">Medan 02</label>
 		<input type="text" class="form-control form-control-lg"
-		name="medan02" placeholder="Masukkan Peratusan">
+		name="medan02" value="***">
 	</div>
 	<div class="form-group">
 		<label for="onputPeratusan">fail csv</label>
