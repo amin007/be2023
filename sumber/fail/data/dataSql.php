@@ -643,6 +643,23 @@ ALTER TABLE `$table_name`
 CHANGE `$column02` `$column02` varchar(255) NOT NULL AFTER `$column01`;
 */
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlInsertCsv')):
+	function sqlInsertCsv($jadual,$filecsv)
+	{
+		#https://blog.skyvia.com/how-to-import-csv-file-into-mysql-table-in-4-different-ways/
+		## insert csv to mysql
+		$sql = "
+		LOAD DATA INFILE '$filecsv'
+		INTO TABLE `$jadual`
+		FIELDS TERMINATED BY ';'
+		IGNORE 1 ROWS;
+		";
+		// $sqlInsertCsv = sqlInsertCsv($jadual,$filecsv);
+		//semakPembolehubah('<br>' . $sql,'sql',0);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlCreateBe2023Newss5P')):
 	function sqlCreateBe2023Newss5P($jadualBe,$jadual,$fe,$id)
 	{
