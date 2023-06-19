@@ -676,10 +676,10 @@ if ( ! function_exists('sqlTukarNamaMedan')):
 	function sqlTukarNamaMedan($jadual,$medan01,$medan02)
 	{
 		$sql = "
-		ALTER TABLE $jadual
-		RENAME COLUMN $medan01 TO $medan02;
 		ALTER TABLE `$jadual`
-		CHANGE `$medan02` `$column02` varchar(255) NOT NULL AFTER `$medan01`;
+		RENAME COLUMN `$medan01` TO `$medan02`;
+		ALTER TABLE `$jadual`
+		CHANGE `$medan02` `$medan02` varchar(255) NOT NULL AFTER `$medan01`;
 		";
 		// $sql['TukarNamaMedan'] = sqlTukarNamaMedan($jadual,$filecsv);
 		//semakPembolehubah('<br>' . $sql,'sql',0);
