@@ -618,6 +618,21 @@ endif;//*/
 		`YR_OUTPUT_QTY`
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+/*
+https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+CREATE USER '$username'@'$localhost' IDENTIFIED BY '$password'; # simple
+CREATE USER '$username'@'$host' IDENTIFIED WITH $authentication_plugin BY '$password'; # kompleks
+GRANT PRIVILEGE ON *.* TO '$username'@'$host'; # simple access to all database
+GRANT PRIVILEGE ON $database.$table TO '$username'@'$host'; # simple access to one database only
+
+## simple only
+SELECT version();
+ALTER USER 'root'@'localhost' IDENTIFIED BY '$newpassword'; $ reset root
+CREATE USER '$username'@'$localhost' IDENTIFIED BY '$password'; # simple
+GRANT PRIVILEGE ON *.* TO '$username'@'$host'; # simple access to all database
+
+*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlCreateBe2023Newss5P')):
 	function sqlCreateBe2023Newss5P($jadualBe,$jadual,$fe,$id)
 	{
