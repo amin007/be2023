@@ -691,11 +691,14 @@ if ( ! function_exists('sqlInsertCsv')):
 	function sqlInsertCsv($jadual,$filecsv)
 	{
 		#https://blog.skyvia.com/how-to-import-csv-file-into-mysql-table-in-4-different-ways/
+		#https://www.mysqltutorial.org/import-csv-file-mysql-table/
 		## insert csv to mysql
 		$sql = "
 		LOAD DATA INFILE '$filecsv'
 		INTO TABLE `$jadual`
 		FIELDS TERMINATED BY ';'
+		ENCLOSED BY '\"'
+		LINES TERMINATED BY '\\n'
 		IGNORE 1 ROWS;
 		";
 		// $sql['InsertCsv'] = sqlInsertCsv($jadual,$filecsv);
