@@ -635,6 +635,12 @@ LOAD DATA INFILE '$filecsv'
 INTO TABLE `$jadual`
 FIELDS TERMINATED BY ';'
 IGNORE 1 ROWS;
+#https://blog.devart.com/rename-a-column-in-mysql.html
+## tukar nama medan
+ALTER TABLE $table_name
+RENAME COLUMN $old_column_name TO $new_column_name;
+ALTER TABLE `$table_name`
+CHANGE `$column02` `$column02` varchar(255) NOT NULL AFTER `$column01`;
 */
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlCreateBe2023Newss5P')):
