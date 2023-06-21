@@ -688,15 +688,18 @@ if ( ! function_exists('sqlTukarNamaMedan')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+#https://dba.stackexchange.com/questions/203125/load-data-local-infile-changing-special-character
+#https://blog.skyvia.com/how-to-import-csv-file-into-mysql-table-in-4-different-ways/
+#https://www.mysqltutorial.org/import-csv-file-mysql-table/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlInsertCsv')):
 	function sqlInsertCsv($jadual,$filecsv)
 	{
-		#https://blog.skyvia.com/how-to-import-csv-file-into-mysql-table-in-4-different-ways/
-		#https://www.mysqltutorial.org/import-csv-file-mysql-table/
 		## insert csv to mysql
 		$sql = ""
 		. "\nLOAD DATA INFILE '$filecsv' "
 		. "\nINTO TABLE `$jadual` "
+		. "\nCHARACTER SET UTF8" //. "\nCHARACTER SET latin"
 		. "\nFIELDS TERMINATED BY ';' "
 		. "\nENCLOSED BY '\"' "
 		. "\nLINES TERMINATED BY '\\n' "
