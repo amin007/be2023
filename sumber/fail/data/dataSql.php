@@ -691,6 +691,7 @@ endif;//*/
 #https://dba.stackexchange.com/questions/203125/load-data-local-infile-changing-special-character
 #https://blog.skyvia.com/how-to-import-csv-file-into-mysql-table-in-4-different-ways/
 #https://www.mysqltutorial.org/import-csv-file-mysql-table/
+#https://konbert.com/convert/csv/to/mysql
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlInsertCsv')):
 	function sqlInsertCsv($jadual,$filecsv)
