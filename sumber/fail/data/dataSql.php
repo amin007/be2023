@@ -688,10 +688,13 @@ if ( ! function_exists('sqlTukarNamaMedan')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
-#https://dba.stackexchange.com/questions/203125/load-data-local-infile-changing-special-character
-#https://blog.skyvia.com/how-to-import-csv-file-into-mysql-table-in-4-different-ways/
-#https://www.mysqltutorial.org/import-csv-file-mysql-table/
-#https://konbert.com/convert/csv/to/mysql
+/*
+https://stackoverflow.com/questions/38363566/trouble-with-utf-8-characters-what-i-see-is-not-what-i-stored
+https://dba.stackexchange.com/questions/203125/load-data-local-infile-changing-special-character
+https://blog.skyvia.com/how-to-import-csv-file-into-mysql-table-in-4-different-ways/
+https://www.mysqltutorial.org/import-csv-file-mysql-table/
+https://konbert.com/convert/csv/to/mysql
+//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlInsertCsv')):
 	function sqlInsertCsv($jadual,$filecsv)
@@ -700,7 +703,7 @@ if ( ! function_exists('sqlInsertCsv')):
 		$sql = ""
 		. "\nLOAD DATA INFILE '$filecsv' "
 		. "\nINTO TABLE `$jadual` "
-		. "\nCHARACTER SET UTF8" //. "\nCHARACTER SET latin"
+		. "\nCHARACTER SET utf8mb4" //CHARACTER SET UTF8" //. "\nCHARACTER SET latin"
 		. "\nFIELDS TERMINATED BY ';' "
 		. "\nENCLOSED BY '\"' "
 		. "\nLINES TERMINATED BY '\\n' "
