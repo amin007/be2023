@@ -86,8 +86,10 @@ if ( ! function_exists('dbMysqli01')):
 			}
 			catch (PDOException $e)
 			{
-				semakPembolehubah($sqlDaa,'sqlDaa',0);
-				echo $e->getMessage();
+				//semakPembolehubah($sqlDaa,'sqlDaa',0);
+				semakTatasusunanIni($sqlDaa,'pre');
+				semakTatasusunanIni($e->getMessage(),'pre');
+				//echo $e->getMessage() . '<br>';
 			}//*/
 		#------------------------------------------------------------------------------------------
 		endforeach;
