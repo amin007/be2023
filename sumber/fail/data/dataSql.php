@@ -1329,9 +1329,7 @@ endif;//*/
 if ( ! function_exists('sqlCariIDBe')):
 	function sqlCariIDBe($jadualBe,$jadual,$msic,$id)
 	{
-		$link = "concat_ws('','<a href=cariMsicID.php?/',`barcode`,'>',`barcode`,'<br>',"
-		. "`nama`,'</a>') as MsicId";
-		$sql = "SELECT $link,`$jadualBe`.* FROM `$jadualBe` WHERE barcode = '$id';";
+		$sql = "SELECT * FROM `$jadualBe` WHERE barcode = '$id';";
 		// $sql['CariIDBe'] = sqlCariIDBe($jadualBe,$jadual,$msic,$id);
 		//semakTatasusunanIni($sql);
 		return $sql;
