@@ -466,6 +466,43 @@ if ( ! function_exists('paparSatuJe')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparSatuDataAnggar')):
+	function paparSatuDataAnggar($row,$jadual,$jumBelanja,$peratus)
+	{
+		$o = null;
+		$bil_baris = count($row);
+		$printed_headers = false;# mula bina jadual
+		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
+		'F010030','Kod_Industri'];
+		#----------------------------------------------------------------------
+		for ($kira=0; $kira < $bil_baris; $kira++)
+		{# print the headers once:
+			if ( !$printed_headers )
+			{##================================================================
+				$o .= "\n\t<thead><tr>";
+				$o .= "\n\t" . '<th colspan="2">' . $jadual . '</th>';
+				$o .= "\n\t" . '</tr></thead>';
+				$o .= "\n\t" . '<tbody>';
+			##=================================================================
+				$printed_headers = true;
+			}
+		#----------------------------------------------------------------------
+			# print the data row
+			foreach ( $row[$kira] as $key=>$data ) :
+			$kiraPeratus = (!in_array($key, $namaMedan)) ?
+			number_format(($data/$jumBelanja),4):null;
+			$o .= "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
+			$o .= '<td>' . bersihV02($data) . '</td>';
+			$o .= '<td>' . $kiraPeratus . '</td>';
+			//$o .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
+			$o .= "\n\t" . '</tr></tbody>';
+			endforeach;
+		}#---------------------------------------------------------------------
+
+		return $o;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparSemuaData')):
 	function paparSemuaData($row,$jadual)
 	{
