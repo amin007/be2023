@@ -1297,9 +1297,10 @@ endif;//*/
 if ( ! function_exists('cariKp337')):
 	function sqlCariKp337($jadualBe,$jadual,$msic,$id)
 	{
-		$sql = "SELECT * FROM `$jadual` WHERE F010029 = '$msic';";
+		$linkMsicId = "'<a target=_blank href=cariMsicID.php>' as MsicId";
+		$sql = "SELECT $linkMsicId,* FROM `$jadual` WHERE F010029 = '$msic';";
 		// $sql['cariKp337'] = sqlCariKp337($jadualBe,$jadual,$msic,$id);
-		//semakPembolehubah($sql,'sql daa',0);
+		//semakTatasusunanIni($sql);
 		return $sql;
 	}
 endif;//*/
