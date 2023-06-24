@@ -32,9 +32,10 @@ if ( ! function_exists('tagVar')):
 		# setkan tatasusunan
 		$p[0] = "<pre>\$$jadual = $senarai</pre><br>\n";
 		$p[1] = "<$p1>\$$jadual = $senarai</$p1><br>\n";
-		$p[2] = "<$p2>\$$jadual = $senarai</$p2><br>\n";
+		$p[2] = "<$p1><$p2>\$$jadual = $senarai</$p2><br>\n";
 		$p[3] = "<$p3>\$$jadual = $senarai</$p3><br>\n";
 		$p[4] = "<$p4>\$$jadual = $senarai</$p4><br>\n";
+		$p[5] = "<$p1><$p2>$senarai</$p2></$p1><br>\n";
 		#
 		return $p[$pilih];
 	}
@@ -52,11 +53,16 @@ endif;//*/
 if ( ! function_exists('semakTatasusunanIni')):
 	function semakTatasusunanIni($senarai,$kodHtml = 'pre')
 	{
-		echo "<$kodHtml>";
-		foreach($senarai as $data):
-			echo "$data\n";
-		endforeach;
-		echo "</$kodHtml>\n";
+		$semak = semakTatasusunan($senarai);
+		if($semak == 'array'):
+			echo "<$kodHtml>";
+			foreach($senarai as $data):
+				echo "$data\n";
+			endforeach;
+			echo "</$kodHtml>\n";
+		else:
+			echo tagVar($senarai,'',5);
+		endif;
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
