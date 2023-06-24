@@ -711,6 +711,23 @@ if ( ! function_exists('sqlInsertCsv')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlCreateView')):
+	function sqlCreateView($medanUlang,$medanKhas,$jadual)
+	{
+		$sql ="\nSELECT $medanUlang,\n$medanKhas\nFROM `$jadual`\nUNION";
+		// $sql['lCreateView'] = sqlCreateView($jadual,$filecsv);
+		//semakPembolehubah('<br>' . $sql,'sql',0);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+/*if ( ! function_exists('xxx2')):
+	function xxx2()
+	{
+		#
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlCreateBe2023Newss5P')):
