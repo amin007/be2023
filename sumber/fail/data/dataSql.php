@@ -1310,6 +1310,33 @@ if ( ! function_exists('sqlSoalanHarta')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
+/*
+# https://stackoverflow.com/questions/63364923/mysql-cannot-add-constant-field-at-start-of-select-error-1064
+*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlCariMsicBe')):
+	function sqlCariMsicBe($jadualBe,$jadual,$msic,$id)
+	{
+		$link = "concat_ws('','<a href=cariMsicID.php?/',`barcode`,'>',`barcode`,'<br>',"
+		. "`nama`,'</a>') as MsicId";
+		$sql = "SELECT $link,`$jadualBe`.* FROM `$jadualBe` WHERE msic = '$msic';";
+		// $sql['CariMsicBe'] = sqlCariMsicBe($jadualBe,$jadual,$msic,$id);
+		//semakTatasusunanIni($sql);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlCariIDBe')):
+	function sqlCariIDBe($jadualBe,$jadual,$msic,$id)
+	{
+		$link = "concat_ws('','<a href=cariMsicID.php?/',`barcode`,'>',`barcode`,'<br>',"
+		. "`nama`,'</a>') as MsicId";
+		$sql = "SELECT $link,`$jadualBe`.* FROM `$jadualBe` WHERE barcode = '$id';";
+		// $sql['CariIDBe'] = sqlCariIDBe($jadualBe,$jadual,$msic,$id);
+		//semakTatasusunanIni($sql);
+		return $sql;
+	}
+endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlCariMsicKp337')):
 	function sqlCariMsicKp337($jadualBe,$jadual,$msic,$id)
