@@ -1315,12 +1315,13 @@ endif;//*/
 */
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlCariMsicBe')):
-	function sqlCariMsicBe($jadualBe,$jadual,$msic,$id)
+	function sqlCariMsicBe($jadualBe,$jadual,$msic,$fe)
 	{
 		$link = "concat_ws('','<a href=cariMsicID.php?/',`barcode`,'>',`barcode`,'<br>',"
 		. "`nama`,'</a>') as MsicId";
-		$sql = "SELECT $link,`$jadualBe`.* FROM `$jadualBe` WHERE msic = '$msic';";
-		// $sql['CariMsicBe'] = sqlCariMsicBe($jadualBe,$jadual,$msic,$id);
+		$sql = "SELECT $link,`$jadualBe`.* FROM `$jadualBe` WHERE msic = '$msic'"
+		. " AND fe like '%$fe%';";
+		// $sql['CariMsicBe'] = sqlCariMsicBe($jadualBe,$jadual,$msic,$fe);
 		//semakTatasusunanIni($sql);
 		return $sql;
 	}
