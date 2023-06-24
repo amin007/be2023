@@ -1294,13 +1294,25 @@ endif;//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-if ( ! function_exists('cariMsicKp337')):
+if ( ! function_exists('sqlCariMsicKp337')):
 	function sqlCariMsicKp337($jadualBe,$jadual,$msic,$id)
 	{
 		$link = "concat_ws('','<a href=cariMsicID.php?/',`Serial_No`,'>',`Serial_No`,'<br>',"
 		. "`Nama_Pertubuhan`,'</a>') as MsicId";
 		$sql = "SELECT *,$link FROM `$jadual` WHERE F010029 = '$msic';";
-		// $sql['cariKp337'] = sqlCariKp337($jadualBe,$jadual,$msic,$id);
+		// $sql['CariMsicKp337'] = sqlCariMsicKp337($jadualBe,$jadual,$msic,$id);
+		//semakTatasusunanIni($sql);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlCariIDKp337')):
+	function sqlcariIDKp337($jadualBe,$jadual,$msic,$id)
+	{
+		$link = "concat_ws('','<a href=cariMsicID.php?/',`Serial_No`,'>',`Serial_No`,'<br>',"
+		. "`Nama_Pertubuhan`,'</a>') as MsicId";
+		$sql = "SELECT * FROM `$jadual` WHERE Serial_No = '$id';";
+		// $sql['cariIDKp337'] = sqlCariIDKp337($jadualBe,$jadual,$msic,$id);
 		//semakTatasusunanIni($sql);
 		return $sql;
 	}
