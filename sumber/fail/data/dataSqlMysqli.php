@@ -57,6 +57,44 @@ if ( ! function_exists('dbMysqli00')):
 		return $data;
 	}
 endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('dbMysqli01')):
+	function dbMysqli00($host,$dbName,$user,$pass,$sql)
+	{
+		#https://wiki.php.net/rfc/mysqli_default_errmode
+		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+		#------------------------------------------------------------------------------------------
+		foreach($sql as $myTable => $sqlDaa):
+		//semakPembolehubah($sqlDaa,'sqlDaa',0);
+		#------------------------------------------------------------------------------------------
+			//$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+			try {
+				$pdo = new PDO('mysql:host='.$host.';dbname='.$dbName,$user,$pass);
+				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$pdo->exec('SET NAMES "utf8"');
+			#--------------------------------------------------------------------------------------
+				$result = $pdo->query($sqlDaa);
+			#--------------------------------------------------------------------------------------
+				$result->setFetchMode(PDO::FETCH_ASSOC);
+				$tajuk[$myTable] = $myTable;
+				$data[$myTable] = array();
+				foreach ($result as $row)
+				{
+					$data[$myTable][] = $row;
+				}
+			#--------------------------------------------------------------------------------------
+			}
+			catch (PDOException $e)
+			{
+				semakPembolehubah($sqlDaa,'sqlDaa',0);
+				echo $e->getMessage();
+			}//*/
+		#------------------------------------------------------------------------------------------
+		endforeach;
+		#------------------------------------------------------------------------------------------
+		return $data;
+	}
+endif;//*/
 
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
