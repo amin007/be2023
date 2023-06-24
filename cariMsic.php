@@ -34,6 +34,11 @@ print <<<END
 		name="msic" placeholder="Masukkan Msic">
 	</div>
 	<div class="form-group">
+		<label for="inputMsic">fe</label>
+		<input type="text" class="form-control form-control-lg"
+		name="fe" placeholder="Masukkan FE">
+	</div>
+	<div class="form-group">
 		<label for="onputPeratusan">Peratusan</label>
 		<input type="text" class="form-control form-control-lg"
 		name="peratusan" placeholder="Masukkan Peratusan">
