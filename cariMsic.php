@@ -29,11 +29,6 @@ print <<<END
 		<label class="border border-dark btn-block">Carian Msic</label>
 	</div><!-- / class="form-group" -->
 	<div class="form-group">
-		<label for="inputMsic">Id</label>
-		<input type="text" class="form-control form-control-lg"
-		name="id" placeholder="Masukkan id">
-	</div>
-	<div class="form-group">
 		<label for="inputMsic">Msic</label>
 		<input type="text" class="form-control form-control-lg"
 		name="msic" placeholder="Masukkan Msic">
