@@ -1295,9 +1295,12 @@ endif;//*/
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('cariKp337')):
-	function cariKp337()
+	function sqlCariKp337($jadualBe,$jadual,$msic,$id)
 	{
-		#
+		$sql = "SELECT * FROM `$jadual` WHERE F010029 = '$msic';";
+		// $sql['cariKp337'] = sqlCariKp337($jadualBe,$jadual,$msic,$id);
+		//semakPembolehubah($sql,'sql daa',0);
+		return $sql;
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
