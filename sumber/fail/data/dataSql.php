@@ -1294,11 +1294,12 @@ endif;//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-if ( ! function_exists('cariKp337')):
-	function sqlCariKp337($jadualBe,$jadual,$msic,$id)
+if ( ! function_exists('cariMsicKp337')):
+	function sqlCariMsicKp337($jadualBe,$jadual,$msic,$id)
 	{
-		$linkMsicId = "'<a target=_blank href=cariMsicID.php>' as MsicId";
-		$sql = "SELECT $linkMsicId,* FROM `$jadual` WHERE F010029 = '$msic';";
+		$link = "concat_ws('','<a href=cariMsicID.php?/',`Serial_No`,'>',`Serial_No`,'<br>',"
+		. "`Nama_Pertubuhan`,'</a>') as MsicId";
+		$sql = "SELECT *,$link FROM `$jadual` WHERE F010029 = '$msic';";
 		// $sql['cariKp337'] = sqlCariKp337($jadualBe,$jadual,$msic,$id);
 		//semakTatasusunanIni($sql);
 		return $sql;
