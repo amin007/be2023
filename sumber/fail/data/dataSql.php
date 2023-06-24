@@ -95,11 +95,6 @@ if ( ! function_exists('sqlCariMsicAes')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 /*if ( ! function_exists('xxx2')):
-		data newss be2023 5p.csv
-		data ssm roc servis.csv
-endif;//*/
-#--------------------------------------------------------------------------------------------------
-/*if ( ! function_exists('xxx2')):
 #https://stackoverflow.com/questions/15930514/mysql-auto-increment-temporary-column-in-select-statement
 endif;//*/
 #--------------------------------------------------------------------------------------------------
