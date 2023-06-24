@@ -59,7 +59,7 @@ if ( ! function_exists('dbMysqli00')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('dbMysqli01')):
-	function dbMysqli00($host,$dbName,$user,$pass,$sql)
+	function dbMysqli01($host,$dbName,$user,$pass,$sql)
 	{
 		#https://wiki.php.net/rfc/mysqli_default_errmode
 		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
