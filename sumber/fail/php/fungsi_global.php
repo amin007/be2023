@@ -49,6 +49,17 @@ if ( ! function_exists('semakTatasusunan')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('semakTatasusunanIni')):
+	function semakTatasusunanIni($senarai,$kodHtml = 'pre')
+	{
+		echo "<$kodHtml>";
+		foreach($senarai as $data):
+			echo "$data\n";
+		endforeach;
+		echo "</$kodHtml>\n";
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('versiphp')):
 	function versiphp()
 	{
