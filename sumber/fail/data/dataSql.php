@@ -1341,7 +1341,7 @@ if ( ! function_exists('sqlCariMsicKp337')):
 	{
 		$link = "concat_ws('','<a href=cariMsicID.php?/',`Serial_No`,'>',`Serial_No`,'<br>',"
 		. "`Nama_Pertubuhan`,'</a>') as MsicId";
-		$sql = "SELECT $link,`$jadualBe`.* FROM `$jadual` WHERE F010029 = '$msic';";
+		$sql = "SELECT $link,`$jadual`.* FROM `$jadual` WHERE F010029 = '$msic';";
 		// $sql['CariMsicKp337'] = sqlCariMsicKp337($jadualBe,$jadual,$msic,$id);
 		//semakTatasusunanIni($sql);
 		return $sql;
