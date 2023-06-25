@@ -245,7 +245,7 @@ if ( ! function_exists('paparTDKhas')):
 		# papar nilai awal
 		$papar = null;
 		$data = bersihV02($data);
-		list($peratusan,$hasil,$belanja,$gaji,$staf,$harta,$stok) = $anggar;
+		list($peratus,$hasil,$belanja,$gaji,$staf,$harta,$stok) = pecahTatasusunan($anggar);
 		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
 		'F010030','Kod_Industri','Semak'];
 		# semak format kiraan
@@ -262,6 +262,21 @@ if ( ! function_exists('paparTDKhas')):
 		. "\n\t" . '</tr></tbody>';
 
 		return $papar;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('pecahTatasusunan')):
+	function pecahTatasusunan($anggar)
+	{
+		$peratus =  $anggar['peratusan'];
+		$hasil = $anggar['hasil'];
+		$belanja = $anggar['belanja'];
+		$gaji = $anggar['gaji'];
+		$staf = $anggar['staf'];
+		$harta = $anggar['harta'];
+		$stok = $anggar['stok'];
+
+		return array($peratus,$hasil,$belanja,$gaji,$staf,$harta,$stok);
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
