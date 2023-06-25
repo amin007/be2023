@@ -29,7 +29,8 @@ $_POST['peratusan'] => 1.0087
 //semakPembolehubah($_POST,'_POST',0);
 #--------------------------------------------------------------------------------------------------
 $msic = null;
-$id = bersih($_POST['id']);
+$idSebenar = bersih($_POST['idSebenar']);
+$idProksi = bersih($_POST['idProksi']);
 $anggar['peratusan'] = bersih($_POST['peratusan']);
 $anggar['hasil'] = bersih($_POST['hasil']);
 $anggar['belanja'] = bersih($_POST['belanja']);
@@ -38,9 +39,10 @@ $anggar['staf'] = bersih($_POST['staf']);
 $anggar['harta'] = bersih($_POST['harta']);
 $anggar['stok'] = bersih($_POST['stok']);
 #--------------------------------------------------------------------------------------------------
-$sql['SemuaNewss'] = sqlCariIDBe($kp337[0],$kp337[2],$msic,$id);
+$sql['DataMko'] = sqlBarcode($myJadual[8],$idSebenar);
+$sql['SemuaNewss'] = sqlCariIDBe($kp337[0],$kp337[2],$msic,$idProksi);
 for($i = 1; $i <= 17;$i++):
-	$sql[$kp337[$i]] = sqlcariIDKp337($kp337[0],$kp337[$i],$msic,$id);
+	$sql[$kp337[$i]] = sqlcariIDKp337($kp337[0],$kp337[$i],$msic,$idProksi);
 endfor;
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
