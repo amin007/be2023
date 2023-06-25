@@ -26,7 +26,7 @@ $_POST['peratusan'] => 1.0087
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($kp337,'kp337',0);
-//semakPembolehubah($_POST,'_POST',0);
+semakPembolehubah($_POST,'_POST',0);
 #--------------------------------------------------------------------------------------------------
 $msic = null;
 $idSebenar = bersih($_POST['idSebenar']);
@@ -39,7 +39,7 @@ $anggar['staf'] = bersih($_POST['staf']);
 $anggar['harta'] = bersih($_POST['harta']);
 $anggar['stok'] = bersih($_POST['stok']);
 #--------------------------------------------------------------------------------------------------
-$sql['DataMko'] = sqlBarcode($myJadual[8],$idSebenar);
+$sql[$myJadual[8]] = sqlBarcode($myJadual[8],$idSebenar);
 $sql['SemuaNewss'] = sqlCariIDBe($kp337[0],$kp337[2],$msic,$idProksi);
 for($i = 1; $i <= 17;$i++):
 	$sql[$kp337[$i]] = sqlcariIDKp337($kp337[0],$kp337[$i],$msic,$idProksi);
@@ -104,6 +104,8 @@ echo '</div><!-- class="tab-pane fade" id="home-tab-pane" -->';
 //$data[$kp337[9]]
 //semakPembolehubah($data[$kp337[9]],'data belanja',0);
 $jumBelanja = $data[$kp337[9]][0]['F090099'];
+$barcode = $data[$myJadual[8]][0]['barcode'];
+$nama = $data[$myJadual[8]][0]['nama'];
 //semakPembolehubah($jumBelanja,'jumBelanja',0);
 #--------------------------------------------------------------------------------------------------
 foreach($data as $myJadualV02 => $rowV02):
@@ -123,6 +125,8 @@ endforeach;//*/
 #--------------------------------------------------------------------------------------------------
 echo '<div class="tab-pane fade" id="gaji-tab-pane" role="tabpanel" aria-labelledby="gaji-tab" tabindex="0">';
 echo '<p>untuk gaji</p>';
+echo "<p>id = $barcode</p>";
+echo "<p>nama = $nama</p>";
 echo '</div><!-- class="tab-pane fade" id="gaji-tab-pane" -->';
 #--------------------------------------------------------------------------------------------------
 echo '<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">';
