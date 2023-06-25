@@ -54,6 +54,16 @@ print <<<END
 		name="jadual02" value="***">
 	</div>
 	<div class="form-group">
+		<label for="inputMsic">Nama Jadual 03</label>
+		<input type="text" class="form-control form-control-lg"
+		name="jadual03" value="***">
+	</div>
+	<div class="form-group">
+		<label for="inputMsic">Nama Jadual 04</label>
+		<input type="text" class="form-control form-control-lg"
+		name="jadual04" value="***">
+	</div>
+	<div class="form-group">
 		<label for="onputPeratusan">Medan 01</label>
 		<input type="text" class="form-control form-control-lg"
 		name="medan01" value="***">
