@@ -73,6 +73,11 @@ echo '<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
 	aria-selected="true">Carian</button>
 </li>
 <li class="nav-item" role="presentation">
+	<button class="nav-link" id="hasil-tab" data-bs-toggle="tab"
+	data-bs-target="#hasil-tab-pane" type="button" role="tab" aria-controls="hasil-tab-pane"
+	aria-selected="false" tabindex="-1">hasil</button>
+</li>
+<li class="nav-item" role="presentation">
 	<button class="nav-link" id="belanja-tab" data-bs-toggle="tab"
 	data-bs-target="#belanja-tab-pane" type="button" role="tab" aria-controls="belanja-tab-pane"
 	aria-selected="false" tabindex="-1">belanja</button>
@@ -103,37 +108,36 @@ echo '</div><!-- class="tab-pane fade" id="home-tab-pane" -->';
 #--------------------------------------------------------------------------------------------------
 //$data[$kp337[9]]
 //semakPembolehubah($data[$kp337[9]],'data belanja',0);
+$jumHasil = $data[$kp337[8]][0]['F080099'];
 $jumBelanja = $data[$kp337[9]][0]['F090099'];
 $barcode = $data[$myJadual[8]][0]['barcode'];
 $nama = $data[$myJadual[8]][0]['nama'];
 //semakPembolehubah($jumBelanja,'jumBelanja',0);
 #--------------------------------------------------------------------------------------------------
 foreach($data as $myJadualV02 => $rowV02):
+if($myJadualV02 == $kp337[8]):
+	$table = paparSatuDataAnggar($rowV02,$myJadualV02,$jumHasil,$anggar);
+	echo paparTableTab('hasil',$myJadualV02,$class02,$table);
+endif;
 if($myJadualV02 == $kp337[9]):
-	//$table = paparSatuJe($rowV02,$myJadualV02);
 	$table = paparSatuDataAnggar($rowV02,$myJadualV02,$jumBelanja,$anggar);
-	#----------------------------------------------------------------------------------------------
-	echo '<div class="tab-pane fade" id="belanja-tab-pane" role="tabpanel" aria-labelledby="belanja-tab" tabindex="0">';
-	#----------------------------------------------------------------------------------------------
-	echo "<h2>$myJadualV02</h2>";
-	echo "\r<table class=$class02>$table</table>\r<hr>";
-	#----------------------------------------------------------------------------------------------
-	echo '</div><!-- class="tab-pane fade" id="belanja-tab-pane" -->';
-	#----------------------------------------------------------------------------------------------
+	echo paparTableTab('belanja',$myJadualV02,$class02,$table);
 endif;
 endforeach;//*/
 #--------------------------------------------------------------------------------------------------
+echo "\n\t";
 echo '<div class="tab-pane fade" id="gaji-tab-pane" role="tabpanel" aria-labelledby="gaji-tab" tabindex="0">';
-echo '<p>untuk gaji</p>';
-echo "<p>id = $barcode</p>";
-echo "<p>nama = $nama</p>";
+echo "\n\t<p>untuk gaji</p>";
+echo "\n\t<p>id = $barcode</p>";
+echo "\n\t<p>nama = $nama</p>\n\t";
 echo '</div><!-- class="tab-pane fade" id="gaji-tab-pane" -->';
 #--------------------------------------------------------------------------------------------------
+echo "\n\t";
 echo '<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">';
 echo '<p>This is some placeholder content the <strong>harta</strong> associated content.</p>';
 echo '</div><!-- class="tab-pane fade" id="disabled-tab-pane" -->';
 #--------------------------------------------------------------------------------------------------
-echo '</div><!-- / class="tab-content" ->';
+echo '</div><!-- / class="tab-content" -->';
 #--------------------------------------------------------------------------------------------------
 dibawah($pilih,$urljs);
 echo "<script>\n";
@@ -174,5 +178,14 @@ else:
 	panggilDataTable01($tajuk,$data,null);# panggil fungsi
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------
+###################################################################################################
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('abc')):
+	function abc()
+	{
+		return $papar;
+	}
+endif;//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
