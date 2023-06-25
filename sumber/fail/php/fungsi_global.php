@@ -473,7 +473,7 @@ if ( ! function_exists('paparSatuDataAnggar')):
 		$bil_baris = count($row);
 		$printed_headers = false;# mula bina jadual
 		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
-		'F010030','Kod_Industri'];
+		'F010030','Kod_Industri','Semak'];
 		#----------------------------------------------------------------------
 		for ($kira=0; $kira < $bil_baris; $kira++)
 		{# print the headers once:
