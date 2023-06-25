@@ -52,6 +52,7 @@ print <<<END
 	</div><!-- class="tab-pane fade" -->
 	<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 		<p>This is some placeholder content the <strong>Profile tab's</strong> associated content.</p>
+		<p>Saya suka ayam goreng</p>
 	</div><!-- class="tab-pane fade" -->
 	<div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
 		<p>This is some placeholder content the <strong>Contact tab's</strong> associated content.</p>
@@ -59,7 +60,7 @@ print <<<END
 	<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
 		<p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>
 	</div><!-- class="tab-pane fade" -->
-</div><!-- / class="tab-content" ->
+</div><!-- / class="tab-content" -->
 <!-- tamat borang
 =============================================================================================== -->
 </div><!-- / class="kotakTengah" -->
@@ -71,33 +72,33 @@ END;
 #--------------------------------------------------------------------------------------------------
 $namaTab = ['satu','dua','tiga','empat','lima'];
 #--------------------------------------------------------------------------------------------------
-echo '<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">';
-echo '<li class="nav-item" role="presentation">
+echo "\n" . '<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">';
+echo "\n\t" . '<li class="nav-item" role="presentation">
 	<button class="nav-link active" id="kosong-tab" data-bs-toggle="tab"
 	data-bs-target="#kosong-tab-pane" type="button" role="tab"
 	aria-controls="kosong-tab-pane" aria-selected="true">Kosong</button>
 </li>';
 foreach($namaTab as $tabTajuk):
-echo '<li class="nav-item" role="presentation">
+echo "\n\t" . '<li class="nav-item" role="presentation">
 	<button class="nav-link active" id="' . $tabTajuk . '-tab" data-bs-toggle="tab"
 	data-bs-target="#' . $tabTajuk . '-tab-pane" type="button" role="tab"
 	aria-controls="' . $tabTajuk . '-tab-pane" aria-selected="false" tabindex="-1">'
 	. $tabTajuk . '</button>
 </li>';
 endforeach;
-echo '</ul>';
+echo "\n" . '</ul>' . "\n";
 echo '<div class="tab-content" id="myTabContent">';
-echo '<div class="tab-pane fade active show" id="kosong-tab-pane" role="tabpanel"
+echo "\n\t" . '<div class="tab-pane fade active show" id="kosong-tab-pane" role="tabpanel"
 aria-labelledby="kosong-tab" tabindex="0">
 	<p>This is some placeholder content the <strong>Kosong tab</strong> associated content.</p>
 </div><!-- / class="tab-pane fade" -->';
 foreach($namaTab as $tabName):
-echo '<div class="tab-pane fade" id="' . $tabName . '-tab-pane" role="tabpanel"
+echo "\n\t" . '<div class="tab-pane fade" id="' . $tabName . '-tab-pane" role="tabpanel"
 aria-labelledby="' . $tabName . '-tab" tabindex="0">
 	<p>This is some placeholder content the <strong>' . $tabName . ' tab</strong> associated content.</p>
 </div><!-- / class="tab-pane fade" -->';
 endforeach;
-echo '</div><!-- / class="tab-content" -->';
+echo "\n" . '</div><!-- / class="tab-content" -->';
 #--------------------------------------------------------------------------------------------------
 dibawahV02($pilih,$urljs);
 echo "<script>\n";
