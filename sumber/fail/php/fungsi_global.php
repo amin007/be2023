@@ -242,6 +242,24 @@ endif;//*/
 if ( ! function_exists('paparTDKhas')):
 	function paparTDKhas($key,$data,$jumBelanja,$peratus)
 	{
+		# papar nilai awal
+		$papar = null;
+		$data = bersihV02($data);
+		$data02 = bersihV02($data02);
+		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
+		'F010030','Kod_Industri','Semak'];
+
+		$kiraPeratus = kiraV01($key,$data,$jumBelanja,$peratus);
+		$paparData = kiraV02($key,$data,$peratus);
+		$paparAnggar = kiraV03($key,$data,$jumBelanja,$peratus);
+		$o = "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
+		. '<td align="right">' . $paparData . '</td>';
+		. '<td>' . $kiraPeratus . '</td>';
+		. '<td align="right">' . $paparAnggar . '</td>';
+		// . "<!-- $key|$kira -->";# untuk debug di masa hadapan
+		. "\n\t" . '</tr></tbody>';
+
+		return $o;
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
@@ -563,15 +581,7 @@ if ( ! function_exists('paparSatuDataAnggar')):
 		#----------------------------------------------------------------------
 			# print the data row
 			foreach ( $row[$kira] as $key=>$data ) :
-			$kiraPeratus = kiraV01($key,$data,$jumBelanja,$peratus);
-			$paparData = kiraV02($key,$data,$peratus);
-			$paparAnggar = kiraV03($key,$data,$jumBelanja,$peratus);
-			$o .= "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
-			$o .= '<td align="right">' . $paparData . '</td>';
-			$o .= '<td>' . $kiraPeratus . '</td>';
-			$o .= '<td align="right">' . $paparAnggar . '</td>';
-			//$o .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
-			$o .= "\n\t" . '</tr></tbody>';
+				$o .= paparTDKhas($key,$data,$jumBelanja,$peratus);
 			endforeach;
 		}#---------------------------------------------------------------------
 
