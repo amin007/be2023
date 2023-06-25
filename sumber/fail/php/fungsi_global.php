@@ -239,6 +239,12 @@ if ( ! function_exists('tajukMedanJadual')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparTDKhas')):
+	function paparTDKhas($key,$data,$jumBelanja,$peratus)
+	{
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('kiraV01')):
 	/** */
 	function kiraV01($key,$data,$data02,$peratus)
