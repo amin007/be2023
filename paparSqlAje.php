@@ -47,6 +47,9 @@ $sql['TukarNamaJadual'] = sqlTukarNamaJadual($jadual01,$jadual02);
 $sql['TukarNamaMedan'] = sqlTukarNamaMedan($jadual01,$medan01,$medan02);
 $sql['InsertCsv'] = sqlInsertCsv($jadual01,$failcsv);
 $sql['ViewHarta'] = sqlSoalanHarta($jadual01,$medan01);
+$sql['ViewTableKelulusan'] = sqlViewTableKelulusan($jadual01,$jadual02,$medan01,$medan02);
+$sql['ViewTableJamot'] = sqlViewTableJamot($jadual01,$jadual02,$medan01,$medan02);
+$sql['ViewTableStok'] = sqlViewTableStok($jadual01,$jadual02,$medan01,$medan02);
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
 //semakPembolehubah($myJadual,'myJadual',0);
