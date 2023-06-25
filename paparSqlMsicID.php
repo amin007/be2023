@@ -116,12 +116,10 @@ $nama = $data[$myJadual[8]][0]['nama'];
 #--------------------------------------------------------------------------------------------------
 foreach($data as $myJadualV02 => $rowV02):
 if($myJadualV02 == $kp337[8]):
-	$table = paparSatuDataAnggar($rowV02,$myJadualV02,$jumHasil,$anggar);
-	echo paparTableTab('hasil',$myJadualV02,$class02,$table);
+	echo paparTableTab('hasil',$class02,$myJadualV02,$rowV02,$jumHasil,$anggar);
 endif;
 if($myJadualV02 == $kp337[9]):
-	$table = paparSatuDataAnggar($rowV02,$myJadualV02,$jumBelanja,$anggar);
-	echo paparTableTab('belanja',$myJadualV02,$class02,$table);
+	echo paparTableTab('belanja',$class02,$myJadualV02,$rowV02,$jumBelanja,$anggar);
 endif;
 endforeach;//*/
 #--------------------------------------------------------------------------------------------------
