@@ -37,7 +37,7 @@ diatasV01($pilih, $urlcss);
 $class = '"table table-striped table-bordered"';
 #--------------------------------------------------------------------------------------------------
 $teropong = 'Kembalilah<i class="fa fa-binoculars"></i>';
-$pautan01 = '#';
+$pautan01 = 'cariMsic.php';
 $pautan02 = 'cariData.php';
 $pautan03 = 'cariKesSendiri.php';
 $namaPautan01 = 'MSIC';
