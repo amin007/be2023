@@ -245,6 +245,7 @@ if ( ! function_exists('paparTDKhas')):
 		# papar nilai awal
 		$papar = null;
 		$data = bersihV02($data);
+		list($peratusan,$hasil,$belanja,$gaji,$staf,$harta,$stok) = $anggar;
 		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
 		'F010030','Kod_Industri','Semak'];
 		# semak format kiraan
