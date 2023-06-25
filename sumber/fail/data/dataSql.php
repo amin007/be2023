@@ -1467,6 +1467,113 @@ if ( ! function_exists('sqlViewTableStok')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlViewStafLelaki')):
+	function sqlViewStafLelaki($jadual)
+	{
+		$sql = '';
+		$medanUlang = sqlMedanUlang();
+		//$medanKhas = sqlMedanStafLelaki();
+		$medanKhas = sqlMedanStafLelakiV02();
+		foreach($medanKhas as $key => $val):
+		foreach($val as $key2 => $medan):
+			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\nUNION\n";
+		endforeach;
+		endforeach;
+		$sql .= "\nORDER BY 1,3\n\n";
+
+		// $sql['ViewStafLelaki'] = sqlViewStafLelaki($jadualBe,$jadual,$msic,$fe);
+		//semakTatasusunanIni($sql);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlMedanStafLelaki')):
+	function sqlMedanStafLelaki()
+	{
+		$k0 = "'BLANK'";
+		$sql = [
+		["'Lelaki' `5A - Staf`,'Warga' `F0520`,'XWarga' `F0506`,'Jum' `F0507`,"
+		. "'PeratusBil' as `Staf%`,'< 3 thn' `F0521`,'> 3 thn' `F0522`, 'Jum'`F0509`,"
+		. "$k0 `BLANK`,'WargaGaji' `F0526`,'xWargaGaji' `F0527`,'JumGaji' `F0508`"],
+		["'01' `01`,`F052001`,`F050601`,`F050701`,(F050701/F050799) as `Staf%`,`F052101`,`F052201`,"
+		. "$k0 `JumXWarga`,$k0 `BLANK`,$k0 `WargaGaji`,$k0 `WargaXGaji`,"
+		. "$k0 `JumGaji`"],
+		["'02' `02`,`F052002`,`F050602`,`F050702`,(F050702/F050799) as `Staf%`,`F052102`,`F052202`,"
+		. "$k0 `JumXWarga`,$k0 `BLANK`,$k0 `WargaGaji`,$k0 `WargaXGaji`,"
+		. "$k0 `JumGaji`"],
+		["'03' `03`,`F052003`,`F050603`,`F050703`,(F050703/F050799) as `Staf%`,`F052103`,`F052203`,`F050903`,"
+		. "$k0 `BLANK`,`F052603`,`F052703`,`F050803`"],
+		["'04' `04`,`F052004`,`F050604`,`F050704`,(F050704/F050799) as `Staf%`,`F052104`,`F052204`,`F050904`,"
+		. "$k0 `BLANK`,`F052604`,`F052704`,`F050804`"],
+		["'05' `05`,`F052005`,`F050605`,`F050705`,(F050705/F050799) as `Staf%`,`F052105`,`F052205`,`F050905`,"
+		. "$k0 `BLANK`,`F052605`,`F052705`,`F050805`"],
+		["'06' `06`,`F052006`,`F050606`,`F050706`,(F050706/F050799) as `Staf%`,`F052106`,`F052206`,`F050906`,"
+		. "$k0 `BLANK`,`F052606`,`F052706`,`F050806`"],
+		["'07' `07`,`F052007`,`F050607`,`F050707`,(F050707/F050799) as `Staf%`,`F052107`,`F052207`,`F050907`,"
+		. "$k0 `BLANK`,`F052607`,`F052707`,`F050807`"],
+		["'08' `08`,`F052008`,`F050608`,`F050708`,(F050708/F050799) as `Staf%`,`F052108`,`F052208`,`F050908`,"
+		. "$k0 `BLANK`,`F052608`,`F052708`,`F050808`"],
+		["'09' `09`,`F052009`,`F050609`,`F050709`,(F050709/F050799) as `Staf%`,`F052109`,`F052209`,`F050909`,"
+		. "$k0 `BLANK`,`F052609`,`F052709`,`F050809`"],
+		["'16' `16`,`F052016`,`F050616`,`F050716`,(F050716/F050799) as `Staf%`,`F052116`,`F052216`,`F050916`,"
+		. "$k0 `BLANK`,`F052616`,`F052716`,`F050816`"],
+		["'12' `12`,`F052012`,`F050612`,`F050712`,(F050712/F050799) as `Staf%`,`F052112`,`F052212`,`F050912`,"
+		. "$k0 `BLANK`,`F052612`,`F052712`,`F050812`"],
+		["'89' `89`,`F052089`,`F050689`,`F050789`,(F050789/F050799) as `Staf%`,`F052189`,`F052289`,`F050989`,"
+		. "$k0 `BLANK`,`F052689`,`F052789`,`F050889`"],
+		["'13' `13`,`F052013`,`F050613`,`F050713`,(F050713/F050799) as `Staf%`,`F052113`,`F052213`,$k0 `F050913`,"
+		. "$k0 `BLANK`,`F052613`,`F052713`,`F050813`"],
+		["'99' `99`,`F052099`,`F050699`,`F050799`,(F050799/F050799) as `Staf%`,`F052199`,`F052299`,`F050999`,"
+		. "$k0 `BLANK`,`F052699`,`F052799`,`F050899`"],
+		];
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlMedanStafLelakiV02')):
+	function sqlMedanStafLelakiV02()
+	{
+		$k0 = "'BLANK'";
+		$jumL = '/F050799';
+		$jumG = '/F050899';
+		$sql = [
+		["'00','5A-Lelaki' `Kategori`,'Warga' `F0520`,'XWarga' `F0506`,'Jum' `F0507`,"
+		. "'PeratusBil' as `Staf%`,'Jum'`F0509`,"
+		. "'WargaGaji' `F0526`,'xWargaGaji' `F0527`,'JumGaji' `F0508`,'GajiLelaki%'"],
+		["'01' Bil,'01-Pemilik',`F052001` `Warga`,`F050601` `XWarga`,`F050701` `Jum`,"
+		. "(F050701$jumL) as `StafLelaki%`,$k0 `BilSub`,$k0 `WargaGaji`,$k0 `WargaXGaji`,"
+		. "$k0 `JumGaji`,$k0 `GajiLelaki%`"],
+		["'02','02-Pekerja Keluarga',`F052002`,`F050602`,`F050702`,(F050702$jumL) as `Staf%`,"
+		. "$k0 `BilSub`,$k0 `WargaGaji`,$k0 `WargaXGaji`,$k0 `JumGaji`,$k0 `Gaji%`"],
+		["'03','03-Pengurus',`F052003`,`F050603`,`F050703`,(F050703$jumL) as `Staf%`,`F050903`,"
+		. "`F052603`,`F052703`,`F050803`,(F050803$jumG) as `Gaji%`"],
+		["'04','04-Profesional',`F052004`,`F050604`,`F050704`,(F050704$jumL) as `Staf%`,`F050904`,"
+		. "`F052604`,`F052704`,`F050804`,(F050804$jumG) as `Gaji%`"],
+		["'05','05-Penyelidik',`F052005`,`F050605`,`F050705`,(F050705$jumL) as `Staf%`,`F050905`,"
+		. "`F052605`,`F052705`,`F050805`,(F050805$jumG) as `Gaji%`"],
+		["'06','06-Juruteknik',`F052006`,`F050606`,`F050706`,(F050706$jumL) as `Staf%`,`F050906`,"
+		. "`F052606`,`F052706`,`F050806`,(F050806$jumG) as `Gaji%`"],
+		["'07','07-Kerani',`F052007`,`F050607`,`F050707`,(F050707$jumL) as `Staf%`,`F050907`,"
+		. "`F052607`,`F052707`,`F050807`,(F050807$jumG) as `Gaji%`"],
+		["'08','08-Jualan',`F052008`,`F050608`,`F050708`,(F050708$jumL) as `Staf%`,`F050908`,"
+		. "`F052608`,`F052708`,`F050808`,(F050808$jumG) as `Gaji%`"],
+		["'09','09-Kemahiran',`F052009`,`F050609`,`F050709`,(F050709$jumL) as `Staf%`,`F050909`,"
+		. "`F052609`,`F052709`,`F050809`,(F050809$jumG) as `Gaji%`"],
+		["'10','16-Operator',`F052016`,`F050616`,`F050716`,(F050716$jumL) as `Staf%`,`F050916`,"
+		. "`F052616`,`F052716`,`F050816`,(F050816$jumG) as `Gaji%`"],
+		["'11','12-Asas',`F052012`,`F050612`,`F050712`,(F050712$jumL) as `Staf%`,`F050912`,"
+		. "`F052612`,`F052712`,`F050812`,(F050812$jumG) as `Gaji%`"],
+		["'12','89-Jum Staf Bergaji',`F052089`,`F050689`,`F050789`,(F050789$jumL) as `Staf%`,`F050989`,"
+		. "`F052689`,`F052789`,`F050889`,(F050889$jumG) as `Gaji%`"],
+		["'13','13-Sambilan',`F052013`,`F050613`,`F050713`,(F050713$jumL) as `Staf%`,$k0,"
+		. "`F052613`,`F052713`,`F050813`,(F050813$jumG) as `Gaji%`"],
+		["'14','99-JumPekerja',`F052099`,`F050699`,`F050799`,(F050799$jumL) as `Staf%`,`F050999`,"
+		. "`F052699`,`F052799`,`F050899`,(F050899$jumG) as `Gaji%`"],
+		];
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 /*
 # https://stackoverflow.com/questions/63364923/mysql-cannot-add-constant-field-at-start-of-select-error-1064
