@@ -1313,7 +1313,7 @@ if ( ! function_exists('sqlSoalanHarta')):
 		. "$dataUtama,'99' `99`,"
 		. "`F041099`,`F041199`,`F041299`,`F041399`,`F041499`,`F041599`,`F041699`,"
 		. "`F041799`,`F041899`"
-		. "$dari";
+		. "$dari\n\n";
 		// $sql['SoalanHarta'] = sqlSoalanHarta($jadual,$id);
 		//semakTatasusunanIni($sql);
 		return $sql;
@@ -1394,8 +1394,7 @@ if ( ! function_exists('sqlViewTableDaa')):
 		foreach($medanDaa as $key0 => $medanKhas):
 		foreach($medanKhas as $key => $val):
 		foreach($val as $key2 => $medan):
-			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
-			. "UNION";
+			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\nUNION\n";
 		endforeach;
 		endforeach;
 		endforeach;
@@ -1415,8 +1414,7 @@ if ( ! function_exists('sqlViewTableKelulusan')):
 		$medanKhas = sqlMedanKelulusan();
 		foreach($medanKhas as $key => $val):
 		foreach($val as $key2 => $medan):
-			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
-			. "UNION";
+			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\nUNION\n";
 		endforeach;
 		endforeach;
 		$sql .= "\nORDER BY 1,3\n\n";
@@ -1435,8 +1433,7 @@ if ( ! function_exists('sqlViewTableJamot')):
 		$medanKhas = sqlMedanJamOt();
 		foreach($medanKhas as $key => $val):
 		foreach($val as $key2 => $medan):
-			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
-			. "UNION";
+			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\nUNION\n";
 		endforeach;
 		endforeach;
 		$sql .= "\nORDER BY 1,3\n\n";
@@ -1455,8 +1452,7 @@ if ( ! function_exists('sqlViewTableStok')):
 		$medanKhas = sqlMedanStok();
 		foreach($medanKhas as $key => $val):
 		foreach($val as $key2 => $medan):
-			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
-			. "UNION";
+			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\nUNION\n";
 		endforeach;
 		endforeach;
 		$sql .= "\nORDER BY 1,3\n\n";
