@@ -1389,18 +1389,75 @@ if ( ! function_exists('sqlViewTableDaa')):
 		$medanUlang = sqlMedanUlang();
 		$medanDaa['kelulusan'] = sqlMedanKelulusan();
 		$medanDaa['jamot'] = sqlMedanJamOt();
-		$medanDaa['stok'] = sqlMedanStok()
+		$medanDaa['stok'] = sqlMedanStok();
 		foreach($medanDaa as $key0 => $medanKhas):
-			foreach($medanKhas as $key => $val):
-			foreach($val as $key2 => $medan):
-				$sql[] = "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
-				. "UNION";
-			endforeach;
-			endforeach;
+		foreach($medanKhas as $key => $val):
+		foreach($val as $key2 => $medan):
+			$sql[] = "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
+			. "UNION";
+		endforeach;
+		endforeach;
 		endforeach;
 		$sql[] = "ORDER BY 1,3";
 
 		// $sql['ViewTableDaa'] = sqlViewTableDaa($jadualBe,$jadual,$msic,$fe);
+		//semakTatasusunanIni($sql);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlViewTableKelulusan')):
+	function sqlViewTableKelulusan($jadualBe,$jadual,$msic,$fe)
+	{
+		$medanUlang = sqlMedanUlang();
+		$medanKhas = sqlMedanKelulusan();
+		foreach($medanKhas as $key => $val):
+		foreach($val as $key2 => $medan):
+			$sql[] = "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
+			. "UNION";
+		endforeach;
+		endforeach;
+		$sql[] = "ORDER BY 1,3";
+
+		// $sql['ViewTableKelulusan'] = sqlViewTableKelulusan($jadualBe,$jadual,$msic,$fe);
+		//semakTatasusunanIni($sql);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlViewTableJamot')):
+	function sqlViewTableJamot($jadualBe,$jadual,$msic,$fe)
+	{
+		$medanUlang = sqlMedanUlang();
+		$medanKhas = sqlMedanJamOt();
+		foreach($medanKhas as $key => $val):
+		foreach($val as $key2 => $medan):
+			$sql[] = "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
+			. "UNION";
+		endforeach;
+		endforeach;
+		$sql[] = "ORDER BY 1,3";
+
+		// $sql['ViewTableJamot'] = sqlViewTableJamot($jadualBe,$jadual,$msic,$fe);
+		//semakTatasusunanIni($sql);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlViewTableStok')):
+	function sqlViewTableStok($jadualBe,$jadual,$msic,$fe)
+	{
+		$medanUlang = sqlMedanUlang();
+		$medanKhas = sqlMedanStok();
+		foreach($medanKhas as $key => $val):
+		foreach($val as $key2 => $medan):
+			$sql[] = "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
+			. "UNION";
+		endforeach;
+		endforeach;
+		$sql[] = "ORDER BY 1,3";
+
+		// $sql['ViewTableStok'] = sqlViewTableStok($jadualBe,$jadual,$msic,$fe);
 		//semakTatasusunanIni($sql);
 		return $sql;
 	}
