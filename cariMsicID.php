@@ -41,9 +41,14 @@ print <<<END
 		<label class="border border-dark btn-block">Carian Msic</label>
 	</div><!-- / class="form-group" -->
 	<div class="form-group">
-		<label for="inputMsic">Id</label>
+		<label for="inputMsic">Id Sebenar</label>
 		<input type="text" class="form-control form-control-lg"
-		name="id" value="$id">
+		name="idSebenar" value="00000">
+	</div>
+	<div class="form-group">
+		<label for="inputMsic">Id Proksi</label>
+		<input type="text" class="form-control form-control-lg"
+		name="idProksi" value="$id">
 	</div>
 	<div class="form-group">
 		<label for="onputPeratusan">Peratusan</label>
