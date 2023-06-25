@@ -51,6 +51,36 @@ print <<<END
 		name="peratusan" value="1.0087">
 	</div>
 	<div class="form-group">
+		<label for="onputPeratusan">Hasil</label>
+		<input type="text" class="form-control form-control-lg"
+		name="hasil" value="***">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Belanja</label>
+		<input type="text" class="form-control form-control-lg"
+		name="belanja" value="***">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Gaji</label>
+		<input type="text" class="form-control form-control-lg"
+		name="gaji" value="1500">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Bil Pekerja</label>
+		<input type="text" class="form-control form-control-lg"
+		name="staf" value="2">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Harta</label>
+		<input type="text" class="form-control form-control-lg"
+		name="harta" value="***">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Stok Akhir</label>
+		<input type="text" class="form-control form-control-lg"
+		name="stok" value="***">
+	</div>
+	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
 	</div><!-- / class="form-group" -->
 </form>
