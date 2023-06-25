@@ -239,6 +239,29 @@ if ( ! function_exists('tajukMedanJadual')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('kiraV01')):
+	/** */
+	function kiraV01($data,$data02,$peratus)
+	{
+		# buang ruang kosong (atau aksara lain) dari mula & akhir
+		$papar = null;
+		$data = bersihV02($data);
+		$data02 = bersihV02($data02);
+		# semak data adalah nombor atau tidak
+		if(is_numeric($data)):
+			$papar = number_format(($data/$data02), 4);
+			/*
+			$kiraPeratus = (!in_array($key, $namaMedan)) ?
+			number_format(($data/$jumBelanja),4):null;
+			*/
+		else:
+			$papar = null;
+		endif;
+
+		return $papar;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 # untuk semak tajuk medan berasaskan json
 #--------------------------------------------------------------------------------------------------
@@ -489,8 +512,7 @@ if ( ! function_exists('paparSatuDataAnggar')):
 		#----------------------------------------------------------------------
 			# print the data row
 			foreach ( $row[$kira] as $key=>$data ) :
-			$kiraPeratus = (!in_array($key, $namaMedan)) ?
-			number_format(($data/$jumBelanja),4):null;
+			$kiraPeratus = kiraV01($data,$jumBelanja,$peratus);
 			$o .= "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
 			$o .= '<td>' . bersihV02($data) . '</td>';
 			$o .= '<td>' . $kiraPeratus . '</td>';
