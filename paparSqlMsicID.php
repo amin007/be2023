@@ -52,6 +52,7 @@ $data = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
 $pilih = null;
 list($urlcss,$urljs) = linkCssJs(2);
 $class = '"table table-sm table-striped table-bordered"';
+$class02 = '"excel"';
 diatas($pilih, $urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
@@ -105,7 +106,7 @@ if($myJadualV02 == $kp337[9]):
 	echo '<div class="tab-pane fade" id="belanja-tab-pane" role="tabpanel" aria-labelledby="belanja-tab" tabindex="0">';
 	#----------------------------------------------------------------------------------------------
 	echo "<h2>$myJadualV02</h2>";
-	echo "\r<table id=\"allTable\" class=$class>$table</table>\r<hr>";
+	echo "\r<table class=$class02>$table</table>\r<hr>";
 	#----------------------------------------------------------------------------------------------
 	echo '</div><!-- class="tab-pane fade" id="belanja-tab-pane" -->';
 	#----------------------------------------------------------------------------------------------
