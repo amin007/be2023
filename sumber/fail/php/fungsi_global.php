@@ -252,11 +252,11 @@ if ( ! function_exists('paparTDKhas')):
 		$paparData = kiraV02($key,$data,$peratus);
 		$paparAnggar = kiraV03($key,$data,$jumBelanja,$peratus);
 		# masuk dalam tr td
-		$papar = "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
-		. '<td align="right">' . $paparData . '</td>';
-		. '<td>' . $kiraPeratus . '</td>';
-		. '<td align="right">' . $paparAnggar . '</td>';
-		// . "<!-- $key|$kira -->";# untuk debug di masa hadapan
+		$papar = "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>'
+		. '<td align="right">' . $paparData . '</td>'
+		. '<td>' . $kiraPeratus . '</td>'
+		. '<td align="right">' . $paparAnggar . '</td>'
+		//. "<!-- $key|$kira -->"# untuk debug di masa hadapan
 		. "\n\t" . '</tr></tbody>';
 
 		return $papar;
