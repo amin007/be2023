@@ -30,7 +30,13 @@ $_POST['peratusan'] => 1.0087
 #--------------------------------------------------------------------------------------------------
 $msic = null;
 $id = bersih($_POST['id']);
-$peratus = bersih($_POST['peratusan']);
+$anggar['peratusan'] = bersih($_POST['peratusan']);
+$anggar['hasil'] = bersih($_POST['hasil']);
+$anggar['belanja'] = bersih($_POST['belanja']);
+$anggar['gaji'] = bersih($_POST['gaji']);
+$anggar['staf'] = bersih($_POST['staf']);
+$anggar['harta'] = bersih($_POST['harta']);
+$anggar['stok'] = bersih($_POST['stok']);
 #--------------------------------------------------------------------------------------------------
 $sql['SemuaNewss'] = sqlCariIDBe($kp337[0],$kp337[2],$msic,$id);
 for($i = 1; $i <= 17;$i++):
@@ -101,7 +107,7 @@ $jumBelanja = $data[$kp337[9]][0]['F090099'];
 foreach($data as $myJadualV02 => $rowV02):
 if($myJadualV02 == $kp337[9]):
 	//$table = paparSatuJe($rowV02,$myJadualV02);
-	$table = paparSatuDataAnggar($rowV02,$myJadualV02,$jumBelanja,$peratus);
+	$table = paparSatuDataAnggar($rowV02,$myJadualV02,$jumBelanja,$anggar);
 	#----------------------------------------------------------------------------------------------
 	echo '<div class="tab-pane fade" id="belanja-tab-pane" role="tabpanel" aria-labelledby="belanja-tab" tabindex="0">';
 	#----------------------------------------------------------------------------------------------
