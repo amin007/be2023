@@ -1231,8 +1231,10 @@ if ( ! function_exists('sqlSoalanHarta')):
 	function sqlSoalanHarta($jadual,$id)
 	{
 		$k0 = "'BLANK'";
-		$dataUtama = 'SELECT Serial_No,Nama_Pertubuhan,KP,F010029,F010030,Kod_Industri';
-		$dari = "FROM `$jadual` WHERE serial_no = '$id' \r";
+		//$dataUtama = 'SELECT Serial_No,Nama_Pertubuhan,KP,F010029,F010030,Kod_Industri';
+		$dataUtama = 'SELECT Serial_No,Nama_Pertubuhan';
+		//$dari = "FROM `$jadual` WHERE serial_no = '$id' \r";
+		$dari = " FROM `$jadual` ";
 		$sql = "\r"
 		. "$dataUtama,'Kod' `4-Harta`,"
 		. "'F0410' `Awal`,'F0411' `Baru`,'F0412' `Terpakai`,'F0413' `Bina`,'F0414' `Jual/Tamat`,"
@@ -1293,7 +1295,7 @@ if ( ! function_exists('sqlSoalanHarta')):
 		. "`F041714`,`F041814`"
 		. "$dari\rUNION\r"
 		. "$dataUtama,'15' `15`,"
-		. "`F041015`,`F041115`,'$k0 '`F041215`,`F041315`,`F041415`,`F041515`,`F041615`,"
+		. "`F041015`,`F041115`,$k0 `F041215`,`F041315`,`F041415`,`F041515`,`F041615`,"
 		. "`F041715`,`F041815`"
 		. "$dari\rUNION\r"
 		. "$dataUtama,'16' `16`,"
@@ -1313,7 +1315,7 @@ if ( ! function_exists('sqlSoalanHarta')):
 		. "`F041799`,`F041899`"
 		. "$dari";
 		// $sql['SoalanHarta'] = sqlSoalanHarta($jadual,$id);
-		semakPembolehubah($sql,'sql daa',0);
+		//semakTatasusunanIni($sql);
 		return $sql;
 	}
 endif;//*/
