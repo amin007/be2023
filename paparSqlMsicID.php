@@ -65,38 +65,34 @@ diatas($pilih, $urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
 #--------------------------------------------------------------------------------------------------
-echo '<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-<li class="nav-item" role="presentation">
+$cariTab = ['hasil','belanja','gaji','harta','stok'];
+#--------------------------------------------------------------------------------------------------
+echo "\n" . '<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
 <li class="nav-item" role="presentation">
 	<button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-	data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
-	aria-selected="true">Carian</button>
-</li>
-<li class="nav-item" role="presentation">
-	<button class="nav-link" id="hasil-tab" data-bs-toggle="tab"
-	data-bs-target="#hasil-tab-pane" type="button" role="tab" aria-controls="hasil-tab-pane"
-	aria-selected="false" tabindex="-1">hasil</button>
-</li>
-<li class="nav-item" role="presentation">
-	<button class="nav-link" id="belanja-tab" data-bs-toggle="tab"
-	data-bs-target="#belanja-tab-pane" type="button" role="tab" aria-controls="belanja-tab-pane"
-	aria-selected="false" tabindex="-1">belanja</button>
-</li>
-<li class="nav-item" role="presentation">
-	<button class="nav-link" id="gaji-tab" data-bs-toggle="tab"
-	data-bs-target="#gaji-tab-pane" type="button" role="tab" aria-controls="gaji-tab-pane"
-	aria-selected="false" tabindex="-1">gaji</button>
-</li>
-<li class="nav-item" role="presentation">
+	data-bs-target="#home-tab-pane" type="button" role="tab"
+	aria-controls="home-tab-pane" aria-selected="true">Carian</button>
+</li>';
+foreach($cariTab as $namaTabLi):
+echo "\n" . '<li class="nav-item" role="presentation">
+	<button class="nav-link" id="' . $namaTabLi . '-tab" data-bs-toggle="tab"
+	data-bs-target="#' . $namaTabLi . '-tab-pane" type="button" role="tab"
+	aria-controls="' . $namaTabLi . '-tab-pane"
+	aria-selected="false" tabindex="-1">' . $namaTabLi . '</button>
+</li>';
+endforeach;
+echo "\n" . '<li class="nav-item" role="presentation">
 	<button class="nav-link" id="disabled-tab" data-bs-toggle="tab"
-	data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane"
-	aria-selected="false" disabled="" tabindex="-1">harta</button>
+	data-bs-target="#disabled-tab-pane" type="button" role="tab"
+	aria-controls="disabled-tab-pane"
+	aria-selected="false" disabled="" tabindex="-1">disabled</button>
 </li>
 </ul>
 <div class="tab-content" id="myTabContent">
 ';
 #--------------------------------------------------------------------------------------------------
-echo '<div class="tab-pane fade active show" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">';
+echo '<div class="tab-pane fade active show" id="home-tab-pane" role="tabpanel"'
+. ' aria-labelledby="home-tab" tabindex="0">';
 #--------------------------------------------------------------------------------------------------
 foreach($data as $myJadualDaa => $rowDaa):
 	$table = paparSemuaData($rowDaa,$myJadualDaa);
@@ -124,14 +120,16 @@ endif;
 endforeach;//*/
 #--------------------------------------------------------------------------------------------------
 echo "\n\t";
-echo '<div class="tab-pane fade" id="gaji-tab-pane" role="tabpanel" aria-labelledby="gaji-tab" tabindex="0">';
+echo '<div class="tab-pane fade" id="gaji-tab-pane" role="tabpanel"'
+. ' aria-labelledby="gaji-tab" tabindex="0">';
 echo "\n\t<p>untuk gaji</p>";
 echo "\n\t<p>id = $barcode</p>";
 echo "\n\t<p>nama = $nama</p>\n\t";
 echo '</div><!-- class="tab-pane fade" id="gaji-tab-pane" -->';
 #--------------------------------------------------------------------------------------------------
 echo "\n\t";
-echo '<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">';
+echo '<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel"'
+. ' aria-labelledby="disabled-tab" tabindex="0">';
 echo '<p>This is some placeholder content the <strong>harta</strong> associated content.</p>';
 echo '</div><!-- class="tab-pane fade" id="disabled-tab-pane" -->';
 #--------------------------------------------------------------------------------------------------
