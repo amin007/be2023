@@ -283,6 +283,32 @@ if ( ! function_exists('kiraV02')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('kiraV03')):
+	/** */
+	function kiraV03($key,$data,$jumBelanja,$peratus)
+	{
+		# papar nilai awal
+		$papar = null;
+		$data = bersihV02($data);
+		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
+		'F010030','Kod_Industri','Semak'];
+		$namaMedanPanjang = ['Nama_Pertubuhan','F010028','Semak'];
+		# semak data adalah nombor atau tidak
+		if(in_array($key,$namaMedan)):
+			$papar = 'Anggar';
+		elseif(is_numeric($data)):
+			$belanjaBaru = $jumBelanja * $peratus;
+			$kiraPeratus = $data / $jumBelanja;
+			$anggar = number_format(($kiraPeratus * $belanjaBaru), 0);
+			$papar = $anggar;
+		else:
+			$papar = null;
+		endif;
+
+		return $papar;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 # untuk semak tajuk medan berasaskan json
 #--------------------------------------------------------------------------------------------------
@@ -533,9 +559,11 @@ if ( ! function_exists('paparSatuDataAnggar')):
 			foreach ( $row[$kira] as $key=>$data ) :
 			$kiraPeratus = kiraV01($key,$data,$jumBelanja,$peratus);
 			$paparData = kiraV02($key,$data,$peratus);
+			$paparAnggar = kiraV03($key,$data,$jumBelanja,$peratus);
 			$o .= "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
-			$o .= '<td>' . $paparData . '</td>';
+			$o .= '<td align="right">' . $paparData . '</td>';
 			$o .= '<td>' . $kiraPeratus . '</td>';
+			$o .= '<td align="right">' . $paparAnggar . '</td>';
 			//$o .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			$o .= "\n\t" . '</tr></tbody>';
 			endforeach;
