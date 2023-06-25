@@ -40,6 +40,15 @@ if ( ! function_exists('sqlFeBarcode')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlBarcode')):
+	function sqlBarcode($jadualBe,$id)
+	{
+		$sql = "SELECT * FROM `$jadualBe` WHERE `barcode` = '$id';";
+		// $sql['FeBarcode'] = sqlFeBarcode($fe);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlDataAesV00')):
 	function sqlDataAesV00($jadualBe,$jadual,$fe,$id)
 	{
