@@ -1320,6 +1320,92 @@ if ( ! function_exists('sqlSoalanHarta')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlMedanKelulusan')):
+	function sqlMedanKelulusan()
+	{
+		$sql = [
+		['"0-Kelulusan" as `S06-Kelulusan`,"Lelaki" as Lelaki,"Wanita" as Wanita'],
+		['"1-Pasca" as `S06-Kelulusan`,F060199,F061499'],
+		['"2.1-Bacelor Akademik" as `S06-Kelulusan`,F060299,F061599'],
+		['"2.2-Bacelor Teknikal" as `S06-Kelulusan`,F060399,F061699'],
+		['"3.1-Diploma Akademik" as `S06-Kelulusan`,F060499,F061799'],
+		['"3.2-Diploma Teknikal" as `S06-Kelulusan`,F060599,F061899'],
+		['"4-STPM" as `S06-Kelulusan`,F060699,F061999'],
+		['"5.1-Sijil Akademik" as `S06-Kelulusan`,F060799,F062099'],
+		['"5.2-SKM Tahap 3" as `S06-Kelulusan`,F060899,F062199'],
+		['"5.3-SKM Tahap 1&2" as `S06-Kelulusan`,F060999,F062299'],
+		['"5.4-Sijil Kemahiran Lain" as `S06-Kelulusan`,F061099,F062399'],
+		['"6-SPM" as `S06-Kelulusan`,F061199,F062499'],
+		['"7-Bawah SPM" as `S06-Kelulusan`,F061299,F062599'],
+		['"8-Jumlah" as `S06-Kelulusan`,F061399,F062699'],
+		];
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlMedanJamOt')):
+	function sqlMedanJamOt()
+	{
+		$sql = [
+		//['"00-Tajuk" as `Syif`,"01" as `01`,"02" as `02`,"03" as `03`,"Jumlah" as `Jumlah`'],
+		['"1-Bil Staf" as `Syif`,`F070101` as `01`,`F070201` as `02`,`F070301` as `03`,
+		"BLANK" as `Jumlah`'],
+		['"2-Jum Hari Bekerja" as `Syif`,`F070102`,`F070202`,`F070302`,"BLANK" as `Jumlah`'],
+		['"3-Jam Bekerja Sehari" as `Syif`,`F070103`,`F070203`,`F070303`,"BLANK" as `Jumlah`'],
+		['"4-Jum 1*2*3" as `Syif`,`F070104`,`F070204`,`F070304`,`F070404`'],
+		['"5-OT Bil Staf" as `Syif`,"BLANK" as `01`,"BLANK" as `02`,"BLANK" as `03`,`F070405`'],
+		['"6-OT Jam" as `Syif`,"BLANK" as `01`,"BLANK" as `02`,"BLANK" as `03`,`F070499`'],
+		['"7-OT Bayaran" as `Syif`,"BLANK" as `01`,"BLANK" as `02`,"RM=" as `03`,`F070507`'],
+		];
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlMedanStok')):
+	function sqlMedanStok()
+	{
+		$sql = [
+		['"0-Tajuk" as `Stok`,"01" as `Stok Awal`,"02" as `Stok Akhir`'],
+		['"1-Stok Trading" ,`F100104`,`F100204`'],
+		['"2-Stok Lain",`F100105`,`F100205`'],
+		['"3-Jum",`F100199`,`F100299`'],
+		];
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlMedanUlang')):
+	function sqlMedanUlang()
+	{
+		//$sql = 'SELECT Serial_No,Nama_Pertubuhan,KP,F010029,F010030,Kod_Industri';
+		$sql = 'SELECT Serial_No,Nama_Pertubuhan';
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlViewTableDaa')):
+	function sqlViewTableDaa($jadualBe,$jadual,$msic,$fe)
+	{
+		$medanUlang = sqlMedanUlang();
+		$medanDaa['kelulusan'] = sqlMedanKelulusan();
+		$medanDaa['jamot'] = sqlMedanJamOt();
+		$medanDaa['stok'] = sqlMedanStok()
+		foreach($medanDaa as $key0 => $medanKhas):
+			foreach($medanKhas as $key => $val):
+			foreach($val as $key2 => $medan):
+				$sql[] = "SELECT $medanUlang,\n$medan\nFROM `$jadual`\n"
+				. "UNION";
+			endforeach;
+			endforeach;
+		endforeach;
+		$sql[] = "ORDER BY 1,3";
+
+		// $sql['ViewTableDaa'] = sqlViewTableDaa($jadualBe,$jadual,$msic,$fe);
+		//semakTatasusunanIni($sql);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 /*
 # https://stackoverflow.com/questions/63364923/mysql-cannot-add-constant-field-at-start-of-select-error-1064
