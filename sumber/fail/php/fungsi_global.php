@@ -59,7 +59,7 @@ if ( ! function_exists('semakTatasusunanIni')):
 			foreach($senarai as $data):
 				echo "$data\n";
 			endforeach;
-			echo "</$kodHtml>\n";
+			echo "</$kodHtml>\n\n\n\n";
 		else:
 			echo tagVar($senarai,'',5);
 		endif;
