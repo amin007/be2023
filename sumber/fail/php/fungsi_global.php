@@ -311,6 +311,8 @@ if ( ! function_exists('kiraV02')):
 		# semak data adalah panjang atau tidak
 		if(in_array($key, $namaMedanPanjang)):
 			$papar = '<= Rujuk Sebelah';
+		elseif(is_numeric($data)):
+			$papar = number_format($data, 0);
 		else:
 			$papar = $data;
 		endif;
