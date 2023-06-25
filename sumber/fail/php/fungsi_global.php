@@ -262,6 +262,27 @@ if ( ! function_exists('kiraV01')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('kiraV02')):
+	/** */
+	function kiraV02($key,$data,$peratus)
+	{
+		# papar nilai awal
+		$papar = null;
+		$data = bersihV02($data);
+		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
+		'F010030','Kod_Industri','Semak'];
+		$namaMedanPanjang = ['Nama_Pertubuhan','F010028','Semak'];
+		# semak data adalah panjang atau tidak
+		if(in_array($key, $namaMedanPanjang)):
+			$papar = '<= Rujuk Sebelah';
+		else:
+			$papar = $data;
+		endif;
+
+		return $papar;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 # untuk semak tajuk medan berasaskan json
 #--------------------------------------------------------------------------------------------------
@@ -495,8 +516,6 @@ if ( ! function_exists('paparSatuDataAnggar')):
 		$o = null;
 		$bil_baris = count($row);
 		$printed_headers = false;# mula bina jadual
-		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
-		'F010030','Kod_Industri','Semak'];
 		#----------------------------------------------------------------------
 		for ($kira=0; $kira < $bil_baris; $kira++)
 		{# print the headers once:
@@ -513,8 +532,9 @@ if ( ! function_exists('paparSatuDataAnggar')):
 			# print the data row
 			foreach ( $row[$kira] as $key=>$data ) :
 			$kiraPeratus = kiraV01($data,$jumBelanja,$peratus);
+			$paparData = kiraV02($key,$data,$peratus);
 			$o .= "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
-			$o .= '<td>' . bersihV02($data) . '</td>';
+			$o .= '<td>' . $paparData . '</td>';
 			$o .= '<td>' . $kiraPeratus . '</td>';
 			//$o .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			$o .= "\n\t" . '</tr></tbody>';
