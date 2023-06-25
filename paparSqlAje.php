@@ -34,6 +34,8 @@ semakPembolehubah($_POST,'_POST',0);
 #--------------------------------------------------------------------------------------------------
 $jadual01 = bersih($_POST['jadual01']);
 $jadual02 = bersih($_POST['jadual02']);
+$jadual03 = bersih($_POST['jadual03']);
+$jadual04 = bersih($_POST['jadual04']);
 $medan01 = bersih($_POST['medan01']);
 $medan02 = bersih($_POST['medan02']);
 $failcsv = bersih($_POST['failcsv']);
@@ -47,9 +49,9 @@ $sql['TukarNamaJadual'] = sqlTukarNamaJadual($jadual01,$jadual02);
 $sql['TukarNamaMedan'] = sqlTukarNamaMedan($jadual01,$medan01,$medan02);
 $sql['InsertCsv'] = sqlInsertCsv($jadual01,$failcsv);
 $sql['ViewHarta'] = sqlSoalanHarta($jadual01,$medan01);
-$sql['ViewTableKelulusan'] = sqlViewTableKelulusan($jadual01,$jadual02,$medan01,$medan02);
-$sql['ViewTableJamot'] = sqlViewTableJamot($jadual01,$jadual02,$medan01,$medan02);
-$sql['ViewTableStok'] = sqlViewTableStok($jadual01,$jadual02,$medan01,$medan02);
+$sql['ViewTableKelulusan'] = sqlViewTableKelulusan($jadual01,$jadual02,$jadual03,$jadual04);
+$sql['ViewTableJamot'] = sqlViewTableJamot($jadual01,$jadual02,$jadual03,$jadual04);
+$sql['ViewTableStok'] = sqlViewTableStok($jadual01,$jadual02,$jadual03,$jadual04);
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
 //semakPembolehubah($myJadual,'myJadual',0);
