@@ -245,21 +245,21 @@ if ( ! function_exists('paparTDKhas')):
 		# papar nilai awal
 		$papar = null;
 		$data = bersihV02($data);
-		$data02 = bersihV02($data02);
 		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
 		'F010030','Kod_Industri','Semak'];
-
+		# semak format kiraan
 		$kiraPeratus = kiraV01($key,$data,$jumBelanja,$peratus);
 		$paparData = kiraV02($key,$data,$peratus);
 		$paparAnggar = kiraV03($key,$data,$jumBelanja,$peratus);
-		$o = "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
+		# masuk dalam tr td
+		$papar = "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
 		. '<td align="right">' . $paparData . '</td>';
 		. '<td>' . $kiraPeratus . '</td>';
 		. '<td align="right">' . $paparAnggar . '</td>';
 		// . "<!-- $key|$kira -->";# untuk debug di masa hadapan
 		. "\n\t" . '</tr></tbody>';
 
-		return $o;
+		return $papar;
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
@@ -269,8 +269,6 @@ if ( ! function_exists('kiraV01')):
 	{
 		# papar nilai awal
 		$papar = null;
-		$data = bersihV02($data);
-		$data02 = bersihV02($data02);
 		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
 		'F010030','Kod_Industri','Semak'];
 		# semak data adalah nombor atau tidak
@@ -292,9 +290,6 @@ if ( ! function_exists('kiraV02')):
 	{
 		# papar nilai awal
 		$papar = null;
-		$data = bersihV02($data);
-		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
-		'F010030','Kod_Industri','Semak'];
 		$namaMedanPanjang = ['Nama_Pertubuhan','F010028','Semak'];
 		# semak data adalah panjang atau tidak
 		if(in_array($key, $namaMedanPanjang)):
@@ -313,10 +308,8 @@ if ( ! function_exists('kiraV03')):
 	{
 		# papar nilai awal
 		$papar = null;
-		$data = bersihV02($data);
 		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
 		'F010030','Kod_Industri','Semak'];
-		$namaMedanPanjang = ['Nama_Pertubuhan','F010028','Semak'];
 		# semak data adalah nombor atau tidak
 		if(in_array($key,$namaMedan)):
 			$papar = 'Anggar';
