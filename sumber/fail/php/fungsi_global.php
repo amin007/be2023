@@ -684,9 +684,11 @@ if ( ! function_exists('paparDataSahaja')):
 endif;
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparTableTab')):
-	function paparTableTab($namaTab,$myJadualV02,$class02,$table)
+	function paparTableTab($namaTab,$class02,$myJadualV02,$rowV02,$jumF99,$anggar)
 	{
 		$papar = '';
+		#------------------------------------------------------------------------------------------
+		$table = paparSatuDataAnggar($rowV02,$myJadualV02,$jumF99,$anggar);
 		#------------------------------------------------------------------------------------------
 		$papar = "\n\t" . '<div class="tab-pane fade" id="' . $namaTab . '-tab-pane"'
 		. ' role="tabpanel" aria-labelledby="' . $namaTab . '-tab" tabindex="0">'
