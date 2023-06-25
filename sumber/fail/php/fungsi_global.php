@@ -241,19 +241,19 @@ endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('kiraV01')):
 	/** */
-	function kiraV01($data,$data02,$peratus)
+	function kiraV01($key,$data,$data02,$peratus)
 	{
-		# buang ruang kosong (atau aksara lain) dari mula & akhir
+		# papar nilai awal
 		$papar = null;
 		$data = bersihV02($data);
 		$data02 = bersihV02($data02);
+		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
+		'F010030','Kod_Industri','Semak'];
 		# semak data adalah nombor atau tidak
-		if(is_numeric($data)):
+		if(in_array($key,$namaMedan)):
+			$papar = 'Kira %';
+		elseif(is_numeric($data)):
 			$papar = number_format(($data/$data02), 4);
-			/*
-			$kiraPeratus = (!in_array($key, $namaMedan)) ?
-			number_format(($data/$jumBelanja),4):null;
-			*/
 		else:
 			$papar = null;
 		endif;
@@ -531,7 +531,7 @@ if ( ! function_exists('paparSatuDataAnggar')):
 		#----------------------------------------------------------------------
 			# print the data row
 			foreach ( $row[$kira] as $key=>$data ) :
-			$kiraPeratus = kiraV01($data,$jumBelanja,$peratus);
+			$kiraPeratus = kiraV01($key,$data,$jumBelanja,$peratus);
 			$paparData = kiraV02($key,$data,$peratus);
 			$o .= "\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>';
 			$o .= '<td>' . $paparData . '</td>';
