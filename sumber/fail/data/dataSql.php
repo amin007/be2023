@@ -1384,9 +1384,10 @@ if ( ! function_exists('sqlMedanUlang')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlViewTableDaa')):
-	function sqlViewTableDaa($jadualBe,$jadual,$msic,$fe)
+	function sqlViewTableDaa($jadual01,$jadual02,$jadual03,$jadual04)
 	{
 		$sql = '';
+		$jadual = $jadual01;
 		$medanUlang = sqlMedanUlang();
 		$medanDaa['kelulusan'] = sqlMedanKelulusan();
 		$medanDaa['jamot'] = sqlMedanJamOt();
@@ -1407,9 +1408,10 @@ if ( ! function_exists('sqlViewTableDaa')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlViewTableKelulusan')):
-	function sqlViewTableKelulusan($jadualBe,$jadual,$msic,$fe)
+	function sqlViewTableKelulusan($jadual01,$jadual02,$jadual03,$jadual04)
 	{
 		$sql = '';
+		$jadual = $jadual02;
 		$medanUlang = sqlMedanUlang();
 		$medanKhas = sqlMedanKelulusan();
 		foreach($medanKhas as $key => $val):
@@ -1426,9 +1428,10 @@ if ( ! function_exists('sqlViewTableKelulusan')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlViewTableJamot')):
-	function sqlViewTableJamot($jadualBe,$jadual,$msic,$fe)
+	function sqlViewTableJamot($jadual01,$jadual02,$jadual03,$jadual04)
 	{
 		$sql = '';
+		$jadual = $jadual03;
 		$medanUlang = sqlMedanUlang();
 		$medanKhas = sqlMedanJamOt();
 		foreach($medanKhas as $key => $val):
@@ -1445,9 +1448,10 @@ if ( ! function_exists('sqlViewTableJamot')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlViewTableStok')):
-	function sqlViewTableStok($jadualBe,$jadual,$msic,$fe)
+	function sqlViewTableStok($jadual01,$jadual02,$jadual03,$jadual04)
 	{
 		$sql = '';
+		$jadual = $jadual04;
 		$medanUlang = sqlMedanUlang();
 		$medanKhas = sqlMedanStok();
 		foreach($medanKhas as $key => $val):
