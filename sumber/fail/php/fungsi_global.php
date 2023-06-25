@@ -240,7 +240,7 @@ if ( ! function_exists('tajukMedanJadual')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparTDKhas')):
-	function paparTDKhas($key,$data,$jumBelanja,$peratus)
+	function paparTDKhas($key,$data,$jumBelanja,$anggar)
 	{
 		# papar nilai awal
 		$papar = null;
@@ -555,7 +555,7 @@ if ( ! function_exists('paparSatuJe')):
 endif;
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparSatuDataAnggar')):
-	function paparSatuDataAnggar($row,$jadual,$jumBelanja,$peratus)
+	function paparSatuDataAnggar($row,$jadual,$jumBelanja,$anggar)
 	{
 		$o = null;
 		$bil_baris = count($row);
@@ -575,7 +575,7 @@ if ( ! function_exists('paparSatuDataAnggar')):
 		#----------------------------------------------------------------------
 			# print the data row
 			foreach ( $row[$kira] as $key=>$data ) :
-				$o .= paparTDKhas($key,$data,$jumBelanja,$peratus);
+				$o .= paparTDKhas($key,$data,$jumBelanja,$anggar);
 			endforeach;
 		}#---------------------------------------------------------------------
 
