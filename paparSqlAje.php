@@ -46,9 +46,11 @@ $sql['ServerVersion'] = sqlServerVersion($dbPelayan,$dbNama,$dbKatalaluan,$dbKat
 $sql['TukarNamaJadual'] = sqlTukarNamaJadual($jadual01,$jadual02);
 $sql['TukarNamaMedan'] = sqlTukarNamaMedan($jadual01,$medan01,$medan02);
 $sql['InsertCsv'] = sqlInsertCsv($jadual01,$failcsv);
+$sql['ViewHarta'] = sqlSoalanHarta($jadual01,$medan01);
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
 //semakPembolehubah($myJadual,'myJadual',0);
-semakPembolehubah($sql,'sql',0);
+//semakPembolehubah($sql,'sql',0);
+semakTatasusunanIni($sql);
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
