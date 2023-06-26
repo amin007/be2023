@@ -603,6 +603,43 @@ if ( ! function_exists('paparSatuDataAnggar')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparSemuaDataAnggar')):
+	function paparSemuaDataAnggar($row,$jadual,$jumF99,$anggar)
+	{
+		$o = null;
+		$bil_baris = count($row);
+		$printed_headers = false;# mula bina jadual
+		#----------------------------------------------------------------------
+		for ($kira=0; $kira < $bil_baris; $kira++)
+		{# print the headers once:
+			if ( !$printed_headers )
+			{##================================================================
+				$o .= "\n\t<thead><tr>";
+				$o .= "\n\t" . '<th>#</th>';
+				foreach ( array_keys($row[$kira]) as $tajuk ) :
+				$o .= "\n\t" . '<th>' . $tajuk . '</th>';
+				endforeach;
+				$o .= "\n\t" . '</tr></thead>';
+				$o .= "\n\t" . '<tbody>';
+			##=================================================================
+				$printed_headers = true;
+			}
+		#----------------------------------------------------------------------
+			# print the data row
+			$o .= "\n\t<tr>\r\t";
+			$o .= "\n\t<td>".($kira+1)."</td>";
+			foreach ( $row[$kira] as $key=>$data ) :
+			$o .= paparTDKhasV02($key,$data,$jumF99,$anggar);
+			//$o .= '<td>' . bersihV02($data) . '</td>';
+			//$o .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
+			endforeach;
+			$o .= "\n\t" . '</tr></tbody>';
+		}#---------------------------------------------------------------------
+
+		return $o;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparSemuaData')):
 	function paparSemuaData($row,$jadual)
 	{
