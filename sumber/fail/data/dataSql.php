@@ -1467,21 +1467,25 @@ if ( ! function_exists('sqlViewTableStok')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
-if ( ! function_exists('sqlViewStafLelaki')):
-	function sqlViewStafLelaki($jadual)
+if ( ! function_exists('sqlViewStaf')):
+	function sqlViewStaf($jadual)
 	{
 		$sql = '';
 		$medanUlang = sqlMedanUlang();
-		//$medanKhas = sqlMedanStafLelaki();
-		$medanKhas = sqlMedanStafLelakiV02();
-		foreach($medanKhas as $key => $val):
+		$medanLelaki = sqlMedanStafLelakiV02();
+		$medanWanita = sqlMedanStafWanitaV02();
+		foreach($medanLelaki as $key => $val):
 		foreach($val as $key2 => $medan):
 			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\nUNION\n";
-		endforeach;
-		endforeach;
-		$sql .= "\nORDER BY 1,3\n\n";
+		endforeach;endforeach;
+		$key = $val = $key2 = $medan = null;
+		foreach($medanWanita as $key => $val):
+		foreach($val as $key2 => $medan):
+			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\nUNION\n";
+		endforeach;endforeach;
+		$sql .= "\nORDER BY 1,3";
 
-		// $sql['ViewStafLelaki'] = sqlViewStafLelaki($jadualBe,$jadual,$msic,$fe);
+		// $sql['ViewStaf'] = sqlViewStaf($jadualBe,$jadual,$msic,$fe);
 		//semakTatasusunanIni($sql);
 		return $sql;
 	}
