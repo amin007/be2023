@@ -148,7 +148,7 @@ echo "\n\t<p>untuk gaji</p>";
 echo "\n\t<p>id = $barcode|nama = $nama</p>\n\t";
 echo "\n\t<p>gajiAnggar = $jumGaji</p>\n\t";
 echo "\n\t<p>belanjaGaji[F090036] = $belanjaGaji</p>\n\t";
-semakPembolehubah($anggar,'anggar',0);
+//semakPembolehubah($anggar,'anggar',0);
 echo paparTableTabV02('staf',$class,$kp337[18],$data[$kp337[18]],$jumGaji,$anggar);
 echo paparTableTabV02('lelaki',$class,$kp337[4],$data[$kp337[4]],$jumGaji,$anggar);
 echo paparTableTabV02('wanita',$class,$kp337[5],$data[$kp337[5]],$jumGaji,$anggar);
@@ -162,7 +162,12 @@ echo "\n\t<p>belanjaSusut[F090024] = $belanjaSusut</p>\n\t";
 echo "\n\t<p>anggarSusut[F090024] = $susutAnggar</p>\n\t";
 echo "\n\t<p>belanjaSewaTanah[F090019] = $belanjaSewaTanah</p>\n\t";
 echo "\n\t<p>belanjaSewaBangunan[F090020] = $belanjaSewaBangunan</p>\n\t";
-echo paparTableTabV02('harta',$class,$kp337[3],$data[$kp337[3]],$jumBelanja,$anggar);
+/*$anggar['belanjaSusut'] = $belanjaSusut;
+$anggar['anggarSusut'] = $susutAnggar;
+$anggar['belanjaSewaTanah'] = $belanjaSewaTanah;
+$anggar['belanjaSewaBangunan'] = $belanjaSewaBangunan;//*/
+semakPembolehubah($anggar,'anggar',0);
+echo paparTableTabV02('harta',$class,$kp337[3],$data[$kp337[3]],$susutAnggar,$anggar);
 echo '</div><!-- class="tab-pane fade" id="harta-tab-pane" -->';//*/
 #--------------------------------------------------------------------------------------------------
 echo "\n\t" . '<div class="tab-pane fade" id="stok-tab-pane" role="tabpanel"'
