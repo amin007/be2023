@@ -273,11 +273,15 @@ if ( ! function_exists('paparTDKhasV02')):
 		$data = bersihV02($data);
 		list($peratus,$hasil,$belanja,$gaji,$staf,$harta,$stok) = pecahTatasusunan($anggar);
 		# semak format kiraan
-		//$paparAnggar = kiraV04($key,$data,$gaji,$peratus);
+		$paparAnggar04 = kiraV04($key,$data,$jumF99,$peratus);
+		$gajiSetahun = (int)bersihNombor($paparAnggar04);
+		$bulan = kiraV02($key,($gajiSetahun/12),$peratus);
 		# masuk dalam tr td - ['Staf%','GajiL%']
 		if(in_array($key,['GajiL%'])):
-			$papar = "\n\t<td>" . $data . '<hr>'
-			. kiraV04($key,$data,$gaji,$peratus) . '</td>';
+			$papar = "\n\t<td>$data</td>"
+			. '<td>' . $paparAnggar04 . '</td>'
+			. '<td>' . $bulan . '</td>'
+			. '';
 		else:
 			$papar = "\n\t<td>$data</td>";
 		endif;
