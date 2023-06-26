@@ -265,6 +265,27 @@ if ( ! function_exists('paparTDKhas')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparTDKhasV02')):
+	function paparTDKhasV02($key,$data,$jumF99,$anggar)
+	{
+		# papar nilai awal
+		$papar = null;
+		$data = bersihV02($data);
+		list($peratus,$hasil,$belanja,$gaji,$staf,$harta,$stok) = pecahTatasusunan($anggar);
+		# semak format kiraan
+		//$paparAnggar = kiraV04($key,$data,$gaji,$peratus);
+		# masuk dalam tr td - ['Staf%','GajiL%']
+		if(in_array($key,['GajiL%'])):
+			$papar = "\n\t<td>" . $data . '<hr>'
+			. kiraV04($key,$data,$gaji,$peratus) . '</td>';
+		else:
+			$papar = "\n\t<td>$data</td>";
+		endif;
+
+		return $papar;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('pecahTatasusunan')):
 	function pecahTatasusunan($anggar)
 	{
@@ -337,6 +358,24 @@ if ( ! function_exists('kiraV03')):
 			$kiraPeratus = $data / $jumBelanja;
 			$anggar = number_format(($kiraPeratus * $belanjaBaru), 0);
 			$papar = $anggar;
+		else:
+			$papar = null;
+		endif;
+
+		return $papar;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('kiraV04')):
+	/** */
+	function kiraV04($key,$data,$jumF99,$peratus)
+	{
+		# papar nilai awal
+		$papar = null;
+		# semak data adalah nombor atau tidak
+		if(is_numeric($data)):
+			$papar = $data * ($jumF99*12);
+			$papar = number_format($papar, 0);
 		else:
 			$papar = null;
 		endif;
