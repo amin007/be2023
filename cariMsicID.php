@@ -66,14 +66,24 @@ print <<<END
 		name="belanja" value="***">
 	</div>
 	<div class="form-group">
-		<label for="onputPeratusan">Gaji</label>
+		<label for="onputPeratusan">Peratusan Gaji</label>
 		<input type="text" class="form-control form-control-lg"
-		name="gaji" value="1500">
+		name="peratusGaji" value="0.18">
 	</div>
 	<div class="form-group">
-		<label for="onputPeratusan">Bil Pekerja</label>
+		<label for="onputPeratusan">Gaji Pengurus</label>
 		<input type="text" class="form-control form-control-lg"
-		name="staf" value="2">
+		name="gajiPengurus" value="5000">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Gaji Staf</label>
+		<input type="text" class="form-control form-control-lg"
+		name="gajiStaf" value="1500">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Bil Staf</label>
+		<input type="text" class="form-control form-control-lg"
+		name="bilStaf" value="2">
 	</div>
 	<div class="form-group">
 		<label for="onputPeratusan">Harta</label>
