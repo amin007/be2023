@@ -674,6 +674,8 @@ if ( ! function_exists('paparSemuaDataAnggar')):
 				foreach ( array_keys($row[$kira]) as $tajuk ) :
 				$o .= "\n\t" . '<th>' . $tajuk . '</th>';
 				endforeach;
+				$o .= "\n\t" . '<th>Anggar</th>';
+				$o .= "\n\t" . '<th>Sebulan</th>';
 				$o .= "\n\t" . '</tr></thead>';
 				$o .= "\n\t" . '<tbody>';
 			##=================================================================
