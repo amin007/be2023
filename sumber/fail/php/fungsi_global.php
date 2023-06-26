@@ -710,7 +710,8 @@ if ( ! function_exists('paparTableTabV02')):
 		$papar = '';
 		#------------------------------------------------------------------------------------------
 		//$table = paparSatuDataAnggar($rowV02,$myJadualV02,$jumF99,$anggar);
-		$table = paparSemuaData($rowV02,$myJadualV02,$jumF99,$anggar);
+		//$table = paparSemuaData($rowV02,$myJadualV02);
+		$table = paparDataKhas($rowV02,$myJadualV02,$jumF99,$anggar);
 		#------------------------------------------------------------------------------------------
 		$papar = "\n\t<h2>$myJadualV02</h2>"
 		. "\n\t<table class=$class02>$table</table>\n\t<hr>\n\t";
