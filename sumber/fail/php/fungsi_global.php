@@ -129,6 +129,17 @@ if ( ! function_exists('bersihV02')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('bersihNombor')):
+	/** */
+	function bersihNombor($papar)
+	{
+		# jika nombor ada coma seperti 10,000
+		$papar = str_replace(',','',$papar);
+
+		return $papar;
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('myUrlEncode')):
 	function myUrlEncode($string)
 	{
