@@ -121,8 +121,14 @@ echo '</div><!-- class="tab-pane fade" id="home-tab-pane" -->';
 //semakPembolehubah($data[$kp337[9]],'data belanja',0);
 $jumHasil = $data[$kp337[8]][0]['F080099'];
 $jumBelanja = $data[$kp337[9]][0]['F090099'];
+$belanjaSewaTanah = $data[$kp337[9]][0]['F090019'];
+$belanjaSewaBangunan = $data[$kp337[9]][0]['F090020'];
+$belanjaSusut = $data[$kp337[9]][0]['F090024'];
+$belanjaGaji = $data[$kp337[9]][0]['F090036'];
 $jumGaji = $data[$myJadual[5]][0]['Gaji'];
 $jumGaji = str_replace(',','',$jumGaji);
+$anggar['gaji'] = $jumGaji;
+$anggar['belanjagaji'] = $belanjaGaji;
 $barcode = $data[$myJadual[8]][0]['barcode'];
 $nama = $data[$myJadual[8]][0]['nama'];
 //semakPembolehubah($jumBelanja,'jumBelanja',0);
@@ -141,7 +147,8 @@ echo "\n\t" . '<div class="tab-pane fade" id="gaji-tab-pane" role="tabpanel"'
 echo "\n\t<p>untuk gaji</p>";
 echo "\n\t<p>id = $barcode|nama = $nama</p>\n\t";
 echo "\n\t<p>gajiAnggar = $jumGaji</p>\n\t";
-//semakPembolehubah($anggar,'anggar',0);
+echo "\n\t<p>belanjaGaji[F090036] = $belanjaGaji</p>\n\t";
+semakPembolehubah($anggar,'anggar',0);
 echo paparTableTabV02('staf',$class,$kp337[18],$data[$kp337[18]],$jumGaji,$anggar);
 echo paparTableTabV02('lelaki',$class,$kp337[4],$data[$kp337[4]],$jumGaji,$anggar);
 echo paparTableTabV02('wanita',$class,$kp337[5],$data[$kp337[5]],$jumGaji,$anggar);
@@ -150,6 +157,11 @@ echo '</div><!-- class="tab-pane fade" id="gaji-tab-pane" -->';//*/
 echo "\n\t" . '<div class="tab-pane fade" id="harta-tab-pane" role="tabpanel"'
 . ' aria-labelledby="harta-tab" tabindex="0">';
 echo "\n\t<p>untuk harta</p>";
+$susutAnggar = bersihNombor(kiraAnggarBelanja($jumBelanja,$anggar['peratusan'],$belanjaSusut));
+echo "\n\t<p>belanjaSusut[F090024] = $belanjaSusut</p>\n\t";
+echo "\n\t<p>anggarSusut[F090024] = $susutAnggar</p>\n\t";
+echo "\n\t<p>belanjaSewaTanah[F090019] = $belanjaSewaTanah</p>\n\t";
+echo "\n\t<p>belanjaSewaBangunan[F090020] = $belanjaSewaBangunan</p>\n\t";
 echo paparTableTabV02('harta',$class,$kp337[3],$data[$kp337[3]],$jumBelanja,$anggar);
 echo '</div><!-- class="tab-pane fade" id="harta-tab-pane" -->';//*/
 #--------------------------------------------------------------------------------------------------
@@ -208,6 +220,17 @@ endif;//*/
 #--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
+#--------------------------------------------------------------------------------------------------
+//if ( ! function_exists('abc')):
+	function kiraAnggarBelanja($jumBelanja,$peratus,$data)
+	{
+		$belanjaBaru = $jumBelanja * $peratus;
+		$kiraPeratus = $data / $jumBelanja;
+		$papar = number_format(($kiraPeratus * $belanjaBaru), 0);
+
+		return $papar;
+	}
+//endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('abc')):
 	function abc()
