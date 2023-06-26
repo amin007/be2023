@@ -374,7 +374,8 @@ if ( ! function_exists('kiraV04')):
 		$papar = null;
 		# semak data adalah nombor atau tidak
 		if(is_numeric($data)):
-			$papar = $data * ($jumF99*12);
+			$papar = $data * $jumF99;
+			$paoar = substr($papar,0);
 			$papar = number_format($papar, 0);
 		else:
 			$papar = null;
