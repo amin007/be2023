@@ -31,15 +31,30 @@ $_POST['peratusan'] => 1.0087
 $msic = null;
 $idSebenar = bersih($_POST['idSebenar']);
 $idProksi = bersih($_POST['idProksi']);
+# set pembolehubah untuk gaji
+$peratusGaji = bersih($_POST['peratusGaji']);
+$pekerja['peratusGaji'] = $peratusGaji;
+$anggar['peratusGaji'] = $peratusGaji;
+$pengurus = bersih($_POST['gajiPengurus']);
+$pekerja['pengurus'] = $pengurus;
+$anggar['gajiPengurus'] = $pengurus;
+$staf = bersih($_POST['gajiStaf']);
+$pekerja['asas'] = $staf;
+$anggar['gajiStaf'] = $staf;
+# set pembolehubah untuk 5 data utama
 $anggar['peratusan'] = bersih($_POST['peratusan']);
 $anggar['hasil'] = bersih($_POST['hasil']);
 $anggar['belanja'] = bersih($_POST['belanja']);
-$anggar['gaji'] = bersih($_POST['gaji']);
-$anggar['staf'] = bersih($_POST['staf']);
+$anggar['gaji'] = $pengurus + $staf;
+$anggar['staf'] = bersih($_POST['bilStaf']);
 $anggar['harta'] = bersih($_POST['harta']);
 $anggar['stok'] = bersih($_POST['stok']);
 #--------------------------------------------------------------------------------------------------
+//semakPembolehubah($anggar,'anggar',0);
+//semakPembolehubah($staf,'staf',0);
+#--------------------------------------------------------------------------------------------------
 $sql[$myJadual[8]] = sqlBarcode($myJadual[8],$idSebenar);
+$sql[$myJadual[5]] = sqlRangkaKwspV06($myJadual[5],$idSebenar,$anggar['peratusan'],$pekerja);
 $sql['SemuaNewss'] = sqlCariIDBe($kp337[0],$kp337[2],$msic,$idProksi);
 for($i = 1; $i <= 18;$i++):
 	$sql[$kp337[$i]] = sqlcariIDKp337($kp337[0],$kp337[$i],$msic,$idProksi);
@@ -106,6 +121,8 @@ echo '</div><!-- class="tab-pane fade" id="home-tab-pane" -->';
 //semakPembolehubah($data[$kp337[9]],'data belanja',0);
 $jumHasil = $data[$kp337[8]][0]['F080099'];
 $jumBelanja = $data[$kp337[9]][0]['F090099'];
+$jumGaji = $data[$myJadual[5]][0]['Gaji'];
+$jumGaji = str_replace(',','',$jumGaji);
 $barcode = $data[$myJadual[8]][0]['barcode'];
 $nama = $data[$myJadual[8]][0]['nama'];
 //semakPembolehubah($jumBelanja,'jumBelanja',0);
@@ -122,11 +139,12 @@ endforeach;//*/
 echo "\n\t" . '<div class="tab-pane fade" id="gaji-tab-pane" role="tabpanel"'
 . ' aria-labelledby="gaji-tab" tabindex="0">';
 echo "\n\t<p>untuk gaji</p>";
-echo "\n\t<p>id = $barcode</p>";
-echo "\n\t<p>nama = $nama</p>\n\t";
-echo paparTableTabV02('staf',$class,$kp337[18],$data[$kp337[18]],$jumBelanja,$anggar);
-echo paparTableTabV02('lelaki',$class,$kp337[4],$data[$kp337[4]],$jumBelanja,$anggar);
-echo paparTableTabV02('wanita',$class,$kp337[5],$data[$kp337[5]],$jumBelanja,$anggar);
+echo "\n\t<p>id = $barcode|nama = $nama</p>\n\t";
+echo "\n\t<p>gajiAnggar = $jumGaji</p>\n\t";
+//semakPembolehubah($anggar,'anggar',0);
+echo paparTableTabV02('staf',$class,$kp337[18],$data[$kp337[18]],$jumGaji,$anggar);
+echo paparTableTabV02('lelaki',$class,$kp337[4],$data[$kp337[4]],$jumGaji,$anggar);
+echo paparTableTabV02('wanita',$class,$kp337[5],$data[$kp337[5]],$jumGaji,$anggar);
 echo '</div><!-- class="tab-pane fade" id="gaji-tab-pane" -->';//*/
 #--------------------------------------------------------------------------------------------------
 echo "\n\t" . '<div class="tab-pane fade" id="harta-tab-pane" role="tabpanel"'
@@ -134,6 +152,12 @@ echo "\n\t" . '<div class="tab-pane fade" id="harta-tab-pane" role="tabpanel"'
 echo "\n\t<p>untuk harta</p>";
 echo paparTableTabV02('harta',$class,$kp337[3],$data[$kp337[3]],$jumBelanja,$anggar);
 echo '</div><!-- class="tab-pane fade" id="harta-tab-pane" -->';//*/
+#--------------------------------------------------------------------------------------------------
+echo "\n\t" . '<div class="tab-pane fade" id="stok-tab-pane" role="tabpanel"'
+. ' aria-labelledby="stok-tab" tabindex="0">';
+echo "\n\t<p>untuk stok</p>";
+echo paparTableTabV02('stok',$class,$kp337[10],$data[$kp337[10]],$jumBelanja,$anggar);
+echo '</div><!-- class="tab-pane fade" id="stok-tab-pane" -->';//*/
 #--------------------------------------------------------------------------------------------------
 echo "\n\t";
 echo '<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel"'
