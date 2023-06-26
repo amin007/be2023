@@ -585,15 +585,55 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		FORMAT($stafBaki/(BILANGAN_PEKERJA-1)/13,0) as blnStaf,
 		FORMAT($stafPengurus + $stafBaki,0) as JumGaji,
 		FORMAT(($stafPengurus + $stafBaki)/BILANGAN_PEKERJA/13,0) as PurataGaji,
-		FORMAT($anggarHasil,0) as Hasil,
-		FORMAT($anggarBelanja,0) as Belanja,
-		FORMAT($anggarGaji,0) as Gaji,
-		FORMAT($anggarHarta,0) as Harta,
+		concat_ws('|',FORMAT($anggarHasil,0),$anggarHasil) as Hasil,
+		concat_ws('|',FORMAT($anggarBelanja,0),$anggarBelanja) as Belanja,
+		concat_ws('|',FORMAT($anggarGaji,0),$anggarGaji) as Gaji,
+		concat_ws('|',FORMAT($anggarHarta,0),$anggarHarta) as Harta,
 		BILANGAN_PEKERJA as Pekerja,
-		FORMAT($anggarStok,0) as Stok
+		concat_ws('|',FORMAT($anggarStok,0),$anggarStok) as Stok
 		from `$jadual`
 		where `ESTABLISHMENT_ID` = '$id' ";
 		// $sql['RangkaKwspV05'] = sqlRangkaKwspV05($jadual,$fe,$id);
+		//echo $sql;
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlRangkaKwspV06')):
+	function sqlRangkaKwspV06($jadual,$id,$peratus,$staf)
+	{
+		# set nilai awal
+		$pengurus = $staf['pengurus'];
+		$asas = $staf['asas'];
+		$peratusGaji = $staf['peratusGaji'];
+		$stafPengurus = "($pengurus*13)";
+		$stafBaki = "((BILANGAN_PEKERJA-1)*$asas*13)";
+		$anggarGaji = "($stafPengurus + $stafBaki) * $peratus";
+		$anggarBelanja = "($anggarGaji/$peratusGaji)";
+		$anggarStok = "$anggarBelanja*0.04";
+		$anggarHarta = "$anggarBelanja*0.175";
+		$anggarHasil = "$anggarBelanja/0.92";
+		//$sql = "SET @rownr=0;
+		//SELECT @rownr:=@rownr+1 AS Bil,LPAD(ESTABLISHMENT_ID, 12, '0') as newss,
+		$sql = "\tSELECT ESTABLISHMENT_ID,BUSINESS_REG_NO as NOSSM,"
+		. "\r\tconcat_ws('|',REGISTERED_NAME,TRADING_NAME) as NamaPerniagaan,"
+		. "\r\tNO_TELEFON Tel,NO_FAKS Fax,EMEL_EMEL Emel,STATUS_AKTIVITI as Status,"
+		. "\r\tBILANGAN_PEKERJA as Staf,'data bawah ini semua anggaran' as Anggaran,"
+		. "\r\tFORMAT($stafPengurus,0) as gajiPengurus,"
+		. "\r\tFORMAT($stafPengurus/13,0) as blnPengurus,"
+		. "\r\tFORMAT($stafBaki,0) as gajiStaf,"
+		. "\r\tFORMAT($stafBaki/(BILANGAN_PEKERJA-1)/13,0) as blnStaf,"
+		. "\r\tFORMAT($stafPengurus + $stafBaki,0) as JumGaji,"
+		. "\r\tFORMAT(($stafPengurus + $stafBaki)/BILANGAN_PEKERJA/13,0) as PurataGaji,"
+		. "\r\tFORMAT($anggarHasil,0) as Hasil,"
+		. "\r\tFORMAT($anggarBelanja,0) as Belanja,"
+		. "\r\tFORMAT($anggarGaji,0) as Gaji,"
+		. "\r\tFORMAT($anggarHarta,0) as Harta,"
+		. "\r\tBILANGAN_PEKERJA as Pekerja,"
+		. "\r\tFORMAT($anggarStok,0) as Stok"
+		. "\r\tfrom `$jadual`"
+		. "\r\twhere `ESTABLISHMENT_ID` = '$id' ";
+		// $sql['RangkaKwspV05'] = sqlRangkaKwspV06($jadual,$fe,$id);
 		//echo $sql;
 		return $sql;
 	}
