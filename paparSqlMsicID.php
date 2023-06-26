@@ -41,7 +41,7 @@ $anggar['stok'] = bersih($_POST['stok']);
 #--------------------------------------------------------------------------------------------------
 $sql[$myJadual[8]] = sqlBarcode($myJadual[8],$idSebenar);
 $sql['SemuaNewss'] = sqlCariIDBe($kp337[0],$kp337[2],$msic,$idProksi);
-for($i = 1; $i <= 17;$i++):
+for($i = 1; $i <= 18;$i++):
 	$sql[$kp337[$i]] = sqlcariIDKp337($kp337[0],$kp337[$i],$msic,$idProksi);
 endfor;
 #--------------------------------------------------------------------------------------------------
@@ -119,13 +119,21 @@ if($myJadualV02 == $kp337[9]):
 endif;
 endforeach;//*/
 #--------------------------------------------------------------------------------------------------
-echo "\n\t";
-echo '<div class="tab-pane fade" id="gaji-tab-pane" role="tabpanel"'
+echo "\n\t" . '<div class="tab-pane fade" id="gaji-tab-pane" role="tabpanel"'
 . ' aria-labelledby="gaji-tab" tabindex="0">';
 echo "\n\t<p>untuk gaji</p>";
 echo "\n\t<p>id = $barcode</p>";
 echo "\n\t<p>nama = $nama</p>\n\t";
-echo '</div><!-- class="tab-pane fade" id="gaji-tab-pane" -->';
+echo paparTableTabV02('staf',$class,$kp337[18],$data[$kp337[18]],$jumBelanja,$anggar);
+echo paparTableTabV02('lelaki',$class,$kp337[4],$data[$kp337[4]],$jumBelanja,$anggar);
+echo paparTableTabV02('wanita',$class,$kp337[5],$data[$kp337[5]],$jumBelanja,$anggar);
+echo '</div><!-- class="tab-pane fade" id="gaji-tab-pane" -->';//*/
+#--------------------------------------------------------------------------------------------------
+echo "\n\t" . '<div class="tab-pane fade" id="harta-tab-pane" role="tabpanel"'
+. ' aria-labelledby="harta-tab" tabindex="0">';
+echo "\n\t<p>untuk harta</p>";
+echo paparTableTabV02('harta',$class,$kp337[3],$data[$kp337[3]],$jumBelanja,$anggar);
+echo '</div><!-- class="tab-pane fade" id="harta-tab-pane" -->';//*/
 #--------------------------------------------------------------------------------------------------
 echo "\n\t";
 echo '<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel"'
