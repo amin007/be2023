@@ -60,7 +60,7 @@ $anggar['stok'] = bersih($_POST['stok']);
 $sql[$myJadual[8]] = sqlBarcode($myJadual[8],$idSebenar);
 $sql[$myJadual[5]] = sqlRangkaKwspV06($myJadual[5],$idSebenar,$anggar['peratusan'],$pekerja);
 $sql['SemuaNewss'] = sqlCariIDBe($kp337[0],$kp337[2],$msic,$idProksi);
-for($i = 1; $i <= 18;$i++):
+for($i = 1; $i <= 19;$i++):
 	$sql[$kp337[$i]] = sqlcariIDKp337($kp337[0],$kp337[$i],$msic,$idProksi);
 endfor;
 #--------------------------------------------------------------------------------------------------
@@ -131,7 +131,7 @@ $belanjaSewaTanah = $data[$kp337[9]][0]['F090019'];
 $belanjaSewaBangunan = $data[$kp337[9]][0]['F090020'];
 $belanjaSusut = $data[$kp337[9]][0]['F090024'];
 $belanjaGaji = $data[$kp337[9]][0]['F090036'];
-$jumGaji = $data[$myJadual[5]][0]['Gaji'];
+$jumGaji = (isset($data[$myJadual[5]][0]['Gaji'])) ? $data[$myJadual[5]][0]['Gaji'] : 0;
 $jumGaji = str_replace(',','',$jumGaji);
 $anggar['gaji'] = $jumGaji;
 $anggar['belanjagaji'] = $belanjaGaji;
@@ -176,6 +176,7 @@ $anggar['belanjaSewaTanah'] = $belanjaSewaTanah;
 $anggar['belanjaSewaBangunan'] = $belanjaSewaBangunan;//*
 semakPembolehubah($anggar,'anggar',0);
 echo paparTableTabV02('harta',$class,$kp337[3],$data[$kp337[3]],$susutAnggar,$anggar);
+echo paparTableTabV02('harta umum',$class,$kp337[19],$data[$kp337[19]],$susutAnggar,$anggar);
 echo '</div><!-- class="tab-pane fade" id="harta-tab-pane" -->';//*
 #--------------------------------------------------------------------------------------------------
 echo "\n\t" . '<div class="tab-pane fade" id="stok-tab-pane" role="tabpanel"'
