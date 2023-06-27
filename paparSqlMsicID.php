@@ -118,7 +118,10 @@ endforeach;
 echo '</div><!-- class="tab-pane fade" id="home-tab-pane" -->';
 #--------------------------------------------------------------------------------------------------
 //$data[$kp337[9]]
+//semakPembolehubah($data[$kp337[13]],'data harta',0);
 //semakPembolehubah($data[$kp337[9]],'data belanja',0);
+$hartaSusut = $data[$kp337[13]][0]['F041699'];
+$hartaJumlah = $data[$kp337[13]][0]['F041799'];
 $jumHasil = $data[$kp337[8]][0]['F080099'];
 $jumBelanja = $data[$kp337[9]][0]['F090099'];
 $belanjaSewaTanah = $data[$kp337[9]][0]['F090019'];
@@ -162,7 +165,9 @@ echo "\n\t<p>belanjaSusut[F090024] = $belanjaSusut</p>\n\t";
 echo "\n\t<p>anggarSusut[F090024] = $susutAnggar</p>\n\t";
 echo "\n\t<p>belanjaSewaTanah[F090019] = $belanjaSewaTanah</p>\n\t";
 echo "\n\t<p>belanjaSewaBangunan[F090020] = $belanjaSewaBangunan</p>\n\t";
-/*$anggar['belanjaSusut'] = $belanjaSusut;
+$anggar['hartaSusut'] = $hartaSusut;
+$anggar['hartaJumlah'] = $hartaJumlah;
+$anggar['belanjaSusut'] = $belanjaSusut;
 $anggar['anggarSusut'] = $susutAnggar;
 $anggar['belanjaSewaTanah'] = $belanjaSewaTanah;
 $anggar['belanjaSewaBangunan'] = $belanjaSewaBangunan;//*/
