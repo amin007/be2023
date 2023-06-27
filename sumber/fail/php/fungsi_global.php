@@ -260,12 +260,14 @@ if ( ! function_exists('paparTDKhas')):
 		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
 		'F010030','Kod_Industri','Semak'];
 		# semak format kiraan
+		$dataKp = namaMedanKp337();
+		$keterangan = cariNilai($dataKp['kp337'],$key);
 		$kiraPeratus = kiraV01($key,$data,$jumBelanja,$peratus);
 		$paparData = kiraV02($key,$data,$peratus);
 		$paparAnggar = kiraV03($key,$data,$jumBelanja,$peratus);
 		# masuk dalam tr td
 		$papar = (in_array($key,$namaMedan)) ? '' :
-		"\n\t<tr>\n\t" . '<td align="right">' . $key . '</td>'
+		"\n\t<tr>\n\t" . '<td align="right">' . $keterangan . '|' . $key . '</td>'
 		. '<td align="right">' . $paparData . '</td>'
 		. '<td>' . $kiraPeratus . '</td>'
 		. '<td align="right">' . $paparAnggar . '</td>'
