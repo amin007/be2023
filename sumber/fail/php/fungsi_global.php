@@ -288,11 +288,11 @@ if ( ! function_exists('paparTDKhasV02')):
 		$gajiSetahun = (int)bersihNombor($paparAnggar04);
 		$bulan = kiraV02($key,($gajiSetahun/12),$peratus);
 		# masuk dalam tr td - ['Staf%','GajiL%']
-		if(in_array($key,['Susut%'])):
+		/*if(in_array($key,['Susut%'])):
 			$papar = "\n\t<td>$data<hr>"
 			. $paparAnggar04
-			. '</td>';
-		elseif(in_array($key,['GajiL%'])):
+			. '</td>';//*/
+		if(in_array($key,['GajiL%'])):
 			$papar = "\n\t<td>$data</td>"
 			. '<td>' . $paparAnggar04 . '</td>'
 			. '<td>' . $bulan . '</td>'
