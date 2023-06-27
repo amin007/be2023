@@ -1098,9 +1098,8 @@ if ( ! function_exists('namaMedanKp337')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('cariNilai')):
-	function cariNilai($kod)
+	function cariNilai($data,$kod)
 	{
-		$data = namaMedanKp337();
 		foreach ($data as $key => $values):
 			if($kod == $values[1]):
 				//echo "<hr>$kod($key) = " . $values[0];
@@ -1109,7 +1108,7 @@ if ( ! function_exists('cariNilai')):
 		endforeach;
 
 		return null;
-		//$nilai[] = cariNilai('F090036');
+		//$nilai[] = cariNilai($dataKp['kp337'],'F090036');# untuk debug
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
