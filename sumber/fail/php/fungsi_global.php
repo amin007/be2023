@@ -1058,7 +1058,7 @@ if ( ! function_exists('namaMedanKp337')):
 		['Taksiran (ke atas tanah dan bangunan) dan cukai tanah','F090030'],
 		['Cukai jalan','F090031'],
 		['Bayaran pendaftaran perniagaan, lesen memandu dsb.','F090032'],
-		['Cukai perkhidmatan dan cukai jualan','F090010'],
+		['Cukai perkhidmatan dan cukai jualan','F091010'],# salah kod daa
 		['Kerugian daripada pertukaran wang asing/aset kewangan','F091011'],
 		['Kerugian daripada jualan/penilaian semula harta','F091012'],
 		['Hutang lapuk dihapuskan','F091013'],
@@ -1066,7 +1066,7 @@ if ( ! function_exists('namaMedanKp337')):
 		['Lain-lain perbelanjaan bukan operasi (sila nyatakan)','F091015'],
 		['Adakah pertubuhan ini terlibat dengan aktiviti e-sukan?','F091016'],
 		['Jika Ya, sila nyatakan jumlah perbelanjaan dalam aktiviti e-sukan ini?','F091017'],
-		['Lain-lain perbelanjaan operasi (sila nyatakan butir-butir di bawah)','F091035'],
+		['Lain-lain perbelanjaan operasi (sila nyatakan butir-butir di bawah)','F090035'],# salah kod daa
 		['Gaji & upah dibayar','F090036'],
 		['Bayaran pampasan, persaraan/pemberhentian kepada pekerja','F090037'],
 		['Rawatan perubatan percuma','F090038'],
@@ -1083,7 +1083,7 @@ if ( ! function_exists('namaMedanKp337')):
 		['Bayaran levi pekerja','F090049'],
 		['Perbelanjaan pembayaran berasaskan saham kepada pekerja (termasuk saham & pilihan saham)','F090050'],
 		['Kos pekerja lain (sila nyatakan)','F090051'],
-		['Bayaran kepada pertubuhan lain yang membekalkan pekerja','F090057'],
+		['Bayaran kepada pertubuhan lain yang membekalkan pekerja','F090052'],# salah kod daa
 		['Bayaran bagi perkhidmatan keselamatan','F090067'],
 		['Jumlah perbelanjaan (9.1 hingga 9.34)','F090089'],
 		['Pindahan modal yang dibuat','F090053'],
