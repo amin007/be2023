@@ -9,9 +9,13 @@ require './sumber/fail/data/dataSqlMysqli.php';
 //require './sumber/fail/csv/***.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-//$fungsi = get_defined_functions();// internal or user
-//semakPembolehubah($fungsi,'fungsi',0);
-//echo '<pre>$fungsi=>';//print_r($fungsi['user']);//echo '<br></pre>' . "\n";
+/*$dataKp = namaMedanKp337();
+$nilai[] = cariNilai($dataKp['kp337'],'F090036');
+$nilai[] = cariNilai($dataKp['kp337'],'F090024');
+$nilai[] = cariNilai($dataKp['kp337'],'Bayaran levi pekerja');
+$nilai[] = cariNilai($dataKp['kp337'],'F090019');
+//semakPembolehubah($dataKp['kp337'],'dataKp337',0);
+semakPembolehubah($nilai,'nilai',0);//*
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 /*
@@ -117,7 +121,6 @@ endforeach;
 #--------------------------------------------------------------------------------------------------
 echo '</div><!-- class="tab-pane fade" id="home-tab-pane" -->';
 #--------------------------------------------------------------------------------------------------
-//$data[$kp337[9]]
 //semakPembolehubah($data[$kp337[13]],'data harta',0);
 //semakPembolehubah($data[$kp337[9]],'data belanja',0);
 $hartaSusut = $data[$kp337[13]][0]['F041699'];
@@ -170,16 +173,16 @@ $anggar['hartaJumlah'] = $hartaJumlah;
 $anggar['belanjaSusut'] = $belanjaSusut;
 $anggar['anggarSusut'] = $susutAnggar;
 $anggar['belanjaSewaTanah'] = $belanjaSewaTanah;
-$anggar['belanjaSewaBangunan'] = $belanjaSewaBangunan;//*/
+$anggar['belanjaSewaBangunan'] = $belanjaSewaBangunan;//*
 semakPembolehubah($anggar,'anggar',0);
 echo paparTableTabV02('harta',$class,$kp337[3],$data[$kp337[3]],$susutAnggar,$anggar);
-echo '</div><!-- class="tab-pane fade" id="harta-tab-pane" -->';//*/
+echo '</div><!-- class="tab-pane fade" id="harta-tab-pane" -->';//*
 #--------------------------------------------------------------------------------------------------
 echo "\n\t" . '<div class="tab-pane fade" id="stok-tab-pane" role="tabpanel"'
 . ' aria-labelledby="stok-tab" tabindex="0">';
 echo "\n\t<p>untuk stok</p>";
 echo paparTableTabV02('stok',$class,$kp337[10],$data[$kp337[10]],$jumBelanja,$anggar);
-echo '</div><!-- class="tab-pane fade" id="stok-tab-pane" -->';//*/
+echo '</div><!-- class="tab-pane fade" id="stok-tab-pane" -->';//*
 #--------------------------------------------------------------------------------------------------
 echo "\n\t";
 echo '<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel"'
