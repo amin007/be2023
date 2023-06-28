@@ -126,13 +126,14 @@ echo '</div><!-- class="tab-pane fade" id="home-tab-pane" -->';
 $hartaSusut = (isset($data[$kp337[13]][0]['F041699'])) ? $data[$kp337[13]][0]['F041699'] : 1;
 $hartaJumlah = (isset($data[$kp337[13]][0]['F041799'])) ? $data[$kp337[13]][0]['F041799'] : 1;
 $jumHasil = (isset($data[$kp337[8]][0]['F080099'])) ? $data[$kp337[8]][0]['F080099'] : 1;
-$jumBelanja = (isset($data[$kp337[9]][0]['F090099'])) ? $data[$kp337[9]][0]['F090099'] : 1;
+$jumBelanja = (isset($data[$kp337[9]][0]['F090099'])) ? $data[$kp337[9]][0]['F090099'] : $data[$kp337[9]][0]['F090089'];
 $belanjaSewaTanah = (isset($data[$kp337[9]][0]['F090019'])) ? $data[$kp337[9]][0]['F090019'] : 1;
 $belanjaSewaBangunan = (isset($data[$kp337[9]][0]['F090020'])) ? $data[$kp337[9]][0]['F090020'] : 1;
 $belanjaSusut = (isset($data[$kp337[9]][0]['F090024'])) ? $data[$kp337[9]][0]['F090024'] : 1;
 $belanjaGaji = (isset($data[$kp337[9]][0]['F090036'])) ? $data[$kp337[9]][0]['F090036'] : 1;
 $jumGaji = (isset($data[$myJadual[5]][0]['Gaji'])) ? $data[$myJadual[5]][0]['Gaji'] : 1;
 $jumGaji = str_replace(',','',$jumGaji);
+$susutAnggar = bersihNombor(kiraAnggarBelanja($jumBelanja,$anggar['peratusan'],$belanjaSusut));
 $anggar['gaji'] = $jumGaji;
 $anggar['belanjagaji'] = $belanjaGaji;
 $anggar['hartaSusut'] = $hartaSusut;
@@ -169,7 +170,6 @@ echo '</div><!-- class="tab-pane fade" id="gaji-tab-pane" -->';//*/
 echo "\n\t" . '<div class="tab-pane fade" id="harta-tab-pane" role="tabpanel"'
 . ' aria-labelledby="harta-tab" tabindex="0">';
 echo "\n\t<p>untuk harta</p>";
-$susutAnggar = bersihNombor(kiraAnggarBelanja($jumBelanja,$anggar['peratusan'],$belanjaSusut));
 semakPembolehubah($anggar,'anggar',0);
 echo paparTableTabV02('harta',$class,$kp337[3],$data[$kp337[3]],$susutAnggar,$anggar);
 echo paparTableTabV02('harta umum',$class,$kp337[19],$data[$kp337[19]],$susutAnggar,$anggar);
