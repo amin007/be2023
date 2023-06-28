@@ -251,9 +251,15 @@ if ( ! function_exists('tajukMedanJadual')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparTDKhas')):
-	function paparTDKhas($key,$data,$jumBelanja,$anggar)
+	function paparTDKhas($jadual,$key,$data,$jumBelanja=1,$anggar)
 	{
 		# papar nilai awal
+		/*echo 'nama fungsi:' . __FUNCTION__ . '<hr>';
+		semakPembolehubah($jadual,'jadual',0);
+		semakPembolehubah($key,'key',0);
+		semakPembolehubah($data,'data',0);
+		semakPembolehubah($jumBelanja,'jumBelanja',0);
+		semakPembolehubah($anggar,'anggar',0);*/
 		$papar = null;
 		$data = bersihV02($data);
 		list($peratus,$hasil,$belanja,$gaji,$staf,$harta,$stok) = pecahTatasusunan($anggar);
@@ -262,7 +268,7 @@ if ( ! function_exists('paparTDKhas')):
 		# semak format kiraan
 		$dataKp = namaMedanKp337();
 		$keterangan = cariNilai($dataKp['kp337'],$key);
-		$kiraPeratus = kiraV01($key,$data,$jumBelanja,$peratus);
+		$kiraPeratus = kiraV01($jadual,$key,$data,$jumBelanja,$peratus);
 		$paparData = kiraV02($key,$data,$peratus);
 		$paparAnggar = kiraV03($key,$data,$jumBelanja,$peratus);
 		# masuk dalam tr td
@@ -271,6 +277,7 @@ if ( ! function_exists('paparTDKhas')):
 		. '<td align="right">' . $paparData . '</td>'
 		. '<td>' . $kiraPeratus . '</td>'
 		. '<td align="right">' . $paparAnggar . '</td>'
+		//. '<td align="right">' . $jadual . '</td>'
 		//. "<!-- $key|$kira -->"# untuk debug di masa hadapan
 		. "\n\t" . '</tr></tbody>';
 
@@ -279,7 +286,7 @@ if ( ! function_exists('paparTDKhas')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparTDKhasV02')):
-	function paparTDKhasV02($key,$data,$jumF99,$anggar)
+	function paparTDKhasV02($jadual,$key,$data,$jumF99,$anggar)
 	{
 		# papar nilai awal
 		$papar = null;
@@ -322,24 +329,32 @@ if ( ! function_exists('pecahTatasusunan')):
 		$belanjaSewaTanah = $anggar['belanjaSewaTanah'];
 		$belanjaSewaBangunan = $anggar['belanjaSewaBangunan'];*/
 
-
 		return array($peratus,$hasil,$belanja,$gaji,$staf,$harta,$stok);
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('kiraV01')):
 	/** */
-	function kiraV01($key,$data,$data02,$peratus)
+	function kiraV01($jadual,$key,$data,$data02,$peratus)
 	{
+		# debug
+		/*echo 'nama fungsi:' . __FUNCTION__ . '<hr>';
+		semakPembolehubah($jadual,'jadual',0);
+		semakPembolehubah($key,'key',0);
+		semakPembolehubah($data,'data',0);
+		semakPembolehubah($data02,'data02',0);
+		semakPembolehubah($peratus,'peratus',0);//*/
 		# papar nilai awal
 		$papar = null;
+		$data = bersih($data);
+		$data02 = bersih($data02);
 		$namaMedan = ['Serial_No','Nama_Pertubuhan','KP','F010028','F010029',
 		'F010030','Kod_Industri','Semak'];
 		# semak data adalah nombor atau tidak
 		if(in_array($key,$namaMedan)):
 			$papar = 'Kira %';
 		elseif(is_numeric($data)):
-			$papar = number_format(($data/$data02), 4);
+			$papar = @number_format(($data/$data02), 4);
 		else:
 			$papar = null;
 		endif;
@@ -381,7 +396,7 @@ if ( ! function_exists('kiraV03')):
 			$papar = 'Anggar';
 		elseif(is_numeric($data)):
 			$belanjaBaru = $jumBelanja * $peratus;
-			$kiraPeratus = $data / $jumBelanja;
+			$kiraPeratus = @$data / $jumBelanja;
 			$anggar = number_format(($kiraPeratus * $belanjaBaru), 0);
 			$papar = $anggar;
 		else:
@@ -661,7 +676,7 @@ if ( ! function_exists('paparSatuDataAnggar')):
 		#----------------------------------------------------------------------
 			# print the data row
 			foreach ( $row[$kira] as $key=>$data ) :
-				$o .= paparTDKhas($key,$data,$jumBelanja,$anggar);
+				$o .= paparTDKhas($jadual,$key,$data,$jumBelanja,$anggar);
 			endforeach;
 		}#---------------------------------------------------------------------
 
@@ -697,7 +712,7 @@ if ( ! function_exists('paparSemuaDataAnggar')):
 			$o .= "\n\t<tr>\r\t";
 			$o .= "\n\t<td>".($kira+1)."</td>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			$o .= paparTDKhasV02($key,$data,$jumF99,$anggar);
+			$o .= paparTDKhasV02($jadual,$key,$data,$jumF99,$anggar);
 			//$o .= '<td>' . bersihV02($data) . '</td>';
 			//$o .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
