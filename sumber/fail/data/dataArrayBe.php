@@ -35,7 +35,7 @@ if ( ! function_exists('namaMedanOutputKp337')):
 	{
 		$tajuk['kp337'] = 'nama medan,kod medan';
 		$data['kp337'] = [
-		['Jumlah Harta Bian Sendiri*','F041399'],
+		['Jumlah Harta Bina Sendiri*','F041399'],
 		['Jualan barang-barang*','F088501'],
 		['Jualan kenderaan bermotor*','F088502'],
 		['Jualan alat ganti dan aksesori*','F088503'],
@@ -103,7 +103,7 @@ if ( ! function_exists('namaMedanKp337')):
 	{
 		$tajuk['kp337'] = 'nama medan,kod medan';
 		$data['kp337'] = [
-		['Jumlah Harta Bian Sendiri*','F041399'],
+		['Jumlah Harta Binn Sendiri*','F041399'],
 		['Jualan barang-barang*','F088501'],
 		//['Sila nyatakan peratus (%) eksport berdasarkan jumlah nilai jualan pada tahun rujukan','F080002'],
 		//['Sila nyatakan peratus (%) eksport produk halal berdasarkan jumlah nilai jualan pada tahun rujukan','F080060'],
