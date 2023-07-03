@@ -64,6 +64,8 @@ endif;//*/
 if ( ! function_exists('namaMedanInputKp337')):
 	function namaMedanInputKp337()
 	{
+		$tajuk['kp337'] = 'nama medan,kod medan';
+		$data['kp337'] = [
 		['Kos pembaikan, pemasangan dan penyelenggaraan**','F098501'],
 		['Nilai bekalan-Bahan dan bekas pembungkus**','F090002'],
 		['Nilai bekalan-Bahan-bahan untuk pembaikan dan penyelenggaraan**','F090003'],
