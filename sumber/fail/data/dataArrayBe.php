@@ -30,6 +30,67 @@ if ( ! function_exists('input337')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('namaMedanOutputKp337')):
+	function namaMedanOutputKp337()
+	{
+		$tajuk['kp337'] = 'nama medan,kod medan';
+		$data['kp337'] = [
+		['Jumlah Harta Bian Sendiri*','F041399'],
+		['Jualan barang-barang*','F088501'],
+		['Jualan kenderaan bermotor*','F088502'],
+		['Jualan alat ganti dan aksesori*','F088503'],
+		['Jualan petrol dan gas*','F088504'],
+		['Pendapatan dari bayaran perkhidmatan pembaikan pemasangan dan penyelenggaraan*','F088505'],
+		['Komisen dan brokeraj dan yuran yang diterima*','F080011'],
+		['(-)Kos barang yang dijual*','F090009'],
+		['Royalti, hakcipta, pelesenan dan yuran francais*','F080014'],
+		['Pendapatan perkhidmatan yang diterima*','F080022'],
+		['Hasil Sewa Bangunan tempat kediaman*','F080034'],
+		['Hasil Sewa Bangunan bukan tempat kediaman*','F080035'],
+		['Hasil Sewa Alat pengangkutan*','F080039'],
+		['Hasil Sewa Jentera dan kelengkapan*','F080061'],
+		['Hasil Sewa Perabot dan pemasangan*','F080062'],
+		['Hasil Sewa Lain-lain*','F080013'],
+		['Lain-lain pendapatan bukan operasi (sila nyatakan)','F080074'],
+		['Lain-lain pendapatan operasi (sila nyatakan)','F080016'],
+		['Adakah pertubuhan ini mempunyai pendapatan daripada aktiviti e-sukan?','F080075'],
+		['Jika Ya, sila nyatakan jumlah pendapatan dalam aktiviti e-sukan ini','F080076'],
+		['Jumlah pendapatan (8.1 hingga 8.10) ','F080089'],
+		['Pindahan modal yang diterima','F080017'],
+		['JUMLAH BESAR (8.11 hingga 8.12)','F080099'],
+		];
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('namaMedanInputKp337')):
+	function namaMedanInputKp337()
+	{
+		['Kos pembaikan, pemasangan dan penyelenggaraan**','F098501'],
+		['Nilai bekalan-Bahan dan bekas pembungkus**','F090002'],
+		['Nilai bekalan-Bahan-bahan untuk pembaikan dan penyelenggaraan**','F090003'],
+		['Nilai bekalan-Alat tulis dan bekalan pejabat**','F090005'],
+		['Nilai bekalan-Lain-lain**','F090057'],
+		['Kos percetakan**','F090058'],
+		['Air yang dibeli**','F090006'],
+		['Tenaga elektrik yang dibeli**','F090007'],
+		['Bahan pembakar, pelincir dan gas**','F090008'],
+		['Pengiklanan dan promosi**','F090063'],
+		['Bayaran telekomunikasi (cth. Telefon, internet dsb.)**','F090017'],
+		['Pembelian perkhidmatan pengangkutan**','F090119'],
+		['Bayaran Sewa Bangunan**','F090020'],
+		['Bayaran Sewa Jentera dan kelengkapan**','F090021'],
+		['Bayaran Sewa Kenderaan bermotor dan jenis pengangkutan lain**','F090022'],
+		['Bayaran Sewa Lain-lain**','F090023'],
+		['Bayaran Royalti kepada Kerajaan/Badan berkanun**','F090026'],
+		['Bayaran Royalti kepada NGO/tajaan korporat**','F090027'],
+		['Lain-lain perbelanjaan operasi (sila nyatakan butir-butir di bawah)**','F091035'],
+		['Rawatan perubatan percuma**','F090038'],
+		['Bayaran kepada pengarah tidak bekerja kerana kehadiran mereka dalam mesyuarat Lembaga Pengarah**','F090045'],
+		['Nilai pakaian percuma yang disediakan**','F090046'],
+		['Kos latihan kepada pekerja**','F090047'],
+		];
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('namaMedanKp337')):
 	function namaMedanKp337()
 	{
