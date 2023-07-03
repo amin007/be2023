@@ -1360,6 +1360,88 @@ if ( ! function_exists('sqlSoalanHarta')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSoalanHartaUmum')):
+	function sqlSoalanHartaUmum()
+	{
+		$bangunan['Awal'] = '(F041001+F041002+F041003+F041004+F041005)';
+		$bangunan['Baru'] = '(F041101+F041102+F041103+F041104+F041105)';
+		$bangunan['Terpakai'] = '(F041202+F041203+F041204)';
+		$bangunan['Bina'] = '(F041302+F041303+F041304+F041305)';
+		$bangunan['JualTamat'] = '(F041401+F041402+F041403+F041404+F041405)';
+		$bangunan['JualHarta'] = '(F041501+F041502+F041503+F041504+F041505)';
+		$bangunan['Susut'] = '(F041601+F041602+F041603+F041604+F041605)';
+		$bangunan['Akhir'] = '(F041701+F041702+F041703+F041704+F041705)';
+		$bangunan['Sewa'] = '(F041801+F041802+F041803+F041804)';
+		$jentera['Awal'] = '(F041006+F041007+F041008+F041012+F041013+F041014)';
+		$jentera['Baru'] = '(F041106+F041107+F041108+F041112+F041113+F041114)';
+		$jentera['Terpakai'] = '(F041206+F041207+F041208+F041212+F041213+F041214)';
+		$jentera['Bina'] = '(F041312+F041313+F041314)';
+		$jentera['JualTamat'] = '(F041406+F041407+F041408+F041412+F041413+F041414)';
+		$jentera['JualHarta'] = '(F041506+F041507+F041508+F041512+F041513+F041514)';
+		$jentera['Susut'] = '(F041606+F041607+F041608+F041612+F041613+F041614)';
+		$jentera['Akhir'] = '(F041706+F041707+F041708+F041712+F041713+F041714)';
+		$jentera['Sewa'] = '(F041806+F041807+F041808+F041812+F041813+F041814)';
+		$hartaLain['Awal'] = '(F041009+F041010+F041011+F041015+F041016+F041017+F041018)';
+		$hartaLain['Baru'] = '(F041110+F041111+F041115+F041116+F041117+F041118)';
+		$hartaLain['Terpakai'] = '(F041209+F041211+F041218)';
+		$hartaLain['Bina'] = '(F041309+F041310+F041311+F041315+F041316+F041317+F041318)';
+		$hartaLain['JualTamat'] = '(F041409+F041410+F041411+F041415+F041416+F041417+F041418)';
+		$hartaLain['JualHarta'] = '(F041509+F041510++F041511+F041515+F041516+F041517+F041518)';
+		$hartaLain['Susut'] = '(F041609+F041610+F041611+F041615+F041616+F041718)';
+		$hartaLain['Akhir'] = '(F041709+F041710+F041711+F041715+F041716+F041717+F041618)';
+		$hartaLain['Sewa'] = '(F041809+F041810+F041811+F041815+F041816+F041818)';
+		$harta = 'Jenis Harta';
+
+		$sql = [
+			["'01' `Bil`,'10-Awal' `$harta`," . $bangunan['Awal'] . " `Bangunan`,\r"
+			. $jentera['Awal'] . " `Jentera`,\r" . $hartaLain['Awal'] . " `Hartalain`,"
+			. "\rF041099 `Jumlah`"],
+			["'02','11-Baru'," . $bangunan['Baru'] . " `Bangunan`,\r"
+			. $jentera['Baru'] . " `Jentera`,\r" . $hartaLain['Baru'] . " `Hartalain`,"
+			. "\rF041199 `Jumlah`"],
+			["'03','12-Terpakai'," . $bangunan['Terpakai'] . " `Bangunan`,\r"
+			. $jentera['Terpakai'] . " `Jentera`,\r" . $hartaLain['Terpakai'] . " `Hartalain`,"
+			. "\rF041299 `Jumlah`"],
+			["'04','13-Bina' `$harta`," . $bangunan['Bina'] . " `Bangunan`,\r"
+			. $jentera['Bina'] . " `Jentera`,\r" . $hartaLain['Bina'] . " `Hartalain`,"
+			. "\rF041399 `Jumlah`"],
+			["'05','14-JualTamat'," . $bangunan['JualTamat'] . " `Bangunan`,\r"
+			. $jentera['JualTamat'] . " `Jentera`,\r" . $hartaLain['JualTamat'] . " `Hartalain`,"
+			. "\rF041499 `Jumlah`"],
+			["'06','15-JualHarta' `$harta`," . $bangunan['JualHarta'] . " `Bangunan`,\r"
+			. $jentera['JualHarta'] . " `Jentera`,\r" . $hartaLain['JualHarta'] . " `Hartalain`,"
+			. "\rF041599 `Jumlah`"],
+			["'07','16-Susut' `$harta`," . $bangunan['Susut'] . " `Bangunan`,\r"
+			. $jentera['Susut'] . " `Jentera`,\r" . $hartaLain['Susut'] . " `Hartalain`,"
+			. "\rF041699 `Jumlah`"],
+			["'08','17-Akhir' `$harta`," . $bangunan['Akhir'] . " `Bangunan`,\r"
+			. $jentera['Akhir'] . " `Jentera`,\r" . $hartaLain['Akhir'] . " `Hartalain`,"
+			. "\rF041799 `Jumlah`"],
+			["'09','18-Sewa' `$harta`," . $bangunan['Sewa'] . " `Bangunan`,\r"
+			. $jentera['Sewa'] . " `Jentera`,\r" . $hartaLain['Sewa'] . " `Hartalain`,"
+			. "\rF041899 `Jumlah`"],
+			];
+
+		return sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlViewTableHartaUmum')):
+	function sqlViewTableHartaUmum($jadual,$id)
+	{
+		$sql = null;
+		$medanUlang = sqlMedanUlang();
+		$medanHartaUmum = sqlSoalanHartaUmum();
+		foreach($medanHartaUmum as $key => $val):
+		foreach($val as $key2 => $medan):
+			$sql .= "SELECT $medanUlang,\n$medan\nFROM `$jadual`\nUNION\n";
+		endforeach;endforeach;
+		$sql .= "\nORDER BY 1,2";
+
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlMedanKelulusan')):
 	function sqlMedanKelulusan()
 	{
