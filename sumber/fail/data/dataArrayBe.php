@@ -35,6 +35,7 @@ if ( ! function_exists('namaMedanKp337')):
 	{
 		$tajuk['kp337'] = 'nama medan,kod medan';
 		$data['kp337'] = [
+		['Jumlah Harta Bian Sendiri*','F041399'],
 		['Jualan barang-barang*','F088501'],
 		//['Sila nyatakan peratus (%) eksport berdasarkan jumlah nilai jualan pada tahun rujukan','F080002'],
 		//['Sila nyatakan peratus (%) eksport produk halal berdasarkan jumlah nilai jualan pada tahun rujukan','F080060'],
