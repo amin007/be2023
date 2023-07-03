@@ -59,6 +59,9 @@ if ( ! function_exists('namaMedanOutputKp337')):
 		['Pindahan modal yang diterima','F080017'],
 		['JUMLAH BESAR (8.11 hingga 8.12)','F080099'],
 		];
+
+		return array($tajuk,$data);
+	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('namaMedanInputKp337')):
@@ -90,6 +93,8 @@ if ( ! function_exists('namaMedanInputKp337')):
 		['Nilai pakaian percuma yang disediakan**','F090046'],
 		['Kos latihan kepada pekerja**','F090047'],
 		];
+
+		return array($tajuk,data);
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
@@ -212,6 +217,8 @@ if ( ! function_exists('namaMedanKp337')):
 		['Cukai langsung dibayar (cth. Cukai syarikat dan duti setem)','F090056'],
 		['JUMLAH BESAR (9.35 hingga 9.39)','F090099'],
 		];
+
+		return array($tajuk,data);
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
