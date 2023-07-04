@@ -1039,13 +1039,6 @@ if ( ! function_exists('namaMedanOutputKp337')):
 		['Hasil Sewa Jentera dan kelengkapan*','F080061'],
 		['Hasil Sewa Perabot dan pemasangan*','F080062'],
 		['Hasil Sewa Lain-lain*','F080013'],
-		['Lain-lain pendapatan bukan operasi (sila nyatakan)','F080074'],
-		['Lain-lain pendapatan operasi (sila nyatakan)','F080016'],
-		['Adakah pertubuhan ini mempunyai pendapatan daripada aktiviti e-sukan?','F080075'],
-		['Jika Ya, sila nyatakan jumlah pendapatan dalam aktiviti e-sukan ini','F080076'],
-		['Jumlah pendapatan (8.1 hingga 8.10) ','F080089'],
-		['Pindahan modal yang diterima','F080017'],
-		['JUMLAH BESAR (8.11 hingga 8.12)','F080099'],
 		];
 
 		return array($tajuk,$data);
