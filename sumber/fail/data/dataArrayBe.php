@@ -94,7 +94,7 @@ if ( ! function_exists('namaMedanInputKp337')):
 		['Kos latihan kepada pekerja**','F090047'],
 		];
 
-		return array($tajuk,data);
+		return array($tajuk,$data);
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
@@ -218,7 +218,7 @@ if ( ! function_exists('namaMedanKp337')):
 		['JUMLAH BESAR (9.35 hingga 9.39)','F090099'],
 		];
 
-		return array($tajuk,data);
+		return array($tajuk,$data);
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
