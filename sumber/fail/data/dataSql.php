@@ -21,7 +21,7 @@ $data['xxx'] = array(
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
-if ( ! function_exists('sqlFeBarcode')):
+if ( ! function_exists('sqlSelectBintang')):
 	function sqlSelectBintang($jadual,$fe,$id,$peratus)
 	{
 		$sql = "SELECT * FROM `$jadual` LIMIT 10";
