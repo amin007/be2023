@@ -67,8 +67,29 @@ print <<<END
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
 	</div><!-- / class="form-group" -->
 </form>
-<!-- tamat borang
+<!-- tamat borang 01
 =============================================================================================== -->
+<!-- mula borang 02
+=============================================================================================== -->
+<form method="POST" action="paparBatch.php" class="form-horizontal">
+	<div class="p-3 mb-2 bg-transparent text-dark">
+		<i class="fa fa-bicycle" style="font-size:50px"></i>
+	</div><!-- / class="p-3 mb-2 bg-transparent text-dark" -->
+	<div class="form-group">
+		<label class="border border-dark btn-block">Carian Tarikh Batch</label>
+	</div><!-- / class="form-group" -->
+	<div class="form-group">
+		<label for="inputMsic">Carian Tarikh Batch</label>
+		<input type="date" class="form-control form-control-lg"
+		name="tarikhBatch">
+	</div>
+	<div class="form-group">
+		<input type="submit" class="btn btn-primary btn-block" value="Cari Tarikh Batch">
+	</div><!-- / class="form-group" -->
+</form>
+<!-- tamat borang 02
+=============================================================================================== -->
+
 </div><!-- / class="kotakTengah" -->
 </div><!-- / class="kotakAtas" -->
 <!-- tamat kotak
