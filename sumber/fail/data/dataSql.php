@@ -21,6 +21,21 @@ $data['xxx'] = array(
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSelectBatch')):
+	function sqlSelectBatch($jadual,$tarikh)
+	{
+		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
+		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
+		. "\rbarcode `NO. SIRI`, kp `KP`, nama `NAMA PERTUBUHAN`, DataRespon `KOD RESPON`,"
+		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
+		. "\rFROM `$jadual`"
+		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
+		. "\rWHERE tarikhBatch = '$tarikh' ";
+		// $sql['FeBarcode'] = sqlSelectBatch($jadual,$tarikh);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlSelectBintang')):
 	function sqlSelectBintang($jadual,$fe,$id,$peratus)
 	{
