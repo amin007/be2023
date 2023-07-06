@@ -25,7 +25,7 @@ if ( ! function_exists('sqlSelectBintang')):
 	function sqlSelectBintang($jadual,$fe,$id,$peratus)
 	{
 		$sql = "SELECT * FROM `$jadual` LIMIT 10";
-		// $sql['FeBarcode'] = sqlFeBarcode($fe);
+		// $sql['SelectBintang'] = sqlSelectBintang($fe);
 		return $sql;
 	}
 endif;//*/
