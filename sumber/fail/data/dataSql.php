@@ -26,7 +26,9 @@ if ( ! function_exists('sqlSelectBatch')):
 	{
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
-		. "\rbarcode `NO. SIRI`, kp `KP`, nama `NAMA PERTUBUHAN`, DataRespon `KOD RESPON`,"
+		. "\rbarcode `NO. SIRI`, kp `KP`, nama `NAMA PERTUBUHAN`,"
+		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
+		. "\rDataRespon `KOD RESPON`,"
 		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
