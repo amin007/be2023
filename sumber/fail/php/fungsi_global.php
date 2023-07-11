@@ -825,15 +825,15 @@ if ( ! function_exists('paparTableTab')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparTableTabV01')):
-	function paparTableTabV01($myJadual,$row)
+	function paparTableTabV01($myJadual,$row,$class02)
 	{
 		$papar = '';
 		#------------------------------------------------------------------------------------------
-		$table = paparSatuData($row,$myJadual);
+		$table = paparSatuJe($row,$myJadual);
 		#------------------------------------------------------------------------------------------
 		$papar = "\n\t" . '<div class="tab-pane fade" id="' . $myJadual . '-tab-pane"'
 		. ' role="tabpanel" aria-labelledby="' . $myJadual . '-tab" tabindex="0">'
-		. "\n\t<h2>$myJadualV02</h2>"
+		. "\n\t<h2>$myJadual</h2>"
 		. "\n\t<table class=$class02>$table</table>\n\t<hr>\n\t"
 		. '</div><!-- class="tab-pane fade" id="' . $myJadual . '-tab-pane" -->'
 		. "\n<!-- ========================================================================== -->";
