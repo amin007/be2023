@@ -46,8 +46,10 @@ $hasilAsal = $data03['kp337'][30][3];
 //semakPembolehubah($data,'data',0);
 //semakPembolehubah($data02,'data',0);
 //semakPembolehubah($data03,'data03',0);
-semakPembolehubah($belanjaAsal,'belanjaAsal',0);
-semakPembolehubah($hasilAsal,'hasilAsal',0);
+/*semakPembolehubah($belanja,'belanja',2);
+semakPembolehubah($hasil,'hasil',2);
+semakPembolehubah($belanjaAsal,'belanjaAsal',2);
+semakPembolehubah($hasilAsal,'hasilAsal',2);*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
@@ -77,12 +79,14 @@ endforeach;//*/
 echo "\n<!-- ================================================================================ -->";
 #--------------------------------------------------------------------------------------------------
 foreach($data02 as $myJadual02 => $row02):
-	$table02 = paparJadualAnggar($row02,$myJadual02,$belanja,$belanjaAsal);
+	$table02 = paparJadualAnggar($row02,$myJadual02,$belanja,$belanjaAsal,'belanja');
+	//echo "\n<h1>anggar = $belanja| asal = $belanjaAsal</h1><hr>";
 	echo "\n<table class=$class02>\n$table02\n</table>";
 endforeach;//*/
 #--------------------------------------------------------------------------------------------------
 foreach($data03 as $myJadual03 => $row03):
-	$table = paparJadualAnggar($row03,$myJadual03,$hasil,$hasilAsal);
+	$table = paparJadualAnggar($row03,$myJadual03,$hasil,$hasilAsal,'hasil');
+	//echo "\n<h1>anggar = $hasil| asal = $hasilAsal</h1><hr>";
 	echo "\n<table class=$class02>\n$table\n</table>";
 endforeach;//*/
 #--------------------------------------------------------------------------------------------------
