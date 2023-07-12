@@ -539,7 +539,7 @@ endif;
 if ( ! function_exists('paparJadualAnggar')):
 	function paparJadualAnggar($row,$jadual,$belanjaAnggar,$belanjaAsal)
 	{
-		$output = null;
+		$output = $jumAnggar = null;
 		$bilBaris = count($row);
 		$cetak_tajuk_utama = false;# mula bina jadual
 		#----------------------------------------------------------------------
@@ -564,10 +564,11 @@ if ( ! function_exists('paparJadualAnggar')):
 			# papar baris data dari tatasusunan
 			$output .= "\n\t<tr>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			list($peratus,$anggar,$jumAnggar) = cariPeratusKp337($belanjaAnggar,$belanjaAsal,$data);
+			list($peratus,$anggar) = cariPeratusKp337($belanjaAnggar,$belanjaAsal,$data);
 			$output .= "\n\t\t" . '<td>' . bersihV02($data) . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
+			$jumAnggar += $anggar;
 			$output .= "\n\t\t" . '<td>' . $peratus . '</td>';
 			$output .= "\n\t\t" . '<td>' . $anggar . '</td>';
 			$output .= "\n\t\t" . '<td>' . $jumAnggar . '</td>';
