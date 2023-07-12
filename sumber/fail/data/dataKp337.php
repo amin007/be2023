@@ -398,4 +398,22 @@ if ( ! function_exists('cariPeratusKp337')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('kiraBakiKp337')):
+	function kiraBakiKp337($kira,$jumAnggar,$anggaran,$anggar,$kodJadual)
+	{
+		if(is_numeric($anggaran)):
+			//$peratus = number_format($peratus,4,'.','');
+			if($kira == '73' && $kodJadual == 'belanja'):
+				$jumAnggar = 'baki=' . ($anggar - $jumAnggar);
+			elseif($kira == '30' && $kodJadual == 'hasil'):
+				$jumAnggar = 'baki=' . ($anggar - $jumAnggar);
+			else:
+				$jumAnggar += $anggaran;
+			endif;
+		endif;
+		#
+		return $jumAnggar;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
