@@ -537,7 +537,7 @@ if ( ! function_exists('paparSatuJadual')):
 endif;
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparJadualAnggar')):
-	function paparJadualAnggar($row,$jadual)
+	function paparJadualAnggar($row,$jadual,$belanjaAnggar,$belanjaAsal)
 	{
 		$output = null;
 		$bilBaris = count($row);
@@ -552,7 +552,9 @@ if ( ! function_exists('paparJadualAnggar')):
 				$tajuk = tajukMedanJadual($jadual,$kunci);
 				$output .= "\n\t\t" . '<th>' . ucfirst($tajuk) . '</th>';
 				endforeach;
+				$output .= "\n\t" . '<th>%</th>';
 				$output .= "\n\t" . '<th>Anggar</th>';
+				$output .= "\n\t" . '<th>Jum Terkumpul</th>';
 				$output .= "\n\t" . '</tr></thead>';
 				$output .= "\n\t" . '<tbody>';
 			##=================================================================
@@ -562,9 +564,13 @@ if ( ! function_exists('paparJadualAnggar')):
 			# papar baris data dari tatasusunan
 			$output .= "\n\t<tr>";
 			foreach ( $row[$kira] as $key=>$data ) :
+			list($peratus,$anggar,$jumAnggar) = cariPeratusKp337($belanjaAnggar,$belanjaAsal,$data);
 			$output .= "\n\t\t" . '<td>' . bersihV02($data) . '</td>';
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
+			$output .= "\n\t\t" . '<td>' . $peratus . '</td>';
+			$output .= "\n\t\t" . '<td>' . $anggar . '</td>';
+			$output .= "\n\t\t" . '<td>' . $jumAnggar . '</td>';
 			$output .= "\n\t" . '</tr>';
 		}#---------------------------------------------------------------------
 		$output .= "\n\t" . '</tbody>';
