@@ -296,11 +296,11 @@ if ( ! function_exists('belanjaKp337V01')):
 		['Bayaran kepada pertubuhan lain yg membekalkan pekerja','F090052','',null],
 		['Bayaran bagi perkhidmatan keselamatan','F090067','',null],
 		['Jumlah perbelanjaan (9.1 hingga 9.34)','F090089','',2207024],#74
-		['Pindahan modal yg dibuat','F090053','',null],
-		['Perbelanjaan pajakan kewangan','F090054','',null],
-		['Dividen berbayar','F090055','',null],
-		['Cukai langsung dibayar (cth. Cukai syarikat & duti setem)','F090056','',null],
-		['BELANJA JUMLAH BESAR (9.35 hingga 9.39)','F090099','',2207024],#79
+		//['Pindahan modal yg dibuat','F090053','',null],
+		//['Perbelanjaan pajakan kewangan','F090054','',null],
+		//['Dividen berbayar','F090055','',null],
+		//['Cukai langsung dibayar (cth. Cukai syarikat & duti setem)','F090056','',null],
+		//['BELANJA JUMLAH BESAR (9.35 hingga 9.39)','F090099','',2207024],#79
 		];
 		#
 		return $data;//return array($tajuk,$data);
@@ -312,7 +312,7 @@ if ( ! function_exists('hasilKp337V01')):
 	{
 		// belanja | hasil | stok
 		$data['kp337'] = [
-		['nama me& Hasil','kodMe&','IO','Asal'],
+		['nama medanHasil','kodMedan','IO','Asal'],
 		['Jualan barang-barang','F088501','*',2007664],
 		['Jualan kenderaan bermotor','F088502','*',null],
 		['Jualan alat ganti & aksesori','F088503','*',null],
@@ -343,8 +343,8 @@ if ( ! function_exists('hasilKp337V01')):
 		['Lain2 pendapatan operasi (sila nyatakan)','F080016','',null],
 		['Jika Ya, sila nyatakan jumlah pendapatan dalam aktiviti e-sukan ini','F080076','',null],
 		['Jumlah pendapatan (8.1 hingga 8.10)','F080089','',2182380],#32
-		['Pindahan modal yg diterima','F080017','',null],
-		['HASIL JUMLAH BESAR (8.11 hingga 8.12)','F080099','',2182380],#34
+		//['Pindahan modal yg diterima','F080017','',null],
+		//['HASIL JUMLAH BESAR (8.11 hingga 8.12)','F080099','',2182380],#34
 		];
 		#
 		return $data;//return array($tajuk,$data);
@@ -356,8 +356,7 @@ if ( ! function_exists('stokKp337V01')):
 	{
 		// belanja | hasil | stok
 		$data['kp337'] = [
-		['nama me&','kodMe&','IO','Asal'],
-		['kp337-s10-nilai stok','','',null],
+		['nama medan stok','kodMedan','IO','Asal'],
 		['stok-awal','F100199','',384350],
 		['stok akhir','F100299','',173600],
 		];
