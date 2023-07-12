@@ -101,6 +101,41 @@ print <<<END
 </form>
 <!-- tamat borang 01
 =============================================================================================== -->
+<!-- mula borang 02
+============================================================================================== -->
+<form method="POST" action="paparKp337V01.php" class="form-horizontal">
+	<div class="p-3 mb-2 bg-transparent text-dark">
+		<i class="fa fa-bicycle" style="font-size:50px"></i>
+	</div><!-- / class="p-3 mb-2 bg-transparent text-dark" -->
+	<div class="form-group">
+		<label class="border border-dark btn-block">Carian Kp337V01</label>
+	</div><!-- / class="form-group" -->
+	<div class="form-group">
+		<label for="inputMsic">Id Sebenar</label>
+		<input type="text" class="form-control form-control-lg"
+		name="idSebenar" value="00000">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Peratusan</label>
+		<input type="text" class="form-control form-control-lg"
+		name="peratusan" value="1.087">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Hasil</label>
+		<input type="text" class="form-control form-control-lg"
+		name="hasil" value="***">
+	</div>
+	<div class="form-group">
+		<label for="onputPeratusan">Belanja</label>
+		<input type="text" class="form-control form-control-lg"
+		name="belanja" value="***">
+	</div>
+	<div class="form-group">
+		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
+	</div><!-- / class="form-group" -->
+</form>
+<!-- tamat borang 02
+=============================================================================================== -->
 </div><!-- / class="kotakTengah" -->
 </div><!-- / class="kotakAtas" -->
 <!-- tamat kotak
