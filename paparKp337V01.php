@@ -39,9 +39,9 @@ $data02 = belanjaKp337V01();
 $data03 = hasilKp337V01();
 $data04 = stokKp337V01();
 //$data02 = array_merge($a01,$a02,$a03);
-//$belanjaAsal = $data02['kp337'][79][3];
-$belanjaAsal = $data02['kp337'][74][3];
-$hasilAsal = $data03['kp337'][31][3];
+//$belanjaAsal = $data02['kp337'][78][3];
+$belanjaAsal = $data02['kp337'][73][3];
+$hasilAsal = $data03['kp337'][30][3];
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($data,'data',0);
 //semakPembolehubah($data02,'data',0);
