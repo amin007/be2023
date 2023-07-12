@@ -31,7 +31,7 @@ print <<<END
 =============================================================================================== -->
 <div class="kotakAtas">
 <div class="kotakTengah">
-<!-- mula borang
+<!-- mula borang 01
 =============================================================================================== -->
 <form method="POST" action="paparSqlMsicID.php" class="form-horizontal">
 	<div class="p-3 mb-2 bg-transparent text-dark">
@@ -99,7 +99,7 @@ print <<<END
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
 	</div><!-- / class="form-group" -->
 </form>
-<!-- tamat borang
+<!-- tamat borang 01
 =============================================================================================== -->
 </div><!-- / class="kotakTengah" -->
 </div><!-- / class="kotakAtas" -->
