@@ -536,6 +536,43 @@ if ( ! function_exists('paparSatuJadual')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparJadualAnggar')):
+	function paparJadualAnggar($row,$jadual)
+	{
+		$output = null;
+		$bilBaris = count($row);
+		$cetak_tajuk_utama = false;# mula bina jadual
+		#----------------------------------------------------------------------
+		for ($kira=0; $kira < $bilBaris; $kira++)
+		{	# papar tajuk jadual sekali sahaja :
+			if ( !$cetak_tajuk_utama )
+			{##================================================================
+				$output .= "\n\t<thead><tr>";
+				foreach ( array_keys($row[$kira]) as $kunci ) :
+				$tajuk = tajukMedanJadual($jadual,$kunci);
+				$output .= "\n\t\t" . '<th>' . ucfirst($tajuk) . '</th>';
+				endforeach;
+				$output .= "\n\t" . '<th>Anggar</th>';
+				$output .= "\n\t" . '</tr></thead>';
+				$output .= "\n\t" . '<tbody>';
+			##=================================================================
+				$cetak_tajuk_utama = true;
+			}
+		#---------------------------------------------------------------------
+			# papar baris data dari tatasusunan
+			$output .= "\n\t<tr>";
+			foreach ( $row[$kira] as $key=>$data ) :
+			$output .= "\n\t\t" . '<td>' . bersihV02($data) . '</td>';
+			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
+			endforeach;
+			$output .= "\n\t" . '</tr>';
+		}#---------------------------------------------------------------------
+		$output .= "\n\t" . '</tbody>';
+
+		return $output;//*/
+	}
+endif;
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('binaJadual')):
 	function binaJadual($senarai)
 	{
