@@ -383,18 +383,18 @@ endif;//*/
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('cariPeratusKp337')):
-	function cariPeratusKp337($anggar,$asal,$data,$jumAnggar)
+	function cariPeratusKp337($anggar,$asal,$data)
 	{
 		if(is_numeric($data)):
 			$peratus = $data / $asal;
-			$anggar = number_format($peratus * $anggar,0,'','');
+			$anggaran = number_format($peratus * $anggar,0,'','');
 			$peratus = number_format($peratus,4,'.','');
-			$jumAnggar = $anggar;
+			//$jumAnggar += $data;
 		else:
-			$peratus = $anggar = 0;
+			$peratus = $anggaran = 0;
 		endif;
 		#
-		return [$peratus,$anggar,$jumAnggar];
+		return [$peratus,$anggaran];
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
