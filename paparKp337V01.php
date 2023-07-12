@@ -13,6 +13,7 @@ require './sumber/fail/data/dataKp337.php';
 //$fungsi = get_defined_functions();// internal or user
 //semakPembolehubah($fungsi,'fungsi',0);
 //echo '<pre>$fungsi=>';//print_r($fungsi['user']);//echo '<br></pre>' . "\n";
+//https://stackoverflow.com/questions/4668628/truncate-float-numbers-with-php
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
