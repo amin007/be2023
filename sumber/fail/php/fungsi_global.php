@@ -569,9 +569,11 @@ if ( ! function_exists('paparJadualAnggar')):
 			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
 			endforeach;
 			$jumAnggar = kiraBakiKp337($kira,$jumAnggar,$anggaran,$anggar,$kodJadual);
+			$dataPeratus = ($data == 0) ? '' : $peratus;
+			$dataAnggaran = ($data == 0) ? '' : $anggaran;
 			$paparAnggar = ($data == 0) ? '' : $jumAnggar;
-			$output .= "\n\t\t" . '<td>' . $peratus . '</td>';
-			$output .= "\n\t\t" . '<td>' . $anggaran . '</td>';
+			$output .= "\n\t\t" . '<td>' . $dataPeratus . '</td>';
+			$output .= "\n\t\t" . '<td>' . $dataAnggaran . '</td>';
 			$output .= "\n\t\t" . '<td>' . $paparAnggar . '</td>';
 			$output .= "\n\t" . '</tr>';
 		}#---------------------------------------------------------------------
