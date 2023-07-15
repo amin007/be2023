@@ -39,10 +39,11 @@ if ( ! function_exists('dbMysqli00')):
 			//semakPembolehubah($sqlDaa,'sqlDaa',0);
 			#--------------------------------------------------------------------------------------
 			$sql_stmt = $sqlDaa;
+			$data[$myTable] = array();
 			#--------------------------------------------------------------------------------------
 			$result = $pdo->query($sql_stmt);
 			$result->setFetchMode(PDO::FETCH_ASSOC);
-			$data[$myTable] = array();
+			$$result->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($result as $row)
 			{
 				$data[$myTable][] = $row;
