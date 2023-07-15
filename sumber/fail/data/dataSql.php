@@ -32,7 +32,7 @@ if ( ! function_exists('sqlSelectBatch')):
 		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
-		. "\rWHERE tarikhBatch = '$tarikh' ";
+		. "\rWHERE tarikhBatch = '$tarikh' "
 		. "\rORDER BY 3 ";
 		// $sql['FeBarcode'] = sqlSelectBatch($jadual,$tarikh);
 		return $sql;
