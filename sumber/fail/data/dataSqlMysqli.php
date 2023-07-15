@@ -74,8 +74,8 @@ if ( ! function_exists('dbMysqli01')):
 				$pdo->exec('SET NAMES "utf8"');
 			#--------------------------------------------------------------------------------------
 				$result = $pdo->query($sqlDaa);
-				$result->setFetchMode(PDO::FETCH_ASSOC);
-				//$result->setFetchMode(PDO::FETCH_BOTH);
+				//$result->setFetchMode(PDO::FETCH_ASSOC);
+				$result->setFetchMode(PDO::FETCH_NAMED);
 			#--------------------------------------------------------------------------------------
 				//$data[$myTable] = array();
 				foreach ($result as $row)
