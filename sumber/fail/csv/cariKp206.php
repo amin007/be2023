@@ -193,6 +193,7 @@ if ( ! function_exists('cariMsic')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('cariPeratusKp337')):
 	function cariPeratusKp337($anggar,$asal,$data)
 	{
 		if(is_numeric($data)):
@@ -205,6 +206,34 @@ endif;//*/
 		#
 		return [$peratus,$anggaran];
 	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+/**
+ * Group items from an array together by some criteria or value.
+ *
+ * @param  $arr array The array to group items from
+ * @param  $criteria string|callable The key to group by or a function the returns a key to group by.
+ * @return array
+ * https://stackoverflow.com/questions/7574857/group-rows-in-an-associative-array-of-associative-arrays-by-column-value-and-pre
+ *
+ */
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('groupBy')):
+	function groupBy($arr, $criteria): array
+	{
+		return array_reduce($arr, function($accumulator, $item) use ($criteria)
+		{
+			$key = (is_callable($criteria)) ? $criteria($item) : $item[$criteria];
+			if (!array_key_exists($key, $accumulator))
+			{
+				$accumulator[$key] = [];
+			}
+
+			array_push($accumulator[$key], $item);
+			return $accumulator;
+		}, []);
+	}
+endif;//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 # untuk js dan css
