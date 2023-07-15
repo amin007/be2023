@@ -43,7 +43,7 @@ if ( ! function_exists('dbMysqli00')):
 			#--------------------------------------------------------------------------------------
 			$result = $pdo->query($sql_stmt);
 			$result->setFetchMode(PDO::FETCH_ASSOC);
-			$$result->fetchAll(PDO::FETCH_ASSOC);
+			//$result->fetchAll(PDO::FETCH_ASSOC);
 			foreach ($result as $row)
 			{
 				$data[$myTable][] = $row;
@@ -74,10 +74,10 @@ if ( ! function_exists('dbMysqli01')):
 				$pdo->exec('SET NAMES "utf8"');
 			#--------------------------------------------------------------------------------------
 				$result = $pdo->query($sqlDaa);
-			#--------------------------------------------------------------------------------------
 				$result->setFetchMode(PDO::FETCH_ASSOC);
-				$tajuk[$myTable] = $myTable;
-				$data[$myTable] = array();
+				//$result->setFetchMode(PDO::FETCH_BOTH);
+			#--------------------------------------------------------------------------------------
+				//$data[$myTable] = array();
 				foreach ($result as $row)
 				{
 					$data[$myTable][] = $row;
@@ -97,6 +97,5 @@ if ( ! function_exists('dbMysqli01')):
 		return $data;
 	}
 endif;//*/
-
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
