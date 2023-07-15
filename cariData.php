@@ -41,12 +41,12 @@ print <<<END
 	<div class="form-group">
 		<label for="inputMsic">Nombor Siri</label>
 		<input type="text" class="form-control form-control-lg"
-		name="noSiri" placeholder="Masukkan Nombor Siri">
+		name="noSiri" value="00000" placeholder="Masukkan Nombor Siri">
 	</div>
 	<div class="form-group">
 		<label for="onputPeratusan">Peratusan</label>
 		<input type="text" class="form-control form-control-lg"
-		name="peratusan" placeholder="Masukkan Peratusan">
+		name="peratusan" value="1.087">
 	</div>
 	<div class="form-group">
 		<label for="onputPeratusan">Peratusan Gaji</label>
@@ -66,7 +66,7 @@ print <<<END
 	<div class="form-group">
 		<label for="onputPeratusan">Bil Staf</label>
 		<input type="text" class="form-control form-control-lg"
-		name="bilStaf" value="1500">
+		name="bilStaf" value="1">
 	</div>
 	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Data">
