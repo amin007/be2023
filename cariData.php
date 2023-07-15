@@ -14,6 +14,11 @@ diatasV01($pilih, $urlcss);
 binaButang(['jadual01','jadual02']);
 $class = '"table table-striped table-bordered"';
 #--------------------------------------------------------------------------------------------------
+$namaFe = $tatarajahBatch[0];
+$jawatanFe = $tatarajahBatch[1];
+$namaPegawai = $tatarajahBatch[2];
+$jawatanPegawai = $tatarajahBatch[3];
+#--------------------------------------------------------------------------------------------------
 print <<<END
 <!-- mula kotak
 =============================================================================================== -->
@@ -84,12 +89,31 @@ print <<<END
 		name="tarikhBatch">
 	</div>
 	<div class="form-group">
+		<label for="inputMsic">Disediakan Oleh</label>
+		<input type="text" class="form-control form-control-lg"
+		name="namaFe" value="$namaFe">
+	</div>
+	<div class="form-group">
+		<label for="inputMsic">Jawatan</label>
+		<input type="test" class="form-control form-control-lg"
+		name="jawatanFe" value="$jawatanFe">
+	</div>
+	<div class="form-group">
+		<label for="inputMsic">Diterima Oleh</label>
+		<input type="text" class="form-control form-control-lg"
+		name="namaPegawai" value="$namaPegawai">
+	</div>
+	<div class="form-group">
+		<label for="inputMsic">Jawatan</label>
+		<input type="test" class="form-control form-control-lg"
+		name="jawatanPegawai" value="$jawatanPegawai">
+	</div>
+	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Tarikh Batch">
 	</div><!-- / class="form-group" -->
 </form>
 <!-- tamat borang 02
 =============================================================================================== -->
-
 </div><!-- / class="kotakTengah" -->
 </div><!-- / class="kotakAtas" -->
 <!-- tamat kotak
