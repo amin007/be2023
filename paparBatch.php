@@ -24,7 +24,7 @@ semakPembolehubah($_POST,'_POST',0);
 semakPembolehubah($myJadual,'myJadual',0);
 semakPembolehubah($sql,'sql',0);//*/
 #--------------------------------------------------------------------------------------------------
-$data = dbMysqli00(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
+$data = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($data,'data',0);
 #--------------------------------------------------------------------------------------------------
@@ -37,9 +37,7 @@ $class = '"table table-striped table-bordered"';
 diatas($pilih, $urlcss);
 #--------------------------------------------------------------------------------------------------
 //binaButang(null);
-//echo "\r<hr>\r<table class=$class><tr>";
 #--------------------------------------------------------------------------------------------------
-	#----------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
 		$baki = count($rowDaa);
 		$table = paparSemuaData($rowDaa,$myJadualDaa);
@@ -49,7 +47,7 @@ diatas($pilih, $urlcss);
 	endforeach;
 	#----------------------------------------------------------------------------------------------
 	for($i = $baki+1; $i < 17; $i++):
-		echo "\n" . '<tr>';
+		echo "\n\t" . '<tr>';
 		echo "<td>$i</td>";
 		for($j = 1; $j < 7; $j++):
 			echo '<td>&nbsp;</td>';
@@ -57,21 +55,21 @@ diatas($pilih, $urlcss);
 		echo '</tr>';
 	endfor;
 	#----------------------------------------------------------------------------------------------
-	echo "</table>\r";
+	echo "\n</table>";
 #--------------------------------------------------------------------------------------------------
 echo "\n<table class=$class>";
-echo '<tr><td>&nbsp;</td><td></td><td></td></tr>';
-echo '<tr><td>Tanda Tangan</td><td>:</td><td>&nbsp;</td></tr>';
-echo '<tr><td>Disediakan Oleh</td><td>:</td><td>' . $tatarajahBatch[0] . '</td></tr>';
-echo '<tr><td>Jawatan</td><td>:</td><td>' . $tatarajahBatch[1] . '</td></tr>';
-echo '<tr><td>Tarikh Penghantaran</td><td>:</td><td>' . $tarikhBatchDaa . '</td></tr>';
-echo '<tr><td>&nbsp;</td><td></td><td></td></tr>';
-echo '<tr><td>Tanda Tangan</td><td>:</td><td>&nbsp;</td></tr>';
-echo '<tr><td>Diterima Oleh</td><td>:</td><td>' . $tatarajahBatch[2] . '</td></tr>';
-echo '<tr><td>Jawatan</td><td>:</td><td>' . $tatarajahBatch[3] . '</td></tr>';
-echo '<tr><td>Tarikh Penghantaran</td><td>:</td><td>' . $tarikhBatchDaa . '</td></tr>';
-echo '<tr><td>&nbsp;</td><td></td><td></td></tr>';
-echo "\n</tr></table>\r";
+echo "\n\t" . '<tr><td>&nbsp;</td><td></td><td></td></tr>';
+echo "\n\t" . '<tr><td>Tanda Tangan</td><td>:</td><td>&nbsp;</td></tr>';
+echo "\n\t" . '<tr><td>Disediakan Oleh</td><td>:</td><td>' . $tatarajahBatch[0] . '</td></tr>';
+echo "\n\t" . '<tr><td>Jawatan</td><td>:</td><td>' . $tatarajahBatch[1] . '</td></tr>';
+echo "\n\t" . '<tr><td>Tarikh Penghantaran</td><td>:</td><td>' . $tarikhBatchDaa . '</td></tr>';
+echo "\n\t" . '<tr><td>&nbsp;</td><td></td><td></td></tr>';
+echo "\n\t" . '<tr><td>Tanda Tangan</td><td>:</td><td>&nbsp;</td></tr>';
+echo "\n\t" . '<tr><td>Diterima Oleh</td><td>:</td><td>' . $tatarajahBatch[2] . '</td></tr>';
+echo "\n\t" . '<tr><td>Jawatan</td><td>:</td><td>' . $tatarajahBatch[3] . '</td></tr>';
+echo "\n\t" . '<tr><td>Tarikh Penghantaran</td><td>:</td><td>' . $tarikhBatchDaa . '</td></tr>';
+echo "\n\t" . '<tr><td>&nbsp;</td><td></td><td></td></tr>';
+echo "\n</table>\r";
 #--------------------------------------------------------------------------------------------------
 //dibawah($pilih,$urljs);
 /*echo "<script>\n";
