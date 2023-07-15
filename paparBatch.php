@@ -42,7 +42,6 @@ diatas($pilih, $urlcss);
 		$baki = count($rowDaa);
 		$table = paparSemuaData($rowDaa,$myJadualDaa);
 		echo '<h1 align="center">BORANG PENGHANTARAN KES BORANG BE 2023</h1>';
-		//echo "<h2>$myJadualDaa</h2>";
 		echo "\n<table id=\"myTable\" class=$class>$table";
 	endforeach;
 	#----------------------------------------------------------------------------------------------
@@ -57,7 +56,28 @@ diatas($pilih, $urlcss);
 	#----------------------------------------------------------------------------------------------
 	echo "\n</table>";
 #--------------------------------------------------------------------------------------------------
+$notaBawah = [
+	['&nbsp;','',''],
+	['Tanda Tangan',':',''],
+	['Disediakan Oleh',':',$tatarajahBatch[0]],
+	['Jawatan',':',$tatarajahBatch[1]],
+	['Tarikh Penghantaran',':',$tarikhBatchDaa],
+	['&nbsp;','',''],
+	['Tanda Tangan',':',''],
+	['Diterima Oleh',':',$tatarajahBatch[2]],
+	['Jawatan',':',$tatarajahBatch[3]],
+	['Tarikh Penghantaran',':',$tarikhBatchDaa],
+	['&nbsp;','',''],
+];
+#--------------------------------------------------------------------------------------------------
 echo "\n<table class=$class>";
+foreach($notaBawah as $kunci => $utama):
+	echo "\n\t" . '<tr><td>' . $utama[0] . '</td><td>' . $utama[1] . '</td>'
+	. '<td>' . $utama[2] . '</td></tr>';
+endforeach;
+echo "\n</table>\r";
+#--------------------------------------------------------------------------------------------------
+/*echo "\n<table class=$class>";
 echo "\n\t" . '<tr><td>&nbsp;</td><td></td><td></td></tr>';
 echo "\n\t" . '<tr><td>Tanda Tangan</td><td>:</td><td>&nbsp;</td></tr>';
 echo "\n\t" . '<tr><td>Disediakan Oleh</td><td>:</td><td>' . $tatarajahBatch[0] . '</td></tr>';
@@ -69,7 +89,7 @@ echo "\n\t" . '<tr><td>Diterima Oleh</td><td>:</td><td>' . $tatarajahBatch[2] . 
 echo "\n\t" . '<tr><td>Jawatan</td><td>:</td><td>' . $tatarajahBatch[3] . '</td></tr>';
 echo "\n\t" . '<tr><td>Tarikh Penghantaran</td><td>:</td><td>' . $tarikhBatchDaa . '</td></tr>';
 echo "\n\t" . '<tr><td>&nbsp;</td><td></td><td></td></tr>';
-echo "\n</table>\r";
+echo "\n</table>\r";*/
 #--------------------------------------------------------------------------------------------------
 //dibawah($pilih,$urljs);
 /*echo "<script>\n";
