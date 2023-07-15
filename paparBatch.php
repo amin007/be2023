@@ -76,20 +76,6 @@ foreach($notaBawah as $kunci => $utama):
 endforeach;
 echo "\n</table>\r";
 #--------------------------------------------------------------------------------------------------
-/*echo "\n<table class=$class>";
-echo "\n\t" . '<tr><td>&nbsp;</td><td></td><td></td></tr>';
-echo "\n\t" . '<tr><td>Tanda Tangan</td><td>:</td><td>&nbsp;</td></tr>';
-echo "\n\t" . '<tr><td>Disediakan Oleh</td><td>:</td><td>' . $tatarajahBatch[0] . '</td></tr>';
-echo "\n\t" . '<tr><td>Jawatan</td><td>:</td><td>' . $tatarajahBatch[1] . '</td></tr>';
-echo "\n\t" . '<tr><td>Tarikh Penghantaran</td><td>:</td><td>' . $tarikhBatchDaa . '</td></tr>';
-echo "\n\t" . '<tr><td>&nbsp;</td><td></td><td></td></tr>';
-echo "\n\t" . '<tr><td>Tanda Tangan</td><td>:</td><td>&nbsp;</td></tr>';
-echo "\n\t" . '<tr><td>Diterima Oleh</td><td>:</td><td>' . $tatarajahBatch[2] . '</td></tr>';
-echo "\n\t" . '<tr><td>Jawatan</td><td>:</td><td>' . $tatarajahBatch[3] . '</td></tr>';
-echo "\n\t" . '<tr><td>Tarikh Penghantaran</td><td>:</td><td>' . $tarikhBatchDaa . '</td></tr>';
-echo "\n\t" . '<tr><td>&nbsp;</td><td></td><td></td></tr>';
-echo "\n</table>\r";*/
-#--------------------------------------------------------------------------------------------------
 //dibawah($pilih,$urljs);
 /*echo "<script>\n";
 jqueryExtendA();
@@ -97,38 +83,7 @@ jqueryExtendB();
 jqueryExtendC();
 gradeTable002(null);
 echo "\n</script>";//*/
-echo "\n\n</body>\n</html>";//*/
-#--------------------------------------------------------------------------------------------------
-/*# kaedah 2.1
-$s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
-//semakPembolehubah($_SERVER[$s],$s);
-if (isset($_SERVER[$s])):
-	$fail = explode('be20023/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
-	$cari = explode('/',$fail[1]);semakPembolehubah($cari,'pilih');
-
-	if(isset($cari[1])):
-		$cariApa = bersih($cari[1]);
-		if($cariApa == 'json'):
-			$pilih = isset($cari[2]) ? $cari[2] : null;
-			$cariApa = bersih($pilih);
-			binaJson($data,$cariApa);
-		elseif($cariApa == 'tahun'):
-			$tajuk['tahun'] = '#,-,-,-,-';
-			$data['tahun'] = kiraTahunJadual();
-			panggilDataTable01($tajuk,$data,$cariApa);# panggil fungsi
-		elseif(in_array($cariApa,$dataPhpJson)):# panggil fungsi untuk tatasusunan php => json
-			panggilDataTable03($tajuk,$data,$cariApa);
-		elseif(in_array($cariApa,$dataJson)):
-			panggilDataTable02($tajuk,$data,$cariApa);# panggil fungsi untuk data json
-		else:
-			panggilDataTable01($tajuk,$data,$cariApa);# panggil fungsi
-		endif;
-	else:
-		panggilDataTable01($tajuk,$data,null);# panggil fungsi
-	endif;
-else:
-	panggilDataTable01($tajuk,$data,null);# panggil fungsi
-endif;//*/
+echo "\n</body>\n</html>";//*/
 #--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
