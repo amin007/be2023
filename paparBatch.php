@@ -74,12 +74,13 @@ echo '<tr><td>&nbsp;</td><td></td><td></td></tr>';
 echo "\n</tr></table>\r";
 #--------------------------------------------------------------------------------------------------
 //dibawah($pilih,$urljs);
-echo "<script>\n";
-/*jqueryExtendA();
+/*echo "<script>\n";
+jqueryExtendA();
 jqueryExtendB();
 jqueryExtendC();
-gradeTable002(null);//*/
-echo "\n</script>\n</body>\n</html>";//*/
+gradeTable002(null);
+echo "\n</script>";//*/
+echo "\n\n</body>\n</html>";//*/
 #--------------------------------------------------------------------------------------------------
 /*# kaedah 2.1
 $s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
