@@ -38,7 +38,7 @@ if ( ! function_exists('semakTatasusunanIni')):
 			foreach($senarai as $data):
 				echo "$data\n";
 			endforeach;
-			echo "</$kodHtml>\n\n\n\n";
+			echo "</$kodHtml>\n";
 		else:
 			echo tagVar($senarai,'',5);
 		endif;
@@ -198,10 +198,15 @@ foreach ($data['kp337'] as $kira => $item)
     }
     echo '</tr>';
 }
-echo '</table>';
+echo '</table>' . "\n";
 #--------------------------------------------------------------------------------------------------
 $nilai[] = cariNilai($data['kp337'],$asal);
 $nilai[] = cariNilai($data['kp337'],'151656');
+$nilai[] = cariNilai($data['kp337'],'578');
+list($cariKey,$cariKod) = explode('|',$nilai[2]);
+#--------------------------------------------------------------------------------------------------
 semakTatasusunanIni($nilai);
-semakTatasusunanIni($data['kp337'][]);
+semakTatasusunanIni($cariKey);
+semakTatasusunanIni($data['kp337'][0],'pre');
+semakTatasusunanIni($data['kp337'][$cariKey],'pre');
 #--------------------------------------------------------------------------------------------------
