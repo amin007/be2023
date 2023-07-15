@@ -26,13 +26,14 @@ if ( ! function_exists('sqlSelectBatch')):
 	{
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
-		. "\rbarcode `NO. SIRI`, kp `KP`, nama `NAMA PERTUBUHAN`,"
+		. "\rbarcode `NO. SIRI`, kp `KP`, nama `NAMA PERTUBUHAN2`,"
 		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
 		. "\rDataRespon `KOD RESPON`,"
 		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' ";
+		. "\rORDER BY 3 ";
 		// $sql['FeBarcode'] = sqlSelectBatch($jadual,$tarikh);
 		return $sql;
 	}
