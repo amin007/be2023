@@ -1,5 +1,67 @@
 <?php
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('tagVar')):
+	function tagVar($senarai,$jadual,$pilih)
+	{
+		# set pembolehubah utama
+		$p1 = 'pre';#https://www.w3schools.com/tags/tag_var.asp
+		$p2 = 'kbd';
+		$p3 = 'code';
+		$p4 = 'samp';
+		# setkan tatasusunan
+		$p[0] = "<pre>\$$jadual = $senarai</pre><br>\n";
+		$p[1] = "<$p1>\$$jadual = $senarai</$p1><br>\n";
+		$p[2] = "<$p1><$p2>\$$jadual = $senarai</$p2><br>\n";
+		$p[3] = "<$p3>\$$jadual = $senarai</$p3><br>\n";
+		$p[4] = "<$p4>\$$jadual = $senarai</$p4><br>\n";
+		$p[5] = "<$p1><$p2>$senarai</$p2></$p1><br>\n";
+		#
+		return $p[$pilih];
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('semakTatasusunan')):
+	function semakTatasusunan($senarai)
+	{
+		$semak = is_array($senarai) ? 'array' : 'bukan';
+		#
+		return $semak;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('semakTatasusunanIni')):
+	function semakTatasusunanIni($senarai,$kodHtml = 'pre')
+	{
+		$semak = semakTatasusunan($senarai);
+		if($semak == 'array'):
+			echo "<$kodHtml>";
+			foreach($senarai as $data):
+				echo "$data\n";
+			endforeach;
+			echo "</$kodHtml>\n\n\n\n";
+		else:
+			echo tagVar($senarai,'',5);
+		endif;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('cariNilai')):
+	function cariNilai($data,$kod)
+	{
+		foreach ($data as $key => $values):
+			if($kod == $values[2]):
+				//echo "<hr>$kod($key) = " . $values[0];
+				return $key . '|' . $values[0];
+			endif;
+		endforeach;
+
+		return null;
+		//$nilai[] = cariNilai($dataKp['kp337'],'F090036');# untuk debug
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+###################################################################################################
+#--------------------------------------------------------------------------------------------------
 		$data['kp337'] = [
 		['kodMedan','IO','Asal','Peratusan','Anggar','Jum Terkumpul'],
 		['F090009','*',1534294],
@@ -104,7 +166,7 @@ $data['kp337'][count($data['kp337']) - 1][] = $peratusan;
 $data['kp337'][count($data['kp337']) - 1][] = $anggar;
 //$data['kp337'][$kira][3]
 //*/
-
+#--------------------------------------------------------------------------------------------------
 // Menghitung elemen ke-5 ('Peratusan') dan ke-6 ('Anggar') untuk setiap baris kecuali baris pertama
 for ($i = 1; $i < count($data['kp337']); $i++) {
     //$peratusan = $data['kp337'][$i][2] / $asal;
@@ -113,7 +175,7 @@ for ($i = 1; $i < count($data['kp337']); $i++) {
     $data['kp337'][$i][] = $peratusan;
     $data['kp337'][$i][] = $anggaran;
 }
-
+#--------------------------------------------------------------------------------------------------
 // Menghitung nilai terkumpul dari awal hingga akhir
 $terkumpul = 0;
 for ($i = 1; $i < count($data['kp337']); $i++) {
@@ -123,15 +185,23 @@ for ($i = 1; $i < count($data['kp337']); $i++) {
 	else
 		$data['kp337'][$i][] = $terkumpul;
 }
-
-// Membuat tabel HTML
+#--------------------------------------------------------------------------------------------------
+// Membuat jadual HTML
+$kira = 0;
 echo '<table border=1>';
 foreach ($data['kp337'] as $kira => $item)
 {
 	echo "\n\t" . '<tr>';
+	echo '<td>' . $kira++ . '</td>';
 	foreach ($item as $value) {
 		echo '<td>' . $value . '</td>';
     }
     echo '</tr>';
 }
 echo '</table>';
+#--------------------------------------------------------------------------------------------------
+$nilai[] = cariNilai($data['kp337'],$asal);
+$nilai[] = cariNilai($data['kp337'],'151656');
+semakTatasusunanIni($nilai);
+semakTatasusunanIni($data['kp337'][]);
+#--------------------------------------------------------------------------------------------------
