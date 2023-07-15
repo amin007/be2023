@@ -22,8 +22,9 @@ $jawatanPegawai = $tatarajahBatch[3];
 print <<<END
 <!-- mula kotak
 =============================================================================================== -->
-<div class="kotakAtas">
-<div class="kotakTengah">
+<!-- div class="kotakAtas" -->
+<!-- div class="kotakTengah" -->
+<div class="container">
 <!-- mula borang
 =============================================================================================== -->
 <form method="POST" action="paparSql.php" class="form-horizontal">
@@ -114,8 +115,9 @@ print <<<END
 </form>
 <!-- tamat borang 02
 =============================================================================================== -->
-</div><!-- / class="kotakTengah" -->
-</div><!-- / class="kotakAtas" -->
+<!-- /div !-- / class="kotakTengah" -->
+<!-- /div !-- / class="kotakAtas" -->
+</div><!-- / class="container" -->
 <!-- tamat kotak
 =============================================================================================== -->
 END;
