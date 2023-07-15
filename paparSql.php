@@ -89,12 +89,11 @@ $data = dbMysqli00(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-$pilih = null;
 list($urlcss,$urljs) = linkCssJs();
 //$class = '"table table-striped table-bordered table-sm"';
 $class = '"table table-bordered table-sm"';
 //$class = '"excel"';
-diatas($pilih, $urlcss);
+diatas('Carian Data Anggaran',$urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
 echo "<!-- Senarai Jadual
