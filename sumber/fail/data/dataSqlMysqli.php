@@ -62,6 +62,7 @@ if ( ! function_exists('dbMysqli01')):
 	function dbMysqli01($host,$dbName,$user,$pass,$sql)
 	{
 		#https://wiki.php.net/rfc/mysqli_default_errmode
+		#https://www.php.net/manual/en/pdostatement.fetch.php
 		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 		#------------------------------------------------------------------------------------------
 		foreach($sql as $myTable => $sqlDaa)://semakPembolehubah($sqlDaa,'sqlDaa',0);
