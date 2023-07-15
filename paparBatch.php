@@ -15,6 +15,10 @@ require './sumber/fail/data/dataSqlMysqli.php';
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
+$namaFe = bersih($_POST['namaFe']);// = $tatarajahBatch[0];
+$jawatanFe = bersih($_POST['jawatanFe']);// = $tatarajahBatch[1];
+$namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
+$jawatanPegawai = bersih($_POST['jawatanPegawai']);// = $tatarajahBatch[3];
 $tarikhBatch = bersih($_POST['tarikhBatch']);
 $tarikhBatchDaa = $tarikhBatch;
 $sql['batch'] = sqlSelectBatch($myJadual[0],$tarikhBatch);
@@ -58,13 +62,13 @@ diatas('Senarai Batch', $urlcss);
 $notaBawah = [
 	['&nbsp;','',''],
 	['Tanda Tangan',':',''],
-	['Disediakan Oleh',':',$tatarajahBatch[0]],
-	['Jawatan',':',$tatarajahBatch[1]],
+	['Disediakan Oleh',':',$namaFe],
+	['Jawatan',':',$jawatanFe],
 	['Tarikh Penghantaran',':',$tarikhBatchDaa],
 	['&nbsp;','',''],
 	['Tanda Tangan',':',''],
-	['Diterima Oleh',':',$tatarajahBatch[2]],
-	['Jawatan',':',$tatarajahBatch[3]],
+	['Diterima Oleh',':',$namaPegawai],
+	['Jawatan',':',$jawatanPegawai],
 	['Tarikh Penghantaran',':',$tarikhBatchDaa],
 	['&nbsp;','',''],
 ];
