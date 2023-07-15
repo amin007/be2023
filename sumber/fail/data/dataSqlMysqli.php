@@ -77,7 +77,6 @@ if ( ! function_exists('dbMysqli01')):
 				//$result->setFetchMode(PDO::FETCH_ASSOC);
 				$result->setFetchMode(PDO::FETCH_NAMED);
 			#--------------------------------------------------------------------------------------
-				//$data[$myTable] = array();
 				foreach ($result as $row)
 				{
 					$data[$myTable][] = $row;
@@ -86,11 +85,9 @@ if ( ! function_exists('dbMysqli01')):
 			}
 			catch (PDOException $e)
 			{
-				//semakPembolehubah($sqlDaa,'sqlDaa',0);
 				semakTatasusunanIni($sqlDaa,'pre');
 				semakTatasusunanIni($e->getMessage(),'pre');
-				//echo $e->getMessage() . '<br>';
-			}//*/
+			}
 		#------------------------------------------------------------------------------------------
 		endforeach;
 		#------------------------------------------------------------------------------------------
