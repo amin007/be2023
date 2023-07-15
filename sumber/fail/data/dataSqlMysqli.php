@@ -42,7 +42,6 @@ if ( ! function_exists('dbMysqli00')):
 			#--------------------------------------------------------------------------------------
 			$result = $pdo->query($sql_stmt);
 			$result->setFetchMode(PDO::FETCH_ASSOC);
-			$tajuk[$myTable] = $myTable;
 			$data[$myTable] = array();
 			foreach ($result as $row)
 			{
