@@ -88,6 +88,24 @@ if ( ! function_exists('cariNilaiKp')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('cariKpData5p')):
+	function cariKpData5p($data)
+	{
+		$data5p = [0,1,2,25,26,27,181,200,204,458,369,503,613,689,689,
+		1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959];
+		foreach ($data as $key => $values):
+		foreach ($values as $kunci => $angka):
+			if(in_array($kunci,$data5p)):
+				echo "<hr>($key)[$kunci]=$angka";
+				//return $key . '|' . $values[0];
+			endif;
+		endforeach;
+		endforeach;
+
+		//return null;
+		//$nilai[] = cariNilai($dataKp['kp337'],'F090036');# untuk debug
+	}
+endif;//*/
 #--------------------------------------------------------------------------------------------------
 /**
  * Group items from an array together by some criteria or value.
@@ -121,7 +139,9 @@ endif;//*/
 #--------------------------------------------------------------------------------------------------
 $filename = '../../../godek/dataKp206/kp206-aes2022';
 require '../../../godek/dataKp206/csv2array.php';
-//semakPembolehubah($data,'data',0);
+//$data02 = cariKpData5p($data['kp206']);
+semakPembolehubah($data['kp206'][0],'data',0);
+//semakPembolehubah($data02,'data02',0);
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 # cari ikut ID
