@@ -92,8 +92,8 @@ if ( ! function_exists('cariKpData5p')):
 	function cariKpData5p($data)
 	{
 		$data02 = null;
-		$data5p = [0,1,2,25,26,27,181,200,203,217,274,458,369,503,613,643,665,689,689,
-		1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959];
+		$data5p = [/*0,1,2,25,*/26,27,181,200,203,217,274,458,369,503,613,643,665,689,689,
+		/*1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959*/];
 		foreach ($data as $key => $values):
 		foreach ($values as $kunci => $angka):
 			if(in_array($kunci,$data5p)):
@@ -135,12 +135,38 @@ if ( ! function_exists('groupBy')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+/*fputcsv(
+    resource $stream,
+    array $fields,
+    string $separator = ",",
+    string $enclosure = "\"",
+    string $escape = "\\",
+    string $eol = "\n"
+)*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('dariArrayToCsv')):
+	function dariArrayToCsv($fail,$data)
+	{
+		$fp = fopen($fail, 'w');
+		foreach ($data as $key=>$fields):
+		//foreach ($fields as $kunci=>$angka):
+			//echo "<hr>($key)[$kunci]=$angka";
+			fputcsv($fp, $fields,";");
+		//endforeach;
+		endforeach;
+
+		fclose($fp);
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 # data dari csv tukar kepada tatasusunan
 #--------------------------------------------------------------------------------------------------
 $filename = '../../../godek/dataKp206/kp206-aes2022';
+$file02 = 'dataKp206_5p';
 require '../../../godek/dataKp206/csv2array.php';
-$isiData['kp206'] = cariKpData5p($data['kp206']);# buat tatasusunan berasaskan 5p
+$isiData = cariKpData5p($data['kp206']);# buat tatasusunan berasaskan 5p
+dariArrayToCsv($file02 . '.csv',$isiData);
 //semakPembolehubah($data['kp206'][0],'data',0);
 //semakPembolehubah($isiData,'isiData',0);
 #--------------------------------------------------------------------------------------------------
@@ -175,11 +201,12 @@ endforeach;//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
+/*$pilih = 'Senarai Batch';
 list($urlcss,$urljs) = linkCssJs(3);
 $class = '"table table-sm table-striped table-bordered"';
 //$class = '"table table-striped table-bordered"';
 $class02 = '"excel"';
-diatas('Senarai Batch', $urlcss);
+diatas($pilih,$urlcss);
 #--------------------------------------------------------------------------------------------------
 //binaButang(null);
 #--------------------------------------------------------------------------------------------------
@@ -189,7 +216,7 @@ foreach($isiData as $kunci03 => $rowDaa):
 	$table = paparSemuaDataV02($rowDaa);
 	echo "\n<table id=\"myTable\" class=$class>$table";
 	echo "\n</table>";
-endforeach;//*/
+endforeach;
 #--------------------------------------------------------------------------------------------------
 dibawah($pilih,$urljs);
 echo "<script>\n";
