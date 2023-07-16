@@ -175,9 +175,9 @@ endforeach;//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-/*list($urlcss,$urljs) = linkCssJs(3);
-//$class = '"table table-sm table-striped table-bordered"';
-$class = '"table table-striped table-bordered"';
+list($urlcss,$urljs) = linkCssJs(3);
+$class = '"table table-sm table-striped table-bordered"';
+//$class = '"table table-striped table-bordered"';
 $class02 = '"excel"';
 diatas('Senarai Batch', $urlcss);
 #--------------------------------------------------------------------------------------------------
@@ -187,11 +187,11 @@ echo "\n<hr>masa jana laporan = " . getTimeLoad() . "|";
 //echo "\n<hr>msic = $cariMsic ada sebanyak $jumpaMsic data.";
 foreach($isiData as $kunci03 => $rowDaa):
 	$table = paparSemuaDataV02($rowDaa);
-	echo "\n<table id=\"myTable\" class=$class02>$table";
+	echo "\n<table id=\"myTable\" class=$class>$table";
 	echo "\n</table>";
 endforeach;//*/
 #--------------------------------------------------------------------------------------------------
-/*dibawah($pilih,$urljs);
+dibawah($pilih,$urljs);
 echo "<script>\n";
 jqueryExtendA();
 jqueryExtendB();
