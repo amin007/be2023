@@ -189,10 +189,13 @@ semakPembolehubah($isiData,'isiData',0);//*/
 /*$cariMsic = '41001';// $key = 26 => F010029 => 41001
 #--------------------------------------------------------------------------------------------------
 list($jumpaMsic,$jumpaData) = cariMsic($data['kp206'],$cariMsic);
+# kita dapatkan nilai $jumpaData dan dapatkan $cariKey
 foreach($jumpaData as $kunci => $dataApa):
 	//echo "\n<hr>$kunci = $dataApa";
 	list($cariKey[],$cariKod[]) = explode('|',$dataApa);
 endforeach;
+# lepas itu, tajuk medan dan data dalam $cariKey
+# digabungkan dalam $isiData
 $isiData['kp206'][] = $data['kp206'][0];# ambil tajuk medan
 foreach($cariKey as $kunci02 => $kodID):
 	//echo "\n<hr>key $dataApa02";
