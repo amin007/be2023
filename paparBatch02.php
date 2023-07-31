@@ -21,7 +21,7 @@ $namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
 $jawatanPegawai = bersih($_POST['jawatanPegawai']);// = $tatarajahBatch[3];
 $tarikhBatch = bersih($_POST['tarikhBatch']);
 $tarikhBatchDaa = $tarikhBatch;
-$sql['batch'] = sqlSelectBatch($myJadual[0],$tarikhBatch);
+$sql['batch'] = sqlSelectMko($myJadual[0],$tarikhBatch);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
 semakPembolehubah($_POST,'_POST',0);
@@ -52,7 +52,7 @@ diatas('Senarai Batch', $urlcss);
 	for($i = $baki+1; $i < 17; $i++):
 		echo "\n\t" . '<tr>';
 		echo "<td>$i</td>";
-		for($j = 1; $j < 7; $j++):
+		for($j = 1; $j < 13; $j++):
 			echo '<td>&nbsp;</td>';
 		endfor;
 		echo '</tr>';
@@ -62,33 +62,32 @@ diatas('Senarai Batch', $urlcss);
 #--------------------------------------------------------------------------------------------------
 $notaBawah = [
 	['PEGAWAI LUAR','','',null,null,null],
-	['Bahawa saya ','penama dibawah ','mengesahkan ',null,null,null],
-	['penghantaran ','borang lengkap','seperti diatas :-',null,null,null],
+	['Bahawa saya penama ','','dibawah mengesahkan',null,null,null],
+	['penghantaran borang lengkap','','seperti diatas :-',null,null,null],
 	['&nbsp;','','',null,null,null],
 	['Tanda Tangan',':','',null,null,null],
-	['Disediakan Oleh',':',$namaFe],null,null,null,
+	['Disediakan Oleh',':',$namaFe,null,null,null],
 	['Jawatan',':',$jawatanFe,null,null,null],
 	['Tarikh Penghantaran',':',null,null,null,null],
 	['&nbsp;','','',null,null,null],
 	['KAWALAN OPERASI','','','PO PENERIMA',null,null],
-	['Bahawa saya ','penama dibawah ','mengesahkan ','Bahawa saya ','penama dibawah ','mengesahkan ',],
-	['penghantaran ','borang lengkap','seperti diatas :-','penghantaran ','borang lengkap','seperti diatas :-',],
+	['Bahawa saya penama ','','dibawah mengesahkan','Bahawa saya penama ','','dibawah mengesahkan'],
+	['penghantaran borang lengkap','','seperti diatas :-','penghantaran borang lengkap','','seperti diatas :-'],
 	['&nbsp;','','',null,null,null],
 	['Tanda Tangan',':','','Tanda Tangan',null,null],
 	['Diterima Oleh',':',null,'Diterima Oleh',':',$namaPegawai],
-	['Jawatan',':',null,'Jawatan',':',$jawatanPegawai,l],
-	['Tarikh Penerimaan',':',null,'Tarikh Penerimaan',':',$tarikhBatchDaa,],
+	['Jawatan',':',null,'Jawatan',':',$jawatanPegawai],
+	['Tarikh Penerimaan',':',null,'Tarikh Penerimaan',':',$tarikhBatchDaa],
 	['&nbsp;','','',null,null,null],
 ];
 #--------------------------------------------------------------------------------------------------
 echo "\n<table class=$class>";
 foreach($notaBawah as $kunci => $utama):
-	echo "\n\t" . '<tr><td>' . $utama[0] . '</td><td>' . $utama[1] . '</td>'
-	. '<td>' . $utama[2] . '</td>'
-	. '<td>' . $utama[3] . '</td>'
-	. '<td>' . $utama[4] . '</td>'
-	. '<td>' . $utama[5] . '</td>'
-	. '</tr>';
+	echo "\n\t" . '<tr>';
+foreach($utama as $kunci02 => $utama02):
+	echo '<td>' . $utama02 . '</td>';
+endforeach;
+	echo "" . '</tr>';
 endforeach;
 echo "\n</table>\r";
 #--------------------------------------------------------------------------------------------------
