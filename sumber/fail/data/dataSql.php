@@ -21,24 +21,6 @@ $data['xxx'] = array(
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
-if ( ! function_exists('sqlSelectBatch')):
-	function sqlSelectBatch($jadual,$tarikh)
-	{
-		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
-		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
-		. "\rbarcode `NO. SIRI`, kp `KP`,"
-		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
-		. "\rDataRespon `KOD RESPON`,"
-		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
-		. "\rFROM `$jadual`"
-		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
-		. "\rWHERE tarikhBatch = '$tarikh' "
-		. "\rORDER BY 3 ";
-		// $sql['FeBarcode'] = sqlSelectBatch($jadual,$tarikh);
-		return $sql;
-	}
-endif;//*/
-#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlSelectBintang')):
 	function sqlSelectBintang($jadual,$fe,$id,$peratus)
 	{
@@ -63,6 +45,24 @@ if ( ! function_exists('sqlBarcode')):
 	{
 		$sql = "SELECT * FROM `$jadualBe` WHERE `barcode` = '$id';";
 		// $sql['FeBarcode'] = sqlFeBarcode($fe);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSelectBatch')):
+	function sqlSelectBatch($jadual,$tarikh)
+	{
+		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
+		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
+		. "\rbarcode `NO. SIRI`, kp `KP`,"
+		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
+		. "\rDataRespon `KOD RESPON`,"
+		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
+		. "\rFROM `$jadual`"
+		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
+		. "\rWHERE tarikhBatch = '$tarikh' "
+		. "\rORDER BY 3 ";
+		// $sql['FeBarcode'] = sqlSelectBatch($jadual,$tarikh);
 		return $sql;
 	}
 endif;//*/
