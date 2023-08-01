@@ -92,4 +92,39 @@ if ( ! function_exists('dbMysqli01')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('dbUpdate01')):
+	function dbUpdate01($host,$dbName,$user,$pass,$sql,$dataKhas)
+	{
+		#https://wiki.php.net/rfc/mysqli_default_errmode
+		#https://www.php.net/manual/en/pdostatement.fetch.php
+		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+		#------------------------------------------------------------------------------------------
+		foreach($sql as $myTable => $sqlDaa)://semakPembolehubah($sqlDaa,'sqlDaa',0);
+		#------------------------------------------------------------------------------------------
+			try {
+				$pdo = new PDO("mysql:host=$host;dbname=$dbName",$user,$pass);
+				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$pdo->exec('SET NAMES "utf8"');
+				#----------------------------------------------------------------------------------
+				# prepare statement
+				$result = $pdo->prepare($sqlDaa);
+				#----------------------------------------------------------------------------------
+				# execute the UPDATE result
+				if ($result->execute($data))
+					$data = 'Data ' . $myTable . ' sudah dikemaskini!!!';
+				else $data = 'Data ' . $myTable . ' gagal dikemaskini!!!';
+				#----------------------------------------------------------------------------------
+			}
+			catch (PDOException $e)
+			{
+				semakTatasusunanIni($sqlDaa,'pre');
+				semakTatasusunanIni($e->getMessage(),'pre');
+			}
+		#------------------------------------------------------------------------------------------
+		endforeach;
+		#------------------------------------------------------------------------------------------
+		return $data;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
