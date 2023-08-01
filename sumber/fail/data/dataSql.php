@@ -1878,13 +1878,14 @@ endif;//*/
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlUpdateKawalan')):
-	function sqlUpdateKawalan($jadualBe,$tarikhBatch,$id,$catatanBatch)
+	function sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan)
 	{
 		$sql = "UPDATE `$jadualBe` SET"
-		. " tarikhBatch = '$tarikhBatch',"
-		. " catatanBatch = '$catatanBatch'"
+		. " tarikhBatch = '$tarikh',"
+		. " responMko = '$respon',"
+		. " catatanBatch = '$catatan'"
 		. " WHERE barcode = '$id';";
-		// $sql['UpdateKawalan'] = sqlUpdateKawalan($jadualBe,$tarikhBatch,$id,$catatanBatch);
+		// $sql['UpdateKawalan'] = sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan);
 		//semakTatasusunanIni($sql);
 		return $sql;
 	}
