@@ -72,16 +72,17 @@ if ( ! function_exists('sqlSelectMko')):
 	{
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
-		. "\rbarcode `NO. SIRI`, kp `KP`,"
+		. "\rbarcode `NO. SIRI`, /*kp `KP`,*/"
 		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
-		. "\rDataRespon `KOD RESPON`,"
-		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`,"
+		//. "\rDataRespon `KOD RESPON`,"
+		. "\rtarikhBatch `TARIKH SERAH`, /*catatanBatch `CATATAN`,*/"
+		. "Akauntan,concat_ws('<br>',nama,DataMKO) `DataMKO`,"
 		. "DataHasil,DataBelanja,DataGaji,"
 		. "DataHarta,DataPekerja,DataStok"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' "
-		. "\rORDER BY 3 ";
+		. "\rORDER BY 2 ";
 		// $sql['FeBarcode'] = sqlSelectMko($jadual,$tarikh);
 		return $sql;
 	}
