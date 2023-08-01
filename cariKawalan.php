@@ -80,7 +80,7 @@ print <<<END
 		name="respon" value="$respon">
 	</div>
 	<div class="form-group">
-		<label for="inputMsic">Jawatan</label>
+		<label for="inputMsic">Catatan</label>
 		<input type="test" class="form-control form-control-lg"
 		name="catatanBatch" value="$catatanBatch">
 	</div>
