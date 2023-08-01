@@ -212,6 +212,7 @@ if ( ! function_exists('pecahPautan')):
 				$tarikh = (isset($cari[0])) ? bersih($cari[0]) : $hariIni;
 				$respon = (isset($cari[1])) ? bersih($cari[1]) : 'B77';
 				$nota = (isset($cari[2])) ? bersih($cari[2]) : 'BELUM LAWAT';
+				$respon = huruf('BESAR',$respon);
 				$nota = huruf('BESAR',$nota);
 			endif;
 		else:
