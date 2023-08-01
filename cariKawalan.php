@@ -65,23 +65,23 @@ print <<<END
 		<label class="border border-dark btn-block">Carian Tarikh Batch02</label>
 	</div><!-- / class="form-group" -->
 	<div class="form-group">
-		<label for="inputMsic">Carian Tarikh Batch</label>
+		<label for="inputA">Carian Tarikh Batch</label>
 		<input type="date" class="form-control form-control-lg"
 		name="tarikhBatch" value="$tarikhBatch">
 	</div>
 	<div class="form-group">
-		<label for="inputMsic">noSiri</label>
+		<label for="inputB">noSiri</label>
 		<input type="text" class="form-control form-control-lg"
 		name="noSiri">
 	</div>
 	<div class="form-group">
-		<label for="inputMsic">Respon</label>
-		<input type="test" class="form-control form-control-lg"
+		<label for="inputC">Respon</label>
+		<input type="text" class="form-control form-control-lg"
 		name="respon" value="$respon">
 	</div>
 	<div class="form-group">
-		<label for="inputMsic">Catatan</label>
-		<input type="test" class="form-control form-control-lg"
+		<label for="inputD">Catatan</label>
+		<input type="text" class="form-control form-control-lg"
 		name="catatanBatch" value="$catatanBatch">
 	</div>
 	<div class="form-group">
