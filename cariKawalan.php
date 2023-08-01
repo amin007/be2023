@@ -16,8 +16,9 @@ require './sumber/fail/data/dataSqlMysqli.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 list($tarikh,$respon,$nota) = pecahPautan();# setkan pembolehubah bahagian pertama
-/*semakPembolehubah($tarikh,'tarikh',0);
-semakPembolehubah($respon,'respon',0);
+//semakPembolehubah($tarikh,'tarikh',0);
+$hariIni = date("Y-m-d");
+/*semakPembolehubah($respon,'respon',0);
 semakPembolehubah($nota,'nota',0);//*/
 #--------------------------------------------------------------------------------------------------
 # setkan pembolehubah bahagian kedua
@@ -66,7 +67,7 @@ print <<<END
 		<label class="border border-dark btn-block">Carian Tarikh Batch02</label>
 	</div><!-- / class="form-group" -->
 	<div class="form-group">
-		<label for="inputA">Carian Tarikh Batch</label>
+		<label for="inputA">Carian Tarikh Batch:$hariIni</label>
 		<input type="date" class="form-control form-control-lg"
 		name="tarikhBatch" value="$tarikh">
 	</div>
