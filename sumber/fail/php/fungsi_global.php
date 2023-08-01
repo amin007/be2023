@@ -208,7 +208,7 @@ if ( ! function_exists('pecahPautan')):
 				$tarikh = $hariIni;
 				$nota = 'BELUM LAWAT';
 			else:
-				$cari = explode('/',$fail[1]);semakPembolehubah($cari,'cari');
+				$cari = explode('/',$fail[1]);//semakPembolehubah($cari,'cari');
 				$tarikh = (isset($cari[0])) ? bersih($cari[0]) : $hariIni;
 				$respon = (isset($cari[1])) ? bersih($cari[1]) : 'B77';
 				$nota = (isset($cari[2])) ? bersih($cari[2]) : 'BELUM LAWAT';
