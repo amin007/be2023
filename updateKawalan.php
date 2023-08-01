@@ -15,6 +15,7 @@ require './sumber/fail/data/dataSqlMysqli.php';
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
+# setkan nilai awalan
 $namaFe = $tatarajahBatch[0];
 $jawatanFe = $tatarajahBatch[1];
 $namaPegawai = $tatarajahBatch[2];
@@ -25,6 +26,8 @@ $respon = bersih($_POST['respon']);
 $catatanBatch = bersih($_POST['catatanBatch']);
 $respon = huruf('BESAR',$respon);
 $catatanBatch = huruf('BESAR',$catatanBatch);
+#--------------------------------------------------------------------------------------------------
+# setkan arahan sql sahaja
 $sql['updateKawalan'] = sqlUpdateKawalan($myJadual[0],$tarikhBatch,$noSiri,$respon,$catatanBatch);
 #--------------------------------------------------------------------------------------------------
 echo '<hr>semakPembolehubah<hr>';
