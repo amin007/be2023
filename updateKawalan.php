@@ -23,7 +23,6 @@ $tarikhBatch = bersih($_POST['tarikhBatch']);
 $noSiri = bersih($_POST['noSiri']);
 $respon = bersih($_POST['respon']);
 $catatanBatch = bersih($_POST['catatanBatch']);
-$tarikhBatchDaa = $tarikhBatch;
 $sql['updateKawalan'] = sqlUpdateKawalan($myJadual[0],$tarikhBatch,$noSiri,$respon,$catatanBatch);
 #--------------------------------------------------------------------------------------------------
 echo '<hr>semakPembolehubah<hr>';
