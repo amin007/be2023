@@ -16,17 +16,17 @@ require './sumber/fail/data/dataSqlMysqli.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 list($tarikh,$respon,$nota) = pecahPautan();
-semakPembolehubah($tarikh,'tarikh',0);
+/*semakPembolehubah($tarikh,'tarikh',0);
 semakPembolehubah($respon,'respon',0);
-semakPembolehubah($nota,'nota',0);
+semakPembolehubah($nota,'nota',0);//*/
 #--------------------------------------------------------------------------------------------------
 /*$namaFe = bersih($_POST['namaFe']);// = $tatarajahBatch[0];
 $jawatanFe = bersih($_POST['jawatanFe']);// = $tatarajahBatch[1];
 $namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
-$jawatanPegawai = bersih($_POST['jawatanPegawai']);// = $tatarajahBatch[3];
+$jawatanPegawai = bersih($_POST['jawatanPegawai']);// = $tatarajahBatch[3];//*/
 #--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
-$sql['batch'] = sqlSelectMko($myJadual[0],$tarikhBatch);//*/
+//sql['batch'] = sqlSelectMko($myJadual[0],$tarikhBatch);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
 semakPembolehubah($_POST,'_POST',0);
