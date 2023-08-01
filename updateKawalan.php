@@ -21,9 +21,10 @@ $namaPegawai = $tatarajahBatch[2];
 $jawatanPegawai = $tatarajahBatch[3];
 $tarikhBatch = bersih($_POST['tarikhBatch']);
 $noSiri = bersih($_POST['noSiri']);
+$respon = bersih($_POST['respon']);
 $catatanBatch = bersih($_POST['catatanBatch']);
 $tarikhBatchDaa = $tarikhBatch;
-$sql['updateKawalan'] = sqlUpdateKawalan($myJadual[0],$tarikhBatch,$noSiri,$catatanBatch);
+$sql['updateKawalan'] = sqlUpdateKawalan($myJadual[0],$tarikhBatch,$noSiri,$respon,$catatanBatch);
 #--------------------------------------------------------------------------------------------------
 echo '<hr>semakPembolehubah<hr>';
 semakPembolehubah($_POST,'_POST',0);
@@ -36,7 +37,7 @@ semakPembolehubah($sql,'sql',0);//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-$urlAkhir = "?/$tarikhBatch/$catatanBatch";
+$urlAkhir = "?/$tarikhBatch/$respon/$catatanBatch";
 //echo "<hr>header(\"Location:\"" . URL . "cariKawalan.php$urlAkhir);";
 //header("Location: anotherDirectory/anotherFile.php");
 header('Location:' . URL . 'cariKawalan.php' . $urlAkhir);
