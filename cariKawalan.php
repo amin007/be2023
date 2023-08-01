@@ -28,16 +28,16 @@ $namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
 $jawatanPegawai = bersih($_POST['jawatanPegawai']);// = $tatarajahBatch[3];//*/
 #--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
-//sql['batch'] = sqlSelectMko($myJadual[0],$tarikhBatch);
+$sql['batch'] = sqlSelectMko($myJadual[0],$hariIni);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
-semakPembolehubah($_POST,'_POST',0);
+//semakPembolehubah($_POST,'_POST',0);
 semakPembolehubah($myJadual,'myJadual',0);
 semakPembolehubah($sql,'sql',0);//*/
 #--------------------------------------------------------------------------------------------------
-//$data = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
+$data = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
 #--------------------------------------------------------------------------------------------------
-//semakPembolehubah($data,'data',0);
+semakPembolehubah($data,'data',0);
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
