@@ -15,6 +15,10 @@ require './sumber/fail/data/dataSqlMysqli.php';
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
+list($tarikhBatch,$catatanBatch) = pecahPautan();
+semakPembolehubah($tarikhBatch,'tarikhBatch',0);
+semakPembolehubah($catatanBatch,'catatanBatch',0);
+#--------------------------------------------------------------------------------------------------
 /*$namaFe = bersih($_POST['namaFe']);// = $tatarajahBatch[0];
 $jawatanFe = bersih($_POST['jawatanFe']);// = $tatarajahBatch[1];
 $namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
@@ -40,6 +44,7 @@ $class = '"table table-striped table-bordered"';
 diatas('Senarai Batch', $urlcss);
 #--------------------------------------------------------------------------------------------------
 //binaButang(null);
+#--------------------------------------------------------------------------------------------------
 echo '<h1 align="center">BANCI EKONOMI 2023</h1>';
 echo '<h2 align="center">MAKLUMAT KAWALAN</h2>';
 echo '<h2 align="center">UNIT : PROSESAN</h2>';
