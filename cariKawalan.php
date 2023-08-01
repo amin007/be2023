@@ -66,7 +66,7 @@ print <<<END
 	<div class="form-group">
 		<label for="inputMsic">Carian Tarikh Batch</label>
 		<input type="date" class="form-control form-control-lg"
-		name="tarikhBatch">
+		name="tarikhBatch" value="$tarikhBatch">
 	</div>
 	<div class="form-group">
 		<label for="inputMsic">noSiri</label>
@@ -76,7 +76,7 @@ print <<<END
 	<div class="form-group">
 		<label for="inputMsic">Jawatan</label>
 		<input type="test" class="form-control form-control-lg"
-		name="catatanBatch" value="BELUM LAWAT">
+		name="catatanBatch" value="$catatanBatch">
 	</div>
 	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Tarikh Batch">
