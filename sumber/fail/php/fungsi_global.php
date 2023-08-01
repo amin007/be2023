@@ -166,7 +166,7 @@ endif;//*/
 if ( ! function_exists('pecahPautan')):
 	function pecahPautan()
 	{
-		$tarikhBatch = $catatanBatch = null;
+		$tarikh = $nota = null;
 		$respon = 'B77';
 		//$today = date("Y-m-d H:i:s");// 2001-03-10 17:16:18 (the MySQL DATETIME format)
 		$hariIni = date("Y-m-d");
@@ -176,19 +176,19 @@ if ( ! function_exists('pecahPautan')):
 			$fail = explode('?/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
 			if (!(isset($fail[1]))):
 				$respon = 'B77';
-				$tarikhBatch = $hariIni;
-				$catatanBatch = 'BELUM LAWAT';
+				$tarikh = $hariIni;
+				$nota = 'BELUM LAWAT';
 			else:
-				$respon = 'B77';
-				$cari = explode('/',$fail[1]);//semakPembolehubah($cari,'cari');
-				$tarikhBatch = (isset($cari[0])) ? $cari[0] : $hariIni;
-				$catatanBatch = (isset($cari[1])) ? $cari[1] : 'BELUM LAWAT';
+				$cari = explode('/',$fail[1]);semakPembolehubah($cari,'cari');
+				$tarikh = (isset($cari[0])) ? bersih($cari[0]) : $hariIni;
+				$respon = (isset($cari[1])) ? bersih($cari[1]) : 'B77';
+				$nota = (isset($cari[2])) ? bersih($cari[2]) : 'BELUM LAWAT';
 			endif;
 		else:
 			echo '<hr><h1>data Kosong</h1>';
 		endif;//*/
 		#
-		return [$tarikhBatch,$catatanBatch,$respon];
+		return [$tarikh,$respon,$nota];
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
