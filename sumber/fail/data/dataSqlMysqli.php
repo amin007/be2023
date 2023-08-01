@@ -110,9 +110,10 @@ if ( ! function_exists('dbUpdate01')):
 				$result = $pdo->prepare($sqlDaa);
 				#----------------------------------------------------------------------------------
 				# execute the UPDATE result
-				if ($result->execute($data))
-					$data = 'Data ' . $myTable . ' sudah dikemaskini!!!';
-				else $data = 'Data ' . $myTable . ' gagal dikemaskini!!!';
+				$result->execute($dataKhas);
+				/*if ($result->execute($dataKhas))
+					$data[$myTable][] = 'Data ' . $myTable . ' sudah dikemaskini!!!';
+				else $data[$myTable][] = 'Data ' . $myTable . ' gagal dikemaskini!!!';//*/
 				#----------------------------------------------------------------------------------
 			}
 			catch (PDOException $e)
