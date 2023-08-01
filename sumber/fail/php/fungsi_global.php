@@ -138,6 +138,34 @@ if ( ! function_exists('bersihV02')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('huruf')):
+	function huruf($jenis, $papar)
+	{
+		/*
+			huruf('BESAR', )
+			huruf('kecil', )
+			huruf('Depan', )
+			huruf('Besar_Depan', )
+		*/
+		switch($jenis)
+		{# mula - pilih $jenis
+			case 'BESAR':
+				$papar = strtoupper($papar);
+				break;
+			case 'kecil':
+				$papar = strtolower($papar);
+				break;
+			case 'Depan':
+				$papar = ucfirst($papar);
+				break;
+			case 'Besar_Depan':
+				$papar = mb_convert_case($papar, MB_CASE_TITLE);
+				break;
+		}# tamat - pilih $jenis
+
+		return $papar;
+	}
+endif;
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('bersihNombor')):
 	/** */
