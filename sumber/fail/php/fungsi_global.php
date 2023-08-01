@@ -163,12 +163,23 @@ if ( ! function_exists('myUrlEncode')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
-/*if ( ! function_exists('xxx1')):
-	function xxx1($a,$b,$c,$d)
+if ( ! function_exists('pecahPautan')):
+	function pecahPautan()
 	{
-		$papar = '';
+		$s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
+		$tarikhBatch = $catatanBatch = null;
+		//semakPembolehubah($_SERVER[$s],$s);
+		if (isset($_SERVER[$s])):
+			$fail = explode('be2023/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
+			$cari = explode('/',$fail[1]);//semakPembolehubah($cari,'cari');
+
+			$tarikhBatch = (isset($cari[1])) ? $cari[1] : '2023-08-01';
+			$catatanBatch = (isset($cari[2])) ? $cari[2] : 'TAK PASTI';;
+		else:
+			echo '<hr><h1>data Kosong</h1>';
+		endif;//*/
 		#
-		return $papar;
+		return [$tarikhBatch,$catatanBatch];
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
