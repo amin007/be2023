@@ -166,15 +166,24 @@ endif;//*/
 if ( ! function_exists('pecahPautan')):
 	function pecahPautan()
 	{
-		$s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
 		$tarikhBatch = $catatanBatch = null;
+		//$today = date("Y-m-d H:i:s");// 2001-03-10 17:16:18 (the MySQL DATETIME format)
+		$hariIni = date("Y-m-d");
+		$s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
 		//semakPembolehubah($_SERVER[$s],$s);
 		if (isset($_SERVER[$s])):
-			$fail = explode('be2023/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
-			$cari = explode('/',$fail[1]);//semakPembolehubah($cari,'cari');
-
-			$tarikhBatch = (isset($cari[1])) ? $cari[1] : '2023-08-01';
-			$catatanBatch = (isset($cari[2])) ? $cari[2] : 'TAK PASTI';;
+			$fail = explode('?/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
+			if (!(isset($fail[1]))):
+				$catatanBatch = 'TAK PASTI';
+				$tarikhBatch = $hariIni;
+			else:
+				$cari = explode('/',$fail[1]);//semakPembolehubah($cari,'cari');
+				$tarikhBatch = (isset($cari[0])) ? $cari[0] : $hariIni;
+				if (!(isset($cari[1]))):
+					$catatanBatch = 'TAK PASTI';
+				else: $catatanBatch = $cari[1];
+				endif;
+			endif;
 		else:
 			echo '<hr><h1>data Kosong</h1>';
 		endif;//*/
