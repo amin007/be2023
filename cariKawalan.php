@@ -15,11 +15,12 @@ require './sumber/fail/data/dataSqlMysqli.php';
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-list($tarikh,$respon,$nota) = pecahPautan();
+list($tarikh,$respon,$nota) = pecahPautan();# setkan pembolehubah bahagian pertama
 /*semakPembolehubah($tarikh,'tarikh',0);
 semakPembolehubah($respon,'respon',0);
 semakPembolehubah($nota,'nota',0);//*/
 #--------------------------------------------------------------------------------------------------
+# setkan pembolehubah bahagian kedua
 /*$namaFe = bersih($_POST['namaFe']);// = $tatarajahBatch[0];
 $jawatanFe = bersih($_POST['jawatanFe']);// = $tatarajahBatch[1];
 $namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
