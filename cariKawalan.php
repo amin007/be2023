@@ -24,8 +24,6 @@ semakPembolehubah($nota,'nota',0);
 $jawatanFe = bersih($_POST['jawatanFe']);// = $tatarajahBatch[1];
 $namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
 $jawatanPegawai = bersih($_POST['jawatanPegawai']);// = $tatarajahBatch[3];
-$tarikhBatch = bersih($_POST['tarikhBatch']);
-$tarikhBatchDaa = $tarikhBatch;
 $sql['batch'] = sqlSelectMko($myJadual[0],$tarikhBatch);//*/
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
