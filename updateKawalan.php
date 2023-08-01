@@ -16,10 +16,6 @@ require './sumber/fail/data/dataSqlMysqli.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 # setkan nilai awalan
-$namaFe = $tatarajahBatch[0];
-$jawatanFe = $tatarajahBatch[1];
-$namaPegawai = $tatarajahBatch[2];
-$jawatanPegawai = $tatarajahBatch[3];
 $tarikhBatch = bersih($_POST['tarikhBatch']);
 $noSiri = bersih($_POST['noSiri']);
 $respon = bersih($_POST['respon']);
