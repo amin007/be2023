@@ -16,15 +16,15 @@ require './sumber/fail/data/dataSqlMysqli.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 # setkan nilai awalan
-$tarikhBatch = bersih($_POST['tarikhBatch']);
-$noSiri = bersih($_POST['noSiri']);
+$tarikh = bersih($_POST['tarikhBatch']);
+$id = bersih($_POST['noSiri']);
 $respon = bersih($_POST['respon']);
-$catatanBatch = bersih($_POST['catatanBatch']);
+$nota = bersih($_POST['catatanBatch']);
 $respon = huruf('BESAR',$respon);
-$catatanBatch = huruf('BESAR',$catatanBatch);
+$nota = huruf('BESAR',$nota);
 #--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
-$sql['updateKawalan'] = sqlUpdateKawalan($myJadual[0],$tarikhBatch,$noSiri,$respon,$catatanBatch);
+$sql['updateKawalan'] = sqlUpdateKawalan($myJadual[0],$tarikh,$id,$respon,$nota);
 #--------------------------------------------------------------------------------------------------
 echo '<hr>semakPembolehubah<hr>';
 semakPembolehubah($_POST,'_POST',0);
@@ -37,7 +37,7 @@ semakPembolehubah($sql,'sql',0);//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-$urlAkhir = "?/$tarikhBatch/$respon/$catatanBatch";
+$urlAkhir = "?/$tarikh/$respon/$nota";
 //echo "<hr>header(\"Location:\"" . URL . "cariKawalan.php$urlAkhir);";
 //header("Location: anotherDirectory/anotherFile.php");
 header('Location:' . URL . 'cariKawalan.php' . $urlAkhir);
