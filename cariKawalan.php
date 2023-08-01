@@ -15,9 +15,10 @@ require './sumber/fail/data/dataSqlMysqli.php';
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-list($tarikhBatch,$catatanBatch) = pecahPautan();
+list($tarikhBatch,$catatanBatch,$respon) = pecahPautan();
 semakPembolehubah($tarikhBatch,'tarikhBatch',0);
 semakPembolehubah($catatanBatch,'catatanBatch',0);
+semakPembolehubah($respon,'respon',0);
 #--------------------------------------------------------------------------------------------------
 /*$namaFe = bersih($_POST['namaFe']);// = $tatarajahBatch[0];
 $jawatanFe = bersih($_POST['jawatanFe']);// = $tatarajahBatch[1];
@@ -72,6 +73,11 @@ print <<<END
 		<label for="inputMsic">noSiri</label>
 		<input type="text" class="form-control form-control-lg"
 		name="noSiri">
+	</div>
+	<div class="form-group">
+		<label for="inputMsic">Respon</label>
+		<input type="test" class="form-control form-control-lg"
+		name="respon" value="$respon">
 	</div>
 	<div class="form-group">
 		<label for="inputMsic">Jawatan</label>
