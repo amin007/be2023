@@ -1880,11 +1880,11 @@ endif;//*/
 if ( ! function_exists('sqlUpdateKawalan')):
 	function sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan)
 	{
-		$sql = "UPDATE `:jadualBe` SET"
-		. " tarikhBatch=:tarikh,"
-		. " responMko=:respon,"
-		. " catatanBatch=:catatan"
-		. " WHERE barcode=:id ";
+		$sql = "UPDATE `$jadualBe` SET"
+		. " tarikhBatch='$tarikh',"
+		. " DataRespon='$respon',"
+		. " catatanBatch='$catatan'"
+		. " WHERE barcode='$id' ";
 		$dataKhas = [':$jadualBe' => $jadualBe,
 		':tarikh' => $tarikh,
 		':respon' => $respon,
