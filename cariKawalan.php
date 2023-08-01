@@ -15,10 +15,10 @@ require './sumber/fail/data/dataSqlMysqli.php';
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-list($tarikhBatch,$catatanBatch,$respon) = pecahPautan();
-semakPembolehubah($tarikhBatch,'tarikhBatch',0);
-semakPembolehubah($catatanBatch,'catatanBatch',0);
+list($tarikh,$respon,$nota) = pecahPautan();
+semakPembolehubah($tarikh,'tarikh',0);
 semakPembolehubah($respon,'respon',0);
+semakPembolehubah($nota,'nota',0);
 #--------------------------------------------------------------------------------------------------
 /*$namaFe = bersih($_POST['namaFe']);// = $tatarajahBatch[0];
 $jawatanFe = bersih($_POST['jawatanFe']);// = $tatarajahBatch[1];
@@ -67,7 +67,7 @@ print <<<END
 	<div class="form-group">
 		<label for="inputA">Carian Tarikh Batch</label>
 		<input type="date" class="form-control form-control-lg"
-		name="tarikhBatch" value="$tarikhBatch">
+		name="tarikhBatch" value="$tarikh">
 	</div>
 	<div class="form-group">
 		<label for="inputB">noSiri</label>
@@ -82,7 +82,7 @@ print <<<END
 	<div class="form-group">
 		<label for="inputD">Catatan</label>
 		<input type="text" class="form-control form-control-lg"
-		name="catatanBatch" value="$catatanBatch">
+		name="catatanBatch" value="$nota">
 	</div>
 	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Tarikh Batch">
