@@ -1880,14 +1880,20 @@ endif;//*/
 if ( ! function_exists('sqlUpdateKawalan')):
 	function sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan)
 	{
-		$sql = "UPDATE `$jadualBe` SET"
-		. " tarikhBatch = '$tarikh',"
-		. " responMko = '$respon',"
-		. " catatanBatch = '$catatan'"
-		. " WHERE barcode = '$id';";
+		$sql = "UPDATE `:jadualBe` SET"
+		. " tarikhBatch=:tarikh,"
+		. " responMko=:respon,"
+		. " catatanBatch=:catatan"
+		. " WHERE barcode=:id ";
+		$dataKhas = [':$jadualBe' => $jadualBe,
+		':tarikh' => $tarikh,
+		':respon' => $respon,
+		':catatan' => $catatan,
+		':id' => $id];
+
 		// $sql['UpdateKawalan'] = sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan);
 		//semakTatasusunanIni($sql);
-		return $sql;
+		return [$sql,$dataKhas];
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
