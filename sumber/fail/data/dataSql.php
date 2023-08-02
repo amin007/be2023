@@ -1896,18 +1896,22 @@ endif;//*/
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlUpdateKawalan')):
-	function sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan)
+	function sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan,$mko)
 	{
+		if($mko == '' OR $mko == null)
 		$sql = "UPDATE `$jadualBe` SET"
-		. " tarikhBatch='$tarikh',"
-		. " DataRespon='$respon',"
-		. " catatanBatch='$catatan'"
+		. " tarikhBatch='$tarikh',DataRespon='$respon',DataMKO=null,catatanBatch='$catatan'"
 		. " WHERE barcode='$id' ";
-		$dataKhas = [':$jadualBe' => $jadualBe,
-		':tarikh' => $tarikh,
-		':respon' => $respon,
-		':catatan' => $catatan,
-		':id' => $id];
+		else
+		$sql = "UPDATE `$jadualBe` SET"
+		. " tarikhBatch='$tarikh',DataRespon='$respon',DataMKO='$mko',catatanBatch='$catatan'"
+		. " WHERE barcode='$id' ";
+
+		$sql02 = "UPDATE `:jadualBe` SET"
+		. " tarikhBatch=:tarikh,DataRespon=:respon,DataMKO=:mko,catatanBatch=:catatan"
+		. " WHERE barcode=:id ";
+		$dataKhas = [':$jadualBe' => $jadualBe,':tarikh' => $tarikh,':respon' => $respon,
+		':mko' => $mko,':catatan' => $catatan,':id' => $id];
 
 		// $sql['UpdateKawalan'] = sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan);
 		//semakTatasusunanIni($sql);
