@@ -93,10 +93,10 @@ if ( ! function_exists('sqlSelectNegatif')):
 	{
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
-		. "\rbarcode `NO. SIRI`, /*kp `KP`,*/"
+		. "\rbarcode `NO. SIRI`,"
 		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
-		. "\rDataRespon `KOD RESPON`,"
-		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
+		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,"
+		. "\rtarikhBatch `TARIKH SERAH`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' "
