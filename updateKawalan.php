@@ -20,16 +20,18 @@ $tarikh = bersih($_POST['tarikhBatch']);
 $id = bersih($_POST['noSiri']);
 $respon = bersih($_POST['respon']);
 $nota = bersih($_POST['catatanBatch']);
+$mko = bersih($_POST['DataMKO']);
 $respon = huruf('BESAR',$respon);
 $nota = huruf('BESAR',$nota);
 #--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
-list($sql[$myJadual[0]],$dataKhas) = sqlUpdateKawalan($myJadual[0],$tarikh,$id,$respon,$nota);
+list($sql[$myJadual[0]],$dataKhas) = sqlUpdateKawalan($myJadual[0],$tarikh,$id,$respon,$nota,$mko);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
 semakPembolehubah($_POST,'_POST',0);
 semakPembolehubah($myJadual,'myJadual',0);
-semakPembolehubah($sql,'sql',0);//*/
+semakPembolehubah($sql,'sql',0);
+semakPembolehubah($dataKhas,'dataKhas',0);//*/
 #--------------------------------------------------------------------------------------------------
 $data = dbUpdate01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql,$dataKhas);
 #--------------------------------------------------------------------------------------------------
@@ -37,7 +39,7 @@ $data = dbUpdate01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql,$dataKhas);
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-$urlAkhir = "?/$tarikh/$respon/$nota";
+$urlAkhir = "?/$tarikh/$respon/$nota/$mko";
 //echo "<hr>header(\"Location:\"" . URL . "cariKawalan.php$urlAkhir);";
 //header("Location: anotherDirectory/anotherFile.php");
 header('Location:' . URL . 'cariKawalan.php' . $urlAkhir);
