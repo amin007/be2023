@@ -25,12 +25,14 @@ $respon = huruf('BESAR',$respon);
 $nota = huruf('BESAR',$nota);
 #--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
-list($sql[$myJadual[0]],$dataKhas) = sqlUpdateKawalan($myJadual[0],$tarikh,$id,$respon,$nota,$mko);
+list($sql[$myJadual[0]],$sql02[$myJadual[0]],$dataKhas)
+= sqlUpdateKawalan($myJadual[0],$tarikh,$id,$respon,$nota,$mko);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
 semakPembolehubah($_POST,'_POST',0);
 semakPembolehubah($myJadual,'myJadual',0);
 semakPembolehubah($sql,'sql',0);
+semakPembolehubah($sql02,'sql02',0);
 semakPembolehubah($dataKhas,'dataKhas',0);//*/
 #--------------------------------------------------------------------------------------------------
 $data = dbUpdate01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql,$dataKhas);
