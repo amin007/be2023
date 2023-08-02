@@ -93,14 +93,14 @@ if ( ! function_exists('sqlSelectNegatif')):
 	{
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
-		. "\rbarcode `NO. SIRI`,"
+		. "\rcatatanBatch `CATATAN`,barcode `NO. SIRI`,"
 		. "\rconcat_ws('',nama) `NAMA PERTUBUHAN`,"
-		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,DataMKO,"
+		. "\rDataRespon `KOD RESPON`, DataMKO,"
 		. "\rtarikhBatch `TARIKH SERAH`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' "
-		. "\rORDER BY 2 ";
+		. "\rORDER BY 1,3 ";
 		// $sql['FeBarcode'] = sqlSelectMko($jadual,$tarikh);
 		return $sql;
 	}
@@ -112,14 +112,14 @@ if ( ! function_exists('sqlSelectNegatifV02')):
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
 		. "\rbarcode `NO. SIRI`,"
-		. "\rconcat_ws('',nama) `NAMA PERTUBUHAN`,"
-		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,DataMKO,"
+		. "\rconcat_ws('',nama) `NAMA`,"
+		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,"
 		. "\rtarikhBatch `TARIKH SERAH`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' "
 		. "\rAND catatanBatch = '$nota' "
-		. "\rORDER BY 2 ";
+		. "\rORDER BY 4,2 ";
 		// $sql['FeBarcode'] = sqlSelectMko($jadual,$tarikh);
 		return $sql;
 	}
