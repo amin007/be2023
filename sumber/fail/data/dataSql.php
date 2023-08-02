@@ -94,7 +94,7 @@ if ( ! function_exists('sqlSelectNegatif')):
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
 		. "\rbarcode `NO. SIRI`,"
-		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
+		. "\rconcat_ws('',nama) `NAMA PERTUBUHAN`,"
 		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,"
 		. "\rtarikhBatch `TARIKH SERAH`"
 		. "\rFROM `$jadual`"
