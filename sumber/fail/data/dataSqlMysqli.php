@@ -109,17 +109,14 @@ if ( ! function_exists('dbUpdate01')):
 				# prepare statement
 				$result = $pdo->prepare($sqlDaa);
 				#----------------------------------------------------------------------------------
-				/*foreach ($dataKhas as $key => $value)
+				foreach ($dataKhas as $key => $value)
 				{
-					$result->bindValue(":$key", (!empty($value) ? $value : NULL) );
+					$result->bindParam(":$key", (!empty($value) ? $value : NULL) );
 					//echo '<hr>$pdo->bindValue(":' . $key . '", ' . $value . ')';
 				}//*/
 				#----------------------------------------------------------------------------------
 				# execute the UPDATE result
 				$result->execute();
-				/*if ($result->execute($dataKhas))
-					$data[$myTable][] = 'Data ' . $myTable . ' sudah dikemaskini!!!';
-				else $data[$myTable][] = 'Data ' . $myTable . ' gagal dikemaskini!!!';//*/
 				#----------------------------------------------------------------------------------
 			}
 			catch (PDOException $e)
