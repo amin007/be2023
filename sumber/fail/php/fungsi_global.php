@@ -224,6 +224,32 @@ if ( ! function_exists('pecahPautan')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('pecahPautan02')):
+	function pecahPautan02()
+	{
+		$tarikh = $nota = $mko = null;
+		$hariIni = date("Y-m-d");
+		$s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
+		//semakPembolehubah($_SERVER[$s],$s);
+		if (isset($_SERVER[$s])):
+			$fail = explode('?/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
+			if (!(isset($fail[1]))):
+				$tarikh = $hariIni;
+				$nota = 'BELUM LAWAT';
+			else:
+				$cari = explode('/',$fail[1]);//semakPembolehubah($cari,'cari');
+				$tarikh = (isset($cari[0])) ? bersih($cari[0]) : $hariIni;
+				$nota = (isset($cari[1])) ? bersih($cari[1]) : 'BELUM LAWAT';
+				$nota = huruf('BESAR',$nota);
+			endif;
+		else:
+			echo '<hr><h1>data Kosong</h1>';
+		endif;//*/
+		#
+		return [$tarikh,$nota];
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('ImportCSV2Array01')):
 	function ImportCSV2Array01($filename)
 	{
