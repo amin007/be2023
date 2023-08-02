@@ -106,6 +106,25 @@ if ( ! function_exists('sqlSelectNegatif')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSelectNegatifV02')):
+	function sqlSelectNegatifV02($jadual,$tarikh,$nota)
+	{
+		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
+		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
+		. "\rbarcode `NO. SIRI`,"
+		. "\rconcat_ws('',nama) `NAMA PERTUBUHAN`,"
+		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,DataMKO,"
+		. "\rtarikhBatch `TARIKH SERAH`"
+		. "\rFROM `$jadual`"
+		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
+		. "\rWHERE tarikhBatch = '$tarikh' "
+		. "\rAND catatanBatch = '$nota' "
+		. "\rORDER BY 2 ";
+		// $sql['FeBarcode'] = sqlSelectMko($jadual,$tarikh);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlGroupJadual')):
 	function sqlGroupJadual($medan,$jadual)
 	{
