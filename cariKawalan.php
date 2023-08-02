@@ -15,7 +15,7 @@ require './sumber/fail/data/dataSqlMysqli.php';
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-list($tarikh,$respon,$nota) = pecahPautan();# setkan pembolehubah bahagian pertama
+list($tarikh,$respon,$nota,$mko) = pecahPautan();# setkan pembolehubah bahagian pertama
 //semakPembolehubah($tarikh,'tarikh',0);
 $hariIni = date("Y-m-d");
 /*semakPembolehubah($respon,'respon',0);
@@ -80,6 +80,11 @@ print <<<END
 		<label for="inputC">Respon</label>
 		<input type="text" class="form-control form-control-lg"
 		name="respon" value="$respon">
+	</div>
+	<div class="form-group">
+		<label for="inputC">DataMKO</label>
+		<input type="text" class="form-control form-control-lg"
+		name="DataMKO" value="$mko">
 	</div>
 	<div class="form-group">
 		<label for="inputD">Catatan</label>
