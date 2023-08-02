@@ -106,6 +106,17 @@ if ( ! function_exists('sqlSelectNegatif')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlGroupJadual')):
+	function sqlGroupJadual($medan,$jadual)
+	{
+		$sql = "SELECT $medan, COUNT(*) AS BIL"
+		. " FROM `$jadual` WHERE $medan is not null"
+		. ' GROUP BY 1 ORDER BY 1';
+		// $sql['GroupJadual'] = sqlGroupJadual($medan,$jadual);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlDataAesV00')):
 	function sqlDataAesV00($jadualBe,$jadual,$fe,$id)
 	{
