@@ -88,6 +88,24 @@ if ( ! function_exists('sqlSelectMko')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlSelectNegatif')):
+	function sqlSelectNegatif($jadual,$tarikh)
+	{
+		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
+		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
+		. "\rbarcode `NO. SIRI`, /*kp `KP`,*/"
+		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
+		. "\rDataRespon `KOD RESPON`,"
+		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
+		. "\rFROM `$jadual`"
+		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
+		. "\rWHERE tarikhBatch = '$tarikh' "
+		. "\rORDER BY 2 ";
+		// $sql['FeBarcode'] = sqlSelectMko($jadual,$tarikh);
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlDataAesV00')):
 	function sqlDataAesV00($jadualBe,$jadual,$fe,$id)
 	{
