@@ -212,6 +212,7 @@ if ( ! function_exists('pecahPautan')):
 				$tarikh = (isset($cari[0])) ? bersih($cari[0]) : $hariIni;
 				$respon = (isset($cari[1])) ? bersih($cari[1]) : 'B77';
 				$nota = (isset($cari[2])) ? bersih($cari[2]) : 'BELUM LAWAT';
+				$mko = (isset($cari[3])) ? bersih($cari[3]) : 'MKO BELUM';
 				$respon = huruf('BESAR',$respon);
 				$nota = huruf('BESAR',$nota);
 			endif;
@@ -219,7 +220,7 @@ if ( ! function_exists('pecahPautan')):
 			echo '<hr><h1>data Kosong</h1>';
 		endif;//*/
 		#
-		return [$tarikh,$respon,$nota];
+		return [$tarikh,$respon,$nota,$mko];
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
