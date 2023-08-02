@@ -74,7 +74,7 @@ print <<<END
 	<div class="form-group">
 		<label for="inputB">noSiri</label>
 		<input type="text" class="form-control form-control-lg"
-		name="noSiri">
+		name="noSiri" autofocus>
 	</div>
 	<div class="form-group">
 		<label for="inputC">Respon</label>
