@@ -95,7 +95,7 @@ if ( ! function_exists('sqlSelectNegatif')):
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
 		. "\rbarcode `NO. SIRI`,"
 		. "\rconcat_ws('',nama) `NAMA PERTUBUHAN`,"
-		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,"
+		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,DataMKO,"
 		. "\rtarikhBatch `TARIKH SERAH`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
