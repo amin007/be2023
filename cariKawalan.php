@@ -82,14 +82,14 @@ print <<<END
 		name="respon" value="$respon">
 	</div>
 	<div class="form-group">
-		<label for="inputC">DataMKO</label>
-		<input type="text" class="form-control form-control-lg"
-		name="DataMKO" value="$mko">
-	</div>
-	<div class="form-group">
 		<label for="inputD">Catatan</label>
 		<input type="text" class="form-control form-control-lg"
 		name="catatanBatch" value="$nota">
+	</div>
+	<div class="form-group">
+		<label for="inputC">DataMKO</label>
+		<input type="text" class="form-control form-control-lg"
+		name="DataMKO" value="$mko">
 	</div>
 	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Tarikh Batch">
