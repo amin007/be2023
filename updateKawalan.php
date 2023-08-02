@@ -41,7 +41,7 @@ $data = dbUpdate01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql,$dataKhas);
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-$urlAkhir = "?/$tarikh/$respon/$nota/$mko";
+$urlAkhir = "?/$tarikh/$respon/$nota/$mko/$id";
 //echo "<hr>header(\"Location:\"" . URL . "cariKawalan.php$urlAkhir);";
 //header("Location: anotherDirectory/anotherFile.php");
 header('Location:' . URL . 'cariKawalan.php' . $urlAkhir);
