@@ -97,6 +97,7 @@ if ( ! function_exists('dbUpdate01')):
 	{
 		#https://wiki.php.net/rfc/mysqli_default_errmode
 		#https://www.php.net/manual/en/pdostatement.fetch.php
+		#https://www.phptutorial.net/php-pdo/php-pdo-update/
 		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 		#------------------------------------------------------------------------------------------
 		foreach($sql as $myTable => $sqlDaa)://semakPembolehubah($sqlDaa,'sqlDaa',0);
@@ -109,14 +110,18 @@ if ( ! function_exists('dbUpdate01')):
 				# prepare statement
 				$result = $pdo->prepare($sqlDaa);
 				#----------------------------------------------------------------------------------
+				//semakPembolehubah($dataKhas,'dataKhas',0);
 				foreach ($dataKhas as $key => $value)
 				{
-					$result->bindParam(":$key", (!empty($value) ? $value : NULL) );
+					$result->bindValue($key, $value);
+					//$result->bindParam("$key", (!empty($value) ? $value : NULL) );
 					//echo '<hr>$pdo->bindValue(":' . $key . '", ' . $value . ')';
 				}//*/
 				#----------------------------------------------------------------------------------
 				# execute the UPDATE result
-				$result->execute();
+				if ($result->execute())
+					$data[$myTable][] = '<h1>updated successfully!</h1>';
+				else $data[$myTable][] = '<h1>tak berjaya</h1>';
 				#----------------------------------------------------------------------------------
 			}
 			catch (PDOException $e)
