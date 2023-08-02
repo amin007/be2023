@@ -28,7 +28,7 @@ $namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
 $jawatanPegawai = bersih($_POST['jawatanPegawai']);// = $tatarajahBatch[3];//*/
 #--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
-$sql['batch'] = sqlSelectMko($myJadual[0],$hariIni);
+$sql['batch'] = sqlSelectNegatif($myJadual[0],$hariIni);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
 //semakPembolehubah($_POST,'_POST',0);
@@ -107,7 +107,7 @@ END;
 	for($i = $baki+1; $i < 17; $i++):
 		echo "\n\t" . '<tr>';
 		echo "<td>$i</td>";
-		for($j = 1; $j < 13; $j++):
+		for($j = 1; $j < 6; $j++):
 			echo '<td>&nbsp;</td>';
 		endfor;
 		echo '</tr>';
