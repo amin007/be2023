@@ -1907,15 +1907,15 @@ if ( ! function_exists('sqlUpdateKawalan')):
 		. " tarikhBatch='$tarikh',DataRespon='$respon',DataMKO='$mko',catatanBatch='$catatan'"
 		. " WHERE barcode='$id' ";
 
-		$sql02 = "UPDATE `:jadualBe` SET"
+		$sql02 = "UPDATE :jadualBe SET"
 		. " tarikhBatch=:tarikh,DataRespon=:respon,DataMKO=:mko,catatanBatch=:catatan"
 		. " WHERE barcode=:id ";
-		$dataKhas = [':$jadualBe' => $jadualBe,':tarikh' => $tarikh,':respon' => $respon,
-		':mko' => $mko,':catatan' => $catatan,':id' => $id];
+		$dataKhas = [':jadualBe' => $jadualBe,':tarikh' => $tarikh,
+		':respon' => $respon,':mko' => $mko,':catatan' => $catatan,':id' => $id];
 
 		// $sql['UpdateKawalan'] = sqlUpdateKawalan($jadualBe,$tarikh,$id,$respon,$catatan);
 		//semakTatasusunanIni($sql);
-		return [$sql,$dataKhas];
+		return [$sql,$sql02,$dataKhas];
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
