@@ -195,7 +195,7 @@ endif;//*/
 if ( ! function_exists('pecahPautan')):
 	function pecahPautan()
 	{
-		$tarikh = $nota = null;
+		$tarikh = $nota = $mko = null;
 		$respon = 'B77';
 		//$today = date("Y-m-d H:i:s");// 2001-03-10 17:16:18 (the MySQL DATETIME format)
 		$hariIni = date("Y-m-d");
