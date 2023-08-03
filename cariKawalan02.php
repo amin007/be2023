@@ -105,8 +105,8 @@ END;
 #--------------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
 		$baki = count($rowDaa);
-		//$table = paparSemuaData($rowDaa,$myJadualDaa);
-		$table = paparSemuaDataV03($rowDaa);
+		$table = paparSemuaData($rowDaa,$myJadualDaa);
+		//$table = paparSemuaDataV03($rowDaa);
 		//echo "\n<caption>$myJadualDaa</caption>";
 		echo "\n<table id=\"myTable\" class=$class>$table";
 	endforeach;
