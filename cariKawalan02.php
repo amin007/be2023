@@ -28,7 +28,9 @@ $namaPegawai = $tatarajahBatch[2];
 $jawatanPegawai = $tatarajahBatch[3];
 #--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
-$sql['kumpul'] = sqlGroupJadual('catatanBatch',$myJadual[0]);
+$link = "concat(tarikhBatch,'/',catatanBatch)";
+$sql['kumpul'] = sqlGroupJadual('catatanBatch,tarikhBatch,'
+. $link . ' as link','catatanBatch',$myJadual[0]);
 $sql02['batch'] = sqlSelectNegatifV02($myJadual[0],$tarikh,$nota);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
