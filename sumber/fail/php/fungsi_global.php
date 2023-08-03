@@ -958,7 +958,7 @@ if ( ! function_exists('paparSemuaDataV02')):
 endif;
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('paparSemuaDataV03')):
-	function paparSemuaDataV03($row,$server)
+	function paparSemuaDataV03($row,$server = null)
 	{
 		$output = null;
 		$bil_baris = count($row);
@@ -984,10 +984,10 @@ if ( ! function_exists('paparSemuaDataV03')):
 			$output .= "\n\t<td>".($kira+1)."</td>";
 			foreach ( $row[$kira] as $key=>$data ) :
 			if ($key ==  'link' ):
-				//$data2 = urlencode($data);
 				list($tarikh,$nota) = explode('/',$data);
-				$data3 = $tarikh . '|' . $nota;
-				//$data3 = '<a href="'.$server.'?/'.$data2.'">'.$data2.'</a>';
+				$dataA = $tarikh . '/' . $nota;
+				$data3 = '<a target="_blank" href="'.$server.'?/'.$dataA.'">'
+				.$dataA.'</a><br>'.$dataA;
 			else: $data3 = bersihV02($data);
 			endif;
 			$output .= '<td><input type="checkbox">' . $data3 . '</td>';
