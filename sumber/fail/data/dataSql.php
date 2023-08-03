@@ -112,9 +112,9 @@ if ( ! function_exists('sqlSelectNegatifV02')):
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
 		. "\rbarcode `NO. SIRI`,"
-		. "\rconcat_ws('',nama) `NAMA`,"
+		. "\rconcat_ws('',nama) `NAMA`,KP,"
 		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,"
-		. "\rtarikhBatch `TARIKH SERAH`,`Jenis Borang`"
+		. "\rtarikhBatch `TARIKH SERAH`"//`Jenis Borang`
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' "
