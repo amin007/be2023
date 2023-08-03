@@ -18,7 +18,6 @@ require './sumber/fail/data/dataSqlMysqli.php';
 list($tarikh,$nota) = pecahPautan02();# setkan pembolehubah bahagian pertama
 /*semakPembolehubah($tarikh,'tarikh',0);
 semakPembolehubah($nota,'nota',0);//*/
-$hariIni = date("Y-m-d");
 #--------------------------------------------------------------------------------------------------
 # setkan pembolehubah bahagian kedua
 $namaFe = $tatarajahBatch[0];
@@ -85,29 +84,6 @@ echo '<h2 align="center">KP : 337</h2>';
 	#----------------------------------------------------------------------------------------------
 	echo "\n</table>";//*/
 #--------------------------------------------------------------------------------------------------
-/*$notaBawah = [
-	['&nbsp;',null,null,null],
-	['PEGAWAI LUAR','','KAWALAN OPERASI',null,],
-	['Bahawa saya penama ','dibawah mengesahkan','Bahawa saya penama ','dibawah mengesahkan'],
-	['penghantaran borang lengkap','seperti diatas :-','penghantaran borang lengkap','seperti diatas :-'],
-	['&nbsp;',null,null,null],
-	['Tanda Tangan',':','Tanda Tangan',null,],
-	['Disediakan Oleh',':'.$namaFe,'Diterima Oleh',':'.$namaPegawai],
-	['Jawatan',':'.$jawatanFe,'Jawatan',':'.$jawatanPegawai],
-	['Tarikh Penerimaan',':','Tarikh Penerimaan',':',],
-	['&nbsp;',null,null,null],
-];
-#--------------------------------------------------------------------------------------------------
-echo "\n<table class=$class>";
-foreach($notaBawah as $kunci => $utama):
-	echo "\n\t" . '<tr>';
-foreach($utama as $kunci02 => $utama02):
-	echo '<td>' . $utama02 . '</td>';
-endforeach;
-	echo "" . '</tr>';
-endforeach;
-echo "\n</table>\r";//*/
-#--------------------------------------------------------------------------------------------------
 //dibawah($pilih,$urljs);
 /*echo "<script>\n";
 jqueryExtendA();
@@ -116,6 +92,5 @@ jqueryExtendC();
 gradeTable002(null);
 echo "\n</script>";//*/
 echo "\n</body>\n</html>";//*/
-#--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
