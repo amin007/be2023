@@ -19,12 +19,6 @@ list($tarikh,$nota) = pecahPautan02();# setkan pembolehubah bahagian pertama
 /*semakPembolehubah($tarikh,'tarikh',0);
 semakPembolehubah($nota,'nota',0);//*/
 #--------------------------------------------------------------------------------------------------
-# setkan pembolehubah bahagian kedua
-$namaFe = $tatarajahBatch[0];
-$jawatanFe = $tatarajahBatch[1];
-$namaPegawai = $tatarajahBatch[2];
-$jawatanPegawai = $tatarajahBatch[3];
-#--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
 $server = 'cariKawalan02.php';
 $link = "concat(tarikhBatch,'/',catatanBatch)";
@@ -54,9 +48,8 @@ diatas('Senarai Batch', $urlcss);
 //binaButang(null);
 #--------------------------------------------------------------------------------------------------
 echo '<h1 align="center">BANCI EKONOMI 2023</h1>';
-echo '<h2 align="center">MAKLUMAT KAWALAN</h2>';
-echo '<h2 align="center">UNIT : PROSESAN</h2>';
-echo '<h2 align="center">KP : 337</h2>';
+echo '<h4 align="center">MAKLUMAT KAWALAN</h4>';
+echo '<h4 align="center">UNIT : PROSESAN</h4>';
 #--------------------------------------------------------------------------------------------------
 	foreach($kumpulDaa as $myJadual01 => $rowDaa):
 		$table01 = paparSemuaDataV03($rowDaa,$server);
