@@ -67,8 +67,8 @@ echo '<h2 align="center">KP : 337</h2>';
 	#----------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
 		$baki = count($rowDaa);
-		//$table = paparSemuaData($rowDaa,$myJadualDaa);
-		$table = paparSemuaDataV03($rowDaa,$server);
+		$table = paparSemuaData($rowDaa,$myJadualDaa);
+		//$table = paparSemuaDataV03($rowDaa,$server);
 		//echo "\n<caption>$myJadualDaa</caption>";
 		echo "\n<table id=\"myTable\" class=$class>$table";
 	endforeach;
