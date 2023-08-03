@@ -67,7 +67,6 @@ diatas('Senarai Batch', $urlcss);
 echo '<h1 align="center">BANCI EKONOMI 2023</h1>';
 echo '<h4 align="center">MAKLUMAT KAWALAN</h4>';
 echo '<h4 align="center">UNIT : PROSESAN</h4>';
-//echo '<h2 align="center">KP : 337</h2>';
 #--------------------------------------------------------------------------------------------------
 /*print <<<END
 <!-- mula kotak
