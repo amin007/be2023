@@ -16,9 +16,8 @@ require './sumber/fail/data/dataSqlMysqli.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 list($tarikh,$nota) = pecahPautan02();# setkan pembolehubah bahagian pertama
-//semakPembolehubah($tarikh,'tarikh',0);
-$hariIni = date("Y-m-d");
-/*semakPembolehubah($respon,'respon',0);
+/*semakPembolehubah($tarikh,'tarikh',0);
+semakPembolehubah($respon,'respon',0);
 semakPembolehubah($nota,'nota',0);//*/
 #--------------------------------------------------------------------------------------------------
 # setkan pembolehubah bahagian kedua
@@ -43,17 +42,6 @@ $data = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql02);
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($data,'data',0);
 #--------------------------------------------------------------------------------------------------
-# buat group untuk catatanBatch
-$kumpulCatatan = "\n\t\t\t" . '<select name="catatanBatch" class="form-control">';
-foreach($kumpulDaa['kumpul'] as $baris => $lajur):
-foreach($lajur as $baris02 => $lajur02):
-	if($baris02 == 'catatanBatch')
-	//echo $baris02 . '|' . $lajur02 . '<hr>';
-	$kumpulCatatan .= "\n\t\t\t" . '<option>' . $lajur02 . '</option>';
-endforeach;
-endforeach;
-$kumpulCatatan .= "\n\t\t\t" . '</select>';
-#--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 list($urlcss,$urljs) = linkCssJs();
@@ -67,39 +55,6 @@ diatas('Senarai Batch', $urlcss);
 echo '<h1 align="center">BANCI EKONOMI 2023</h1>';
 echo '<h4 align="center">MAKLUMAT KAWALAN</h4>';
 echo '<h4 align="center">UNIT : PROSESAN</h4>';
-#--------------------------------------------------------------------------------------------------
-/*print <<<END
-<!-- mula kotak
-=============================================================================================== -->
-<div class="container">
-<!-- mula borang 03
-=============================================================================================== -->
-<form method="POST" action="updateKawalan02.php" class="form-horizontal">
-	<div class="p-3 mb-2 bg-transparent text-dark">
-		<i class="fa fa-bicycle" style="font-size:50px"></i>
-	</div><!-- / class="p-3 mb-2 bg-transparent text-dark" -->
-	<div class="form-group">
-		<label class="border border-dark btn-block">Carian Tarikh Batch02</label>
-	</div><!-- / class="form-group" -->
-	<div class="form-group">
-		<label for="inputA">Carian Tarikh Batch:$hariIni</label>
-		<input type="date" class="form-control form-control-lg"
-		name="tarikhBatch" value="$tarikh">
-	</div>
-	<div class="form-group">
-		<label for="inputD">Catatan</label>$kumpulCatatan
-	</div>
-	<div class="form-group">
-		<input type="submit" class="btn btn-primary btn-block" value="Cari Tarikh Batch">
-	</div><!-- / class="form-group" -->
-</form>
-<!-- tamat borang 03
-=============================================================================================== -->
-</div><!-- / class="container" -->
-<!-- tamat kotak
-=============================================================================================== -->
-END;
-	# tamat print <<<END//*/
 #--------------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
 		$baki = count($rowDaa);
