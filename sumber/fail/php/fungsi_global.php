@@ -983,11 +983,14 @@ if ( ! function_exists('paparSemuaDataV03')):
 			$output .= "\n\t<tr>\r\t";
 			$output .= "\n\t<td>".($kira+1)."</td>";
 			foreach ( $row[$kira] as $key=>$data ) :
-			if ($key ==  'link' ):
+			if ($key == 'link'):
 				list($tarikh,$nota) = explode('/',$data);
 				$dataA = $tarikh . '/' . $nota;
 				$data3 = '<a target="_blank" href="'.$server.'?/'.$dataA.'">'
 				.$dataA.'</a><br>'.$dataA;
+			elseif ($key == 'NAMA'):
+				$dataA = '(' . ($kira+1) . ')' . $data;
+				$data3 = $dataA;
 			else: $data3 = bersihV02($data);
 			endif;
 			$output .= '<td><input type="checkbox">' . $data3 . '</td>';
