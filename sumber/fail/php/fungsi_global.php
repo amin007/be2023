@@ -192,6 +192,20 @@ if ( ! function_exists('myUrlEncode')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('myUrlDecode')):
+	function myUrlDecode($string)
+	{
+		# https://www.php.net/urlencode
+		$entities = array(' ', '!', '*', "'", "(", ")", ";", ":", "@", "&", "=", "+", "$",
+		",", "/", "?", "%", "#", "[", "]");
+		$replacements = array('%20', '%21', '%2A', '%27', '%28', '%29', '%3B', '%3A', '%40', '%26',
+		'%3D', '%2B', '%24', '%2C', '%2F', '%3F', '%25', '%23', '%5B', '%5D');
+
+		//return str_replace($entities, $replacements, urlencode($string));
+		return str_replace($entities, $replacements, $string);
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 if ( ! function_exists('pecahPautan')):
 	function pecahPautan()
 	{
