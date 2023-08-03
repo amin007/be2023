@@ -943,6 +943,48 @@ if ( ! function_exists('paparSemuaDataV02')):
 	}
 endif;
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('paparSemuaDataV03')):
+	function paparSemuaDataV03($row,$server)
+	{
+		$output = null;
+		$bil_baris = count($row);
+		$printed_headers = false;# mula bina jadual
+		#----------------------------------------------------------------------
+		for ($kira=0; $kira < $bil_baris; $kira++)
+		{# print the headers once:
+			if ( !$printed_headers )
+			{##================================================================
+				$output .= "\n\t<thead><tr>";
+				$output .= "\n\t" . '<th>#</th>';
+				foreach ( array_keys($row[$kira]) as $tajuk ) :
+				$output .= "\n\t" . '<th>' . $tajuk . '</th>';
+				endforeach;
+				$output .= "\n\t" . '</tr></thead>';
+				$output .= "\n\t" . '<tbody>';
+			##=================================================================
+				$printed_headers = true;
+			}
+		#----------------------------------------------------------------------
+			# print the data row
+			$output .= "\n\t<tr>\r\t";
+			$output .= "\n\t<td>".($kira+1)."</td>";
+			foreach ( $row[$kira] as $key=>$data ) :
+			if ($key ==  'link' ):
+				//$data2 = urlencode($data);
+				list($tarikh,$nota) = explode('/',$data);
+				$data3 = $tarikh . '|' . $nota;
+				//$data3 = '<a href="'.$server.'?/'.$data2.'">'.$data2.'</a>';
+			else: $data3 = bersihV02($data);
+			endif;
+			$output .= '<td><input type="checkbox">' . $data3 . '</td>';
+			//$output .= "<!-- $key|$kira -->";# untuk debug di masa hadapan
+			endforeach;
+			$output .= "\n\t" . '</tr></tbody>';
+		}#---------------------------------------------------------------------
+
+		return $output;
+	}
+endif;
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
