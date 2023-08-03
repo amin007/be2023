@@ -114,7 +114,7 @@ if ( ! function_exists('sqlSelectNegatifV02')):
 		. "\rbarcode `NO. SIRI`,"
 		. "\rconcat_ws('',nama) `NAMA`,"
 		. "\rDataRespon `KOD RESPON`, catatanBatch `CATATAN`,"
-		. "\rtarikhBatch `TARIKH SERAH`"
+		. "\rtarikhBatch `TARIKH SERAH`,`Jenis Borang`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' "
@@ -126,11 +126,11 @@ if ( ! function_exists('sqlSelectNegatifV02')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlGroupJadual')):
-	function sqlGroupJadual($medan,$jadual)
+	function sqlGroupJadual($medan01,$medan02,$jadual)
 	{
-		$sql = "SELECT $medan, COUNT(*) AS BIL"
-		. " FROM `$jadual` WHERE $medan is not null"
-		. ' GROUP BY 1 ORDER BY 1';
+		$sql = "SELECT $medan01, COUNT(*) AS BIL"
+		. " FROM `$jadual` WHERE $medan02 is not null"
+		. ' GROUP BY 1,2 ORDER BY 1,2';
 		// $sql['GroupJadual'] = sqlGroupJadual($medan,$jadual);
 		return $sql;
 	}
