@@ -41,7 +41,6 @@ semakPembolehubah($sql,'sql',0);//*/
 $kumpulDaa = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
 $data = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql02);
 #--------------------------------------------------------------------------------------------------
-$jalur = count(current($data['batch'])) + 1;
 //semakPembolehubah($data,'data',0);
 #--------------------------------------------------------------------------------------------------
 # buat group untuk catatanBatch
@@ -66,9 +65,9 @@ diatas('Senarai Batch', $urlcss);
 //binaButang(null);
 #--------------------------------------------------------------------------------------------------
 echo '<h1 align="center">BANCI EKONOMI 2023</h1>';
-echo '<h2 align="center">MAKLUMAT KAWALAN</h2>';
-echo '<h2 align="center">UNIT : PROSESAN</h2>';
-echo '<h2 align="center">KP : 337</h2>';
+echo '<h4 align="center">MAKLUMAT KAWALAN</h4>';
+echo '<h4 align="center">UNIT : PROSESAN</h4>';
+//echo '<h2 align="center">KP : 337</h2>';
 #--------------------------------------------------------------------------------------------------
 /*print <<<END
 <!-- mula kotak
@@ -111,6 +110,7 @@ END;
 		echo "\n<table id=\"myTable\" class=$class>$table";
 	endforeach;
 	#----------------------------------------------------------------------------------------------
+	$jalur = count(current($data['batch'])) + 1;
 	for($i = $baki+1; $i < 17; $i++):
 		echo "\n\t" . '<tr>';
 		echo "<td>$i</td>";
