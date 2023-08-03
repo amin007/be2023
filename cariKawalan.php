@@ -16,10 +16,10 @@ require './sumber/fail/data/dataSqlMysqli.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 list($tarikh,$respon,$nota,$mko) = pecahPautan();# setkan pembolehubah bahagian pertama
-//semakPembolehubah($tarikh,'tarikh',0);
-$hariIni = date("Y-m-d");
-/*semakPembolehubah($respon,'respon',0);
+/*semakPembolehubah($tarikh,'tarikh',0);
+semakPembolehubah($respon,'respon',0);
 semakPembolehubah($nota,'nota',0);//*/
+$hariIni = date("Y-m-d");
 #--------------------------------------------------------------------------------------------------
 # setkan pembolehubah bahagian kedua
 /*$namaFe = bersih($_POST['namaFe']);// = $tatarajahBatch[0];
@@ -121,29 +121,6 @@ END;
 	#----------------------------------------------------------------------------------------------
 	echo "\n</table>";//*/
 #--------------------------------------------------------------------------------------------------
-$notaBawah = [
-	['&nbsp;','','',null,null,null],
-	['PEGAWAI LUAR','','','KAWALAN OPERASI',null,null],
-	['Bahawa saya penama ','','dibawah mengesahkan','Bahawa saya penama ','','dibawah mengesahkan'],
-	['penghantaran borang lengkap','','seperti diatas :-','penghantaran borang lengkap','','seperti diatas :-'],
-	['&nbsp;','','',null,null,null],
-	['Tanda Tangan',':','','Tanda Tangan',null,null],
-	['Disediakan Oleh',':',null,'Diterima Oleh',':',null],
-	['Jawatan',':',null,'Jawatan',':',null],
-	['Tarikh Penerimaan',':',null,'Tarikh Penerimaan',':',null],
-	['&nbsp;','','',null,null,null],
-];
-#--------------------------------------------------------------------------------------------------
-echo "\n<table class=$class>";
-foreach($notaBawah as $kunci => $utama):
-	echo "\n\t" . '<tr>';
-foreach($utama as $kunci02 => $utama02):
-	echo '<td>' . $utama02 . '</td>';
-endforeach;
-	echo "" . '</tr>';
-endforeach;
-echo "\n</table>\r";
-#--------------------------------------------------------------------------------------------------
 //dibawah($pilih,$urljs);
 /*echo "<script>\n";
 jqueryExtendA();
@@ -152,6 +129,5 @@ jqueryExtendC();
 gradeTable002(null);
 echo "\n</script>";//*/
 echo "\n</body>\n</html>";//*/
-#--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
