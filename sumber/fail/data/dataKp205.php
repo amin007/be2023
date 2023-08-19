@@ -8,7 +8,7 @@ endif;//*/
 #--------------------------------------------------------------------------------------------------
 /*
 1.7-Sila nyatakan aktiviti utama pertubuhan ini, tanda (X) dalam satu kotak sahaja
-F010027	
+F010027
 1	Pembuatan produk makanan/Manufacture of food products
 2	Pembuatan minuman/Manufacture of beverages
 3	Pembuatan produk tembakau/Manufacture of tobacco products
