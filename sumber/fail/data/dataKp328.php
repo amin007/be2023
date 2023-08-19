@@ -1,6 +1,25 @@
 <?php
 #--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
+/*
+Sila nyatakan aktiviti utama pertubuhan ini, tanda (X) dalam satu kotak sahaja.
+F010027
+
+Restoran dan restoran yang juga kelab malam	56101
+Kafeteria/kantin	56102
+Restoran makanan segera	56103
+Trak ais krim dengan tempat duduk	56104
+Kenderaan sorong makanan yang bergerak	56105
+Gerai/penjaja makanan	56106
+Makanan dan minuman, penyediaan makanan dan minuman di dalam gerai/penjaja	56107
+Katering makanan	56210
+Aktiviti perkhidmatan makanan lain	56290
+Pub, bar, disko, cofee house, ruang koktel dan karaoke	56301
+Kedai kopi	56302
+Gerai/penjaja minuman	56303
+Perkhidmatan minuman bergerak	56304
+Tempat minuman lain t.t.t.l	56309
+*/
 #--------------------------------------------------------------------------------------------------
 /*
 Pendapatan drpd jualan makanan & minuman	F080040
