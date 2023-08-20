@@ -7,8 +7,6 @@
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 /*
-1.7-Sila nyatakan aktiviti utama pertubuhan ini, tanda (X) dalam satu kotak sahaja
-F010027
 1	Pembuatan produk makanan/Manufacture of food products
 2	Pembuatan minuman/Manufacture of beverages
 3	Pembuatan produk tembakau/Manufacture of tobacco products
@@ -33,6 +31,7 @@ F010027
 22	Pembuatan perabot/Manufacture of furniture
 23	Pembuatan lain/Other manufacturing
 24	Membaiki dan pemasangan jentera dan kelengkapan/Repair and installation of machinery and equipment
+F010027	1.7-Sila nyatakan aktiviti utama pertubuhan ini, tanda (X) dalam satu kotak sahaja
 //*/
 #--------------------------------------------------------------------------------------------------
 /*The value of Output = (F080001 + F080003 + F080005 +
