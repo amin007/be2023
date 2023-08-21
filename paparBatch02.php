@@ -45,14 +45,15 @@ diatas('Senarai Batch', $urlcss);
 		$baki = count($rowDaa);
 		$table = paparSemuaData($rowDaa,$myJadualDaa);
 		echo '<h1 align="center">BANCI EKONOMI 2023</h1>';
-		echo '<h2 align="center">BORANG PENGHANTARAN FE & BORANG SOAL SELIDIK KOSONG LUAR PEJABAT OPERASI MUAR</h2>';
+		//echo '<h2 align="center">BORANG PENGHANTARAN FE & BORANG SOAL SELIDIK KOSONG LUAR PEJABAT OPERASI MUAR</h2>';
+		echo '<h3 align="center">RINGKASAN MAKLUMAT PERANGKAAN UTAMA</h3>';
 		echo "\n<table id=\"myTable\" class=$class>$table";
 	endforeach;
 	#----------------------------------------------------------------------------------------------
-	for($i = $baki+1; $i < 17; $i++):
+	for($i = $baki+1; $i < 16; $i++):
 		echo "\n\t" . '<tr>';
 		echo "<td>$i</td>";
-		for($j = 1; $j < 13; $j++):
+		for($j = 1; $j < 12; $j++):
 			echo '<td>&nbsp;</td>';
 		endfor;
 		echo '</tr>';
