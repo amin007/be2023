@@ -81,15 +81,15 @@ Perbelanjaan perjalanan(claim)	F091002
 Perbelanjaan keraian	F091006
 Bayaran perakaunan, kesetiausahaan & audit	F091003
 Bayaran guaman	F091004
-Bayaran perkhidmatan profesional lain (cth. bayaran perundingan arkitek, kejuruteraan, juruukur dsb.)	F090080
+Bayaran perkhidmatan profesional lain(cth. bayaran perundingan arkitek, kejuruteraan, juruukur dsb.)	F090080
 Bayaran pengurusan	F091005
 Komisen & bayaran agensi	F090109
-Bayaran pos (termasuk perkhidmatan kurier)	F091007
+Bayaran pos(termasuk perkhidmatan kurier)	F091007
 Pengiklanan & promosi	F090063
 Bayaran bank	F091008
 Premium insurans kecuali insurans pampasan pekerja	F091009
 Bayaran pemprosesan data & lain-lain perkhidmatan yg berkaitan dgn teknologi maklumat	F090016
-Bayaran telekomunikasi (cth. telefon, internet dsb.)	F090017
+Bayaran telekomunikasi(cth. telefon, internet dsb.)	F090017
 Bayaran sewa: Tanah	F090019
 Bayaran sewa: Bangunan	F090020
 Bayaran sewa: Jentera & kelengkapan	F090021
@@ -140,5 +140,33 @@ Perbelanjaan pajakan kewangan	F090054
 Dividen dibayar	F090055
 Cukai langsung dibayar (cth: cukai syarikat & duti setem)	F090056
 JUMLAH BELANJA BESAR (9.34 hingga 9.38)	F090099
+*/
+#--------------------------------------------------------------------------------------------------
+/*
+MEDAN YANG TERLIBAT
+
+F080040, F080007, F090009, F080014, F080011, F080010, F080022, F080013, F080034, F080035, F080039,
+F080061, F080062, F080031, F080016, F041399, F090013, F090012, F090001 , F090002 ,F090112 ,F090113,
+F090003, F090005, F090057 , F090058, F090006, F090007, F090008, F090011, F090119,  F091002, F091006,
+F091003, F091004 ,F090080,  F090016,  F091005,  F090109,  F090017 , F091007 , F090063, F091008,
+F091009, F090067, F090027, F090045, F090046, F090047 , F090052,  F090020, F090021, F090022,
+F090023, F090035, F100299, F10019
+
+VALUE OF OUTPUT = F080040 + (F080007 - F090009) + F080014 + F080011+ F080010 + F080022 +
+F080034 + F080035 + F080013 + F080039 + F080061 + F080062 + F080031 +
+F080016 + F041399 + (F090013 x F090012 / 100)
+
+must be greater than
+
+COST OF INPUT = F090001 + F090002 + F090112 + F090113 + F090003 + F090005 + F090057 +
+F090058 + F090006 + F090007 + F090008 + F090011 + F090119 + F091002 + F091006 +
+F091003 + F091004 + F090080 +
+F090016 + F091005 + F090109 + F091007 + F090063 + F091008 + F091009 + F090017 + F090067 +
+F090020 + F090021 + F090022 + F090023 +
+F090027 + F090045 + F090046 + F090047 + F090052 + F090035
+– (F100299 – F100199)
+
+IO RATIO = INPUT / OUTPUT (2 DESIMAL POINT)
+Cost of input DIVIDE by value of output must be between 0.2 to 0.7
 */
 #--------------------------------------------------------------------------------------------------
