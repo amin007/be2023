@@ -728,6 +728,19 @@ if ( ! function_exists('sqlRangkaKwspV06')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlCantum2Jadual')):
+	function sqlCantum2Jadual($jadualBe,$jadual,$fe)
+	{
+		$sql = "\rSELECT * FROM `$jadualBe` A INNER JOIN `$jadual` B"
+		. "\r ON a.barcode = B.ESTABLISHMENT_ID"
+		. "\r WHERE fe like '%$fe%'"
+		. "";
+
+		// $sql['Cantum2Jadual'] = sqlCantum2Jadual($jadual,$fe,$id);
+		//echo $sql;
+		return $sql;
+	}
+endif;//*/
 #--------------------------------------------------------------------------------------------------
 /*if ( ! function_exists('xxx2')):
 		# nama medan
