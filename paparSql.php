@@ -14,38 +14,6 @@ require './sumber/fail/data/dataSqlMysqli.php';
 //echo '<pre>$fungsi=>';//print_r($fungsi['user']);//echo '<br></pre>' . "\n";
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
-/*
-senarai fungsi dalam fail dataSql =>Array
-(
-    [0] => sqlfebarcode
-    [1] => sqldataaesv00
-    [2] => sqldataaesv01
-    [3] => sqlcarimsicaes
-    [4] => sqlnewssv00
-    [5] => sqlnewssv01
-    [6] => sqlnewssv02
-    [7] => sqlnewssv03
-    [8] => sqlssmrochartav01
-    [9] => sqlssmrocuntungrugiv00
-    [10] => sqlssmrocuntungrugiv01
-    [11] => sqlrangkakwspv00
-    [12] => sqlxxx2
-    [13] => sqlrangkakwspv02
-    [14] => sqlrangkakwspv03
-    [15] => sqlrangkakwspv04
-    [16] => sqlrangkakwspv05
-    [17] => sqlcreatebe2023newss5p
-)
-$_POST=>
-Array
-(
-    $_POST[namaFe] => muhaimin
-    $_POST[noSiri] => 000003985740
-    $_POST[peratusan] => 1.87
-    [Simpan] => Simpan
-)
-*/
-###################################################################################################
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($_POST,'_POST',0);
 $fe = bersih($_POST['namaFe']);//'muhaimin';
@@ -93,7 +61,8 @@ list($urlcss,$urljs) = linkCssJs();
 //$class = '"table table-striped table-bordered table-sm"';
 $class = '"table table-bordered table-sm"';
 //$class = '"excel"';
-diatas('Carian Data Anggaran',$urlcss);
+$pilih = 'Carian Data Anggaran';
+diatas($pilih,$urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
 echo "<!-- Senarai Jadual
