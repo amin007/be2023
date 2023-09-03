@@ -24,18 +24,17 @@ $server = 'cariKawalan02.php';
 $link = "concat(tarikhBatch,'/',catatanBatch)";
 $sql['kumpul'] = sqlGroupJadual('catatanBatch,tarikhBatch,'
 . $link . ' as link','catatanBatch',$myJadual[0]);
-$sql02['batch'] = sqlSelectNegatifV02($myJadual[0],$tarikh,$nota);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
-//semakPembolehubah($_POST,'_POST',0);
+semakPembolehubah($_POST,'_POST',0);
 semakPembolehubah($myJadual,'myJadual',0);
-semakPembolehubah($sql,'sql',0);//*/
+semakPembolehubah($sql,'sql',0);
+semakPembolehubah($sql02,'sql02',0);//*/
 #--------------------------------------------------------------------------------------------------
 $kumpulDaa = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
-$data = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql02);
 #--------------------------------------------------------------------------------------------------
-//semakPembolehubah($kumpulDaa,'kumpulDaa',0);
-//semakPembolehubah($data,'data',0);
+/*echo '<hr>semakPembolehubah SQL<hr>';
+semakPembolehubah($kumpulDaa,'kumpulDaa',0);//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
@@ -57,16 +56,8 @@ echo '<h4 align="center">UNIT : PROSESAN</h4>';
 		echo "\n<table id=\"myTable\" class=$class>$table01";
 	endforeach;
 	#----------------------------------------------------------------------------------------------
-	foreach($data as $myJadualDaa => $rowDaa):
-		$baki = count($rowDaa);
-		$table = paparSemuaData($rowDaa,$myJadualDaa);
-		//$table = paparSemuaDataV03($rowDaa,$server);
-		//echo "\n<caption>$myJadualDaa</caption>";
-		echo "\n<table id=\"myTable\" class=$class>$table";
-	endforeach;
-	#----------------------------------------------------------------------------------------------
-	$jalur = count(current($data['batch'])) + 1;
-	for($i = $baki+1; $i < 17; $i++):
+	$jalur = count(current($kumpulDaa['kumpul'])) + 1;
+	for($i = count($rowDaa)+1; $i < 17; $i++):
 		echo "\n\t" . '<tr>';
 		echo "<td>$i</td>";
 		for($j = 1; $j < $jalur; $j++):
