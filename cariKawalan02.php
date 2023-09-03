@@ -48,7 +48,7 @@ list($urlcss,$urljs) = linkCssJs();
 $class = '"table table-sm table-striped table-bordered"';
 //$class = '"table table-striped table-bordered"';
 //$class02 = '"excel"';
-diatas('Senarai Batch', $urlcss);
+diatas('R=' . $nota, $urlcss);
 #--------------------------------------------------------------------------------------------------
 //binaButang(null);
 #--------------------------------------------------------------------------------------------------
