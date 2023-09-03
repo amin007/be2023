@@ -308,6 +308,7 @@ if ( ! function_exists('sqlNewssV04')):
 		FORMAT((`YR_SALARY_AMT` * $peratus),0) as anggarGaji,
 		concat_ws('|',orang,notel,nofax,email,orangB,notelB,nofaxB,email1,emailB) as DataNewss,
 		`DataRespon`,`Akauntan`,`DataMKO`,`DataSumberLuar`,
+		concat_ws('|',format(DataModal,0),DataModal) as DataModal,
 		concat_ws('|',format(DataHasil,0),DataHasil) as DataHasil,
 		concat_ws('|',format(DataBelanja,0),DataBelanja) as DataBelanja,
 		concat_ws('|',format(DataGaji,0),DataGaji) as DataGaji,
@@ -726,6 +727,7 @@ if ( ! function_exists('sqlRangkaKwspV06')):
 		return $sql;
 	}
 endif;//*/
+#--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 /*if ( ! function_exists('xxx2')):
 		# nama medan
