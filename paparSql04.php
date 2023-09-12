@@ -35,17 +35,13 @@ $class = '"table table-striped table-bordered"';
 diatas($pilih,$urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
-//echo "\r<hr>\r<table class=$class><tr>";
 #--------------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
-	#--------------------------------------------------------------------------------------------------
 	$table = paparSemuaData($rowDaa,$myJadualDaa);
-    echo "<h2>$myJadualDaa</h2>";
-	echo "\r<table id=\"myTable\" class=$class>$table</table>\r<hr>";
-	#--------------------------------------------------------------------------------------------------
 	endforeach;
-#--------------------------------------------------------------------------------------------------
-//echo "\r</tr></table>\r";
+    #----------------------------------------------------------------------------------------------
+	echo "<h2>$myJadualDaa</h2>";
+	echo "\r<table id=\"myTable\" class=$class>$table</table>\r";
 #--------------------------------------------------------------------------------------------------
 dibawah($pilih,$urljs);
 echo "<script>\n";
@@ -54,37 +50,5 @@ jqueryExtendB();
 jqueryExtendC();
 gradeTable002(null);
 echo "\n</script>\n</body>\n</html>";//*/
-#--------------------------------------------------------------------------------------------------
-/*# kaedah 2.1
-$s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
-//semakPembolehubah($_SERVER[$s],$s);
-if (isset($_SERVER[$s])):
-	$fail = explode('be20023/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
-	$cari = explode('/',$fail[1]);semakPembolehubah($cari,'pilih');
-
-	if(isset($cari[1])):
-		$cariApa = bersih($cari[1]);
-		if($cariApa == 'json'):
-			$pilih = isset($cari[2]) ? $cari[2] : null;
-			$cariApa = bersih($pilih);
-			binaJson($data,$cariApa);
-		elseif($cariApa == 'tahun'):
-			$tajuk['tahun'] = '#,-,-,-,-';
-			$data['tahun'] = kiraTahunJadual();
-			panggilDataTable01($tajuk,$data,$cariApa);# panggil fungsi
-		elseif(in_array($cariApa,$dataPhpJson)):# panggil fungsi untuk tatasusunan php => json
-			panggilDataTable03($tajuk,$data,$cariApa);
-		elseif(in_array($cariApa,$dataJson)):
-			panggilDataTable02($tajuk,$data,$cariApa);# panggil fungsi untuk data json
-		else:
-			panggilDataTable01($tajuk,$data,$cariApa);# panggil fungsi
-		endif;
-	else:
-		panggilDataTable01($tajuk,$data,null);# panggil fungsi
-	endif;
-else:
-	panggilDataTable01($tajuk,$data,null);# panggil fungsi
-endif;//*/
-#--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
