@@ -14,20 +14,10 @@ require './sumber/fail/data/dataSqlMysqli.php';
 //echo '<pre>$fungsi=>';//print_r($fungsi['user']);//echo '<br></pre>' . "\n";
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
-/*
-$_POST=>
-Array
-(
-    $_POST[namaFe] => muhaimin
-    $_POST[noSiri] => 000003985740
-    $_POST[peratusan] => 1.87
-    [Simpan] => Simpan
-)
-*/
-###################################################################################################
+$pilih = 'Carian Sql Sahaja';
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($_POST,'_POST',0);
-$sql['papar'] = bersih($_POST['sql']);
+$sql[$pilih] = bersih($_POST['sql']);
 //$id = bersih($_POST['noSiri']);//'000002791307';
 #--------------------------------------------------------------------------------------------------
 //echo '<hr>semakPembolehubah<hr>';
@@ -42,7 +32,7 @@ $data = dbMysqli00(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
 #--------------------------------------------------------------------------------------------------
 list($urlcss,$urljs) = linkCssJs();
 $class = '"table table-striped table-bordered"';
-diatas('Carian Sql Sahaja',$urlcss);
+diatas($pilih,$urlcss);
 #--------------------------------------------------------------------------------------------------
 binaButang(null);
 //echo "\r<hr>\r<table class=$class><tr>";
