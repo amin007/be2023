@@ -1066,6 +1066,21 @@ SOALAN 16E - PENGELUARAN DAN JUALAN KAYU BALAK (harga di logyard) & KUTIPAN HASI
 0220102127	Merbau	Meter padu	30
 0220102029	Kelat	Meter padu	30
 #--------------------------------------------------------------------------------------------------
+2392101001	Batu / bata (termasuk bahan jubin lain)
+1610001034	Papan keping / Planks
+2599201001	Tali dawai / Wire
+2930006005	Alat ganti / Spare parts
+1920109002	Minyak Diesel
+0810701002	Pasir / Sand
+2394102004	Simen / Cement
+1392207004	Kain kanvas / Canvas cloth
+2790002001	Peralatan elektrik dan aksesori / Electrical equipment and accessories
+2022101005	Cat / Paints
+2599305009	Penyangkuk / Hooks
+2599202001	Kabel / Cables
+2818001003	Gergaji rantai / Chain saws
+2593005004	Kapak / Axe
+#--------------------------------------------------------------------------------------------------
 Baja Urea
 Amonia sulfat/Ammonium sulphate
 Kalsium nitrat - Amonia nitrat/Calcium nitrate - Ammonium nitrate
