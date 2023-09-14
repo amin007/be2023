@@ -444,9 +444,595 @@ F144116
 F144216
 F144316
 #--------------------------------------------------------------------------------------------------
+Ayam pedaging
+Chicken broilers
+F144501
+F144601
+F144701
+F144801
+F144901
+0146101001
+Lembu pedaging
+Beef cattle
+F144502
+F144602
+F144702
+F144802
+F144902
+0141101001
+Babi
+Swine
+F144503
+F144603
+F144703
+F144803
+F144903
+0145001001
+Lain-lain (nyatakan):
+Others (specify):
+
+F144904D
+F144504
+F144604
+F144704
+F144804
+F144904
+
+F144905E
+F144505
+F144605
+F144705
+F144805
+F144905
+
+F144906F
+F144506
+F144606
+F144706
+F144806
+F144906
+
+JUMLAH
+TOTAL
+F144507
+F144607
+F144707
+F144807
 #--------------------------------------------------------------------------------------------------
+Akasia
+Acacia
+Getah
+Rubber
+Kelempayan / Laran
+Sentang
+Batai
+Binuang
+Lain-lain (nyatakan):
+Others (specify):
+
+F154407G
+JUMLAH
+TOTAL
+
+F154001
+F154101
+F154201
+F154301
+F154401
+0220102054
+Getah
+Rubber
+F154002
+F154102
+F154202
+F154302
+F154402
+0220401001
+Kelempayan / Laran
+F154003
+F154103
+F154203
+F154303
+F154403
+0220102073
+Sentang
+F154004
+F154104
+F154204
+F154304
+F154404
+0220102091
+Batai
+F154005
+F154105
+F154205
+F154305
+F154405
+0220102058
+Binuang
+F154006
+F154106
+F154206
+F154306
+F154406
+0220102062
+Lain-lain (nyatakan):
+Others (specify):
+
+F154407G
+F154007
+F154107
+F154207
+F154307
+F154407
+
+JUMLAH
+TOTAL
+F154008
+F154108
+F154208
+F154308
 #--------------------------------------------------------------------------------------------------
+Jenis sistem
+Type of system	Keluasan dituai (Hektar) / Polibeg (Unit) / Bongkah (Unit)
+Area harvested (Hectares) / Polybags (Unit) / Block (Unit)	Unit Kuantiti (Kg / Tan Metrik / Bil. / dsb.)
+Unit of Quantity (Kg / Tonne / No. / etc)	Jumlah kutipan
+Total harvested
+
+Total sales	Kerugian / kerosakan / lain-lain *
+Loss / damaged / others	Nilai Stok dimiliki
+Value of stocks owned
+Kuantiti
+Quantity	Nilai
+Value
+RM	Kuantiti
+Quantity	Nilai
+Value
+RM	Pada awal tahun
+As at beginning of year
+RM	Pada akhir tahun
+As at end of year
+RM	Kod UnitUnit Code	Kod Produk
+Product Code
+
+Jenis sistem	Keluasan/Polibeg/Bongkah	Unit Kuantiti	Jumlah kutipan	Kuantiti jualan	Nilai jualan	Kuantiti rosak	Nilai rosak	Stok Awal	Stok Akhir	Kod Unit	Kod Produk
+F1639	F1640	F1641	F1642	F1643	F1644	F1645	F1646	F1647	F1648
+
+
+Kelapa Sawit
+Oil Palm - FFB
+F163901
+F164001
+F164101
+F164201
+F164301
+F164901
+F164401
+F164501
+F164601
+F164701
+08
+F164801
+0126101001
+Getah
+Rubber
+- Susu getah/Latex
+F163902
+
+F164002
+Tan Metrik
+Tonne
+F164102
+F164202
+F164302
+F164902
+F164402
+F164502
+F164602
+F164702
+08
+F164802
+0129101001
+- Sekerap/Scrap
+F163903
+
+F164003
+Tan Metrik
+Tonne
+F164103
+F164203
+F164303
+F164903
+F164403
+F164503
+F164603
+F164703
+08
+F164803
+0129101002
+Lain-lain (nyatakan):
+Others (specify):
+
+F164804D
+F163904
+
+F164004
+F164704D
+
+F164104
+F164204
+F164304
+F164904
+F164404
+F164504
+F164604
+F164704
+
+F164804
+
+F164805E
+F163905
+
+F164005
+F164705E
+
+F164105
+F164205
+F164305
+F164905
+F164405
+F164505
+F164605
+F164705
+
+F164805
+
+F164806F
+F163906
+
+F164006
+F164706F
+
+F164106
+F164206
+F164306
+F164906
+F164406
+F164506
+F164606
+F164706
+
+F164806
+
+F164807G
+F163907
+
+F164007
+F164707G
+
+F164107
+F164207
+F164307
+F164907
+F164407
+F164507
+F164607
+F164707
+
+F164807
+
+F164808H
+F163908
+
+F164008
+F164708H
+
+F164108
+F164208
+F164308
+F164908
+F164408
+F164508
+F164608
+F164708
+
+F164808
+
+F164809I
+F163909
+
+F164009
+F164709I
+
+F164109
+F164209
+F164309
+F164909
+F164409
+F164509
+F164609
+F164709
+
+F164809
+
+F164810J
+F163910
+
+F164010
+F164710J
+
+F164110
+F164210
+F164310
+F164910
+F164410
+F164510
+F164610
+F164710
+
+F164810
+
+F164811K
+F163911
+
+F164011
+F164711K
+
+F164111
+F164211
+F164311
+F164911
+F164411
+F164511
+F164611
+F164711
+
+F164811
+
+F164812L
+F163912
+
+F164012
+F164712L
+
+F164112
+F164212
+F164312
+F164912
+F164412
+F164512
+F164612
+F164712
+
+F164812
+
+F164813M
+F163913
+
+F164013
+F164713M
+
+F164113
+F164213
+F164313
+F164913
+F164413
+F164513
+F164613
+F164713
+
+F164813
+
+F164814N
+F163914
+
+F164014
+F164714N
+
+F164114
+F164214
+F164314
+F164914
+F164414
+F164514
+F164614
+F164714
+
+F164814
+
+F164815O
+F163915
+
+F164015
+F164715O
+
+F164115
+F164215
+F164315
+F164915
+F164415
+F164515
+F164615
+F164715
+
+F164815
+
+JUMLAH
+TOTAL
+F164016
+F164316
+Jawapan mesti sama dengan medan F084001 = 0
+F164416
+F164516
+F164616
+
+Jenis sistem tanaman :
+01	Fertigasi dgn Struktur Perlindungan Hujan|Fertigation with Greenhouse Structure
+02	Fertigasi tanpa Struktur Perlindungan Hujan|Fertigation without Greenhouse Structure
+03	Akuaponik|Aquaponic
+04	Hidroponik|Hydroponic
+05	Tradisional/Konvensional|Traditional/Conventional
+09	Lain-lain (nyatakan)|Others (specify)
 #--------------------------------------------------------------------------------------------------
+
+PENGELUARAN DAN JUALAN MENGIKUT JENIS TERNAKAN
+PRODUCTION AND SALES BY TYPE OF LIVESTOCK
+Jenis Ternakan
+Type of Livestock	TAHUN RUJUKAN 2022 / REFERENCE YEAR 2022	UNTUK KEGUNAAN PEJABAT SAHAJA
+
+FOR OFFICE USE ONLY
+# Jenis sistem
+Type of system	Jumlah hasil (tidak termasuk stok induk / baka)
+Total production (excludes breeding stock)	Jumlah Jualan
+Total Sales	Kerugian / kerosakan / lain-lain *
+Lost / damaged / others	Nilai stok dimiliki
+Value of stocks owned
+Bilangan
+Number	Bilangan
+Number	Berat
+Weight
+
+Tan metrik /
+Tonnes	Nilai
+Value
+RM	Bilangan
+Number	Nilai
+Value
+RM	Pada awal tahun
+As at beginning of year
+RM	Pada akhir tahun
+As at end of year
+RM	Kod Produk
+Product Code
+
+Jenis sistem	Bilangan	Bilangan	Berat	Nilai RM
+F1650		F1651	F165701		F1657	F1653
+
+
+Ayam pedaging
+Chicken broilers
+F165001
+
+F165101
+70253
+F165201
+70253
+F165701
+48
+F165301
+576420
+F165901
+F165401
+F165501
+F165601
+F165801
+0146101001
+Lembu pedaging
+Beef cattle
+F165002
+
+F165102
+F165202
+F165702
+F165302
+F165902
+F165402
+F165502
+F165602
+F165802
+0141101001
+Babi
+Swine
+F165003
+
+F165103
+F165203
+F165703
+F165303
+F165903
+F165403
+F165503
+F165603
+F165803
+0145001001
+Lain-lain (nyatakan):
+Others (specify):
+
+F165804D
+F165004
+
+F165104
+F165204
+F165704
+F165304
+F165904
+F165404
+F165504
+F165604
+F165804
+
+F165805E
+F165005
+
+F165105
+F165205
+F165705
+F165305
+F165905
+F165405
+F165505
+F165605
+F165805
+
+JUMLAH
+TOTAL
+F165106
+70253
+F165206
+70253
+F165706
+48
+F165306
+576420
+Jawapan mesti sama dengan medan F084006 = 576420
+F165906
+F165406
+F165506
+F165606
+Jenis Ternakan
+Type of Livestock
+Ayam pedaging
+Chicken broilers
+Lembu pedaging
+Beef cattle
+Babi
+Swine
+Lain-lain (nyatakan):
+Others (specify):
+
+F165804D
+F165805E
+JUMLAH
+TOTAL
+Jenis sistem ternakan : Type of system
+01	Fidlot|Feedlot
+02	Padang ragut/Ladang|Grazing land
+03	Integrasi|Integrated
+04	Tradisional/Lepas bebas|Tradisional / Free range
+05	Kandang|Animal corral
+06	Reban tertutup|Closed den
+07	Reban terbuka|Open den
+08	Lain-lain (nyatakan)|Others (specify)
+#--------------------------------------------------------------------------------------------------
+
+Jenis sistem perikanan : Type of culture system
+01	Kolam / Pond
+02	Bekas lombong / Ex-mining Pools
+03	Sangkar / Cages
+04	Tangki simen / Cement tank
+05	Kandang ikan / Pen Culture
+06	Tangki Kanvas / Canvas tank
+08	Lain-lain (nyatakan) / Others (specify)
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
