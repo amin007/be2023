@@ -1024,7 +1024,6 @@ Jenis sistem ternakan : Type of system
 07	Reban terbuka|Open den
 08	Lain-lain (nyatakan)|Others (specify)
 #--------------------------------------------------------------------------------------------------
-
 Jenis sistem perikanan : Type of culture system
 01	Kolam / Pond
 02	Bekas lombong / Ex-mining Pools
@@ -1034,5 +1033,38 @@ Jenis sistem perikanan : Type of culture system
 06	Tangki Kanvas / Canvas tank
 08	Lain-lain (nyatakan) / Others (specify)
 #--------------------------------------------------------------------------------------------------
+Baja Urea
+Amonia sulfat/Ammonium sulphate
+Kalsium nitrat - Amonia nitrat/Calcium nitrate - Ammonium nitrate
+Racun (rumpai, serangga / kulat, kimia dsb.)
+2012102001
+2012103001
+2012105001
+2021006001
+#--------------------------------------------------------------------------------------------------
+Pallet rumput/Grass pellets
+Makanan ternakan/Feed for mixed poultry
+Vaksin dan lain ubat ternakan/Vaccine and other livestock medicine
+Makanan babi/Feed for pig
+
+1080002007
+1080002003
+2100301005
+1080002005
+#--------------------------------------------------------------------------------------------------
+A. Perikanan Marin / Marine Fishing :	Diesel untuk bot / vesel
+1920109001
+
+B. Akuakultur / Aquaculture :
+Makanan ternakan ikan
+Makanan ternakan udang
+
+1080002002
+1080002006
+
+#--------------------------------------------------------------------------------------------------
 ###################################################################################################
+#--------------------------------------------------------------------------------------------------
+IF(C2<15,"Bad",IF(C2<20,"OK",IF(C2<25,"Good",IF(C2<30,"Great","Awesome"))))
+IF(SoalanUmum!$C$11=1;"Tanaman";IF(SoalanUmum!$C$11=2;"Ternakan";IF(SoalanUmum!$C$11=3;"Perikanan";IF(SoalanUmum!$C$11=4;"Perhutanan","0 daa"))))
 #--------------------------------------------------------------------------------------------------
