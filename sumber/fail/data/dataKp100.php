@@ -320,6 +320,16 @@ Jumlah keluasan pembalakan(Hektar):	F134511
 Jenis Akuakultur			Bilangan stok induk / baka akuakultur	Bilangan stok akuakultur
 		Matang	Belum matang	Matang	Belum Matang	Kod produk
 #--------------------------------------------------------------------------------------------------
+Laut	Udang Putih/White Shrimp
+	Kerapu/Grouper
+	0321401002
+	0321102003
+
+Air Tawar	Tilapia Merah/Red Tilapia
+	Keli/Walking catfish
+	0322102039
+	0322102014
+#--------------------------------------------------------------------------------------------------
 Akuakultur - Laut / Aquaculture - marine
 Udang Putih
 White Shrimp
@@ -498,6 +508,13 @@ F144507
 F144607
 F144707
 F144807
+#--------------------------------------------------------------------------------------------------
+0220102054	Akasia/Acacia
+0220401001	Getah/Rubber
+0220102073	Kelempayan/Laran
+0220102091	Sentang
+0220102058	Batai
+0220102062	Binuang
 #--------------------------------------------------------------------------------------------------
 Akasia
 Acacia
