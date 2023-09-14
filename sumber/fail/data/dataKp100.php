@@ -891,7 +891,6 @@ Jenis sistem tanaman :
 05	Tradisional/Konvensional|Traditional/Conventional
 09	Lain-lain (nyatakan)|Others (specify)
 #--------------------------------------------------------------------------------------------------
-
 PENGELUARAN DAN JUALAN MENGIKUT JENIS TERNAKAN
 PRODUCTION AND SALES BY TYPE OF LIVESTOCK
 Jenis Ternakan
@@ -1041,6 +1040,17 @@ Jenis sistem ternakan : Type of system
 07	Reban terbuka|Open den
 08	Lain-lain (nyatakan)|Others (specify)
 #--------------------------------------------------------------------------------------------------
+Perikanan/Fishing
+
+0311102048	Kembong/Indian Mackerel	Tan	08
+0311102070	Selayang|Curut/Round scad	Tan	08
+0311203002	Sotong biasa/Cumit alive	Tan	08
+
+Akuakultur/Aquaculture
+0321401002	Udang putih/White ShrimP
+0321102003	Kerapu/Grouper
+0321102001	Siakap/Barramundi
+
 Jenis sistem perikanan : Type of culture system
 01	Kolam / Pond
 02	Bekas lombong / Ex-mining Pools
@@ -1049,6 +1059,12 @@ Jenis sistem perikanan : Type of culture system
 05	Kandang ikan / Pen Culture
 06	Tangki Kanvas / Canvas tank
 08	Lain-lain (nyatakan) / Others (specify)
+#--------------------------------------------------------------------------------------------------
+SOALAN 16E - PENGELUARAN DAN JUALAN KAYU BALAK (harga di logyard) & KUTIPAN HASIL HUTAN
+
+0220102009	Balau/Selangan Batu	Meter padu	30
+0220102127	Merbau	Meter padu	30
+0220102029	Kelat	Meter padu	30
 #--------------------------------------------------------------------------------------------------
 Baja Urea
 Amonia sulfat/Ammonium sulphate
