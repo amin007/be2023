@@ -1066,6 +1066,13 @@ SOALAN 16E - PENGELUARAN DAN JUALAN KAYU BALAK (harga di logyard) & KUTIPAN HASI
 0220102127	Merbau	Meter padu	30
 0220102029	Kelat	Meter padu	30
 #--------------------------------------------------------------------------------------------------
+Binaan jalan dan penyelenggaraan
+Road construction and maintenance
+Binaan dan penyelenggaraan bangunan tempat kediaman/bukan tempat kediaman
+Construction and maintenance of residential/non-residential buildings
+Kerja-kerja menebang dan menual
+Felling and cutting activities
+
 2392101001	Batu / bata (termasuk bahan jubin lain)
 1610001034	Papan keping / Planks
 2599201001	Tali dawai / Wire
@@ -1110,6 +1117,125 @@ Makanan ternakan udang
 1080002002
 1080002006
 
+#--------------------------------------------------------------------------------------------------
+FORMULA OF PRINCIPAL STATISTIC - AGRICULTURE (KP100)
+Medan Keterangan
+A Nilai Output Kasar (RM)
++ F100205 Stok pertanian (stok akhir)
++ F100206 Barangan dalam proses dan stok barangan siap (pembuatan sendiri) (stok akhir)
++ F084001 Jualan daripada tanaman dan hasil tanaman
++ F084002 Pendapatan daripada kerja tanaman yang dibuat untuk pihak lain (cth. tanaman kontrak, menanam, membersih tanah)
++ F084003 Pendapatan daripada hasil tanaman yang diproses (cth. kerepek ubi,sayur jeruk, air buah)
++ F084004 Nilai jualan aktiviti tanaman (cth. buah, sayur, baja)
++ F084005 Pendapatan lain yang berkaitan dengan tanaman (cth. khidmat nasihat)
++ F084006 Jualan daripada hasil ternakan: ternakan hidup
++ F084007 Jualan daripada hasil ternakan: hasil ternakan
++ F084008 Pendapatan daripada kerja ternakan yang dibuat untuk pihak lain (cth. Ternakan kontrak, pawah)
++ F084009 Pendapatan daripada hasil ternakan yang diproses (cth.nugget,daging burger)
++ F084010 Nilai jualan aktiviti ternakan(cth.haiwan ternakan, makanan haiwan, mineral)
++ F084011 Pendapatan lain yang berkaitan dengan ternakan (cth. baja daripada tinja, khidmat nasihat)
++ F084012 Jualan daripada tangkapan ikan marin atau hasil daripada akuakultur
++ F084013 Pendapatan kerja perikanan yg dibuat untuk pihak lain(cth: perikanan kontrak, menangkap ikan)
++ F084014 Pendapatan hasil perikanan yg diproses (cth: keropok ikan, bebola ikan, ikan kering, minyak gamat, baja dari ikan)
++ F084015 Nilai jualan aktiviti perikanan(cth: ikan, makanan ikan, pukat)
++ F084016 Pendapatan lain yang berkaitan dengan perikanan (cth: baiki bot/pukat, sewaan bilik beku, khidmat nasihat)
++ F084017 Jualan balak
++ F084018 Pendapatan daripada kerja perhutanan yang dibuat untuk pihak lain (cth. mengukur, menanda, menebang)
++ F084019 Nilai jualan aktiviti perhutanan (cth. balak, gergaji rantai, tukul balak)
++ F084020 Pendapatan lain yang berkaitan dengan aktiviti perhutanan (cth. perkhidmatan profesional dan juruukur dsb.)
++ F084021 Kawasan perhutanan dikontrakkan kepada kontraktor
+
++ F080014 Royalti, hakcipta, pelesenan dan yuran francais
++ F080034 Pendapatan daripada sewa: Bangunan bukan tempat kediaman
++ F080035 Pendapatan daripada sewa: Bangunan tempat kediaman
++ F080039 Pendapatan daripada sewa: Alat pengangkutan
++ F080061 Pendapatan daripada sewa: Jentera dan kelengkapan
++ F080062 Pendapatan daripada sewa: Perabot dan pemasangan
++ F080013 Pendapatan daripada sewa: Lain-lain
+
++ F080021 Pendapatan daripada agro pelancongan
++ F080011 Komisen dan brokeraj yang diterima
+
++ F080020 Nilai jualan(trading)
++ F080009 Semua pendapatan lain: Output
++ (F090013/100) * F090012 Perbelanjaan r&d Dalaman
+
+- F100105 Stok pertanian (stok awal)
+- F100106 Barangan dalam proses dan stok barangan siap (pembuatan sendiri) (stok awal)
+- F094005 Kos barangan aktiviti tanaman (cth. buah, sayur)
+- F094018 Kos barangan aktiviti ternakan (cth.lembu, ayam)
+- F094029 Kos barangan aktiviti perikanan (cth: ikan)
+- F094038 Kos barangan  (cth. balak, gergaji rantai, tukul balak)
+- F090070 Kos barangan
+#--------------------------------------------------------------------------------------------------
+B Input Perantaraan (RM)
++ F094001 Kos bahan langsung yang digunakan dalam aktiviti tanaman
++ F094004 Kos biji/benih tanaman jangka pendek (cth:benih sayur)
++ F094006 Jumlah bayaran ke atas kerja-kerja perikanan yang dibuat oleh pihak lain (subkontrak)
++ F094014 Kos bahan langsung yang digunakan dalam aktiviti ternakan
++ F094017 Kos anak ternakan bukan baka (cth:anak ayam/anak itik)
++ F094019 Jumlah bayaran ke atas kerja-kerja perikanan yang dibuat oleh pihak lain (subkontrak)
++ F094025 Kos bahan langsung yang digunakan dalam aktiviti marin/akuakultur
++ F094028 Kos anak ternakan bukan baka (cth:anak ikan/anak udang)
++ F094030 Jumlah bayaran ke atas kerja-kerja perikanan yang dibuat oleh pihak lain (subkontrak)
++ F094037 Kos bahan langsung yang digunakan dalam aktiviti perhutanan
++ F094043 nilai kontrak bhn syarikat: Kos bancian pokok (termasuk mengukur dan menanda pokok)
++ F094044 nilai kontrak bhn syarikat: Kos perancangan pembalakan
++ F094045 nilai kontrak bhn syarikat: Kerja kerja menebang dan menual
++ F094046 nilai kontrak bhn syarikat: Kos pengangkutan balak (cth. caj memunggah/memuatkan/berakit dsb.)
++ F094051 nilai kontrak bahannya sendiri: Kos bancian pokok (termasuk mengukur dan menanda pokok)
++ F094052 nilai kontrak bahannya sendiri: Kos perancangan pembalakan
++ F094053 nilai kontrak bahannya sendiri: Kerja-kerja menebang dan menual
++ F094054 nilai kontrak bahannya sendiri: Kos pengangkutan balak (cth. caj memunggah/memuatkan/caj berakit dsb.)
+
++ F090002 Bahan dan bekas pembungkus yang digunakan (tidak termasuk kos bahan langsung di Soalan 17)
++ F090003 Bahan yang digunakan bagi pembaikan dan penyelenggaraan
++ F090005 Alat tulis dan bekalan pejabat
++ F090006 Air yang dibeli
++ F090007 Tenaga eletrik yang dibeli
++ F090008 Bahan pembakar, pelincir dan gas
++ F090011 Bayaran pembaikan dan penyelenggaraan semasa yang dibuat oleh pihak lain bagi harta tetap pertubuhan ini
++ F090016 Bayaran pemprosesan data dan lain-lain perkhidmatan yang berkaitan dengan teknologi maklumat
++ F090017 Bayaran telekomunikasi (cth. telefon, internet dsb.)
++ F090090 Bayaran sewa: Sewaan Operasi
++ F090027 Bayaran royalti : Organisasi bukan kerajaan / tajaan korporat
+
++ F090045 Bayaran kepada pengarah tidak bekerja kerana kehadiran mereka dalam mesyuarat Lembaga Pengarah
++ F090046 Nilai pakaian percuma disediakan
++ F090047 Kos latihan kepada pekerja
+
++ F090063 Pengiklanan dan promosi
++ F090080 Bayaran perkhidmatan profesional lain
++ F090067 Bayaran bagi perkhidmatan keselamatan
++ F090068 Perbelanjaan ke atas agro pelancongan
++ F090109 Komisen dan bayaran agensi
+
++ F091001 Pengangkutan barang (pengangkutan keluar)
++ F091002 Perbelanjaan perjalanan
++ F091003 Bayaran perakaunan, kesetiausahaan dan audit
++ F091004 Bayaran guaman
++ F091005 Bayaran pengurusan
++ F091006 Perbelanjaan keraian
++ F091007 Bayaran pos
++ F091008 Bayaran bank
++ F091009 Premium insurans dibayar ke atas bangunan, jentera, alat pengangkutan dan barang
+
++ F090035 Perbelanjaan lain: Input
+
+C Nilai ditambah
+= Nilai output kasar (RF) - Input Perantaraan (RF)
+
+D Jumlah Pekerja
++ F050799 Lelaki
++ F051699 Perempuan
+
+E Gaji & Upah yang dibayar (RM)
++ F050899 Lelaki
++ F051799 Perempuan
+
+F Nilai harta tetap
++ F040899 Jumlah harta tetap
++ F090012 Perbelanjaan penyelidikan & Pembangunan
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
