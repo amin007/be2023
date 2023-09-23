@@ -28,8 +28,7 @@ $sql['kumpul'] = sqlGroupJadual('catatanBatch,tarikhBatch,'
 /*echo '<hr>semakPembolehubah<hr>';
 semakPembolehubah($_POST,'_POST',0);
 semakPembolehubah($myJadual,'myJadual',0);
-semakPembolehubah($sql,'sql',0);
-semakPembolehubah($sql02,'sql02',0);//*/
+semakPembolehubah($sql,'sql',0);//*/
 #--------------------------------------------------------------------------------------------------
 $kumpulDaa = dbMysqli01(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
 #--------------------------------------------------------------------------------------------------
