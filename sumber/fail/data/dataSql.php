@@ -314,7 +314,14 @@ if ( ! function_exists('sqlNewssV04')):
 		concat_ws('|',format(DataGaji,0),DataGaji) as DataGaji,
 		concat_ws('|',format(DataHarta,0),DataHarta) as DataHarta,
 		concat_ws('|',format(DataPekerja,0),DataPekerja) as DataPekerja,
-		concat_ws('|',format(DataStok,0),DataStok) as DataStok
+		concat_ws('|',format(DataStok,0),DataStok) as DataStok,
+		DataModal as DataModal2,
+		DataHasil as DataHasil2,
+		DataBelanja as DataBelanja2,
+		DataGaji as DataGaji2,
+		DataHarta as DataHarta2,
+		DataPekerja as DataPekerja2,
+		DataStok as DataStok2
 
 		FROM `$jadual` a INNER JOIN `$jadualBe` b
 		ON a.NO_SIRI = b.barcode
