@@ -9,12 +9,6 @@ require './sumber/fail/data/dataSqlMysqli.php';
 //require './sumber/fail/csv/***.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
-//$fungsi = get_defined_functions();// internal or user
-//semakPembolehubah($fungsi,'fungsi',0);
-//echo '<pre>$fungsi=>';//print_r($fungsi['user']);//echo '<br></pre>' . "\n";
-#--------------------------------------------------------------------------------------------------
-###################################################################################################
-#--------------------------------------------------------------------------------------------------
 //semakPembolehubah($_POST,'_POST',0);
 $fe = bersih($_POST['namaFe']);//'muhaimin';
 $id = bersih($_POST['noSiri']);//'000002791307';
@@ -90,36 +84,6 @@ jqueryExtendC();
 gradeTable002(null);
 echo "\n</script>\n</body>\n</html>";//*/
 #--------------------------------------------------------------------------------------------------
-/*# kaedah 2.1
-$s = 'REQUEST_URI';//$s = 'PHP_SELF';//$s = 'QUERY_STRING';
-//semakPembolehubah($_SERVER[$s],$s);
-if (isset($_SERVER[$s])):
-	$fail = explode('be20023/',$_SERVER[$s]);//semakPembolehubah($fail,'fail');
-	$cari = explode('/',$fail[1]);semakPembolehubah($cari,'pilih');
-
-	if(isset($cari[1])):
-		$cariApa = bersih($cari[1]);
-		if($cariApa == 'json'):
-			$pilih = isset($cari[2]) ? $cari[2] : null;
-			$cariApa = bersih($pilih);
-			binaJson($data,$cariApa);
-		elseif($cariApa == 'tahun'):
-			$tajuk['tahun'] = '#,-,-,-,-';
-			$data['tahun'] = kiraTahunJadual();
-			panggilDataTable01($tajuk,$data,$cariApa);# panggil fungsi
-		elseif(in_array($cariApa,$dataPhpJson)):# panggil fungsi untuk tatasusunan php => json
-			panggilDataTable03($tajuk,$data,$cariApa);
-		elseif(in_array($cariApa,$dataJson)):
-			panggilDataTable02($tajuk,$data,$cariApa);# panggil fungsi untuk data json
-		else:
-			panggilDataTable01($tajuk,$data,$cariApa);# panggil fungsi
-		endif;
-	else:
-		panggilDataTable01($tajuk,$data,null);# panggil fungsi
-	endif;
-else:
-	panggilDataTable01($tajuk,$data,null);# panggil fungsi
-endif;//*/
 #--------------------------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
