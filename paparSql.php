@@ -10,8 +10,8 @@ require './sumber/fail/data/dataSqlMysqli.php';
 ###################################################################################################
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($_POST,'_POST',0);
-$fe = bersih($_POST['namaFe']);//'muhaimin';
-$id = bersih($_POST['noSiri']);//'000002791307';
+$fe = bersih($_POST['namaFe']);
+$id = bersih($_POST['noSiri']);
 $peratus = bersih($_POST['peratusan']);
 $staf['pengurus'] = bersih($_POST['pengurus']);
 $staf['asas'] = bersih($_POST['gajiStaf']);
