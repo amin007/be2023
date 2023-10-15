@@ -18,9 +18,6 @@ $staf['asas'] = bersih($_POST['gajiStaf']);
 $staf['bil'] = bersih($_POST['bilStaf']);
 $staf['peratusGaji'] = bersih($_POST['peratusGaji']);
 #--------------------------------------------------------------------------------------------------
-# terpaksa import masuk kemudian sebab ada pengiraan dari data $_POST
-require './sumber/fail/data/dataAnggaran.php';
-#--------------------------------------------------------------------------------------------------
 //$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
 $sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id,$peratus);
 //$sql['dataMKO'] = sqlMkoDaa($myJadual[0],$id);
@@ -30,7 +27,8 @@ $sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id,$peratus);
 //$dataSql[] = sqlNewssV01($myJadual[0],$myJadual[2],$fe,$id);
 //$dataSql[] = sqlNewssV02($myJadual[0],$myJadual[2],$fe,$id);
 //$sql['NewssV03'] = sqlNewssV03($myJadual[0],$myJadual[2],$fe,$id,$peratus);
-$sql['NewssV04'] = sqlNewssV04($myJadual[0],$myJadual[2],$fe,$id,$peratus);
+//$sql['NewssV04'] = sqlNewssV04($myJadual[0],$myJadual[2],$fe,$id,$peratus);
+$sql['NewssV05'] = sqlNewssV05($myJadual[0],$myJadual[2],$fe,$id,$peratus);
 //$sql['SsmRocHartaV00'] = sqlSsmRocHartaV00($myJadual[0],$myJadual[3],$fe,$id,$peratus);
 //$sql['SsmRocHartaV01'] = sqlSsmRocHartaV01($myJadual[0],$myJadual[3],$fe,$id);
 //$dataSql[] = sqlSsmRocUntungRugiV00($myJadual[0],$myJadual[4],$fe,$id);
@@ -49,6 +47,9 @@ $sql['RangkaKwspV05'] = sqlRangkaKwspV05($myJadual[0],$myJadual[5],$fe,$id,$pera
 //semakPembolehubah($sql,'sql',0);
 #--------------------------------------------------------------------------------------------------
 $data = dbMysqli00(DB_HOST,DB_NAME,DB_USER,DB_PASS,$sql);
+#--------------------------------------------------------------------------------------------------
+# terpaksa import masuk kemudian sebab ada pengiraan dari data $_POST dan dari dbMysqli00()
+require './sumber/fail/data/dataAnggaran.php';
 #--------------------------------------------------------------------------------------------------
 //semakPembolehubah($data,'data',0);
 #--------------------------------------------------------------------------------------------------
