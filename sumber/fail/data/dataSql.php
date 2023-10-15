@@ -717,12 +717,12 @@ if ( ! function_exists('sqlRangkaKwspV05')):
 		FORMAT($stafBaki/(BILANGAN_PEKERJA-1)/13,0) as blnStaf,
 		FORMAT($stafPengurus + $stafBaki,0) as JumGaji,
 		FORMAT(($stafPengurus + $stafBaki)/BILANGAN_PEKERJA/13,0) as PurataGaji,
-		concat_ws('|',FORMAT($anggarHasil,0),$anggarHasil) as Hasil,
-		concat_ws('|',FORMAT($anggarBelanja,0),$anggarBelanja) as Belanja,
-		concat_ws('|',FORMAT($anggarGaji,0),$anggarGaji) as Gaji,
-		concat_ws('|',FORMAT($anggarHarta,0),$anggarHarta) as Harta,
+		concat_ws('|',FORMAT($anggarHasil,0),ROUND($anggarHasil,0)) as Hasil,
+		concat_ws('|',FORMAT($anggarBelanja,0),ROUND($anggarBelanja,0)) as Belanja,
+		concat_ws('|',FORMAT($anggarGaji,0),ROUND($anggarGaji,0)) as Gaji,
+		concat_ws('|',FORMAT($anggarHarta,0),ROUND($anggarHarta,0)) as Harta,
 		BILANGAN_PEKERJA as Pekerja,
-		concat_ws('|',FORMAT($anggarStok,0),$anggarStok) as Stok
+		concat_ws('|',FORMAT($anggarStok,0),ROUND($anggarStok,0)) as Stok
 		from `$jadual`
 		where `ESTABLISHMENT_ID` = '$id' ";
 		// $sql['RangkaKwspV05'] = sqlRangkaKwspV05($jadual,$fe,$id);
