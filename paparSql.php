@@ -18,6 +18,9 @@ $staf['asas'] = bersih($_POST['gajiStaf']);
 $staf['bil'] = bersih($_POST['bilStaf']);
 $staf['peratusGaji'] = bersih($_POST['peratusGaji']);
 #--------------------------------------------------------------------------------------------------
+# terpaksa import masuk kemudian sebab ada pengiraan dari data $_POST
+require './sumber/fail/data/dataAnggaran.php';
+#--------------------------------------------------------------------------------------------------
 //$sql['FeBarcode'] = sqlFeBarcode($myJadual[0],$fe,$id);
 $sql['DataAesV00'] = sqlDataAesV00($myJadual[0],$myJadual[1],$fe,$id,$peratus);
 //$sql['dataMKO'] = sqlMkoDaa($myJadual[0],$id);
