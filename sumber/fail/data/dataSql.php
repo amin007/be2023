@@ -332,6 +332,42 @@ if ( ! function_exists('sqlNewssV04')):
 	}
 endif;//*/
 #--------------------------------------------------------------------------------------------------
+if ( ! function_exists('sqlNewssV05')):
+	function sqlNewssV05($jadualBe,$jadual,$fe,$id,$peratus)
+	{
+		$sql = "SELECT `NO_SIRI`,CONCAT_WS('-',BUSINESS_REG_NO,CHECK_DIGIT) as NOSSM,
+		CONCAT_ws('|',`NAMA_PENDAFTARAN`,`NAMA_PERNIAGAAN`) as syarikat,
+		`FE 2023`,`kp`,`msic`,`msic 2008`,`BORANG PANJANG/ PENDEK` AS JenisBrg,
+		`TAHUN DAFTAR`,`PENDUA`,`CATATAN SEMAKAN` as Nota02,
+		`YR_WORKER_HEAD_COUNT` as staf ,`YR_SALARY_AMT` as gaji,
+		`YR_FIXED_ASSET_AMT` as harta,
+		`YR_CLOSE_STOCKS_AMT` as stok,
+		`YR_SALES_AMT` as jualan,
+		FORMAT(`YR_REVENUE_AMT`,0) as hasil,
+		FORMAT(`YR_EXPENDITURE_AMT`,0) belanja,
+		FORMAT((YR_REVENUE_AMT * $peratus),0) as anggarHasil,
+		FORMAT((YR_EXPENDITURE_AMT * $peratus),0) as anggarBelanja,
+		FORMAT((`YR_FIXED_ASSET_AMT` * $peratus),0) as anggarHarta,
+		FORMAT((`YR_SALARY_AMT` * $peratus),0) as anggarGaji,
+		concat_ws('|',orang,notel,nofax,email,orangB,notelB,nofaxB,email1,emailB) as DataNewss,
+		`DataRespon`,`Akauntan`,`DataMKO`,`DataSumberLuar`,
+		concat_ws('|',format(DataModal,0),DataModal) as DataModal,
+		concat_ws('|',format(DataHasil,0),DataHasil) as DataHasil,
+		concat_ws('|',format(DataBelanja,0),DataBelanja) as DataBelanja,
+		concat_ws('|',format(DataGaji,0),DataGaji) as DataGaji,
+		concat_ws('|',format(DataHarta,0),DataHarta) as DataHarta,
+		concat_ws('|',format(DataPekerja,0),DataPekerja) as DataPekerja,
+		concat_ws('|',format(DataStok,0),DataStok) as DataStok
+
+		FROM `$jadual` a INNER JOIN `$jadualBe` b
+		ON a.NO_SIRI = b.barcode
+		WHERE `NO_SIRI` = '$id' ";
+		// $sql['NewssV03'] = sqlNewssV03($jadual,$fe,$id);
+		//echo $sql;
+		return $sql;
+	}
+endif;//*/
+#--------------------------------------------------------------------------------------------------
 /*if ( ! function_exists('xxx2')):
 
 		MSIC,KP,sektor,ESTABLISHMENT_ID,BUSINESS_REG_NO,REGISTERED_NAME,
