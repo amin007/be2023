@@ -11,6 +11,7 @@ $anggarGaji = ($stafPengurus + $stafBaki) * $peratus;
 $anggarBelanja = ($anggarGaji/$peratusGaji);
 $anggarStok = $anggarBelanja*0.04;
 $anggarHarta = $anggarBelanja*0.175;
+$anggarModal = $anggarHarta*2;
 $anggarHasil = $anggarBelanja/0.92;
 #--------------------------------------------------------------------------------------------------
 $data['dataAnggar5P'][] = [
@@ -22,12 +23,13 @@ $data['dataAnggar5P'][] = [
 	'blnStaf' => round($stafBaki/13,2),
 	'JumGaji' => $stafPengurus + $stafBaki,
 	'PurataGaji' => round(($stafPengurus + $stafBaki)/$bilStaf/13,2),
-	'Hasil' => number_format($anggarHasil,2) . '|' . round($anggarHasil,2),
-	'Belanja' => number_format($anggarBelanja,2) . '|' . round($anggarBelanja,2),
-	'Gaji' => number_format($anggarGaji,2) . '|' . round($anggarGaji,2),
-	'Harta' => number_format($anggarHarta,2) . '|' . round($anggarHarta,2),
+	'Modal' => number_format($anggarModal,2) . '|' . round($anggarModal,0),
+	'Hasil' => number_format($anggarHasil,2) . '|' . round($anggarHasil,0),
+	'Belanja' => number_format($anggarBelanja,2) . '|' . round($anggarBelanja,0),
+	'Gaji' => number_format($anggarGaji,2) . '|' . round($anggarGaji,0),
+	'Harta' => number_format($anggarHarta,2) . '|' . round($anggarHarta,0),
 	'Pekerja' => $bilStaf,
-	'Stok' => number_format($anggarStok,2) . '|' . round($anggarStok,2),
+	'Stok' => number_format($anggarStok,2) . '|' . round($anggarStok,0),
 ];//*/
 #--------------------------------------------------------------------------------------------------
 ###################################################################################################
