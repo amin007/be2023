@@ -95,7 +95,7 @@ if ( ! function_exists('sqlSelectNegatif')):
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
 		. "\rcatatanBatch `CATATAN`,barcode `NO. SIRI`,"
 		. "\rconcat_ws('',nama) `NAMA PERTUBUHAN`,"
-		. "\rDataRespon `KOD RESPON`, DataMKO,"
+		. "\rDataRespon `KOD RESPON`, DataMKO,DataAnggar,"
 		. "\rtarikhBatch `TARIKH SERAH`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
@@ -1989,7 +1989,8 @@ if ( ! function_exists('sqlUpdateKawalan')):
 	{
 		if($mko == '' OR $mko == null)
 		$sql = "UPDATE `$jadualBe` SET"
-		. " tarikhBatch='$tarikh',DataRespon='$respon',DataMKO=null,catatanBatch='$catatan'"
+		//. " tarikhBatch='$tarikh',DataRespon='$respon',DataMKO=null,catatanBatch='$catatan'"
+		. " tarikhBatch='$tarikh',DataRespon='$respon',catatanBatch='$catatan'"
 		. " WHERE barcode='$id' ";
 		else
 		$sql = "UPDATE `$jadualBe` SET"
