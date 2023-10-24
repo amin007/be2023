@@ -20,7 +20,7 @@ $tarikh = bersih($_POST['tarikhBatch']);
 $id = bersih($_POST['noSiri']);
 $respon = bersih($_POST['respon']);
 $nota = bersih($_POST['catatanBatch']);
-$mko = bersih($_POST['DataMKO']);
+//$mko = bersih($_POST['DataMKO']);
 $respon = huruf('BESAR',$respon);
 $nota = huruf('BESAR',$nota);
 #--------------------------------------------------------------------------------------------------
