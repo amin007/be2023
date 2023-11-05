@@ -42,10 +42,6 @@ diatas('Senarai Batch', $urlcss);
 #--------------------------------------------------------------------------------------------------
 //binaButang(null);
 #--------------------------------------------------------------------------------------------------
-echo '<h1 align="center">BANCI EKONOMI 2023</h1>';
-echo '<h4 align="center">MAKLUMAT KAWALAN</h4>';
-echo '<h4 align="center">UNIT : PROSESAN</h4>';
-#--------------------------------------------------------------------------------------------------
 print <<<END
 <!-- mula kotak
 =============================================================================================== -->
@@ -54,24 +50,18 @@ print <<<END
 =============================================================================================== -->
 <form method="POST" action="updateKawalan.php" class="form-horizontal">
 	<div class="form-group">
-		<label class="border border-dark btn-block">Carian Tarikh Batch02</label>
+		<label class="border border-dark btn-block">Carian Tarikh Batch02:$hariIni</label>
 	</div><!-- / class="form-group" -->
 	<div class="form-group">
-		<label for="inputA">Carian Tarikh Batch:$hariIni</label>
-		<input type="date" class="form-control form-control-lg"
-		name="tarikhBatch" value="$tarikh">
+		<input type="date" class="form-control"	name="tarikhBatch" value="$tarikh">
+		<input type="text" class="form-control" name="respon" value="$respon">
+		<input type="text" class="form-control" name="catatanBatch" value="$nota">
 	</div>
+
 	<div class="form-group">
 		<label for="inputB">noSiri</label>
 		<input type="text" class="form-control form-control-lg"
 		name="noSiri" autofocus>
-	</div>
-	<div class="form-group">
-		<label for="inputC">Respon & Catatan</label>
-		<input type="text" class="form-control form-control-lg"
-		name="respon" value="$respon">
-		<input type="text" class="form-control form-control-lg"
-		name="catatanBatch" value="$nota">
 	</div>
 	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Tarikh Batch">
