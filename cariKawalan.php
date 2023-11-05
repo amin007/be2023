@@ -80,11 +80,6 @@ print <<<END
 		name="catatanBatch" value="$nota">
 	</div>
 	<div class="form-group">
-		<label for="inputC">DataMKO</label>
-		<input type="text" class="form-control form-control-lg"
-		name="DataMKO" value="$mko">
-	</div>
-	<div class="form-group">
 		<input type="submit" class="btn btn-primary btn-block" value="Cari Tarikh Batch">
 	</div><!-- / class="form-group" -->
 </form>
@@ -95,6 +90,14 @@ print <<<END
 =============================================================================================== -->
 END;
 	# tamat print <<<END
+#--------------------------------------------------------------------------------------------------
+/*
+	<div class="form-group">
+		<label for="inputC">DataMKO</label>
+		<input type="hidden" class="form-control form-control-lg"
+		name="DataMKO" value="$mko">
+	</div>
+*/
 #--------------------------------------------------------------------------------------------------
 	foreach($data as $myJadualDaa => $rowDaa):
 		$baki = count($rowDaa);
