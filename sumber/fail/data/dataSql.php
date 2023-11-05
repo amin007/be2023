@@ -77,8 +77,16 @@ if ( ! function_exists('sqlSelectMko')):
 		//. "\rDataRespon `KOD RESPON`,"
 		. "\rtarikhBatch `TARIKH SERAH`, /*catatanBatch `CATATAN`,*/"
 		. "Akauntan,concat_ws('<br>',nama,DataMKO) `DataMKO`,"
-		. "DataHasil,DataBelanja,DataGaji,"
-		. "DataHarta,DataPekerja,DataStok"
+		. "concat_ws('<br>',
+			concat('Hasil=',DataHasil),
+			concat('Belanja=',DataBelanja),
+			concat('Gaji=',DataGaji),
+			concat('Harta=',DataHarta),
+			concat('Staf=',DataPekerja),
+			concat('Stok=',DataStok)
+			) as data5Pdaa"
+		//. "DataHasil,DataBelanja,DataGaji,"
+		//. "DataHarta,DataPekerja,DataStok"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' "
@@ -337,7 +345,8 @@ if ( ! function_exists('sqlNewssV05')):
 	{
 		$sql = "SELECT `NO_SIRI`,CONCAT_WS('-',BUSINESS_REG_NO,CHECK_DIGIT) as NOSSM,
 		CONCAT_ws('|',`NAMA_PENDAFTARAN`,`NAMA_PERNIAGAAN`) as syarikat,
-		`FE 2023`,`kp`,`msic`,`msic 2008`,`BORANG PANJANG/ PENDEK` AS JenisBrg,
+		`FE 2023`,`kp`,`msic`,`msic 2008`,KeteranganMsic,kod_bp,
+		`BORANG PANJANG/ PENDEK` AS JenisBrg,
 		`TAHUN DAFTAR`,`PENDUA`,`CATATAN SEMAKAN` as Nota02,
 		`YR_WORKER_HEAD_COUNT` as staf ,`YR_SALARY_AMT` as gaji,
 		`YR_FIXED_ASSET_AMT` as harta,
@@ -350,7 +359,8 @@ if ( ! function_exists('sqlNewssV05')):
 		FORMAT((`YR_FIXED_ASSET_AMT` * $peratus),0) as anggarHarta,
 		FORMAT((`YR_SALARY_AMT` * $peratus),0) as anggarGaji,*/
 		concat_ws('|',orang,notel,nofax,email,orangB,notelB,nofaxB,email1,emailB) as DataNewss,
-		`DataRespon`,`Akauntan`,`DataMKO`,`DataSumberLuar`,DataAnggar,
+		concat_ws('|',DataRespon,tarikhBatch,catatanBatch) Respon,Akauntan,DataMKO,
+		DataSumberLuar,DataAnggar,
 		concat_ws('|',format(DataModal,0),DataModal) as DataModal,
 		concat_ws('|',format(DataHasil,0),DataHasil) as DataHasil,
 		concat_ws('|',format(DataBelanja,0),DataBelanja) as DataBelanja,
