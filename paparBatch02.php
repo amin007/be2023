@@ -53,7 +53,7 @@ diatas('Senarai Batch', $urlcss);
 	for($i = $baki+1; $i < 16; $i++):
 		echo "\n\t" . '<tr>';
 		echo "<td>$i</td>";
-		for($j = 1; $j < 12; $j++):
+		for($j = 1; $j < 7; $j++):
 			echo '<td>&nbsp;</td>';
 		endfor;
 		echo '</tr>';
