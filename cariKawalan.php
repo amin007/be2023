@@ -53,9 +53,6 @@ print <<<END
 <!-- mula borang 03
 =============================================================================================== -->
 <form method="POST" action="updateKawalan.php" class="form-horizontal">
-	<div class="p-3 mb-2 bg-transparent text-dark">
-		<i class="fa fa-bicycle" style="font-size:50px"></i>
-	</div><!-- / class="p-3 mb-2 bg-transparent text-dark" -->
 	<div class="form-group">
 		<label class="border border-dark btn-block">Carian Tarikh Batch02</label>
 	</div><!-- / class="form-group" -->
@@ -70,12 +67,9 @@ print <<<END
 		name="noSiri" autofocus>
 	</div>
 	<div class="form-group">
-		<label for="inputC">Respon</label>
+		<label for="inputC">Respon & Catatan</label>
 		<input type="text" class="form-control form-control-lg"
 		name="respon" value="$respon">
-	</div>
-	<div class="form-group">
-		<label for="inputD">Catatan</label>
 		<input type="text" class="form-control form-control-lg"
 		name="catatanBatch" value="$nota">
 	</div>
