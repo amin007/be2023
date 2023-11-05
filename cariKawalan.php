@@ -22,7 +22,7 @@ semakPembolehubah($nota,'nota',0);//*/
 $hariIni = date("Y-m-d");
 #--------------------------------------------------------------------------------------------------
 # setkan arahan sql sahaja
-$sql['batch'] = sqlSelectNegatif($myJadual[0],$hariIni);
+$sql['batch'] = sqlSelectNegatif($myJadual[0],$tarikh);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
 //semakPembolehubah($_POST,'_POST',0);
