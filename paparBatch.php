@@ -19,9 +19,10 @@ $namaFe = bersih($_POST['namaFe']);// = $tatarajahBatch[0];
 $jawatanFe = bersih($_POST['jawatanFe']);// = $tatarajahBatch[1];
 $namaPegawai = bersih($_POST['namaPegawai']);// = $tatarajahBatch[2];
 $jawatanPegawai = bersih($_POST['jawatanPegawai']);// = $tatarajahBatch[3];
+$catatanBatch = bersih($_POST['catatanBatch']);
 $tarikhBatch = bersih($_POST['tarikhBatch']);
 $tarikhBatchDaa = $tarikhBatch;
-$sql['batch'] = sqlSelectBatch($myJadual[0],$tarikhBatch);
+$sql['batch'] = sqlSelectBatch($myJadual[0],$tarikhBatch,$catatanBatch);
 #--------------------------------------------------------------------------------------------------
 /*echo '<hr>semakPembolehubah<hr>';
 semakPembolehubah($_POST,'_POST',0);
@@ -51,7 +52,7 @@ diatas('Senarai Batch', $urlcss);
 	for($i = $baki+1; $i < 17; $i++):
 		echo "\n\t" . '<tr>';
 		echo "<td>$i</td>";
-		for($j = 1; $j < 7; $j++):
+		for($j = 1; $j < 6; $j++):
 			echo '<td>&nbsp;</td>';
 		endfor;
 		echo '</tr>';
@@ -60,17 +61,17 @@ diatas('Senarai Batch', $urlcss);
 	echo "\n</table>";
 #--------------------------------------------------------------------------------------------------
 $notaBawah = [
-	['&nbsp;','',''],
+	//['&nbsp;','',''],
 	['Tanda Tangan',':',''],
 	['Disediakan Oleh',':',$namaFe],
 	['Jawatan',':',$jawatanFe],
 	['Tarikh Penghantaran',':',$tarikhBatchDaa],
-	['&nbsp;','',''],
+	//['&nbsp;','',''],
 	['Tanda Tangan',':',''],
 	['Diterima Oleh',':',$namaPegawai],
 	['Jawatan',':',$jawatanPegawai],
 	['Tarikh Penghantaran',':',$tarikhBatchDaa],
-	['&nbsp;','',''],
+	//['&nbsp;','',''],
 ];
 #--------------------------------------------------------------------------------------------------
 echo "\n<table class=$class>";
