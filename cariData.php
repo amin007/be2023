@@ -90,6 +90,11 @@ print <<<END
 		name="tarikhBatch">
 	</div>
 	<div class="form-group">
+		<label for="inputMsic">Catatan Batch</label>
+		<input type="text" class="form-control form-control-lg"
+		name="catatanBatch" value="BORANG PANJANG LENGKAP">
+	</div>
+	<div class="form-group">
 		<label for="inputMsic">Disediakan Oleh</label>
 		<input type="text" class="form-control form-control-lg"
 		name="namaFe" value="$namaFe">
