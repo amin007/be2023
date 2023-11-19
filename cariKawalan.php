@@ -42,6 +42,32 @@ diatas('Senarai Batch', $urlcss);
 #--------------------------------------------------------------------------------------------------
 //binaButang(null);
 #--------------------------------------------------------------------------------------------------
+/*
+	<div class="form-group">
+		<label for="inputC">DataMKO</label>
+		<input type="hidden" class="form-control form-control-lg"
+		name="DataMKO" value="$mko">
+	</div>
+*/
+#--------------------------------------------------------------------------------------------------
+	foreach($data as $myJadualDaa => $rowDaa):
+		$baki = count($rowDaa);
+		$table = paparSemuaData($rowDaa,$myJadualDaa);
+		echo "\n<table id=\"myTable\" class=$class>$table";
+	endforeach;
+	#----------------------------------------------------------------------------------------------
+	$jalur = count(current($data['batch'])) + 1;
+	for($i = $baki+1; $i < 17; $i++):
+		echo "\n\t" . '<tr>'
+		. "<td>$i</td>";
+		for($j = 1; $j < $jalur; $j++):
+			echo '<td>&nbsp;</td>';
+		endfor;
+		echo '</tr>';
+	endfor;
+	#----------------------------------------------------------------------------------------------
+	echo "\n</table>";//*/
+#--------------------------------------------------------------------------------------------------
 print <<<END
 <!-- mula kotak
 =============================================================================================== -->
@@ -74,32 +100,6 @@ print <<<END
 =============================================================================================== -->
 END;
 	# tamat print <<<END
-#--------------------------------------------------------------------------------------------------
-/*
-	<div class="form-group">
-		<label for="inputC">DataMKO</label>
-		<input type="hidden" class="form-control form-control-lg"
-		name="DataMKO" value="$mko">
-	</div>
-*/
-#--------------------------------------------------------------------------------------------------
-	foreach($data as $myJadualDaa => $rowDaa):
-		$baki = count($rowDaa);
-		$table = paparSemuaData($rowDaa,$myJadualDaa);
-		echo "\n<table id=\"myTable\" class=$class>$table";
-	endforeach;
-	#----------------------------------------------------------------------------------------------
-	$jalur = count(current($data['batch'])) + 1;
-	for($i = $baki+1; $i < 17; $i++):
-		echo "\n\t" . '<tr>'
-		. "<td>$i</td>";
-		for($j = 1; $j < $jalur; $j++):
-			echo '<td>&nbsp;</td>';
-		endfor;
-		echo '</tr>';
-	endfor;
-	#----------------------------------------------------------------------------------------------
-	echo "\n</table>";//*/
 #--------------------------------------------------------------------------------------------------
 //dibawah($pilih,$urljs);
 /*echo "<script>\n";
