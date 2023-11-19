@@ -50,17 +50,19 @@ if ( ! function_exists('sqlBarcode')):
 endif;//*/
 #--------------------------------------------------------------------------------------------------
 if ( ! function_exists('sqlSelectBatch')):
-	function sqlSelectBatch($jadual,$tarikh)
+	function sqlSelectBatch($jadual,$tarikh,$catatan)
 	{
 		//$sql = "SELECT * FROM `$jadual` WHERE tarikhBatch = '$tarikh' ";
 		$sql = "SELECT /*(@cnt := @cnt + 1) AS Bil,*/"
 		. "\rbarcode `NO. SIRI`, kp `KP`,"
 		. "\rconcat_ws('<br>',nama,perniagaan) `NAMA PERTUBUHAN`,"
 		. "\rDataRespon `KOD RESPON`,"
-		. "\rtarikhBatch `TARIKH SERAH`, catatanBatch `CATATAN`"
+		//. "\rtarikhBatch `TARIKH SERAH`, "
+		. "\rcatatanBatch `CATATAN`"
 		. "\rFROM `$jadual`"
 		//. "\rCROSS JOIN (SELECT @cnt := 0) AS dummy"
 		. "\rWHERE tarikhBatch = '$tarikh' "
+		. "\rAND catatanBatch = '$catatan' "
 		. "\rORDER BY 3 ";
 		// $sql['FeBarcode'] = sqlSelectBatch($jadual,$tarikh);
 		return $sql;
